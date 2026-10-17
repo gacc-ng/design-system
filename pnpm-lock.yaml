@@ -213,11 +213,11 @@ importers:
         specifier: ^10.0.0
         version: 10.1.8(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))
       eslint-plugin-playwright:
-        specifier: ^1.6.2
-        version: 1.8.3(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))
+        specifier: ^2.12.1
+        version: 2.12.1(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))
       eslint-plugin-prettier:
         specifier: ^5.5.7
-        version: 5.5.7(eslint-config-prettier@10.1.8(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0)))(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(prettier@3.6.2)
+        version: 5.5.7(eslint-config-prettier@10.1.8(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0)))(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(prettier@3.9.10)
       eslint-plugin-simple-import-sort:
         specifier: ^14.0.0
         version: 14.0.0(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))
@@ -231,8 +231,8 @@ importers:
         specifier: 23.3.0
         version: 23.3.0
       prettier:
-        specifier: ~3.6.2
-        version: 3.6.2
+        specifier: ~3.9.10
+        version: 3.9.10
       tslib:
         specifier: ^2.3.0
         version: 2.8.1
@@ -3019,15 +3019,11 @@ packages:
     peerDependencies:
       eslint: '>=7.0.0'
 
-  eslint-plugin-playwright@1.8.3:
-    resolution: {integrity: sha512-h87JPFHkz8a6oPhn8GRGGhSQoAJjx0AkOv1jME6NoMk2FpEsfvfJJNaQDxLSqSALkCr0IJXPGTnp6SIRVu5Nqg==}
-    engines: {node: '>=16.6.0'}
+  eslint-plugin-playwright@2.12.1:
+    resolution: {integrity: sha512-JhavNuYBIq7SE/Zg9Esf9RGHkXoDbzrEKS383cowzMyvZ4JMbmdNCN6CoW+RU1Cjzwcoea1tou0je58uXmT/9A==}
+    engines: {node: '>=16.9.0'}
     peerDependencies:
       eslint: '>=8.40.0'
-      eslint-plugin-jest: '>=25'
-    peerDependenciesMeta:
-      eslint-plugin-jest:
-        optional: true
 
   eslint-plugin-prettier@5.5.7:
     resolution: {integrity: sha512-WjHyn3GrFd+ZR0rzsLiM4zJZ35PZMOE0SUIxzGmnWNG0126yNfJKJzObmmkYDwHJfGlkz3PSlzyG9ez/LJntwg==}
@@ -3244,10 +3240,6 @@ packages:
   global-directory@5.0.0:
     resolution: {integrity: sha512-1pgFdhK3J2LeM+dVf2Pd424yHx2ou338lC0ErNP2hPx4j8eW1Sp0XqSjNxtk6Tc4Kr5wlWtSvz8cn2yb7/SG/w==}
     engines: {node: '>=20'}
-
-  globals@13.24.0:
-    resolution: {integrity: sha512-AhO5QUcj8llrbG09iWhPU2B204J1xnPeL8kQmVorSsy+Sjj1sk8gIyh6cUocGmH4L0UuhAJy+hJMRA4mgA4mFQ==}
-    engines: {node: '>=8'}
 
   globals@17.13.0:
     resolution: {integrity: sha512-RwMTC61u7hrG3ZJMkZQOK4JLJrKS8QtoTii63EmWvFXHqycY9FObBJQCbsLxSO8kjKhWE5kV1GC+Vb1g3RI0Zg==}
@@ -3947,8 +3939,8 @@ packages:
     resolution: {integrity: sha512-SxToR7P8Y2lWmv/kTzVLC1t/GDI2WGjMwNhLLE9qtH8Q13C+aEmuRlzDst4Up4s0Wc8sF2M+J57iB3cMLqftfg==}
     engines: {node: '>=6.0.0'}
 
-  prettier@3.6.2:
-    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
+  prettier@3.9.10:
+    resolution: {integrity: sha512-skGHTH1Yb9QvaTC4hWnRTzEYtCpApF0UMBPz+t/0ZPzP8ihefo/btKd+QA7pUE0fEwA1SbS/NmhyEcstdXOIdA==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -4263,10 +4255,6 @@ packages:
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
-
-  type-fest@0.20.2:
-    resolution: {integrity: sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ==}
-    engines: {node: '>=10'}
 
   type-is@2.1.0:
     resolution: {integrity: sha512-faYHw0anBbc/kWF3zFTEnxSFOAGUX9GFbOBthvDdLsIlEoWOFOtS0zgCiQYwIskL9iGXZL3kAXD8OoZ4GmMATA==}
@@ -7313,15 +7301,15 @@ snapshots:
     dependencies:
       eslint: 10.13.0(jiti@2.6.1)(supports-color@7.2.0)
 
-  eslint-plugin-playwright@1.8.3(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0)):
+  eslint-plugin-playwright@2.12.1(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0)):
     dependencies:
       eslint: 10.13.0(jiti@2.6.1)(supports-color@7.2.0)
-      globals: 13.24.0
+      globals: 17.13.0
 
-  eslint-plugin-prettier@5.5.7(eslint-config-prettier@10.1.8(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0)))(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(prettier@3.6.2):
+  eslint-plugin-prettier@5.5.7(eslint-config-prettier@10.1.8(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0)))(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(prettier@3.9.10):
     dependencies:
       eslint: 10.13.0(jiti@2.6.1)(supports-color@7.2.0)
-      prettier: 3.6.2
+      prettier: 3.9.10
       prettier-linter-helpers: 1.0.1
       synckit: 0.12.3
     optionalDependencies:
@@ -7568,10 +7556,6 @@ snapshots:
   global-directory@5.0.0:
     dependencies:
       ini: 6.0.0
-
-  globals@13.24.0:
-    dependencies:
-      type-fest: 0.20.2
 
   globals@17.13.0: {}
 
@@ -8330,7 +8314,7 @@ snapshots:
     dependencies:
       fast-diff: 1.3.0
 
-  prettier@3.6.2: {}
+  prettier@3.9.10: {}
 
   proc-log@7.0.0: {}
 
@@ -8673,8 +8657,6 @@ snapshots:
   type-check@0.4.0:
     dependencies:
       prelude-ls: 1.2.1
-
-  type-fest@0.20.2: {}
 
   type-is@2.1.0:
     dependencies:
