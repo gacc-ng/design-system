@@ -5,6 +5,7 @@
         "bradlc.vscode-tailwindcss",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
+        "usernamehw.errorlens",
         "vitest.explorer",
         "ms-playwright.playwright",
         "evilmartians.lefthook"

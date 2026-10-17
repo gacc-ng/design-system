@@ -1,0 +1,101 @@
+name: CI
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+permissions:
+    contents: read
+    pull-requests: read
+
+jobs:
+    quality-gate:
+        name: Lint, Format, Test & Build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 12
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: 'pnpm'
+
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Determine base and head commits
+              id: set-shas
+              uses: nrwl/nx-set-shas@v4
+
+            - name: Validate Conventional Commits
+              if: github.event_name == 'pull_request'
+              run: pnpm exec commitlint --from ${{ steps.set-shas.outputs.base }} --to ${{ steps.set-shas.outputs.head }}
+
+            - name: Verify code formatting
+              run: pnpm nx format:check --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
+
+            - name: Lint affected projects
+              run: pnpm nx affected -t lint --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
+
+            - name: Run unit tests on affected projects
+              run: pnpm nx affected -t test --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
+
+            - name: Build affected projects
+              run: pnpm nx affected -t build --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
+
+    e2e:
+        name: End-to-End Tests
+        runs-on: ubuntu-latest
+        needs: [quality-gate]
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 12
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: 'pnpm'
+
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Determine base and head commits
+              id: set-shas
+              uses: nrwl/nx-set-shas@v4
+
+            - name: Install Playwright browsers and OS dependencies
+              run: pnpm exec playwright install --with-deps chromium
+
+            - name: Run Playwright E2E tests on affected projects
+              run: pnpm nx affected -t e2e-ci --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
+
+            - name: Upload Playwright report on failure
+              if: failure()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: playwright-report
+                  path: dist/.playwright/
+                  retention-days: 7

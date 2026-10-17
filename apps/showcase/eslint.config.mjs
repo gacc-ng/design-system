@@ -1,12 +1,15 @@
 import nx from '@nx/eslint-plugin';
 
+import { defineConfig } from 'eslint/config';
+
 import baseConfig from '../../eslint.config.mjs';
 
-export default [
-    ...nx.configs['flat/angular'],
-    ...nx.configs['flat/angular-template'],
-    ...baseConfig,
+export default defineConfig(
+    baseConfig,
+    nx.configs['flat/angular'],
+    nx.configs['flat/angular-template'],
     {
+        name: 'showcase/angular-components',
         files: ['**/*.ts'],
         rules: {
             '@angular-eslint/prefer-on-push-component-change-detection': 'error',
@@ -30,6 +33,7 @@ export default [
         },
     },
     {
+        name: 'showcase/angular-templates',
         files: ['**/*.html'],
         rules: {
             '@angular-eslint/template/banana-in-box': 'error',
@@ -39,4 +43,4 @@ export default [
             '@angular-eslint/template/mouse-events-have-key-events': 'error',
         },
     },
-];
+);
