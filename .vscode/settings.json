@@ -27,9 +27,9 @@
     // ==============================================================================
     // TYPESCRIPT & WORKSPACE SDK
     // ==============================================================================
-    "typescript.tsdk": "node_modules/typescript/lib",
-    "typescript.preferences.importModuleSpecifier": "non-relative",
-    "typescript.suggest.completeFunctionCalls": true,
+    "js/ts.tsdk.path": "node_modules/typescript/lib",
+    "js/ts.preferences.importModuleSpecifier": "non-relative",
+    "js/ts.suggest.completeFunctionCalls": true,
 
     // ==============================================================================
     // ANGULAR & TEMPLATES

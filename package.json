@@ -3,6 +3,10 @@
     "version": "0.0.1",
     "license": "MIT",
     "packageManager": "pnpm@12.3.4",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/gacc-ng/design-system.git"
+    },
     "scripts": {
         "prepare": "lefthook install",
         "start": "nx serve",
