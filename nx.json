@@ -45,5 +45,8 @@
             "style": "css",
             "unitTestRunner": "vitest"
         }
+    },
+    "cli": {
+        "packageManager": "pnpm"
     }
 }

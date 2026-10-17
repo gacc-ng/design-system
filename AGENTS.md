@@ -24,6 +24,13 @@
 
 # Project Standards & Conventions
 
+## Package Manager (Strict Requirement)
+
+- **pnpm Exclusively:** This repository strictly uses `pnpm` (`packageManager: pnpm@12.3.4`).
+- **Never run `npm` or `yarn`:** Never run `npm install`, `npm i`, `npx` (for local project tasks), or `yarn`.
+- Always use `pnpm add`, `pnpm install`, `pnpm exec`, and prefix all nx tasks with `pnpm nx <command>`.
+- Never generate or commit `package-lock.json` or `yarn.lock`. Strict dependency isolation (`shamefully-hoist=false`) and scoped routing (`@gacc-ng`) are enforced.
+
 ## Language Standards (Mandatory)
 
 - **Strict English Only:** All source code, identifiers, types, comments, docstrings, configuration files, commit messages, PR descriptions, and documentation artifacts within this repository MUST be strictly written in English.
@@ -32,4 +39,3 @@
 ## Architecture Standards
 
 - **Component Architecture:** Presentational (Dumb Components), Standalone components, OnPush change detection, Zoneless, Signal-based (`input()`, `computed()`, `output()`).
-- **Package Manager & Security:** Use `pnpm` exclusively. Keep strict dependency isolation (`shamefully-hoist=false`) and scoped registry routing (`@gacc-ng`).
