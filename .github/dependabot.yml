@@ -1,0 +1,51 @@
+version: 2
+updates:
+    # 1. Monorepo Dependencies (pnpm / npm ecosystem)
+    - package-ecosystem: 'npm'
+      directory: '/'
+      schedule:
+          interval: 'weekly'
+          day: 'monday'
+          time: '04:00'
+          timezone: 'America/Lima'
+      open-pull-requests-limit: 10
+      target-branch: 'main'
+      labels:
+          - 'dependencies'
+          - 'automated pr'
+      groups:
+          angular:
+              patterns:
+                  - '@angular/*'
+                  - 'zone.js'
+          nx-ecosystem:
+              patterns:
+                  - '@nx/*'
+                  - 'nx'
+          linting-and-quality:
+              patterns:
+                  - '*eslint*'
+                  - '*prettier*'
+                  - '@typescript-eslint/*'
+                  - 'commitlint*'
+                  - '@commitlint/*'
+          ui-styling:
+              patterns:
+                  - 'tailwindcss'
+                  - '@tailwindcss/*'
+                  - 'clsx'
+                  - 'tailwind-merge'
+                  - 'class-variance-authority'
+
+    # 2. GitHub Actions Workflows
+    - package-ecosystem: 'github-actions'
+      directory: '/'
+      schedule:
+          interval: 'weekly'
+          day: 'monday'
+          time: '04:00'
+          timezone: 'America/Lima'
+      open-pull-requests-limit: 5
+      labels:
+          - 'ci/cd'
+          - 'dependencies'
