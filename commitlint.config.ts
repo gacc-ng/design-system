@@ -99,6 +99,12 @@ const emojiMatchPlugin: Plugin = {
 const Configuration: UserConfig = {
     extends: ['@commitlint/config-conventional', '@commitlint/config-nx-scopes'],
     plugins: [emojiMatchPlugin],
+    ignores: [
+        (commit) =>
+            commit.includes('dependabot[bot]') ||
+            commit.startsWith('chore(deps)') ||
+            commit.startsWith('chore(deps-dev)'),
+    ],
     parserPreset: {
         /* eslint-disable no-misleading-character-class */
         parserOpts: {

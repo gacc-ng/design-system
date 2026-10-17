@@ -42,7 +42,7 @@ jobs:
               uses: nrwl/nx-set-shas@v4
 
             - name: Validate Conventional Commits
-              if: github.event_name == 'pull_request'
+              if: github.event_name == 'pull_request' && !startsWith(github.head_ref, 'dependabot/')
               run: pnpm exec commitlint --config commitlint.config.ts --from ${{ steps.set-shas.outputs.base }} --to ${{ steps.set-shas.outputs.head }}
 
             - name: Verify code formatting
