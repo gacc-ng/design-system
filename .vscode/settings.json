@@ -1,3 +1,73 @@
 {
+    // ==============================================================================
+    // EDITOR & FORMATTING (Prettier & 4-Space Indentation)
+    // ==============================================================================
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports": "never"
+    },
+
+    // ==============================================================================
+    // LINTER (ESLint 9 Flat Config)
+    // ==============================================================================
+    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html"],
+    "eslint.workingDirectories": [{ "mode": "auto" }],
+
+    // ==============================================================================
+    // TYPESCRIPT & WORKSPACE SDK
+    // ==============================================================================
+    "js/ts.tsdk.path": "node_modules/typescript/lib",
+    "js/ts.preferences.importModuleSpecifier": "non-relative",
+    "js/ts.suggest.completeFunctionCalls": true,
+
+    // ==============================================================================
+    // ANGULAR & TEMPLATES
+    // ==============================================================================
+    "angular.enable-strict-mode-prompt": false,
+    "angular.suggest.includeAutomaticOptionalChaining": true,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 4
+    },
+
+    // ==============================================================================
+    // TAILWIND CSS & CVA (Class Variance Authority)
+    // ==============================================================================
+    "tailwindCSS.includeLanguages": {
+        "html": "html",
+        "typescript": "typescript"
+    },
+    "tailwindCSS.experimental.classRegex": [
+        ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+        ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+        ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+    ],
+
+    // ==============================================================================
+    // FILE EXPLORER & SEARCH EXCLUSIONS
+    // ==============================================================================
+    "files.exclude": {
+        "**/.git": true,
+        "**/.angular/cache": true,
+        "**/.nx/cache": true,
+        "**/dist": true
+    },
+    "search.exclude": {
+        "**/dist": true,
+        "**/.nx": true,
+        "**/coverage": true,
+        "**/node_modules": true
+    },
+
+    // ==============================================================================
+    // PACKAGE MANAGER & ENGINE
+    // ==============================================================================
     "biome.enabled": false
 }

@@ -1,8 +1,12 @@
 {
     "recommendations": [
+        "angular.ng-template",
         "nrwl.angular-console",
-        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
         "dbaeumer.vscode-eslint",
-        "ms-playwright.playwright"
+        "esbenp.prettier-vscode",
+        "vitest.explorer",
+        "ms-playwright.playwright",
+        "evilmartians.lefthook"
     ]
 }
