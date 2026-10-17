@@ -4,10 +4,13 @@
     "license": "MIT",
     "packageManager": "pnpm@12.3.4",
     "scripts": {
+        "prepare": "lefthook install",
         "start": "nx serve",
         "build": "nx build",
         "test": "nx test",
-        "lint": "nx run-many -t lint"
+        "lint": "nx run-many -t lint",
+        "format:check": "prettier --check .",
+        "format:write": "prettier --write ."
     },
     "private": true,
     "dependencies": {
@@ -26,6 +29,10 @@
         "@angular/cli": "~22.1.0",
         "@angular/compiler-cli": "~22.1.0",
         "@angular/language-service": "~22.1.0",
+        "@commitlint/cli": "^21.2.3",
+        "@commitlint/config-conventional": "^21.2.3",
+        "@commitlint/config-nx-scopes": "^21.2.3",
+        "@commitlint/types": "^21.2.3",
         "@eslint/js": "^9.8.0",
         "@nx/angular": "23.3.0",
         "@nx/devkit": "23.3.0",
@@ -43,6 +50,9 @@
         "eslint": "^9.8.0",
         "eslint-config-prettier": "^10.0.0",
         "eslint-plugin-playwright": "^1.6.2",
+        "eslint-plugin-prettier": "^5.5.7",
+        "eslint-plugin-simple-import-sort": "^14.0.0",
+        "lefthook": "^2.2.2",
         "nx": "23.3.0",
         "prettier": "~3.6.2",
         "tslib": "^2.3.0",

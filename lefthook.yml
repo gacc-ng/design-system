@@ -1,0 +1,17 @@
+# Lefthook configuration for Nx Monorepo
+pre-commit:
+    parallel: false
+    commands:
+        prettier:
+            glob: '*.{ts,js,html,css,scss,json,md,yml,yaml}'
+            run: pnpm exec prettier --write {staged_files}
+            stage_fixed: true
+        eslint:
+            glob: '*.{ts,js,html}'
+            run: pnpm exec eslint --fix {staged_files}
+            stage_fixed: true
+
+commit-msg:
+    commands:
+        commitlint:
+            run: pnpm exec commitlint --edit {1}

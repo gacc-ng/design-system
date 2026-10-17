@@ -9,3 +9,4 @@ allowBuilds:
     lmdb: false
     msgpackr-extract: false
     '@parcel/watcher': false
+    lefthook: true

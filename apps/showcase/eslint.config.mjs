@@ -1,4 +1,5 @@
 import nx from '@nx/eslint-plugin';
+
 import baseConfig from '../../eslint.config.mjs';
 
 export default [
@@ -8,6 +9,8 @@ export default [
     {
         files: ['**/*.ts'],
         rules: {
+            '@angular-eslint/prefer-on-push-component-change-detection': 'error',
+            '@angular-eslint/prefer-standalone': 'error',
             '@angular-eslint/directive-selector': [
                 'error',
                 {
@@ -28,7 +31,12 @@ export default [
     },
     {
         files: ['**/*.html'],
-        // Override or add rules here
-        rules: {},
+        rules: {
+            '@angular-eslint/template/banana-in-box': 'error',
+            '@angular-eslint/template/button-has-type': 'error',
+            '@angular-eslint/template/alt-text': 'error',
+            '@angular-eslint/template/click-events-have-key-events': 'error',
+            '@angular-eslint/template/mouse-events-have-key-events': 'error',
+        },
     },
 ];
