@@ -12,6 +12,10 @@
             "dependsOn": ["^build"],
             "inputs": ["production", "^production"]
         },
+        "@angular/build:unit-test": {
+            "cache": true,
+            "inputs": ["default", "^production"]
+        },
         "@nx/eslint:lint": {
             "cache": true,
             "inputs": [
@@ -37,7 +41,11 @@
             "e2eTestRunner": "none",
             "linter": "eslint",
             "style": "css",
-            "unitTestRunner": "vitest"
+            "unitTestRunner": "vitest-angular"
+        },
+        "@nx/angular:library": {
+            "linter": "eslint",
+            "unitTestRunner": "vitest-angular"
         }
     },
     "cli": {

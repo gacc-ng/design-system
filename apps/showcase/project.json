@@ -58,6 +58,12 @@
                 }
             }
         },
+        "test": {
+            "executor": "@angular/build:unit-test",
+            "options": {
+                "watch": false
+            }
+        },
         "lint": {
             "executor": "@nx/eslint:lint"
         },
