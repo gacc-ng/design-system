@@ -59,20 +59,12 @@ const emojiMatchPlugin: Plugin = {
 const Configuration: UserConfig = {
     extends: ['@commitlint/config-conventional', '@commitlint/config-nx-scopes'],
     plugins: [emojiMatchPlugin],
-    ignores: [
-        (commit) =>
-            commit.includes('dependabot[bot]') ||
-            commit.startsWith('chore(deps)') ||
-            commit.startsWith('chore(deps-dev)'),
-    ],
+    ignores: [(commit) => commit.includes('dependabot[bot]') || commit.includes('chore(deps')],
     parserPreset: {
-        /* eslint-disable no-misleading-character-class */
         parserOpts: {
-            headerPattern:
-                /^(?:([\p{Extended_Pictographic}\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{FE00}-\u{FE0F}]+)\s+)?(\w+)(?:\(([^)]+)\))?!?: (.+)$/u,
+            headerPattern: /^(?:([\p{Extended_Pictographic}\uFE0F]+)\s+)?(\w+)(?:\(([^)]+)\))?!?: (.+)$/u,
             headerCorrespondence: ['emoji', 'type', 'scope', 'subject'],
         },
-        /* eslint-enable no-misleading-character-class */
     },
     rules: {
         'header-type-emoji-match': [RuleConfigSeverity.Error, 'always'],
