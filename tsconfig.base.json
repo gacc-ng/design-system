@@ -15,7 +15,9 @@
         "skipDefaultLibCheck": true,
         "strict": false,
         "paths": {
-            "@gacc-ng/ui": ["./libs/shared/ui/src/index.ts"]
+            "@gacc-ng/ui": ["./libs/shared/ui/src/index.ts"],
+            "@gacc-ng/ui/button": ["./libs/shared/ui/button/src/index.ts"],
+            "@gacc-ng/ui/utils": ["./libs/shared/ui/utils/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
