@@ -1,7 +1,5 @@
-@layer theme, base, components, utilities;
-@import 'tailwindcss/theme.css' layer(theme);
-@import 'tailwindcss/preflight.css' layer(base);
-@import 'tailwindcss/utilities.css';
-
-/* Design System Unified Preset (@gacc-ng/ui) */
+@import 'tailwindcss';
 @import '../../../libs/shared/ui/src/styles/preset.css';
+
+@source "../src";
+@source "../../../libs/shared/ui/src";
