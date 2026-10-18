@@ -11,5 +11,13 @@
         "tailwind-merge": "^3.5.0"
     },
     "sideEffects": false,
-    "private": true
+    "private": true,
+    "exports": {
+        "./preset.css": {
+            "default": "./src/styles/preset.css"
+        },
+        "./styles/preset.css": {
+            "default": "./src/styles/preset.css"
+        }
+    }
 }
