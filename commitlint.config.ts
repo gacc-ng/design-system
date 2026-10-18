@@ -2,57 +2,20 @@ import type { Plugin, UserConfig } from '@commitlint/types';
 import { RuleConfigSeverity } from '@commitlint/types';
 
 /**
- * Standard mapping between Conventional Commit types and allowed Gitmoji symbols.
+ * Strict key-value mapping between Conventional Commit types and required Gitmoji symbols.
  */
-export const COMMIT_TYPE_EMOJI_MAP: Record<string, { emoji: string; alternates?: string[]; description: string }> = {
-    feat: {
-        emoji: '✨',
-        description: 'A new feature',
-    },
-    fix: {
-        emoji: '🐛',
-        alternates: ['🚑️', '🚑'],
-        description: 'A bug fix',
-    },
-    docs: {
-        emoji: '📝',
-        alternates: ['📚'],
-        description: 'Documentation only changes',
-    },
-    style: {
-        emoji: '💄',
-        description: 'Changes that do not affect the meaning of the code (formatting, styles)',
-    },
-    refactor: {
-        emoji: '♻️',
-        description: 'A code change that neither fixes a bug nor adds a feature',
-    },
-    perf: {
-        emoji: '⚡',
-        description: 'A code change that improves performance',
-    },
-    test: {
-        emoji: '✅',
-        description: 'Adding missing tests or correcting existing tests',
-    },
-    build: {
-        emoji: '🏗️',
-        alternates: ['📦'],
-        description: 'Changes that affect the build system or external dependencies',
-    },
-    ci: {
-        emoji: '👷',
-        alternates: ['🤖'],
-        description: 'Changes to our CI configuration files and scripts',
-    },
-    chore: {
-        emoji: '🔧',
-        description: "Other changes that don't modify src or test files",
-    },
-    revert: {
-        emoji: '⏪',
-        description: 'Reverts a previous commit',
-    },
+export const COMMIT_TYPE_EMOJI_MAP: Record<string, string> = {
+    feat: '✨',
+    fix: '🐛',
+    docs: '📝',
+    style: '💄',
+    refactor: '♻️',
+    perf: '⚡',
+    test: '✅',
+    build: '🏗️',
+    ci: '👷',
+    chore: '🔧',
+    revert: '⏪',
 };
 
 const normalizeEmoji = (value?: string | null): string => (value || '').replace(/\uFE0F/g, '').trim();
@@ -66,7 +29,7 @@ const emojiMatchPlugin: Plugin = {
             if (!rawEmoji || rawEmoji.trim().length === 0) {
                 const examples = Object.entries(COMMIT_TYPE_EMOJI_MAP)
                     .slice(0, 4)
-                    .map(([t, val]) => `${val.emoji} ${t}: ...`)
+                    .map(([t, emoji]) => `${emoji} ${t}: ...`)
                     .join(', ');
                 return [false, `commit header must start with an emoji matching the type (e.g.: ${examples})`];
             }
@@ -75,19 +38,16 @@ const emojiMatchPlugin: Plugin = {
                 return [false, 'commit type must not be empty after the emoji'];
             }
 
-            const mapping = COMMIT_TYPE_EMOJI_MAP[type];
-            if (!mapping) {
+            const expectedEmoji = COMMIT_TYPE_EMOJI_MAP[type];
+            if (!expectedEmoji) {
                 const allowedTypes = Object.keys(COMMIT_TYPE_EMOJI_MAP).join(', ');
                 return [false, `type "${type}" is not recognized. Allowed types: ${allowedTypes}`];
             }
 
-            const allowedEmojis = [mapping.emoji, ...(mapping.alternates || [])].map(normalizeEmoji);
-            const normalizedInput = normalizeEmoji(rawEmoji);
-
-            if (!allowedEmojis.includes(normalizedInput)) {
+            if (normalizeEmoji(rawEmoji) !== normalizeEmoji(expectedEmoji)) {
                 return [
                     false,
-                    `type "${type}" must be prefixed with ${mapping.emoji}. Received: "${rawEmoji.trim()}". Example: ${mapping.emoji} ${type}${parsed.scope ? `(${parsed.scope})` : ''}: <subject>`,
+                    `type "${type}" must be prefixed with ${expectedEmoji}. Received: "${rawEmoji.trim()}". Example: ${expectedEmoji} ${type}${parsed.scope ? `(${parsed.scope})` : ''}: <subject>`,
                 ];
             }
 
