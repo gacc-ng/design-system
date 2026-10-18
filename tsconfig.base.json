@@ -16,8 +16,9 @@
         "strict": false,
         "paths": {
             "@gacc-ng/ui": ["./libs/shared/ui/src/index.ts"],
-            "@gacc-ng/ui/button": ["./libs/shared/ui/button/src/index.ts"],
-            "@gacc-ng/ui/utils": ["./libs/shared/ui/utils/src/index.ts"]
+            "@gacc-ng/ui/button": ["./libs/shared/ui/src/components/button/index.ts"],
+            "@gacc-ng/ui/components/*": ["./libs/shared/ui/src/components/*/index.ts"],
+            "@gacc-ng/ui/utils": ["./libs/shared/ui/src/utils/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

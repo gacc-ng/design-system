@@ -4,7 +4,7 @@ import { BrnButton } from '@spartan-ng/brain/button';
 import { cva, type VariantProps } from 'class-variance-authority';
 import type { ClassValue } from 'clsx';
 
-import { classes } from '@gacc-ng/ui/utils';
+import { classes } from '../../utils';
 
 import { injectBrnButtonConfig } from './hlm-button.token';
 

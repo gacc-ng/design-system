@@ -10,10 +10,10 @@ import { HlmButton } from './hlm-button';
     standalone: true,
     imports: [HlmButton],
     template: `
-        <button hlmBtn>Default</button>
-        <button hlmBtn variant="destructive" size="lg">Destructive LG</button>
-        <button hlmBtn variant="outline" size="sm">Outline SM</button>
-        <button hlmBtn [disabled]="true">Disabled</button>
+        <button type="button" hlmBtn>Default</button>
+        <button type="button" hlmBtn variant="destructive" size="lg">Destructive LG</button>
+        <button type="button" hlmBtn variant="outline" size="sm">Outline SM</button>
+        <button type="button" hlmBtn [disabled]="true">Disabled</button>
     `,
 })
 class TestHostComponent {}
