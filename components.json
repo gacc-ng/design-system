@@ -1,0 +1,8 @@
+{
+    "$schema": "https://spartan.ng/schema.json",
+    "componentsPath": "libs/shared/ui",
+    "buildable": true,
+    "generateAs": "entrypoint",
+    "style": "vega",
+    "importAlias": "@gacc-ng/ui"
+}
