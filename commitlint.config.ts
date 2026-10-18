@@ -23,19 +23,24 @@ const normalizeEmoji = (value?: string | null): string => (value || '').replace(
 const emojiMatchPlugin: Plugin = {
     rules: {
         'header-type-emoji-match': (parsed) => {
+            const header = parsed.header || parsed.raw || '';
+            const leadingEmojiMatch = header.match(/^([\p{Extended_Pictographic}\uFE0F]+)\s+(\w+)/u);
+            if (leadingEmojiMatch) {
+                const [, foundEmoji, foundType] = leadingEmojiMatch;
+                const expected = COMMIT_TYPE_EMOJI_MAP[foundType] || foundEmoji;
+                return [
+                    false,
+                    `the emoji must be placed after the colon, not at the beginning of the header.\n` +
+                        `Received: "${header}"\n` +
+                        `Expected format: "${foundType}: ${expected} <description>" or "${foundType}(scope): ${expected} <description>"`,
+                ];
+            }
+
             const rawEmoji = parsed['emoji'] ? String(parsed['emoji']) : '';
             const type = parsed.type;
 
-            if (!rawEmoji || rawEmoji.trim().length === 0) {
-                const examples = Object.entries(COMMIT_TYPE_EMOJI_MAP)
-                    .slice(0, 4)
-                    .map(([t, emoji]) => `${emoji} ${t}: ...`)
-                    .join(', ');
-                return [false, `commit header must start with an emoji matching the type (e.g.: ${examples})`];
-            }
-
             if (!type) {
-                return [false, 'commit type must not be empty after the emoji'];
+                return [false, 'commit type must not be empty (e.g.: feat, fix, chore, docs)'];
             }
 
             const expectedEmoji = COMMIT_TYPE_EMOJI_MAP[type];
@@ -44,11 +49,26 @@ const emojiMatchPlugin: Plugin = {
                 return [false, `type "${type}" is not recognized. Allowed types: ${allowedTypes}`];
             }
 
-            if (normalizeEmoji(rawEmoji) !== normalizeEmoji(expectedEmoji)) {
+            if (!rawEmoji || rawEmoji.trim().length === 0) {
+                const scopePart = parsed.scope ? `(${parsed.scope})` : '';
                 return [
                     false,
-                    `type "${type}" must be prefixed with ${expectedEmoji}. Received: "${rawEmoji.trim()}". Example: ${expectedEmoji} ${type}${parsed.scope ? `(${parsed.scope})` : ''}: <subject>`,
+                    `commit header must include an emoji after the colon for type "${type}".\n` +
+                        `Expected format: "${type}${scopePart}: ${expectedEmoji} <description>"`,
                 ];
+            }
+
+            if (normalizeEmoji(rawEmoji) !== normalizeEmoji(expectedEmoji)) {
+                const scopePart = parsed.scope ? `(${parsed.scope})` : '';
+                return [
+                    false,
+                    `type "${type}" must use the emoji ${expectedEmoji} after the colon. Received: "${rawEmoji.trim()}".\n` +
+                        `Expected format: "${type}${scopePart}: ${expectedEmoji} <description>"`,
+                ];
+            }
+
+            if (!parsed.subject || parsed.subject.trim().length === 0) {
+                return [false, 'commit subject description must not be empty after the emoji'];
             }
 
             return [true, ''];
@@ -62,8 +82,8 @@ const Configuration: UserConfig = {
     ignores: [(commit) => commit.includes('dependabot[bot]') || commit.includes('chore(deps')],
     parserPreset: {
         parserOpts: {
-            headerPattern: /^(?:([\p{Extended_Pictographic}\uFE0F]+)\s+)?(\w+)(?:\(([^)]+)\))?!?: (.+)$/u,
-            headerCorrespondence: ['emoji', 'type', 'scope', 'subject'],
+            headerPattern: /^(\w+)(?:\(([^)]*)\))?!?: (?:([\p{Extended_Pictographic}\uFE0F]+)\s+)?(.*)$/u,
+            headerCorrespondence: ['type', 'scope', 'emoji', 'subject'],
         },
     },
     rules: {

@@ -36,6 +36,23 @@
 - **Strict English Only:** All source code, identifiers, types, comments, docstrings, configuration files, commit messages, PR descriptions, and documentation artifacts within this repository MUST be strictly written in English.
 - Never write comments or documentation in Spanish or other languages inside repository files.
 
+## Commit Message Standards (Conventional Commits + Gitmoji)
+
+- **Format:** `<type>(<scope>): <emoji> <description>` or `<type>: <emoji> <description>`.
+- The emoji must be placed strictly **after the colon** (e.g. `feat(ui): ✨ add button component` or `chore: 🔧 update dependencies`).
+- Allowed types & required emojis:
+    - `feat`: `✨`
+    - `fix`: `🐛`
+    - `docs`: `📝`
+    - `style`: `💄`
+    - `refactor`: `♻️`
+    - `perf`: `⚡`
+    - `test`: `✅`
+    - `build`: `🏗️`
+    - `ci`: `👷`
+    - `chore`: `🔧`
+    - `revert`: `⏪`
+
 ## Architecture Standards
 
 - **Component Architecture:** Presentational (Dumb Components), Standalone components, OnPush change detection, Zoneless, Signal-based (`input()`, `computed()`, `output()`).
