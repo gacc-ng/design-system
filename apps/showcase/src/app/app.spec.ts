@@ -1,19 +1,142 @@
-import { TestBed } from '@angular/core/testing';
+import { type ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+
+import { describe, expect, it } from 'vitest';
+
+import { HlmBadge } from '@gacc-ng/ui/badge';
+import { HlmButton } from '@gacc-ng/ui/button';
+import { HlmInput } from '@gacc-ng/ui/input';
+import { HlmLabel } from '@gacc-ng/ui/label';
 
 import { App } from './app';
-import { NxWelcome } from './nx-welcome';
 
-describe('App', () => {
+describe('App Showcase', () => {
+    let fixture: ComponentFixture<App>;
+    let component: App;
+
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [App, NxWelcome],
+            imports: [App],
         }).compileComponents();
+
+        fixture = TestBed.createComponent(App);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
     });
 
-    it('should render title', async () => {
-        const fixture = TestBed.createComponent(App);
-        await fixture.whenStable();
+    it('should create the showcase app and render header title', () => {
         const compiled = fixture.nativeElement as HTMLElement;
-        expect(compiled.querySelector('h1')?.textContent).toContain('Welcome showcase');
+        const titleEl = compiled.querySelector('h1');
+        expect(titleEl?.textContent).toContain('Design System Showcase');
+    });
+
+    it('should render all button variants with hlmBtn directive', () => {
+        const variantsContainer = fixture.debugElement.query(By.css('[data-testid="variants-container"]'));
+        expect(variantsContainer).toBeTruthy();
+
+        const buttons = variantsContainer.queryAll(By.directive(HlmButton));
+        expect(buttons.length).toBe(6);
+
+        const defaultBtn = buttons[0].nativeElement as HTMLButtonElement;
+        expect(defaultBtn.textContent?.trim()).toBe('Default');
+        expect(defaultBtn.className).toContain('bg-primary');
+
+        const secondaryBtn = buttons[1].nativeElement as HTMLButtonElement;
+        expect(secondaryBtn.textContent?.trim()).toBe('Secondary');
+        expect(secondaryBtn.className).toContain('bg-secondary');
+
+        const destructiveBtn = buttons[2].nativeElement as HTMLButtonElement;
+        expect(destructiveBtn.textContent?.trim()).toBe('Destructive');
+        expect(destructiveBtn.className).toContain('text-destructive');
+
+        const outlineBtn = buttons[3].nativeElement as HTMLButtonElement;
+        expect(outlineBtn.textContent?.trim()).toBe('Outline');
+        expect(outlineBtn.className).toContain('border-border');
+
+        const ghostBtn = buttons[4].nativeElement as HTMLButtonElement;
+        expect(ghostBtn.textContent?.trim()).toBe('Ghost');
+        expect(ghostBtn.className).toContain('hover:bg-muted');
+
+        const linkBtn = buttons[5].nativeElement as HTMLButtonElement;
+        expect(linkBtn.textContent?.trim()).toBe('Link');
+        expect(linkBtn.className).toContain('underline-offset-4');
+    });
+
+    it('should render all button sizes with correct class signatures', () => {
+        const sizesContainer = fixture.debugElement.query(By.css('[data-testid="sizes-container"]'));
+        expect(sizesContainer).toBeTruthy();
+
+        const buttons = sizesContainer.queryAll(By.directive(HlmButton));
+        expect(buttons.length).toBe(4);
+
+        const xsBtn = buttons[0].nativeElement as HTMLButtonElement;
+        expect(xsBtn.className).toContain('h-6');
+
+        const smBtn = buttons[1].nativeElement as HTMLButtonElement;
+        expect(smBtn.className).toContain('h-8');
+
+        const defaultBtn = buttons[2].nativeElement as HTMLButtonElement;
+        expect(defaultBtn.className).toContain('h-9');
+
+        const lgBtn = buttons[3].nativeElement as HTMLButtonElement;
+        expect(lgBtn.className).toContain('h-10');
+    });
+
+    it('should render badge primitives with correct variants', () => {
+        const badgesContainer = fixture.debugElement.query(By.css('[data-testid="badges-container"]'));
+        expect(badgesContainer).toBeTruthy();
+
+        const badges = badgesContainer.queryAll(By.directive(HlmBadge));
+        expect(badges.length).toBe(6);
+
+        const defaultBadge = badges[0].nativeElement as HTMLSpanElement;
+        expect(defaultBadge.textContent?.trim()).toBe('Default');
+        expect(defaultBadge.className).toContain('bg-primary');
+        expect(defaultBadge.className).toContain('rounded-full');
+
+        const secondaryBadge = badges[1].nativeElement as HTMLSpanElement;
+        expect(secondaryBadge.className).toContain('bg-secondary');
+
+        const destructiveBadge = badges[2].nativeElement as HTMLSpanElement;
+        expect(destructiveBadge.className).toContain('bg-destructive');
+
+        const outlineBadge = badges[3].nativeElement as HTMLSpanElement;
+        expect(outlineBadge.className).toContain('border-border');
+    });
+
+    it('should render form inputs with accessible labels', () => {
+        const inputsContainer = fixture.debugElement.query(By.css('[data-testid="inputs-container"]'));
+        expect(inputsContainer).toBeTruthy();
+
+        const inputs = inputsContainer.queryAll(By.directive(HlmInput));
+        const labels = inputsContainer.queryAll(By.directive(HlmLabel));
+
+        expect(inputs.length).toBeGreaterThanOrEqual(4);
+        expect(labels.length).toBeGreaterThanOrEqual(4);
+
+        const emailLabel = labels[0].nativeElement as HTMLLabelElement;
+        expect(emailLabel.getAttribute('for')).toBe('demo-email');
+        expect(emailLabel.className).toContain('text-sm');
+        expect(emailLabel.className).toContain('font-medium');
+
+        const emailInput = inputs[0].nativeElement as HTMLInputElement;
+        expect(emailInput.id).toBe('demo-email');
+        expect(emailInput.className).toContain('border-input');
+        expect(emailInput.className).toContain('h-9');
+    });
+
+    it('should toggle dark mode state when theme button is clicked', () => {
+        const toggleBtn = fixture.debugElement.query(By.css('[data-testid="theme-toggle"]'));
+        expect(toggleBtn).toBeTruthy();
+
+        expect(component['isDark']()).toBe(false);
+
+        toggleBtn.nativeElement.click();
+        fixture.detectChanges();
+        expect(component['isDark']()).toBe(true);
+
+        toggleBtn.nativeElement.click();
+        fixture.detectChanges();
+        expect(component['isDark']()).toBe(false);
     });
 });

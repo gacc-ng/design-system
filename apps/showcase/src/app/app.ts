@@ -1,14 +1,23 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, signal } from '@angular/core';
 
-import { NxWelcome } from './nx-welcome';
+import { HlmBadge } from '@gacc-ng/ui/badge';
+import { HlmButton } from '@gacc-ng/ui/button';
+import { HlmInput } from '@gacc-ng/ui/input';
+import { HlmLabel } from '@gacc-ng/ui/label';
 
 @Component({
-    imports: [NxWelcome, RouterModule],
+    imports: [HlmButton, HlmBadge, HlmInput, HlmLabel],
     selector: 'gacc-root',
     templateUrl: './app.html',
     styleUrl: './app.css',
 })
 export class App {
-    protected title = 'showcase';
+    protected readonly title = 'Design System Showcase';
+
+    protected readonly isDark = signal(false);
+
+    protected toggleDarkMode(): void {
+        this.isDark.update((dark) => !dark);
+        document.documentElement.classList.toggle('dark', this.isDark());
+    }
 }

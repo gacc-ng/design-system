@@ -1,2 +1,284 @@
-<gacc-nx-welcome></gacc-nx-welcome>
-<router-outlet></router-outlet>
+<main class="min-h-screen bg-background text-foreground transition-colors duration-200">
+    <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <header
+            class="mb-10 flex flex-col gap-4 border-b border-border pb-8 sm:flex-row sm:items-center sm:justify-between"
+        >
+            <div>
+                <div class="flex items-center gap-3">
+                    <span hlmBadge variant="default">Spartan NG • Tailwind v4</span>
+                    <span hlmBadge variant="outline">Atomic Primitives</span>
+                    <span class="text-xs text-muted-foreground">@gacc-ng/ui</span>
+                </div>
+                <h1 class="mt-2 text-3xl font-bold tracking-tight">Design System Showcase</h1>
+                <p class="mt-1 text-sm text-muted-foreground">
+                    Atomic components validation: Button, Badge, Input & Label with full OKLCH theming and
+                    accessibility.
+                </p>
+            </div>
+            <div class="flex items-center gap-3">
+                <button
+                    type="button"
+                    hlmBtn
+                    variant="outline"
+                    size="sm"
+                    (click)="toggleDarkMode()"
+                    data-testid="theme-toggle"
+                >
+                    @if (isDark()) {
+                        <span>☀️ Light Mode</span>
+                    } @else {
+                        <span>🌙 Dark Mode</span>
+                    }
+                </button>
+            </div>
+        </header>
+
+        <div class="space-y-10">
+            <!-- Section 1: Variants -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">1. Variants (`variant`)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Visual hierarchy mapped to design tokens (`primary`, `secondary`, `destructive`, `outline`,
+                        `ghost`, `link`).
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3" data-testid="variants-container">
+                    <button type="button" hlmBtn variant="default">Default</button>
+                    <button type="button" hlmBtn variant="secondary">Secondary</button>
+                    <button type="button" hlmBtn variant="destructive">Destructive</button>
+                    <button type="button" hlmBtn variant="outline">Outline</button>
+                    <button type="button" hlmBtn variant="ghost">Ghost</button>
+                    <button type="button" hlmBtn variant="link">Link</button>
+                </div>
+            </section>
+
+            <!-- Section 2: Sizes -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">2. Sizes (`size`)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Height, padding, typography, and radius scaled across standard sizes (`xs`, `sm`, `default`,
+                        `lg`).
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3" data-testid="sizes-container">
+                    <button type="button" hlmBtn size="xs">Size XS</button>
+                    <button type="button" hlmBtn size="sm">Size SM</button>
+                    <button type="button" hlmBtn size="default">Size Default</button>
+                    <button type="button" hlmBtn size="lg">Size LG</button>
+                </div>
+            </section>
+
+            <!-- Section 3: Interactive & Accessibility States -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">3. Interactive & Disabled States</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Verified with `BrnButton` headless directive handling `[disabled]` attributes and ARIA
+                        attributes.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3" data-testid="states-container">
+                    <button type="button" hlmBtn variant="default" [disabled]="true">Default Disabled</button>
+                    <button type="button" hlmBtn variant="secondary" [disabled]="true">Secondary Disabled</button>
+                    <button type="button" hlmBtn variant="destructive" [disabled]="true">Destructive Disabled</button>
+                    <button type="button" hlmBtn variant="outline" [disabled]="true">Outline Disabled</button>
+                    <a hlmBtn variant="outline" href="#anchor-test" data-testid="anchor-button">
+                        Anchor Tag as Button (&lt;a hlmBtn&gt;)
+                    </a>
+                </div>
+            </section>
+
+            <!-- Section 4: Icon Buttons -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">
+                        4. Icon Button Sizes (`icon-xs`, `icon-sm`, `icon`, `icon-lg`)
+                    </h2>
+                    <p class="text-xs text-muted-foreground">
+                        Fixed aspect ratio button sizes for standalone icon triggers.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3" data-testid="icon-sizes-container">
+                    <button type="button" hlmBtn variant="outline" size="icon-xs" aria-label="Add item extra small">
+                        <svg
+                            class="size-3"
+                            width="12"
+                            height="12"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <button type="button" hlmBtn variant="outline" size="icon-sm" aria-label="Add item small">
+                        <svg
+                            class="size-4"
+                            width="16"
+                            height="16"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <button type="button" hlmBtn variant="outline" size="icon" aria-label="Add item default">
+                        <svg
+                            class="size-4"
+                            width="16"
+                            height="16"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <button type="button" hlmBtn variant="outline" size="icon-lg" aria-label="Add item large">
+                        <svg
+                            class="size-5"
+                            width="20"
+                            height="20"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Section 5: Buttons with Leading/Trailing Icons -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">5. Composite Actions (Text + Icons)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Buttons combining text and icons with proper gap spacing.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3">
+                    <button type="button" hlmBtn variant="default">
+                        <svg
+                            class="size-4"
+                            width="16"
+                            height="16"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Confirm Action
+                    </button>
+                    <button type="button" hlmBtn variant="destructive">
+                        <svg
+                            class="size-4"
+                            width="16"
+                            height="16"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                            />
+                        </svg>
+                        Delete Record
+                    </button>
+                    <button type="button" hlmBtn variant="secondary">
+                        Explore Components
+                        <svg
+                            class="size-4"
+                            width="16"
+                            height="16"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"
+                            />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Section 6: Badges -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">6. Badges (`[hlmBadge]`)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Atomic status indicators and counters with design tokens (`default`, `secondary`, `destructive`,
+                        `outline`, `ghost`, `link`).
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3" data-testid="badges-container">
+                    <span hlmBadge variant="default">Default</span>
+                    <span hlmBadge variant="secondary">Secondary</span>
+                    <span hlmBadge variant="destructive">Destructive</span>
+                    <span hlmBadge variant="outline">Outline</span>
+                    <span hlmBadge variant="ghost">Ghost</span>
+                    <span hlmBadge variant="link">Link</span>
+                </div>
+            </section>
+
+            <!-- Section 7: Form Inputs & Accessible Labels -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">
+                        7. Form Inputs & Labels (`[hlmInput]` + `[hlmLabel]`)
+                    </h2>
+                    <p class="text-xs text-muted-foreground">
+                        Accessible form field primitives with focus rings, sizing variants, and semantic WAI-ARIA
+                        associations.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" data-testid="inputs-container">
+                    <!-- Default Field -->
+                    <div class="flex flex-col gap-2">
+                        <label hlmLabel for="demo-email">Email Address</label>
+                        <input hlmInput id="demo-email" type="email" placeholder="name@company.com" />
+                        <span class="text-xs text-muted-foreground"
+                            >We will never share your email with third parties.</span
+                        >
+                    </div>
+
+                    <!-- Small Input -->
+                    <div class="flex flex-col gap-2">
+                        <label hlmLabel for="demo-code">Verification Code (Small)</label>
+                        <input hlmInput id="demo-code" size="sm" placeholder="123456" />
+                    </div>
+
+                    <!-- Large Input -->
+                    <div class="flex flex-col gap-2">
+                        <label hlmLabel for="demo-search">Search (Large)</label>
+                        <input hlmInput id="demo-search" size="lg" placeholder="Search documentation..." />
+                    </div>
+
+                    <!-- Disabled State -->
+                    <div class="flex flex-col gap-2">
+                        <label hlmLabel for="demo-disabled">Readonly / Disabled Field</label>
+                        <input hlmInput id="demo-disabled" [disabled]="true" value="enterprise-tier-v2" />
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="flex flex-col gap-2">
+                        <label hlmLabel for="demo-password">Password</label>
+                        <input hlmInput id="demo-password" type="password" placeholder="••••••••" />
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>

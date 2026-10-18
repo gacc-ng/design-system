@@ -46,6 +46,7 @@ Thumbs.db
 
 .nx/polygraph
 .angular
+.codegraph/
 
 # Environment variables & secrets
 .env
