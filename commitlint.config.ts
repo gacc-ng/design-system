@@ -79,7 +79,13 @@ const emojiMatchPlugin: Plugin = {
 const Configuration: UserConfig = {
     extends: ['@commitlint/config-conventional', '@commitlint/config-nx-scopes'],
     plugins: [emojiMatchPlugin],
-    ignores: [(commit) => commit.includes('dependabot[bot]') || commit.includes('chore(deps')],
+    ignores: [
+        (commit) =>
+            commit.includes('dependabot[bot]') ||
+            commit.includes('chore(deps') ||
+            commit.startsWith('chore(release):') ||
+            commit.startsWith('chore(ui-helm): 🔧 release'),
+    ],
     parserPreset: {
         parserOpts: {
             headerPattern: /^(\w+)(?:\(([^)]*)\))?!?: (?:([\p{Extended_Pictographic}\uFE0F]+)\s+)?(.*)$/u,

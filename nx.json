@@ -71,6 +71,10 @@
     },
     "release": {
         "projects": ["ui-helm"],
+        "git": {
+            "commitMessage": "chore(ui-helm): 🔧 release {version}",
+            "commitArgs": "--no-verify"
+        },
         "version": {
             "conventionalCommits": true,
             "fallbackCurrentVersionResolver": "disk"
