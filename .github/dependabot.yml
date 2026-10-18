@@ -43,6 +43,10 @@ updates:
                   - 'clsx'
                   - 'tailwind-merge'
                   - 'class-variance-authority'
+      ignore:
+          - dependency-name: 'typescript'
+            update-types:
+                - 'version-update:semver-major'
 
     # 2. GitHub Actions Workflows
     - package-ecosystem: 'github-actions'
