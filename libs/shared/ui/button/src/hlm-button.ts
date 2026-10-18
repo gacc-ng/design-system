@@ -45,6 +45,10 @@ export const buttonVariants = cva(
 
 export type ButtonVariants = VariantProps<typeof buttonVariants>;
 
+/**
+ * Spartan Helm Button directive providing Tailwind styling and CVA variants
+ * composed on top of the headless Brain button primitive.
+ */
 @Directive({
     selector: 'button[hlmBtn], a[hlmBtn]',
     exportAs: 'hlmBtn',
