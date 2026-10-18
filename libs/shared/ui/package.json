@@ -11,7 +11,10 @@
         "tailwind-merge": "^3.5.0"
     },
     "sideEffects": false,
-    "private": true,
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com",
+        "access": "public"
+    },
     "exports": {
         "./preset.css": {
             "default": "./src/styles/preset.css"
