@@ -6,14 +6,14 @@
         >
             <div>
                 <div class="flex items-center gap-3">
-                    <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                        Spartan NG • Tailwind v4
-                    </span>
-                    <span class="text-xs text-muted-foreground">@gacc-ng/ui/button</span>
+                    <span hlmBadge variant="default">Spartan NG • Tailwind v4</span>
+                    <span hlmBadge variant="outline">Atomic Primitives</span>
+                    <span class="text-xs text-muted-foreground">@gacc-ng/ui</span>
                 </div>
-                <h1 class="mt-2 text-3xl font-bold tracking-tight">HlmButton Showcase</h1>
+                <h1 class="mt-2 text-3xl font-bold tracking-tight">Design System Showcase</h1>
                 <p class="mt-1 text-sm text-muted-foreground">
-                    Comprehensive validation for variants, sizes, states, icons, and accessible tags.
+                    Atomic components validation: Button, Badge, Input & Label with full OKLCH theming and
+                    accessibility.
                 </p>
             </div>
             <div class="flex items-center gap-3">
@@ -211,6 +211,72 @@
                             />
                         </svg>
                     </button>
+                </div>
+            </section>
+
+            <!-- Section 6: Badges -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">6. Badges (`[hlmBadge]`)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Atomic status indicators and counters with design tokens (`default`, `secondary`, `destructive`,
+                        `outline`, `ghost`, `link`).
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3" data-testid="badges-container">
+                    <span hlmBadge variant="default">Default</span>
+                    <span hlmBadge variant="secondary">Secondary</span>
+                    <span hlmBadge variant="destructive">Destructive</span>
+                    <span hlmBadge variant="outline">Outline</span>
+                    <span hlmBadge variant="ghost">Ghost</span>
+                    <span hlmBadge variant="link">Link</span>
+                </div>
+            </section>
+
+            <!-- Section 7: Form Inputs & Accessible Labels -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">
+                        7. Form Inputs & Labels (`[hlmInput]` + `[hlmLabel]`)
+                    </h2>
+                    <p class="text-xs text-muted-foreground">
+                        Accessible form field primitives with focus rings, sizing variants, and semantic WAI-ARIA
+                        associations.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" data-testid="inputs-container">
+                    <!-- Default Field -->
+                    <div class="flex flex-col gap-2">
+                        <label hlmLabel for="demo-email">Email Address</label>
+                        <input hlmInput id="demo-email" type="email" placeholder="name@company.com" />
+                        <span class="text-xs text-muted-foreground"
+                            >We will never share your email with third parties.</span
+                        >
+                    </div>
+
+                    <!-- Small Input -->
+                    <div class="flex flex-col gap-2">
+                        <label hlmLabel for="demo-code">Verification Code (Small)</label>
+                        <input hlmInput id="demo-code" size="sm" placeholder="123456" />
+                    </div>
+
+                    <!-- Large Input -->
+                    <div class="flex flex-col gap-2">
+                        <label hlmLabel for="demo-search">Search (Large)</label>
+                        <input hlmInput id="demo-search" size="lg" placeholder="Search documentation..." />
+                    </div>
+
+                    <!-- Disabled State -->
+                    <div class="flex flex-col gap-2">
+                        <label hlmLabel for="demo-disabled">Readonly / Disabled Field</label>
+                        <input hlmInput id="demo-disabled" [disabled]="true" value="enterprise-tier-v2" />
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="flex flex-col gap-2">
+                        <label hlmLabel for="demo-password">Password</label>
+                        <input hlmInput id="demo-password" type="password" placeholder="••••••••" />
+                    </div>
                 </div>
             </section>
         </div>

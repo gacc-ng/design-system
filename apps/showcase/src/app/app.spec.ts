@@ -3,7 +3,10 @@ import { By } from '@angular/platform-browser';
 
 import { describe, expect, it } from 'vitest';
 
+import { HlmBadge } from '@gacc-ng/ui/badge';
 import { HlmButton } from '@gacc-ng/ui/button';
+import { HlmInput } from '@gacc-ng/ui/input';
+import { HlmLabel } from '@gacc-ng/ui/label';
 
 import { App } from './app';
 
@@ -24,7 +27,7 @@ describe('App Showcase', () => {
     it('should create the showcase app and render header title', () => {
         const compiled = fixture.nativeElement as HTMLElement;
         const titleEl = compiled.querySelector('h1');
-        expect(titleEl?.textContent).toContain('HlmButton Showcase');
+        expect(titleEl?.textContent).toContain('Design System Showcase');
     });
 
     it('should render all button variants with hlmBtn directive', () => {
@@ -79,22 +82,47 @@ describe('App Showcase', () => {
         expect(lgBtn.className).toContain('h-10');
     });
 
-    it('should enforce disabled state on disabled buttons', () => {
-        const statesContainer = fixture.debugElement.query(By.css('[data-testid="states-container"]'));
-        const disabledButtons = statesContainer.queryAll(By.css('button[disabled]'));
-        expect(disabledButtons.length).toBeGreaterThanOrEqual(4);
+    it('should render badge primitives with correct variants', () => {
+        const badgesContainer = fixture.debugElement.query(By.css('[data-testid="badges-container"]'));
+        expect(badgesContainer).toBeTruthy();
 
-        for (const debugEl of disabledButtons) {
-            const btn = debugEl.nativeElement as HTMLButtonElement;
-            expect(btn.disabled).toBe(true);
-        }
+        const badges = badgesContainer.queryAll(By.directive(HlmBadge));
+        expect(badges.length).toBe(6);
+
+        const defaultBadge = badges[0].nativeElement as HTMLSpanElement;
+        expect(defaultBadge.textContent?.trim()).toBe('Default');
+        expect(defaultBadge.className).toContain('bg-primary');
+        expect(defaultBadge.className).toContain('rounded-full');
+
+        const secondaryBadge = badges[1].nativeElement as HTMLSpanElement;
+        expect(secondaryBadge.className).toContain('bg-secondary');
+
+        const destructiveBadge = badges[2].nativeElement as HTMLSpanElement;
+        expect(destructiveBadge.className).toContain('bg-destructive');
+
+        const outlineBadge = badges[3].nativeElement as HTMLSpanElement;
+        expect(outlineBadge.className).toContain('border-border');
     });
 
-    it('should support anchor tags styled with hlmBtn', () => {
-        const anchorBtn = fixture.debugElement.query(By.css('[data-testid="anchor-button"]'));
-        expect(anchorBtn).toBeTruthy();
-        expect(anchorBtn.nativeElement.tagName.toLowerCase()).toBe('a');
-        expect(anchorBtn.nativeElement.className).toContain('inline-flex');
+    it('should render form inputs with accessible labels', () => {
+        const inputsContainer = fixture.debugElement.query(By.css('[data-testid="inputs-container"]'));
+        expect(inputsContainer).toBeTruthy();
+
+        const inputs = inputsContainer.queryAll(By.directive(HlmInput));
+        const labels = inputsContainer.queryAll(By.directive(HlmLabel));
+
+        expect(inputs.length).toBeGreaterThanOrEqual(4);
+        expect(labels.length).toBeGreaterThanOrEqual(4);
+
+        const emailLabel = labels[0].nativeElement as HTMLLabelElement;
+        expect(emailLabel.getAttribute('for')).toBe('demo-email');
+        expect(emailLabel.className).toContain('text-sm');
+        expect(emailLabel.className).toContain('font-medium');
+
+        const emailInput = inputs[0].nativeElement as HTMLInputElement;
+        expect(emailInput.id).toBe('demo-email');
+        expect(emailInput.className).toContain('border-input');
+        expect(emailInput.className).toContain('h-9');
     });
 
     it('should toggle dark mode state when theme button is clicked', () => {

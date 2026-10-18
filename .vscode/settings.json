@@ -17,6 +17,7 @@
     "files.associations": {
         "*.css": "tailwindcss"
     },
+    "cSpell.dictionaries": ["gacc"],
 
     // ==============================================================================
     // LINTER (ESLint 9 Flat Config & pnpm Resolution)

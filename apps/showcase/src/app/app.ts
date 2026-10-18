@@ -1,9 +1,12 @@
 import { Component, signal } from '@angular/core';
 
+import { HlmBadge } from '@gacc-ng/ui/badge';
 import { HlmButton } from '@gacc-ng/ui/button';
+import { HlmInput } from '@gacc-ng/ui/input';
+import { HlmLabel } from '@gacc-ng/ui/label';
 
 @Component({
-    imports: [HlmButton],
+    imports: [HlmButton, HlmBadge, HlmInput, HlmLabel],
     selector: 'gacc-root',
     templateUrl: './app.html',
     styleUrl: './app.css',
