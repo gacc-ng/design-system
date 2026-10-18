@@ -56,3 +56,22 @@ jobs:
 
             - name: Build affected projects
               run: pnpm nx affected -t build --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
+
+            - name: Validate library package integrity
+              if: hashFiles('dist/libs/shared/ui/package.json') != ''
+              run: |
+                  echo "Validating @gacc-ng/ui package..."
+                  cd dist/libs/shared/ui
+                  pnpm pack --dry-run
+                  test -f package.json
+                  test -f src/styles/preset.css
+                  test -d button && test -d badge && test -d input && test -d label && test -d utils
+                  echo "Library package structure and entry points verified successfully!"
+
+            - name: Upload library distribution artifact
+              if: hashFiles('dist/libs/shared/ui/package.json') != ''
+              uses: actions/upload-artifact@v4
+              with:
+                  name: gacc-ng-ui-dist
+                  path: dist/libs/shared/ui
+                  retention-days: 7
