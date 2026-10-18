@@ -39,7 +39,7 @@ jobs:
 
             - name: Determine base and head commits
               id: set-shas
-              uses: nrwl/nx-set-shas@v4
+              uses: nrwl/nx-set-shas@v5
 
             - name: Validate Conventional Commits
               if: github.event_name == 'pull_request' && !startsWith(github.head_ref, 'dependabot/')
