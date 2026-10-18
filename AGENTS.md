@@ -39,3 +39,12 @@
 ## Architecture Standards
 
 - **Component Architecture:** Presentational (Dumb Components), Standalone components, OnPush change detection, Zoneless, Signal-based (`input()`, `computed()`, `output()`).
+
+## Spartan NG Standards & MCP Tools
+
+- **Spartan Architecture:**
+    - **Brain Layer (`@spartan-ng/brain/*`):** Headless logic, CDK behaviors, WAI-ARIA states, focus management, and keyboard interactions. Strictly no Tailwind utility classes or styling inside Brain directives.
+    - **Helm Layer (`@spartan-ng/helm/*`):** Visual presentation directives using Tailwind CSS, `class-variance-authority` (`cva()`), and `hlm()` merging helper (`clsx` + `tailwind-merge`).
+    - **Composition:** Compose Brain logic onto Helm directives using Angular `hostDirectives`.
+- **Spartan MCP Tools:** Query the running `@spartan-ng/mcp` server tools (`spartan_components_list`, `spartan_components_get`, `spartan_components_dependencies`, `spartan_docs_get`, `spartan_health_instructions`, `spartan_accessibility_check`) before creating, extending, or debugging UI components.
+- **Skill Reference:** Always consult `.agents/skills/spartan-ng/SKILL.md` when building, scaffolding, or styling Spartan-based components.
