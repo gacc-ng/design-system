@@ -72,8 +72,9 @@
     "release": {
         "projects": ["ui-helm"],
         "git": {
-            "commitMessage": "chore(ui-helm): 🔧 release {version}",
-            "commitArgs": "--no-verify"
+            "commit": false,
+            "tag": true,
+            "push": true
         },
         "version": {
             "conventionalCommits": true,
