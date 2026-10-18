@@ -12,11 +12,15 @@ updates:
       target-branch: 'main'
       labels:
           - 'dependencies'
-          - 'automated pr'
+          - 'automated-pr'
       groups:
-          angular:
+          angular-framework:
               patterns:
                   - '@angular/*'
+                  - '@angular-devkit/*'
+                  - '@schematics/*'
+                  - 'angular-eslint'
+                  - '@angular-eslint/*'
                   - 'zone.js'
           nx-ecosystem:
               patterns:
@@ -29,6 +33,9 @@ updates:
                   - '@typescript-eslint/*'
                   - 'commitlint*'
                   - '@commitlint/*'
+                  - 'typescript-eslint'
+                  - 'typescript'
+                  - 'tslib'
           ui-styling:
               patterns:
                   - 'tailwindcss'
@@ -49,3 +56,8 @@ updates:
       labels:
           - 'ci/cd'
           - 'dependencies'
+          - 'automated-pr'
+      groups:
+          github-actions-workflows:
+              patterns:
+                  - '*'
