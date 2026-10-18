@@ -55,11 +55,13 @@
         "eslint-plugin-prettier": "^5.5.7",
         "eslint-plugin-simple-import-sort": "^14.0.0",
         "eslint-plugin-unused-imports": "^4.4.1",
+        "jsdom": "^27.4.0",
         "lefthook": "^2.2.2",
         "nx": "23.3.0",
         "prettier": "~3.9.10",
         "tslib": "^2.3.0",
         "typescript": "~6.0.3",
-        "typescript-eslint": "^8.58.0"
+        "typescript-eslint": "^8.58.0",
+        "vitest": "^4.1.12"
     }
 }
