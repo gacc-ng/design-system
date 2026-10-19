@@ -27,8 +27,12 @@ pnpm add @angular/cdk @spartan-ng/brain class-variance-authority clsx tailwind-m
 Import the unified preset in your application's global stylesheet (e.g., `src/styles.css`):
 
 ```css
+@import 'tailwindcss';
 @import '@gacc-ng/ui/preset.css';
 ```
+
+> [!TIP]
+> The preset automatically includes self-contained `@source` detection for Tailwind CSS v4, so consumers do not need to configure any manual `@source` paths in their application stylesheets.
 
 ### 3. Overlay Provider
 

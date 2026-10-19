@@ -1,11 +1,13 @@
 /* ==============================================================================
    DESIGN SYSTEM UNIFIED PRESET (@gacc-ng/ui)
    ==============================================================================
-   1. Spartan Brain Primitives (CDK overlay fix, custom data-* variants, animations)
-   2. OKLCH Design Tokens (light & dark mode)
-   3. Base Styles (@layer base)
+   1. Automatic Library Source Scanning (@source for Tailwind CSS v4)
+   2. Spartan Brain Primitives (CDK overlay fix, custom data-* variants, animations)
+   3. OKLCH Design Tokens (light & dark mode)
+   4. Base Styles (@layer base)
    ============================================================================== */
 
+@source '../../';
 @import '@spartan-ng/brain/hlm-tailwind-preset.css';
 
 :root {
