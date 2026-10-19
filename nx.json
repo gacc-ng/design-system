@@ -71,20 +71,26 @@
     },
     "release": {
         "projects": ["ui-helm"],
-        "git": {
-            "commit": false,
-            "tag": true,
-            "push": true
-        },
         "version": {
             "conventionalCommits": true,
-            "fallbackCurrentVersionResolver": "disk"
+            "fallbackCurrentVersionResolver": "disk",
+            "git": {
+                "commit": false,
+                "tag": true,
+                "push": true
+            }
         },
         "changelog": {
             "workspaceChangelog": {
-                "createRelease": "github"
+                "createRelease": "github",
+                "renderer": "{workspaceRoot}/tools/release/changelog-renderer.ts"
             },
-            "automaticFromRef": true
+            "automaticFromRef": true,
+            "git": {
+                "commit": false,
+                "tag": true,
+                "push": true
+            }
         }
     }
 }

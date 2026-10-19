@@ -97,6 +97,11 @@ const Configuration: UserConfig = {
         'type-enum': [RuleConfigSeverity.Error, 'always', Object.keys(COMMIT_TYPE_EMOJI_MAP)],
         'header-max-length': [RuleConfigSeverity.Error, 'always', 120],
         'scope-case': [RuleConfigSeverity.Error, 'always', 'kebab-case'],
+        'scope-enum': [
+            RuleConfigSeverity.Error,
+            'always',
+            ['ui-helm', 'showcase', 'button', 'badge', 'input', 'label', 'utils', 'preset', 'core', 'release'],
+        ],
     },
 };
 
