@@ -1,0 +1,47 @@
+# ==============================================================================
+# LINE ENDING NORMALIZATION (Cross-Platform CRLF / LF Consistency)
+# ==============================================================================
+* text=auto eol=lf
+
+# Explicit text files
+*.ts text eol=lf
+*.js text eol=lf
+*.mjs text eol=lf
+*.cjs text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Shell scripts must always retain LF line endings
+*.sh text eol=lf
+
+# ==============================================================================
+# GITHUB DIFF & LINGUIST RULES
+# ==============================================================================
+# Treat large generated lockfiles and build outputs as generated (collapsed in PR diffs)
+pnpm-lock.yaml linguist-generated=true
+dist/** linguist-generated=true
+
+# Documentation
+README.md linguist-documentation=true
+CLAUDE.md linguist-documentation=true
+AGENTS.md linguist-documentation=true
+
+# ==============================================================================
+# BINARY FILES (Prevent corrupting encoding)
+# ==============================================================================
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.pdf binary
