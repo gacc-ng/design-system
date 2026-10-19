@@ -1,31 +1,10 @@
-import type { ChangelogChange } from 'nx/release/changelog-renderer';
-import NxRendererPackage from 'nx/release/changelog-renderer';
+import DefaultChangelogRenderer, { type ChangelogChange } from 'nx/release/changelog-renderer';
 
-type RendererConstructor = new (...args: unknown[]) => {
-    render(): Promise<string>;
-    preprocessChanges(): void;
-    shouldRenderEmptyEntry(): boolean;
-    renderEmptyEntry(): string;
-    renderVersionTitle(): string;
-    hasBreakingChanges(): boolean;
-    renderBreakingChanges(): string[];
-    hasDependencyBumps(): boolean;
-    renderDependencyBumps(): string[];
-    shouldRenderAuthors(): boolean;
-    renderAuthors(): Promise<string[]>;
-    formatBreakingChange(change: ChangelogChange): string;
-};
-
-interface RendererModuleWrapper {
-    default?: {
-        default?: RendererConstructor;
-    } & RendererConstructor;
-}
-
-// Robust unwrapping of DefaultChangelogRenderer across CJS and Node 22 native type-stripping ESM
-const moduleWrapper = NxRendererPackage as unknown as RendererModuleWrapper;
-const DefaultChangelogRenderer: RendererConstructor =
-    moduleWrapper?.default?.default || moduleWrapper?.default || (moduleWrapper as unknown as RendererConstructor);
+// Robust unwrapping of DefaultChangelogRenderer across CJS and Node native type-stripping ESM
+// while preserving 100% of constructor and instance types.
+const ResolvedBaseRenderer: typeof DefaultChangelogRenderer =
+    (DefaultChangelogRenderer as unknown as { default: typeof DefaultChangelogRenderer }).default ||
+    DefaultChangelogRenderer;
 
 const TYPE_COLOR_MAP: Record<string, string> = {
     feat: 'blue',
@@ -49,16 +28,14 @@ const LEADING_EMOJI_REGEX = /^[\p{Extended_Pictographic}\uFE0F]+\s*/u;
  * - Markdown tables per scope with "Commit" and "Description" columns
  * - Shields.io badges for commit hashes and semantic types
  */
-export default class AngularStyleChangelogRenderer extends DefaultChangelogRenderer {
+export default class AngularStyleChangelogRenderer extends ResolvedBaseRenderer {
     protected override renderChangesByType(): string[] {
         const markdownLines: string[] = [];
         const scopeGroups = this.groupChangesByScopeCustom(this.relevantChanges);
         const sortedScopes = Object.keys(scopeGroups).sort((a, b) => a.localeCompare(b));
 
-        const repoData = this.remoteReleaseClient?.getRemoteRepoData?.() as
-            { owner?: string; repo?: string } | undefined;
-        const repoSlug =
-            repoData?.owner && repoData?.repo ? `${repoData.owner}/${repoData.repo}` : 'gacc-ng/design-system';
+        const repoData = this.remoteReleaseClient?.getRemoteRepoData?.();
+        const repoSlug = repoData?.slug || 'gacc-ng/design-system';
 
         for (const scope of sortedScopes) {
             const changes = scopeGroups[scope];
@@ -71,9 +48,10 @@ export default class AngularStyleChangelogRenderer extends DefaultChangelogRende
             for (const change of changes) {
                 const type = (change.type || 'feat').toLowerCase();
                 const color = TYPE_COLOR_MAP[type] || 'lightgrey';
-                const shortHash = change.shortHash || (change.hash ? change.hash.slice(0, 10) : 'commit');
-                const fullHash = change.hash || shortHash;
-                const commitUrl = `https://github.com/${repoSlug}/commit/${fullHash}`;
+                const shortHash = change.shortHash || 'commit';
+                const commitUrl = change.shortHash
+                    ? `https://github.com/${repoSlug}/commit/${change.shortHash}`
+                    : `https://github.com/${repoSlug}`;
                 const badgeUrl = `https://img.shields.io/badge/${shortHash}-${type}-${color}`;
                 const badgeMarkdown = `[![${type} - ${shortHash}](${badgeUrl})](${commitUrl})`;
 
