@@ -5,7 +5,13 @@
     "packageManager": "pnpm@12.3.4",
     "engines": {
         "node": ">=22.0.0",
-        "pnpm": ">=12.0.0"
+        "pnpm": ">=12.0.0",
+        "npm": "please-use-pnpm",
+        "yarn": "please-use-pnpm"
+    },
+    "engineStrict": true,
+    "nx": {
+        "includedScripts": []
     },
     "repository": {
         "type": "git",
