@@ -140,7 +140,7 @@ describe('App Showcase', () => {
         expect(cardsContainer).toBeTruthy();
 
         const cards = cardsContainer.queryAll(By.directive(HlmCard));
-        expect(cards.length).toBe(2);
+        expect(cards.length).toBe(3);
 
         const firstCard = cards[0].nativeElement as HTMLElement;
         expect(firstCard.getAttribute('data-slot')).toBe('card');
