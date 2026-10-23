@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
 
 import { HlmLabel } from '../../label/src/hlm-label';
 
@@ -14,6 +14,11 @@ interface InputStoryArgs {
 const meta: Meta<InputStoryArgs> = {
     title: 'Primitives/Input',
     tags: ['autodocs'],
+    decorators: [
+        moduleMetadata({
+            imports: [HlmInput, HlmLabel],
+        }),
+    ],
     argTypes: {
         size: {
             control: 'select',
@@ -48,7 +53,6 @@ type Story = StoryObj<InputStoryArgs>;
 export const Default: Story = {
     render: (args) => ({
         props: args,
-        imports: [HlmInput],
         template: `
             <div class="w-80">
                 <input
@@ -65,7 +69,6 @@ export const Default: Story = {
 
 export const AllSizes: Story = {
     render: () => ({
-        imports: [HlmInput],
         template: `
             <div class="flex flex-col gap-4 w-80">
                 <div>
@@ -87,7 +90,6 @@ export const AllSizes: Story = {
 
 export const WithLabel: Story = {
     render: () => ({
-        imports: [HlmInput, HlmLabel],
         template: `
             <div class="flex flex-col gap-2 w-80">
                 <label hlmLabel for="email-input">Email address</label>
@@ -105,7 +107,6 @@ export const Disabled: Story = {
     },
     render: (args) => ({
         props: args,
-        imports: [HlmInput],
         template: `
             <div class="w-80">
                 <input

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
 
 import { type ButtonVariants, HlmButton } from './hlm-button';
 
@@ -12,6 +12,11 @@ interface ButtonStoryArgs {
 const meta: Meta<ButtonStoryArgs> = {
     title: 'Primitives/Button',
     tags: ['autodocs'],
+    decorators: [
+        moduleMetadata({
+            imports: [HlmButton],
+        }),
+    ],
     argTypes: {
         variant: {
             control: 'select',
@@ -46,7 +51,6 @@ type Story = StoryObj<ButtonStoryArgs>;
 export const Default: Story = {
     render: (args) => ({
         props: args,
-        imports: [HlmButton],
         template: `
             <button hlmBtn [variant]="variant" [size]="size" [disabled]="disabled">
                 {{ text }}
@@ -57,7 +61,6 @@ export const Default: Story = {
 
 export const AllVariants: Story = {
     render: () => ({
-        imports: [HlmButton],
         template: `
             <div class="flex flex-wrap items-center gap-3">
                 <button hlmBtn variant="default">Default</button>
@@ -73,7 +76,6 @@ export const AllVariants: Story = {
 
 export const AllSizes: Story = {
     render: () => ({
-        imports: [HlmButton],
         template: `
             <div class="flex flex-wrap items-center gap-3">
                 <button hlmBtn size="xs">Extra Small</button>
@@ -92,7 +94,6 @@ export const Disabled: Story = {
     },
     render: (args) => ({
         props: args,
-        imports: [HlmButton],
         template: `
             <button hlmBtn [variant]="variant" [size]="size" [disabled]="disabled">
                 {{ text }}

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
 
 import { type BadgeVariants, HlmBadge } from './hlm-badge';
 
@@ -10,6 +10,11 @@ interface BadgeStoryArgs {
 const meta: Meta<BadgeStoryArgs> = {
     title: 'Primitives/Badge',
     tags: ['autodocs'],
+    decorators: [
+        moduleMetadata({
+            imports: [HlmBadge],
+        }),
+    ],
     argTypes: {
         variant: {
             control: 'select',
@@ -33,7 +38,6 @@ type Story = StoryObj<BadgeStoryArgs>;
 export const Default: Story = {
     render: (args) => ({
         props: args,
-        imports: [HlmBadge],
         template: `
             <span hlmBadge [variant]="variant">
                 {{ text }}
@@ -44,7 +48,6 @@ export const Default: Story = {
 
 export const AllVariants: Story = {
     render: () => ({
-        imports: [HlmBadge],
         template: `
             <div class="flex flex-wrap items-center gap-3">
                 <span hlmBadge variant="default">Default</span>
