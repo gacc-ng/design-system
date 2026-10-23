@@ -102,7 +102,7 @@ describe('App Showcase', () => {
         const defaultBadge = badges[0].nativeElement as HTMLSpanElement;
         expect(defaultBadge.textContent?.trim()).toBe('Default');
         expect(defaultBadge.className).toContain('bg-primary');
-        expect(defaultBadge.className).toContain('rounded-full');
+        expect(defaultBadge.className).toContain('rounded-4xl');
 
         const secondaryBadge = badges[1].nativeElement as HTMLSpanElement;
         expect(secondaryBadge.className).toContain('bg-secondary');

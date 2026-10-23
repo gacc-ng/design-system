@@ -44,7 +44,7 @@ describe('HlmCard Primitives', () => {
         expect(cardEl.getAttribute('data-slot')).toBe('card');
         expect(cardEl.className).toContain('bg-card');
         expect(cardEl.className).toContain('text-card-foreground');
-        expect(cardEl.className).toContain('rounded-xl');
+        expect(cardEl.className).toContain('rounded-4xl');
     });
 
     it('should support size attribute', () => {
