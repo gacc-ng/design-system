@@ -21,11 +21,25 @@ updates:
                   - '@schematics/*'
                   - 'angular-eslint'
                   - '@angular-eslint/*'
+                  - 'ng-packagr'
                   - 'zone.js'
+                  - 'rxjs'
+          spartan-ui:
+              patterns:
+                  - '@spartan-ng/*'
+                  - 'spartan-ng'
           nx-ecosystem:
               patterns:
                   - '@nx/*'
                   - 'nx'
+                  - '@swc/*'
+          testing:
+              patterns:
+                  - 'vitest'
+                  - '@vitest/*'
+                  - 'jsdom'
+                  - '@types/chai'
+                  - 'chai'
           linting-and-quality:
               patterns:
                   - '*eslint*'
@@ -36,13 +50,17 @@ updates:
                   - 'typescript-eslint'
                   - 'typescript'
                   - 'tslib'
+                  - 'lefthook'
           ui-styling:
               patterns:
                   - 'tailwindcss'
                   - '@tailwindcss/*'
+                  - 'postcss'
+                  - 'autoprefixer'
                   - 'clsx'
                   - 'tailwind-merge'
                   - 'class-variance-authority'
+                  - 'tw-animate-css'
       ignore:
           - dependency-name: 'typescript'
             update-types:
