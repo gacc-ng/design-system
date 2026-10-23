@@ -3,7 +3,13 @@
     "analytics": false,
     "namedInputs": {
         "default": ["{projectRoot}/**/*", "sharedGlobals"],
-        "production": ["default", "!{projectRoot}/.eslintrc.json", "!{projectRoot}/eslint.config.mjs"],
+        "production": [
+            "default",
+            "!{projectRoot}/.eslintrc.json",
+            "!{projectRoot}/eslint.config.mjs",
+            "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
+            "!{projectRoot}/.storybook/**/*"
+        ],
         "sharedGlobals": []
     },
     "targetDefaults": {
@@ -41,6 +47,10 @@
             "options": {
                 "packageRoot": "dist/{projectRoot}"
             }
+        },
+        "build-storybook": {
+            "cache": true,
+            "inputs": ["default", "^production", "{projectRoot}/.storybook/**/*"]
         }
     },
     "plugins": [

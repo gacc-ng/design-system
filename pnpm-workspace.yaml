@@ -10,3 +10,5 @@ allowBuilds:
     msgpackr-extract: false
     '@parcel/watcher': false
     lefthook: true
+    '@swc/core': false
+    unrs-resolver: false
