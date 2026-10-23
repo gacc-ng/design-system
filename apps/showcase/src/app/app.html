@@ -12,8 +12,8 @@
                 </div>
                 <h1 class="mt-2 text-3xl font-bold tracking-tight">Design System Showcase</h1>
                 <p class="mt-1 text-sm text-muted-foreground">
-                    Atomic components validation: Button, Badge, Input & Label with full OKLCH theming and
-                    accessibility.
+                    Atomic components validation: Button, Badge, Card, Input, Label, Separator & Switch with full OKLCH
+                    theming and accessibility.
                 </p>
             </div>
             <div class="flex items-center gap-3">
@@ -276,6 +276,98 @@
                     <div class="flex flex-col gap-2">
                         <label hlmLabel for="demo-password">Password</label>
                         <input hlmInput id="demo-password" type="password" placeholder="••••••••" />
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 8: Cards -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="cards-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">8. Cards (&lt;hlm-card&gt;)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Surface container primitives utilizing `--card`, `--card-foreground`, and border tokens.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <hlm-card class="w-full">
+                        <hlm-card-header>
+                            <h3 hlmCardTitle>Subscription Plan</h3>
+                            <p hlmCardDescription>Pro tier billed annually with unrestricted feature access.</p>
+                            <div hlmCardAction>
+                                <span hlmBadge variant="secondary">Active</span>
+                            </div>
+                        </hlm-card-header>
+                        <div hlmCardContent>
+                            <p class="text-sm">
+                                Includes enterprise support, 99.9% uptime SLA, and unlimited team seats.
+                            </p>
+                        </div>
+                        <hlm-card-footer class="flex justify-between">
+                            <button type="button" hlmBtn variant="outline" size="sm">Manage Plan</button>
+                            <button type="button" hlmBtn size="sm">Upgrade</button>
+                        </hlm-card-footer>
+                    </hlm-card>
+
+                    <hlm-card size="sm" class="w-full">
+                        <hlm-card-header>
+                            <h3 hlmCardTitle>Compact Card (size="sm")</h3>
+                            <p hlmCardDescription>Reduced padding for tight dashboard layouts.</p>
+                        </hlm-card-header>
+                        <div hlmCardContent>
+                            <p class="text-xs text-muted-foreground">Ideal for summary widgets and metric tiles.</p>
+                        </div>
+                    </hlm-card>
+                </div>
+            </section>
+
+            <!-- Section 9: Separators -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="separators-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">9. Separators (&lt;hlm-separator&gt;)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Accessible divider primitives supporting horizontal and vertical orientations.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <div>
+                        <div class="font-medium text-sm">Navigation Links (Vertical Separator)</div>
+                        <div class="mt-2 flex h-5 items-center gap-4 text-sm text-muted-foreground">
+                            <span>Overview</span>
+                            <hlm-separator orientation="vertical" />
+                            <span>Analytics</span>
+                            <hlm-separator orientation="vertical" />
+                            <span>Settings</span>
+                        </div>
+                    </div>
+                    <hlm-separator />
+                    <div class="text-xs text-muted-foreground">
+                        Horizontal rule above separates content sections cleanly using calibrated `--border` token.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 10: Switches -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="switches-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">10. Switches (&lt;hlm-switch&gt;)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Accessible boolean toggle primitives with Signal-based inputs and ControlValueAccessor.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-6">
+                    <div class="flex items-center gap-3">
+                        <hlm-switch id="switch-default" [checked]="switchChecked()" />
+                        <label hlmLabel for="switch-default">Airplane Mode</label>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <hlm-switch id="switch-sm" size="sm" [checked]="true" />
+                        <label hlmLabel for="switch-sm">Compact (size="sm")</label>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <hlm-switch id="switch-disabled" [disabled]="true" />
+                        <label hlmLabel for="switch-disabled">Disabled Switch</label>
                     </div>
                 </div>
             </section>

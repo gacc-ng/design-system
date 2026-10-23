@@ -20,7 +20,10 @@
             "@gacc-ng/ui/button": ["./libs/shared/ui/button/src/index.ts"],
             "@gacc-ng/ui/input": ["./libs/shared/ui/input/src/index.ts"],
             "@gacc-ng/ui/label": ["./libs/shared/ui/label/src/index.ts"],
-            "@gacc-ng/ui/utils": ["./libs/shared/ui/utils/src/index.ts"]
+            "@gacc-ng/ui/utils": ["./libs/shared/ui/utils/src/index.ts"],
+            "@gacc-ng/ui/card": ["./libs/shared/ui/card/src/index.ts"],
+            "@gacc-ng/ui/separator": ["./libs/shared/ui/separator/src/index.ts"],
+            "@gacc-ng/ui/switch": ["./libs/shared/ui/switch/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

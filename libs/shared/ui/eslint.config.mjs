@@ -45,7 +45,7 @@ export default [
                 'error',
                 {
                     type: 'element',
-                    prefix: 'gacc',
+                    prefix: ['gacc', 'hlm'],
                     style: 'kebab-case',
                 },
             ],
