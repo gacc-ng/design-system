@@ -39,7 +39,7 @@ describe('HlmBadge', () => {
         expect(defaultBadge.getAttribute('data-variant')).toBe('default');
         expect(defaultBadge.className).toContain('bg-primary');
         expect(defaultBadge.className).toContain('text-primary-foreground');
-        expect(defaultBadge.className).toContain('rounded-full');
+        expect(defaultBadge.className).toContain('rounded-4xl');
     });
 
     it('should apply secondary variant classes', () => {
@@ -56,8 +56,8 @@ describe('HlmBadge', () => {
         const destructiveBadge = badges[2].nativeElement as HTMLSpanElement;
 
         expect(destructiveBadge.getAttribute('data-variant')).toBe('destructive');
-        expect(destructiveBadge.className).toContain('bg-destructive');
-        expect(destructiveBadge.className).toContain('text-destructive-foreground');
+        expect(destructiveBadge.className).toContain('bg-destructive/10');
+        expect(destructiveBadge.className).toContain('text-destructive');
     });
 
     it('should apply outline variant classes', () => {

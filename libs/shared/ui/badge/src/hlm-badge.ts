@@ -5,16 +5,17 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { classes } from '@gacc-ng/ui/utils';
 
 export const badgeVariants = cva(
-    'inline-flex items-center justify-center rounded-full border border-transparent px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 select-none w-fit shrink-0 gap-1 overflow-hidden whitespace-nowrap',
+    'h-5 gap-1 rounded-4xl border border-transparent px-2.5 py-0.5 text-xs font-medium transition-all has-data-[icon=inline-end]:pe-1.5 has-data-[icon=inline-start]:ps-1.5 [&>ng-icon]:text-[length:--spacing(3)] group/badge focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 inline-flex w-fit shrink-0 items-center justify-center overflow-hidden whitespace-nowrap focus-visible:ring-[3px] [&>ng-icon]:pointer-events-none',
     {
         variants: {
             variant: {
-                default: 'border-transparent bg-primary text-primary-foreground hover:bg-primary/80',
-                secondary: 'border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80',
-                destructive: 'border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80',
-                outline: 'border-border text-foreground hover:bg-muted hover:text-muted-foreground',
-                ghost: 'border-transparent hover:bg-muted hover:text-foreground dark:hover:bg-muted/50',
-                link: 'text-primary underline-offset-4 hover:underline border-transparent',
+                default: 'bg-primary text-primary-foreground [a]:hover:bg-primary/80',
+                secondary: 'bg-secondary text-secondary-foreground [a]:hover:bg-secondary/80',
+                destructive:
+                    'bg-destructive/10 [a]:hover:bg-destructive/20 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 text-destructive dark:bg-destructive/20',
+                outline: 'border-border text-foreground [a]:hover:bg-muted [a]:hover:text-muted-foreground bg-input/30',
+                ghost: 'hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50',
+                link: 'text-primary underline-offset-4 hover:underline',
             },
         },
         defaultVariants: {

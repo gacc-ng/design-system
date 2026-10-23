@@ -38,7 +38,7 @@ describe('HlmInput', () => {
         expect(defaultInput.getAttribute('data-slot')).toBe('input');
         expect(defaultInput.className).toContain('border-input');
         expect(defaultInput.className).toContain('h-9');
-        expect(defaultInput.className).toContain('rounded-md');
+        expect(defaultInput.className).toContain('rounded-4xl');
     });
 
     it('should apply small size classes', () => {

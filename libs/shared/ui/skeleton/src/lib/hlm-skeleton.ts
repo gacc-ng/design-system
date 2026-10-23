@@ -11,7 +11,7 @@ import { classes } from '@gacc-ng/ui/utils';
 })
 export class HlmSkeleton {
     constructor() {
-        classes(() => 'bg-muted rounded-md block motion-safe:animate-pulse');
+        classes(() => 'bg-muted rounded-2xl block motion-safe:animate-pulse');
     }
 }
 

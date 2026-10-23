@@ -55,7 +55,7 @@ describe('HlmButton', () => {
         const outlineBtn = buttons[2].nativeElement as HTMLButtonElement;
 
         expect(outlineBtn.className).toContain('border-border');
-        expect(outlineBtn.className).toContain('bg-background');
+        expect(outlineBtn.className).toContain('bg-input/30');
         expect(outlineBtn.className).toContain('h-8');
     });
 

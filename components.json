@@ -3,6 +3,6 @@
     "componentsPath": "libs/shared/ui",
     "buildable": true,
     "generateAs": "entrypoint",
-    "style": "vega",
+    "style": "maia",
     "importAlias": "@gacc-ng/ui"
 }
