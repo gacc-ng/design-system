@@ -1,15 +1,37 @@
 import { Component, signal } from '@angular/core';
 
+import { HlmAvatarImports } from '@gacc-ng/ui/avatar';
 import { HlmBadge } from '@gacc-ng/ui/badge';
 import { HlmButton } from '@gacc-ng/ui/button';
 import { HlmCardImports } from '@gacc-ng/ui/card';
+import { HlmCheckboxImports } from '@gacc-ng/ui/checkbox';
 import { HlmInput } from '@gacc-ng/ui/input';
+import { HlmKbdImports } from '@gacc-ng/ui/kbd';
 import { HlmLabel } from '@gacc-ng/ui/label';
+import { HlmRadioGroupImports } from '@gacc-ng/ui/radio-group';
 import { HlmSeparatorImports } from '@gacc-ng/ui/separator';
+import { HlmSkeletonImports } from '@gacc-ng/ui/skeleton';
+import { HlmSpinnerImports } from '@gacc-ng/ui/spinner';
 import { HlmSwitchImports } from '@gacc-ng/ui/switch';
+import { HlmTextareaImports } from '@gacc-ng/ui/textarea';
 
 @Component({
-    imports: [HlmButton, HlmBadge, HlmInput, HlmLabel, HlmCardImports, HlmSeparatorImports, HlmSwitchImports],
+    imports: [
+        HlmButton,
+        HlmBadge,
+        HlmInput,
+        HlmLabel,
+        HlmCardImports,
+        HlmSeparatorImports,
+        HlmSwitchImports,
+        HlmCheckboxImports,
+        HlmRadioGroupImports,
+        HlmTextareaImports,
+        HlmAvatarImports,
+        HlmSkeletonImports,
+        HlmSpinnerImports,
+        HlmKbdImports,
+    ],
     selector: 'gacc-root',
     templateUrl: './app.html',
     styleUrl: './app.css',
@@ -20,6 +42,10 @@ export class App {
     protected readonly isDark = signal(false);
 
     protected readonly switchChecked = signal(true);
+
+    protected readonly checkboxChecked = signal(true);
+
+    protected readonly radioPlan = signal('pro');
 
     protected toggleDarkMode(): void {
         this.isDark.update((dark) => !dark);

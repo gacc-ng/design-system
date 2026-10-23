@@ -371,6 +371,201 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Section 11: Checkboxes -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="checkboxes-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">11. Checkboxes (&lt;hlm-checkbox&gt;)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Accessible tri-state boolean controls integrated with &#64;spartan-ng/brain/checkbox.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-6">
+                    <div class="flex items-center gap-3">
+                        <hlm-checkbox inputId="terms-cb" [checked]="checkboxChecked()" />
+                        <label hlmLabel for="terms-cb">Accept Terms & Conditions</label>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <hlm-checkbox inputId="indeterminate-cb" [indeterminate]="true" />
+                        <label hlmLabel for="indeterminate-cb">Indeterminate State</label>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <hlm-checkbox inputId="disabled-cb" [disabled]="true" [checked]="true" />
+                        <label hlmLabel for="disabled-cb">Disabled Checked</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 12: Radio Groups -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="radios-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">12. Radio Groups (&lt;hlm-radio-group&gt;)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Exclusive option selection with WAI-ARIA arrow navigation and indicators.
+                    </p>
+                </div>
+                <hlm-radio-group [value]="radioPlan()">
+                    <div class="flex items-center gap-3">
+                        <hlm-radio value="starter" inputId="plan-starter">
+                            <hlm-radio-indicator indicator />
+                        </hlm-radio>
+                        <label hlmLabel for="plan-starter">Starter ($0 / mo)</label>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <hlm-radio value="pro" inputId="plan-pro">
+                            <hlm-radio-indicator indicator />
+                        </hlm-radio>
+                        <label hlmLabel for="plan-pro">Pro ($29 / mo)</label>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <hlm-radio value="enterprise" inputId="plan-enterprise" [disabled]="true">
+                            <hlm-radio-indicator indicator />
+                        </hlm-radio>
+                        <label hlmLabel for="plan-enterprise">Enterprise (Contact us - Disabled)</label>
+                    </div>
+                </hlm-radio-group>
+            </section>
+
+            <!-- Section 13: Textareas -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="textareas-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">13. Textareas ([hlmTextarea])</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Multiline input directives with dynamic field sizing and border tokens.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <div class="flex flex-col gap-2">
+                        <label hlmLabel for="feedback-textarea">User Feedback</label>
+                        <textarea
+                            hlmTextarea
+                            id="feedback-textarea"
+                            placeholder="Enter detailed feedback here..."
+                        ></textarea>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label hlmLabel for="disabled-textarea">Disabled Notes</label>
+                        <textarea
+                            hlmTextarea
+                            id="disabled-textarea"
+                            disabled
+                            placeholder="Read-only system notes..."
+                        ></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 14: Avatars -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="avatars-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">14. Avatars (&lt;hlm-avatar&gt;)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        User profile image representations with fallback initials, sizes, badges, and group stacking.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-8">
+                    <div class="flex items-center gap-4">
+                        <hlm-avatar size="sm">
+                            <span hlmAvatarFallback>SM</span>
+                        </hlm-avatar>
+                        <hlm-avatar size="default">
+                            <span hlmAvatarFallback>MD</span>
+                            <hlm-avatar-badge class="bg-emerald-500" />
+                        </hlm-avatar>
+                        <hlm-avatar size="lg">
+                            <span hlmAvatarFallback>LG</span>
+                            <hlm-avatar-badge class="bg-sky-500" />
+                        </hlm-avatar>
+                    </div>
+
+                    <hlm-avatar-group>
+                        <hlm-avatar>
+                            <span hlmAvatarFallback>AB</span>
+                        </hlm-avatar>
+                        <hlm-avatar>
+                            <span hlmAvatarFallback>CD</span>
+                        </hlm-avatar>
+                        <hlm-avatar>
+                            <span hlmAvatarFallback>EF</span>
+                        </hlm-avatar>
+                        <hlm-avatar-group-count>+4</hlm-avatar-group-count>
+                    </hlm-avatar-group>
+                </div>
+            </section>
+
+            <!-- Section 15: Skeletons -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="skeletons-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">15. Skeletons (&lt;hlm-skeleton&gt;)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Loading placeholders with pulse animations leveraging the `--muted` token.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-4 max-w-sm">
+                    <div class="flex items-center gap-4">
+                        <hlm-skeleton class="size-12 rounded-full" />
+                        <div class="space-y-2 flex-1">
+                            <hlm-skeleton class="h-4 w-full" />
+                            <hlm-skeleton class="h-4 w-3/4" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 16: Spinners -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="spinners-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">16. Spinners (&lt;hlm-spinner&gt;)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Circular indicators with accessible status roles and motion-safe spin animations.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-6">
+                    <div class="flex items-center gap-3">
+                        <hlm-spinner />
+                        <span class="text-sm text-muted-foreground">Default Loader</span>
+                    </div>
+
+                    <button type="button" hlmBtn size="sm" disabled>
+                        <hlm-spinner class="mr-2" />
+                        Processing Order
+                    </button>
+
+                    <span hlmBadge variant="outline" class="flex items-center gap-2">
+                        <hlm-spinner class="text-xs" />
+                        Syncing...
+                    </span>
+                </div>
+            </section>
+
+            <!-- Section 17: Keyboard Shortcuts -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="kbds-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">17. Keyboard Shortcuts (&lt;kbd hlmKbd&gt;)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Semantic accelerator badges for hotkeys and system navigation shortcuts.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-6">
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm">Command Palette:</span>
+                        <kbd hlmKbdGroup>
+                            <kbd hlmKbd>⌘</kbd>
+                            <kbd hlmKbd>K</kbd>
+                        </kbd>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm">Save:</span>
+                        <kbd hlmKbdGroup>
+                            <kbd hlmKbd>Ctrl</kbd>
+                            <kbd hlmKbd>S</kbd>
+                        </kbd>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 </main>

@@ -3,13 +3,20 @@ import { By } from '@angular/platform-browser';
 
 import { describe, expect, it } from 'vitest';
 
+import { HlmAvatar } from '@gacc-ng/ui/avatar';
 import { HlmBadge } from '@gacc-ng/ui/badge';
 import { HlmButton } from '@gacc-ng/ui/button';
 import { HlmCard } from '@gacc-ng/ui/card';
+import { HlmCheckbox } from '@gacc-ng/ui/checkbox';
 import { HlmInput } from '@gacc-ng/ui/input';
+import { HlmKbd } from '@gacc-ng/ui/kbd';
 import { HlmLabel } from '@gacc-ng/ui/label';
+import { HlmRadioGroup } from '@gacc-ng/ui/radio-group';
 import { HlmSeparator } from '@gacc-ng/ui/separator';
+import { HlmSkeleton } from '@gacc-ng/ui/skeleton';
+import { HlmSpinner } from '@gacc-ng/ui/spinner';
 import { HlmSwitch } from '@gacc-ng/ui/switch';
+import { HlmTextarea } from '@gacc-ng/ui/textarea';
 
 import { App } from './app';
 
@@ -154,6 +161,62 @@ describe('App Showcase', () => {
 
         const switches = switchesContainer.queryAll(By.directive(HlmSwitch));
         expect(switches.length).toBe(3);
+    });
+
+    it('should render checkboxes with checked, indeterminate, and disabled states', () => {
+        const checkboxesContainer = fixture.debugElement.query(By.css('[data-testid="checkboxes-container"]'));
+        expect(checkboxesContainer).toBeTruthy();
+
+        const checkboxes = checkboxesContainer.queryAll(By.directive(HlmCheckbox));
+        expect(checkboxes.length).toBe(3);
+    });
+
+    it('should render radio group with radio options and indicators', () => {
+        const radiosContainer = fixture.debugElement.query(By.css('[data-testid="radios-container"]'));
+        expect(radiosContainer).toBeTruthy();
+
+        const radioGroup = radiosContainer.query(By.directive(HlmRadioGroup));
+        expect(radioGroup).toBeTruthy();
+    });
+
+    it('should render textareas with hlmTextarea directive', () => {
+        const textareasContainer = fixture.debugElement.query(By.css('[data-testid="textareas-container"]'));
+        expect(textareasContainer).toBeTruthy();
+
+        const textareas = textareasContainer.queryAll(By.directive(HlmTextarea));
+        expect(textareas.length).toBe(2);
+    });
+
+    it('should render avatars with sizes, badges, and group stack', () => {
+        const avatarsContainer = fixture.debugElement.query(By.css('[data-testid="avatars-container"]'));
+        expect(avatarsContainer).toBeTruthy();
+
+        const avatars = avatarsContainer.queryAll(By.directive(HlmAvatar));
+        expect(avatars.length).toBeGreaterThanOrEqual(4);
+    });
+
+    it('should render skeletons with animated pulse', () => {
+        const skeletonsContainer = fixture.debugElement.query(By.css('[data-testid="skeletons-container"]'));
+        expect(skeletonsContainer).toBeTruthy();
+
+        const skeletons = skeletonsContainer.queryAll(By.directive(HlmSkeleton));
+        expect(skeletons.length).toBeGreaterThanOrEqual(3);
+    });
+
+    it('should render spinners with status role', () => {
+        const spinnersContainer = fixture.debugElement.query(By.css('[data-testid="spinners-container"]'));
+        expect(spinnersContainer).toBeTruthy();
+
+        const spinners = spinnersContainer.queryAll(By.directive(HlmSpinner));
+        expect(spinners.length).toBeGreaterThanOrEqual(3);
+    });
+
+    it('should render kbd shortcut badges', () => {
+        const kbdsContainer = fixture.debugElement.query(By.css('[data-testid="kbds-container"]'));
+        expect(kbdsContainer).toBeTruthy();
+
+        const kbds = kbdsContainer.queryAll(By.directive(HlmKbd));
+        expect(kbds.length).toBeGreaterThanOrEqual(4);
     });
 
     it('should toggle dark mode state when theme button is clicked', () => {

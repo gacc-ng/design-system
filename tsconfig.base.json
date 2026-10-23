@@ -23,7 +23,14 @@
             "@gacc-ng/ui/utils": ["./libs/shared/ui/utils/src/index.ts"],
             "@gacc-ng/ui/card": ["./libs/shared/ui/card/src/index.ts"],
             "@gacc-ng/ui/separator": ["./libs/shared/ui/separator/src/index.ts"],
-            "@gacc-ng/ui/switch": ["./libs/shared/ui/switch/src/index.ts"]
+            "@gacc-ng/ui/switch": ["./libs/shared/ui/switch/src/index.ts"],
+            "@gacc-ng/ui/checkbox": ["./libs/shared/ui/checkbox/src/index.ts"],
+            "@gacc-ng/ui/radio-group": ["./libs/shared/ui/radio-group/src/index.ts"],
+            "@gacc-ng/ui/textarea": ["./libs/shared/ui/textarea/src/index.ts"],
+            "@gacc-ng/ui/avatar": ["./libs/shared/ui/avatar/src/index.ts"],
+            "@gacc-ng/ui/skeleton": ["./libs/shared/ui/skeleton/src/index.ts"],
+            "@gacc-ng/ui/spinner": ["./libs/shared/ui/spinner/src/index.ts"],
+            "@gacc-ng/ui/kbd": ["./libs/shared/ui/kbd/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

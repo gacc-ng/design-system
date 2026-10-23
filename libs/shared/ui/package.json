@@ -12,12 +12,22 @@
         "@angular/common": "^22.2.0",
         "@angular/core": "^22.2.0",
         "@angular/forms": ">=21.0.0",
+        "@ng-icons/core": ">=36.0.0",
+        "@ng-icons/lucide": ">=36.0.0",
         "@spartan-ng/brain": "^1.8.0",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
         "tailwind-merge": "^3.5.0",
         "tailwindcss": ">=4.0.0",
         "tw-animate-css": ">=1.0.0"
+    },
+    "peerDependenciesMeta": {
+        "@ng-icons/core": {
+            "optional": true
+        },
+        "@ng-icons/lucide": {
+            "optional": true
+        }
     },
     "sideEffects": false,
     "publishConfig": {
