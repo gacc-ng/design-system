@@ -30,7 +30,11 @@
             "@gacc-ng/ui/avatar": ["./libs/shared/ui/avatar/src/index.ts"],
             "@gacc-ng/ui/skeleton": ["./libs/shared/ui/skeleton/src/index.ts"],
             "@gacc-ng/ui/spinner": ["./libs/shared/ui/spinner/src/index.ts"],
-            "@gacc-ng/ui/kbd": ["./libs/shared/ui/kbd/src/index.ts"]
+            "@gacc-ng/ui/kbd": ["./libs/shared/ui/kbd/src/index.ts"],
+            "@gacc-ng/ui/alert": ["./libs/shared/ui/alert/src/index.ts"],
+            "@gacc-ng/ui/tooltip": ["./libs/shared/ui/tooltip/src/index.ts"],
+            "@gacc-ng/ui/toggle": ["./libs/shared/ui/toggle/src/index.ts"],
+            "@gacc-ng/ui/toggle-group": ["./libs/shared/ui/toggle-group/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

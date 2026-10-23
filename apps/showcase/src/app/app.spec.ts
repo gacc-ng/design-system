@@ -3,6 +3,7 @@ import { By } from '@angular/platform-browser';
 
 import { describe, expect, it } from 'vitest';
 
+import { HlmAlert } from '@gacc-ng/ui/alert';
 import { HlmAvatar } from '@gacc-ng/ui/avatar';
 import { HlmBadge } from '@gacc-ng/ui/badge';
 import { HlmButton } from '@gacc-ng/ui/button';
@@ -17,6 +18,9 @@ import { HlmSkeleton } from '@gacc-ng/ui/skeleton';
 import { HlmSpinner } from '@gacc-ng/ui/spinner';
 import { HlmSwitch } from '@gacc-ng/ui/switch';
 import { HlmTextarea } from '@gacc-ng/ui/textarea';
+import { HlmToggle } from '@gacc-ng/ui/toggle';
+import { HlmToggleGroup } from '@gacc-ng/ui/toggle-group';
+import { HlmTooltip } from '@gacc-ng/ui/tooltip';
 
 import { App } from './app';
 
@@ -217,6 +221,38 @@ describe('App Showcase', () => {
 
         const kbds = kbdsContainer.queryAll(By.directive(HlmKbd));
         expect(kbds.length).toBeGreaterThanOrEqual(4);
+    });
+
+    it('should render alerts with title and description', () => {
+        const alertsContainer = fixture.debugElement.query(By.css('[data-testid="alerts-container"]'));
+        expect(alertsContainer).toBeTruthy();
+
+        const alerts = alertsContainer.queryAll(By.directive(HlmAlert));
+        expect(alerts.length).toBeGreaterThanOrEqual(2);
+    });
+
+    it('should render tooltips with hlmTooltip directive', () => {
+        const tooltipsContainer = fixture.debugElement.query(By.css('[data-testid="tooltips-container"]'));
+        expect(tooltipsContainer).toBeTruthy();
+
+        const tooltips = tooltipsContainer.queryAll(By.directive(HlmTooltip));
+        expect(tooltips.length).toBeGreaterThanOrEqual(2);
+    });
+
+    it('should render toggles with maia pill styling', () => {
+        const togglesContainer = fixture.debugElement.query(By.css('[data-testid="toggles-container"]'));
+        expect(togglesContainer).toBeTruthy();
+
+        const toggles = togglesContainer.queryAll(By.directive(HlmToggle));
+        expect(toggles.length).toBeGreaterThanOrEqual(3);
+    });
+
+    it('should render toggle group with items', () => {
+        const toggleGroupsContainer = fixture.debugElement.query(By.css('[data-testid="toggle-groups-container"]'));
+        expect(toggleGroupsContainer).toBeTruthy();
+
+        const group = toggleGroupsContainer.query(By.directive(HlmToggleGroup));
+        expect(group).toBeTruthy();
     });
 
     it('should toggle dark mode state when theme button is clicked', () => {

@@ -592,6 +592,80 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Section 18: Alerts -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="alerts-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">18. Alerts (&lt;hlm-alert&gt;)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Contextual notifications and feedback banners supporting default and destructive variants.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <hlm-alert>
+                        <h4 hlmAlertTitle>Heads up!</h4>
+                        <p hlmAlertDescription>You can add components to your app using the cli.</p>
+                    </hlm-alert>
+
+                    <hlm-alert variant="destructive">
+                        <h4 hlmAlertTitle>Error</h4>
+                        <p hlmAlertDescription>Your session has expired. Please log in again.</p>
+                    </hlm-alert>
+                </div>
+            </section>
+
+            <!-- Section 19: Tooltips -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="tooltips-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">19. Tooltips ([hlmTooltip])</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Accessible floating micro-interactions anchored via CDK Overlay with Maia rounded-2xl styling.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-4">
+                    <button type="button" hlmBtn variant="outline" [hlmTooltip]="'Add to library'">
+                        Hover for Tooltip
+                    </button>
+                    <button type="button" hlmBtn [hlmTooltip]="'Quick action shortcut'">Action with Tooltip</button>
+                </div>
+            </section>
+
+            <!-- Section 20: Toggles -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="toggles-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">20. Toggles (button[hlmToggle])</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Bistable press buttons with Maia rounded-4xl pill aesthetics.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-4">
+                    <button type="button" hlmToggle aria-label="Toggle Bold">B</button>
+                    <button type="button" hlmToggle variant="outline" aria-label="Toggle Italic">I</button>
+                    <button type="button" hlmToggle variant="outline" size="sm" aria-label="Toggle Underline">U</button>
+                </div>
+            </section>
+
+            <!-- Section 21: Toggle Groups -->
+            <section
+                class="rounded-xl border border-border bg-card p-6 shadow-xs"
+                data-testid="toggle-groups-container"
+            >
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">21. Toggle Groups (&lt;hlm-toggle-group&gt;)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Single and multiple selection button strips with seamless border unification.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-6">
+                    <hlm-toggle-group variant="outline" type="single" value="left">
+                        <button type="button" hlmToggleGroupItem value="left" aria-label="Align left">Left</button>
+                        <button type="button" hlmToggleGroupItem value="center" aria-label="Align center">
+                            Center
+                        </button>
+                        <button type="button" hlmToggleGroupItem value="right" aria-label="Align right">Right</button>
+                    </hlm-toggle-group>
+                </div>
+            </section>
         </div>
     </div>
 </main>
