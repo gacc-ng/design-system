@@ -288,7 +288,7 @@
                         Surface container primitives utilizing `--card`, `--card-foreground`, and border tokens.
                     </p>
                 </div>
-                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
                     <hlm-card class="w-full">
                         <hlm-card-header>
                             <h3 hlmCardTitle>Subscription Plan</h3>
@@ -310,12 +310,38 @@
 
                     <hlm-card size="sm" class="w-full">
                         <hlm-card-header>
-                            <h3 hlmCardTitle>Compact Card (size="sm")</h3>
-                            <p hlmCardDescription>Reduced padding for tight dashboard layouts.</p>
+                            <h3 hlmCardTitle>Small Card (size="sm")</h3>
+                            <p hlmCardDescription>This card uses the small size variant.</p>
                         </hlm-card-header>
                         <div hlmCardContent>
-                            <p class="text-xs text-muted-foreground">Ideal for summary widgets and metric tiles.</p>
+                            <p class="text-xs text-muted-foreground">
+                                The card component supports a size prop that can be set to "sm" for a more compact
+                                appearance.
+                            </p>
                         </div>
+                        <hlm-card-footer>
+                            <button type="button" hlmBtn variant="outline" size="sm" class="w-full">Action</button>
+                        </hlm-card-footer>
+                    </hlm-card>
+
+                    <hlm-card class="w-full pt-0">
+                        <img
+                            src="https://images.unsplash.com/photo-1604076850742-4c7221f3101b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Event cover"
+                            class="aspect-video w-full object-cover"
+                        />
+                        <hlm-card-header>
+                            <div hlmCardAction>
+                                <span hlmBadge variant="secondary">Featured</span>
+                            </div>
+                            <h3 hlmCardTitle>Design systems meetup</h3>
+                            <p hlmCardDescription>
+                                A practical talk on component APIs, accessibility, and shipping faster.
+                            </p>
+                        </hlm-card-header>
+                        <hlm-card-footer>
+                            <button type="button" hlmBtn class="w-full">View Event</button>
+                        </hlm-card-footer>
                     </hlm-card>
                 </div>
             </section>
