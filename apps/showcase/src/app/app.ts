@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 
+import { HlmAlertImports } from '@gacc-ng/ui/alert';
 import { HlmAvatarImports } from '@gacc-ng/ui/avatar';
 import { HlmBadge } from '@gacc-ng/ui/badge';
 import { HlmButton } from '@gacc-ng/ui/button';
@@ -14,6 +15,9 @@ import { HlmSkeletonImports } from '@gacc-ng/ui/skeleton';
 import { HlmSpinnerImports } from '@gacc-ng/ui/spinner';
 import { HlmSwitchImports } from '@gacc-ng/ui/switch';
 import { HlmTextareaImports } from '@gacc-ng/ui/textarea';
+import { HlmToggleImports } from '@gacc-ng/ui/toggle';
+import { HlmToggleGroupImports } from '@gacc-ng/ui/toggle-group';
+import { HlmTooltipImports } from '@gacc-ng/ui/tooltip';
 
 @Component({
     imports: [
@@ -31,6 +35,10 @@ import { HlmTextareaImports } from '@gacc-ng/ui/textarea';
         HlmSkeletonImports,
         HlmSpinnerImports,
         HlmKbdImports,
+        HlmAlertImports,
+        HlmTooltipImports,
+        HlmToggleImports,
+        HlmToggleGroupImports,
     ],
     selector: 'gacc-root',
     templateUrl: './app.html',
