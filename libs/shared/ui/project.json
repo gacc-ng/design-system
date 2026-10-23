@@ -37,6 +37,7 @@
                 "configDir": "libs/shared/ui/.storybook",
                 "browserTarget": "ui-helm:build-storybook",
                 "compodoc": false,
+                "experimentalZoneless": true,
                 "styles": ["libs/shared/ui/.storybook/tailwind.css"]
             },
             "configurations": {
@@ -53,6 +54,7 @@
                 "configDir": "libs/shared/ui/.storybook",
                 "browserTarget": "ui-helm:build-storybook",
                 "compodoc": false,
+                "experimentalZoneless": true,
                 "styles": ["libs/shared/ui/.storybook/tailwind.css"]
             },
             "configurations": {
