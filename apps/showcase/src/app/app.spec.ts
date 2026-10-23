@@ -4,16 +4,20 @@ import { By } from '@angular/platform-browser';
 import { describe, expect, it } from 'vitest';
 
 import { HlmAlert } from '@gacc-ng/ui/alert';
+import { HlmAlertDialog } from '@gacc-ng/ui/alert-dialog';
 import { HlmAvatar } from '@gacc-ng/ui/avatar';
 import { HlmBadge } from '@gacc-ng/ui/badge';
 import { HlmButton } from '@gacc-ng/ui/button';
 import { HlmCard } from '@gacc-ng/ui/card';
 import { HlmCheckbox } from '@gacc-ng/ui/checkbox';
+import { HlmDialog } from '@gacc-ng/ui/dialog';
 import { HlmInput } from '@gacc-ng/ui/input';
 import { HlmKbd } from '@gacc-ng/ui/kbd';
 import { HlmLabel } from '@gacc-ng/ui/label';
+import { HlmPopover } from '@gacc-ng/ui/popover';
 import { HlmRadioGroup } from '@gacc-ng/ui/radio-group';
 import { HlmSeparator } from '@gacc-ng/ui/separator';
+import { HlmSheet } from '@gacc-ng/ui/sheet';
 import { HlmSkeleton } from '@gacc-ng/ui/skeleton';
 import { HlmSpinner } from '@gacc-ng/ui/spinner';
 import { HlmSwitch } from '@gacc-ng/ui/switch';
@@ -253,6 +257,38 @@ describe('App Showcase', () => {
 
         const group = toggleGroupsContainer.query(By.directive(HlmToggleGroup));
         expect(group).toBeTruthy();
+    });
+
+    it('should render dialogs section with hlm-dialog', () => {
+        const dialogsContainer = fixture.debugElement.query(By.css('[data-testid="dialogs-container"]'));
+        expect(dialogsContainer).toBeTruthy();
+
+        const dialog = dialogsContainer.query(By.directive(HlmDialog));
+        expect(dialog).toBeTruthy();
+    });
+
+    it('should render alert dialogs section with hlm-alert-dialog', () => {
+        const alertDialogsContainer = fixture.debugElement.query(By.css('[data-testid="alert-dialogs-container"]'));
+        expect(alertDialogsContainer).toBeTruthy();
+
+        const alertDialog = alertDialogsContainer.query(By.directive(HlmAlertDialog));
+        expect(alertDialog).toBeTruthy();
+    });
+
+    it('should render popovers section with hlmPopover directive', () => {
+        const popoversContainer = fixture.debugElement.query(By.css('[data-testid="popovers-container"]'));
+        expect(popoversContainer).toBeTruthy();
+
+        const popover = popoversContainer.query(By.directive(HlmPopover));
+        expect(popover).toBeTruthy();
+    });
+
+    it('should render sheets section with hlm-sheet', () => {
+        const sheetsContainer = fixture.debugElement.query(By.css('[data-testid="sheets-container"]'));
+        expect(sheetsContainer).toBeTruthy();
+
+        const sheet = sheetsContainer.query(By.directive(HlmSheet));
+        expect(sheet).toBeTruthy();
     });
 
     it('should toggle dark mode state when theme button is clicked', () => {
