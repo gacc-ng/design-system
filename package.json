@@ -28,7 +28,7 @@
     },
     "private": true,
     "dependencies": {
-        "@angular/cdk": "22.0.0",
+        "@angular/cdk": "22.2.3",
         "@angular/common": "~22.2.3",
         "@angular/compiler": "~22.2.3",
         "@angular/core": "~22.2.3",
@@ -43,10 +43,10 @@
         "tailwind-merge": "^3.5.0"
     },
     "devDependencies": {
-        "@angular-devkit/core": "~22.2.2",
-        "@angular-devkit/schematics": "~22.2.2",
-        "@angular/build": "~22.2.2",
-        "@angular/cli": "~22.2.2",
+        "@angular-devkit/core": "~22.2.3",
+        "@angular-devkit/schematics": "~22.2.3",
+        "@angular/build": "~22.2.3",
+        "@angular/cli": "~22.2.3",
         "@angular/compiler-cli": "~22.2.3",
         "@angular/language-service": "~22.2.3",
         "@commitlint/cli": "^21.2.3",
@@ -62,7 +62,7 @@
         "@nx/js": "23.3.0",
         "@nx/web": "23.3.0",
         "@nx/workspace": "23.3.0",
-        "@schematics/angular": "~22.2.2",
+        "@schematics/angular": "~22.2.3",
         "@spartan-ng/cli": "^1.8.0",
         "@swc/helpers": "~0.5.18",
         "@tailwindcss/postcss": "^4.3.3",
