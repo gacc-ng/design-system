@@ -5,8 +5,11 @@ import { describe, expect, it } from 'vitest';
 
 import { HlmBadge } from '@gacc-ng/ui/badge';
 import { HlmButton } from '@gacc-ng/ui/button';
+import { HlmCard } from '@gacc-ng/ui/card';
 import { HlmInput } from '@gacc-ng/ui/input';
 import { HlmLabel } from '@gacc-ng/ui/label';
+import { HlmSeparator } from '@gacc-ng/ui/separator';
+import { HlmSwitch } from '@gacc-ng/ui/switch';
 
 import { App } from './app';
 
@@ -123,6 +126,34 @@ describe('App Showcase', () => {
         expect(emailInput.id).toBe('demo-email');
         expect(emailInput.className).toContain('border-input');
         expect(emailInput.className).toContain('h-9');
+    });
+
+    it('should render cards with header, title, and action', () => {
+        const cardsContainer = fixture.debugElement.query(By.css('[data-testid="cards-container"]'));
+        expect(cardsContainer).toBeTruthy();
+
+        const cards = cardsContainer.queryAll(By.directive(HlmCard));
+        expect(cards.length).toBe(2);
+
+        const firstCard = cards[0].nativeElement as HTMLElement;
+        expect(firstCard.getAttribute('data-slot')).toBe('card');
+        expect(firstCard.className).toContain('bg-card');
+    });
+
+    it('should render separators with horizontal and vertical orientations', () => {
+        const separatorsContainer = fixture.debugElement.query(By.css('[data-testid="separators-container"]'));
+        expect(separatorsContainer).toBeTruthy();
+
+        const separators = separatorsContainer.queryAll(By.directive(HlmSeparator));
+        expect(separators.length).toBeGreaterThanOrEqual(2);
+    });
+
+    it('should render switches with checked and disabled states', () => {
+        const switchesContainer = fixture.debugElement.query(By.css('[data-testid="switches-container"]'));
+        expect(switchesContainer).toBeTruthy();
+
+        const switches = switchesContainer.queryAll(By.directive(HlmSwitch));
+        expect(switches.length).toBe(3);
     });
 
     it('should toggle dark mode state when theme button is clicked', () => {
