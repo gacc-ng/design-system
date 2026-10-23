@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 
 import { describe, expect, it } from 'vitest';
 
-import { HlmAlertDialogImports } from './hlm-alert-dialog';
+import { HlmAlertDialogImports } from '../index';
 
 @Component({
     standalone: true,

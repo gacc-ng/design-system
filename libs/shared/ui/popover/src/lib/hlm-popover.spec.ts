@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 
 import { describe, expect, it } from 'vitest';
 
-import { HlmPopoverImports } from './hlm-popover';
+import { HlmPopoverImports } from '../index';
 
 @Component({
     standalone: true,
