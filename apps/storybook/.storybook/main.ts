@@ -1,11 +1,18 @@
-import type { StorybookConfig } from '@storybook/angular';
+import type { StorybookConfig } from '@storybook/angular-vite';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const config: StorybookConfig = {
     stories: ['../../../libs/shared/ui/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
     addons: [],
     framework: {
-        name: '@storybook/angular',
-        options: {},
+        name: '@storybook/angular-vite',
+        options: {
+            tsconfig: resolve(__dirname, '../tsconfig.json'),
+        },
     },
 };
 

@@ -2,6 +2,8 @@ import { applicationConfig, type Decorator, type Preview } from '@storybook/angu
 
 import { provideSpartanHlm } from '@gacc-ng/ui/utils';
 
+import './tailwind.css';
+
 /**
  * Synchronizes Storybook's background / theme selection with
  * the design system's class-based dark mode (`.dark`).
