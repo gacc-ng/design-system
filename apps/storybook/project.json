@@ -13,7 +13,7 @@
                 "port": 4400,
                 "configDir": "apps/storybook/.storybook",
                 "browserTarget": "storybook:build-storybook",
-                "tsConfig": "apps/storybook/.storybook/tsconfig.json",
+                "tsConfig": "apps/storybook/tsconfig.json",
                 "compodoc": false,
                 "experimentalZoneless": true,
                 "styles": ["apps/storybook/.storybook/tailwind.css"]
@@ -30,7 +30,7 @@
             "options": {
                 "outputDir": "dist/storybook",
                 "configDir": "apps/storybook/.storybook",
-                "tsConfig": "apps/storybook/.storybook/tsconfig.json",
+                "tsConfig": "apps/storybook/tsconfig.json",
                 "compodoc": false,
                 "experimentalZoneless": true,
                 "styles": ["apps/storybook/.storybook/tailwind.css"]
