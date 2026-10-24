@@ -47,7 +47,8 @@
             "@gacc-ng/ui/select": ["./libs/shared/ui/select/src/index.ts"],
             "@gacc-ng/ui/slider": ["./libs/shared/ui/slider/src/index.ts"],
             "@gacc-ng/ui/input-otp": ["./libs/shared/ui/input-otp/src/index.ts"],
-            "@gacc-ng/ui/field": ["./libs/shared/ui/field/src/index.ts"]
+            "@gacc-ng/ui/field": ["./libs/shared/ui/field/src/index.ts"],
+            "@gacc-ng/ui/command": ["./libs/shared/ui/command/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
