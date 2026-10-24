@@ -100,7 +100,19 @@ const Configuration: UserConfig = {
         'scope-enum': [
             RuleConfigSeverity.Error,
             'always',
-            ['ui-helm', 'showcase', 'button', 'badge', 'input', 'label', 'utils', 'preset', 'core', 'release'],
+            [
+                'ui-helm',
+                'showcase',
+                'storybook',
+                'button',
+                'badge',
+                'input',
+                'label',
+                'utils',
+                'preset',
+                'core',
+                'release',
+            ],
         ],
     },
 };

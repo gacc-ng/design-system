@@ -1,0 +1,56 @@
+{
+    "name": "storybook",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "application",
+    "sourceRoot": "apps/storybook",
+    "prefix": "gacc",
+    "tags": ["type:app", "scope:storybook"],
+    "implicitDependencies": ["ui-helm"],
+    "targets": {
+        "storybook": {
+            "executor": "@storybook/angular:start-storybook",
+            "options": {
+                "port": 4400,
+                "configDir": "apps/storybook/.storybook",
+                "browserTarget": "storybook:build-storybook",
+                "tsConfig": "apps/storybook/.storybook/tsconfig.json",
+                "compodoc": false,
+                "experimentalZoneless": true,
+                "styles": ["apps/storybook/.storybook/tailwind.css"]
+            },
+            "configurations": {
+                "ci": {
+                    "quiet": true
+                }
+            }
+        },
+        "build-storybook": {
+            "executor": "@storybook/angular:build-storybook",
+            "outputs": ["{options.outputDir}"],
+            "options": {
+                "outputDir": "dist/storybook",
+                "configDir": "apps/storybook/.storybook",
+                "tsConfig": "apps/storybook/.storybook/tsconfig.json",
+                "compodoc": false,
+                "experimentalZoneless": true,
+                "styles": ["apps/storybook/.storybook/tailwind.css"]
+            },
+            "inputs": ["default", "^default", "{workspaceRoot}/libs/shared/ui/**/*.stories.ts"],
+            "configurations": {
+                "ci": {
+                    "quiet": true
+                }
+            }
+        },
+        "static-storybook": {
+            "executor": "@nx/web:file-server",
+            "dependsOn": ["build-storybook"],
+            "options": {
+                "buildTarget": "storybook:build-storybook",
+                "staticFilePath": "dist/storybook",
+                "port": 4400,
+                "spa": true
+            }
+        }
+    }
+}
