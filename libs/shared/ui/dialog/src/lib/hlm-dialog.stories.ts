@@ -4,7 +4,7 @@ import { HlmButton } from '@gacc-ng/ui/button';
 import { HlmInput } from '@gacc-ng/ui/input';
 import { HlmLabel } from '@gacc-ng/ui/label';
 
-import { HlmDialogImports } from './hlm-dialog';
+import { HlmDialogImports } from '../index';
 
 const meta: Meta = {
     title: 'Primitives/Dialog',

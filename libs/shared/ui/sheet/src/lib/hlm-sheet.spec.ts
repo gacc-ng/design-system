@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 
 import { describe, expect, it } from 'vitest';
 
-import { HlmSheetImports } from './hlm-sheet';
+import { HlmSheetImports } from '../index';
 
 @Component({
     standalone: true,
