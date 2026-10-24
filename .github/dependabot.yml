@@ -61,6 +61,14 @@ updates:
                   - 'tailwind-merge'
                   - 'class-variance-authority'
                   - 'tw-animate-css'
+          storybook:
+              patterns:
+                  - 'storybook'
+                  - '@storybook/*'
+          vite-ecosystem:
+              patterns:
+                  - 'vite'
+                  - '@analogjs/*'
       ignore:
           - dependency-name: 'typescript'
             update-types:
@@ -69,6 +77,12 @@ updates:
             update-types:
                 - 'version-update:semver-major'
           - dependency-name: '@nx/*'
+            update-types:
+                - 'version-update:semver-major'
+          - dependency-name: 'storybook'
+            update-types:
+                - 'version-update:semver-major'
+          - dependency-name: '@storybook/*'
             update-types:
                 - 'version-update:semver-major'
 
