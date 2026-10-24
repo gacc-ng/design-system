@@ -2,7 +2,7 @@ import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
 
 import { HlmButton } from '@gacc-ng/ui/button';
 
-import { HlmAlertDialogImports } from './hlm-alert-dialog';
+import { HlmAlertDialogImports } from '../index';
 
 const meta: Meta = {
     title: 'Primitives/AlertDialog',

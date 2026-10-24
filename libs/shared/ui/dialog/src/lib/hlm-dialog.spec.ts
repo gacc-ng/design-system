@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 
 import { describe, expect, it } from 'vitest';
 
-import { HlmDialogImports, HlmDialogService } from './hlm-dialog';
+import { HlmDialogImports, HlmDialogService } from '../index';
 
 @Component({
     standalone: true,

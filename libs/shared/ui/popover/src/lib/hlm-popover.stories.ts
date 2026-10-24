@@ -4,7 +4,7 @@ import { HlmButton } from '@gacc-ng/ui/button';
 import { HlmInput } from '@gacc-ng/ui/input';
 import { HlmLabel } from '@gacc-ng/ui/label';
 
-import { HlmPopoverImports } from './hlm-popover';
+import { HlmPopoverImports } from '../index';
 
 const meta: Meta = {
     title: 'Primitives/Popover',
