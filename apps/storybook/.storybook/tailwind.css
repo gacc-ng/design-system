@@ -1,3 +1,2 @@
 @import 'tailwindcss';
-@import '../../../libs/shared/ui/src/styles/preset.css';
-@source '../../../libs/shared/ui/src';
+@import '@gacc-ng/ui/preset.css';
