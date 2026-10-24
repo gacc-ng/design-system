@@ -22,7 +22,7 @@ import { classes, hlm } from '@gacc-ng/ui/utils';
 import { listVariants } from './hlm-tabs-list';
 
 @Component({
-    selector: 'hlm-paginated-tabs-list',
+    selector: 'hlm-paginated-tabs-list, hlm-tabs-paginated-list',
     exportAs: 'hlmTabsPaginatedList',
     imports: [CdkObserveContent, NgIcon],
     providers: [provideIcons({ lucideChevronRight, lucideChevronLeft })],
@@ -78,7 +78,7 @@ import { listVariants } from './hlm-tabs-list';
 export class HlmTabsPaginatedList extends BrnTabsPaginatedList {
     constructor() {
         super();
-        classes(() => 'relative flex shrink-0 items-center gap-1 overflow-hidden');
+        classes(() => 'relative flex w-full shrink-0 items-center gap-1 overflow-hidden');
     }
 
     public readonly items = contentChildren(BrnTabsTrigger, { descendants: false });
@@ -91,7 +91,13 @@ export class HlmTabsPaginatedList extends BrnTabsPaginatedList {
     public readonly previousPaginator = viewChild.required<ElementRef<HTMLElement>>('previousPaginator');
 
     public readonly tabListClass = input<ClassValue>('', { alias: 'tabListClass' });
-    protected readonly _tabListClass = computed(() => hlm(listVariants(), this.tabListClass()));
+    protected readonly _tabListClass = computed(() =>
+        hlm(
+            listVariants(),
+            'w-max flex-nowrap [&>[hlmTabsTrigger]]:shrink-0 [&>[hlmTabsTrigger]]:flex-initial',
+            this.tabListClass(),
+        ),
+    );
 
     public readonly paginationButtonClass = input<ClassValue>('');
     protected readonly _paginationButtonClass = computed(() =>
