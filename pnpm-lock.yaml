@@ -157,7 +157,7 @@ importers:
     devDependencies:
       '@analogjs/vite-plugin-angular':
         specifier: ^2.9.2
-        version: 2.9.2(@angular-devkit/build-angular@22.2.4(7c12943e70fa892a9ba788f22eaf4a9a))(@angular/build@22.2.3(8f40f58ce709dd781cb41b0d48f31e96))(@emnapi/core@1.11.0)(@emnapi/runtime@1.11.0)(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@7.2.0))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(yaml@2.9.0))
+        version: 2.9.2(@angular-devkit/build-angular@22.2.4(7c12943e70fa892a9ba788f22eaf4a9a))(@angular/build@22.2.4(8f40f58ce709dd781cb41b0d48f31e96))(@emnapi/core@1.11.0)(@emnapi/runtime@1.11.0)(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@7.2.0))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(yaml@2.9.0))
       '@angular-devkit/core':
         specifier: ~22.2.3
         version: 22.2.3(chokidar@5.0.0)
@@ -166,7 +166,7 @@ importers:
         version: 22.2.3(chokidar@5.0.0)
       '@angular/build':
         specifier: ~22.2.3
-        version: 22.2.3(8f40f58ce709dd781cb41b0d48f31e96)
+        version: 22.2.4(8f40f58ce709dd781cb41b0d48f31e96)
       '@angular/cli':
         specifier: ~22.2.3
         version: 22.2.3(@types/node@26.6.5)(chokidar@5.0.0)
@@ -196,7 +196,7 @@ importers:
         version: 10.0.1(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))
       '@nx/angular':
         specifier: 23.3.0
-        version: 23.3.0(ca95b3d1c2845cb1f4e57c81307ecec0)
+        version: 23.3.0(c0f6f4b9ba0fb86aad9847184524abc5)
       '@nx/devkit':
         specifier: 23.3.0
         version: 23.3.0(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))
@@ -223,13 +223,16 @@ importers:
         version: 22.2.3(chokidar@5.0.0)
       '@spartan-ng/cli':
         specifier: ^1.8.0
-        version: 1.8.0(2dae66d994c3e3c3bf2640a06cffd829)
+        version: 1.8.0(0c19abe6cc7e6aaf7e23b3589d7bdf0f)
+      '@storybook/addon-a11y':
+        specifier: 10.6.3
+        version: 10.6.3(storybook@10.6.3(prettier@3.9.10)(react@19.3.1))
       '@storybook/angular':
         specifier: ^10.5.0
         version: 10.6.3(b05949c99414edbfc6eb8507951d1ab7)
       '@storybook/angular-vite':
         specifier: ^10.6.3
-        version: 10.6.3(b5032c17ab4a9e2b490eff6d1207cf83)
+        version: 10.6.3(a14f1b63886232221db2b26308cfde89)
       '@storybook/test-runner':
         specifier: ^0.26.0
         version: 0.26.0(@swc/helpers@0.5.23)(@types/node@26.6.5)(babel-plugin-macros@3.1.0)(debug@4.4.3(supports-color@7.2.0))(storybook@10.6.3(prettier@3.9.10)(react@19.3.1))(supports-color@7.2.0)(ts-node@10.9.2(@swc/core@1.16.20(@swc/helpers@0.5.23))(@types/node@26.6.5)(typescript@6.0.3))
@@ -525,58 +528,6 @@ packages:
     deprecated: '@angular/animations is deprecated. Use `animate.enter` and `animate.leave` instead. For more information see: https://v22.angular.dev/guide/animations.'
     peerDependencies:
       '@angular/core': 22.2.3
-
-  '@angular/build@22.2.3':
-    resolution: {integrity: sha512-EtNEuPBUCyIuzdXrQ/nINvgFzW8bUI5AkAZtJiSn7nsFOlvaygaKN0kENNTO3zRl3T9B4GDog+Ks5Nec3FBkhg==}
-    engines: {node: ^22.22.3 || ^24.15.0 || >=26.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
-    peerDependencies:
-      '@angular/compiler': ^22.0.0
-      '@angular/compiler-cli': ^22.0.0
-      '@angular/core': ^22.0.0
-      '@angular/localize': ^22.0.0
-      '@angular/platform-browser': ^22.0.0
-      '@angular/platform-server': ^22.0.0
-      '@angular/service-worker': ^22.0.0
-      '@angular/ssr': ^22.2.3
-      istanbul-lib-instrument: ^6.0.0
-      karma: ^6.4.0
-      less: ^4.2.0
-      ng-packagr: ^22.0.0
-      postcss: ^8.4.0
-      rollup: ^4.0.0
-      tailwindcss: ^2.0.0 || ^3.0.0 || ^4.0.0
-      tslib: ^2.3.0
-      typescript: '>=6.0 <6.1'
-      vitest: ^4.0.8 || ^5.0.0
-    peerDependenciesMeta:
-      '@angular/core':
-        optional: true
-      '@angular/localize':
-        optional: true
-      '@angular/platform-browser':
-        optional: true
-      '@angular/platform-server':
-        optional: true
-      '@angular/service-worker':
-        optional: true
-      '@angular/ssr':
-        optional: true
-      istanbul-lib-instrument:
-        optional: true
-      karma:
-        optional: true
-      less:
-        optional: true
-      ng-packagr:
-        optional: true
-      postcss:
-        optional: true
-      rollup:
-        optional: true
-      tailwindcss:
-        optional: true
-      vitest:
-        optional: true
 
   '@angular/build@22.2.4':
     resolution: {integrity: sha512-Emb3pxRkvf749NQ5cz4ux2h9Cnbxx3FmcupdXIaoRxIyNXM8JxjFDCLZTe0yGGOWv5+hSaoR7XESOcN134vBPw==}
@@ -4154,6 +4105,11 @@ packages:
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
+  '@storybook/addon-a11y@10.6.3':
+    resolution: {integrity: sha512-nqvjpmu5g+PPtEKwgE0qAi4wfuQ9yngOb/1Gm24pBBZOuRsd3UMEBjKORSuAGrIAz9X3LCFfQi7sCcBFXvFbwg==}
+    peerDependencies:
+      storybook: ^10.6.3
+
   '@storybook/angular-vite@10.6.3':
     resolution: {integrity: sha512-p/zKTPkk0acBBC1D9RTR++EIjnrqUinx55hnm3ZoogSN06DnLqM1EHYJ5QpBbkrEAuQcryV9EZfL+JHBUcyR6w==}
     peerDependencies:
@@ -5188,6 +5144,10 @@ packages:
     hasBin: true
     peerDependencies:
       postcss: ^8.1.0
+
+  axe-core@4.14.0:
+    resolution: {integrity: sha512-9WTZxEjsZ7b13TH8JPmbV2z8CHbl80/2hm3XPEG4JgNdQLK81IBRXmSxHfMAOkSqQeRxT/0dwNDz2GOm3zzpcQ==}
+    engines: {node: '>=4'}
 
   axios@1.20.0:
     resolution: {integrity: sha512-r8aOh8j9cGKpgQAqpzrUHnSIc6a59Y3Xf/cv8sy1DrHCkZHzQGEuoq1tARk6qSyDdtQGSDgpb9kFlruzPvrgwg==}
@@ -9459,7 +9419,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
 
-  '@analogjs/vite-plugin-angular@2.9.2(@angular-devkit/build-angular@22.2.4(7c12943e70fa892a9ba788f22eaf4a9a))(@angular/build@22.2.3(8f40f58ce709dd781cb41b0d48f31e96))(@emnapi/core@1.11.0)(@emnapi/runtime@1.11.0)(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@7.2.0))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(yaml@2.9.0))':
+  '@analogjs/vite-plugin-angular@2.9.2(@angular-devkit/build-angular@22.2.4(7c12943e70fa892a9ba788f22eaf4a9a))(@angular/build@22.2.4(8f40f58ce709dd781cb41b0d48f31e96))(@emnapi/core@1.11.0)(@emnapi/runtime@1.11.0)(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@7.2.0))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(yaml@2.9.0))':
     dependencies:
       magic-string: 0.30.21
       obug: 2.2.1
@@ -9467,7 +9427,7 @@ snapshots:
       tinyglobby: 0.2.17
     optionalDependencies:
       '@angular-devkit/build-angular': 22.2.4(7c12943e70fa892a9ba788f22eaf4a9a)
-      '@angular/build': 22.2.3(8f40f58ce709dd781cb41b0d48f31e96)
+      '@angular/build': 22.2.4(8f40f58ce709dd781cb41b0d48f31e96)
       vite: 8.3.5(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@7.2.0))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(yaml@2.9.0)
     transitivePeerDependencies:
       - '@emnapi/core'
@@ -9716,10 +9676,10 @@ snapshots:
       '@angular/core': 22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2)
       tslib: 2.8.1
 
-  '@angular/build@22.2.3(8f40f58ce709dd781cb41b0d48f31e96)':
+  '@angular/build@22.2.4(8f40f58ce709dd781cb41b0d48f31e96)':
     dependencies:
       '@ampproject/remapping': 2.3.0
-      '@angular-devkit/architect': 0.2202.3(chokidar@5.0.0)
+      '@angular-devkit/architect': 0.2202.4(chokidar@5.0.0)
       '@angular/compiler': 22.2.3
       '@angular/compiler-cli': 22.2.3(@angular/compiler@22.2.3)(typescript@6.0.3)
       '@babel/core': 8.0.5
@@ -12420,46 +12380,7 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.20.3
 
-  '@nx/angular@23.3.0(ca95b3d1c2845cb1f4e57c81307ecec0)':
-    dependencies:
-      '@angular-devkit/core': 22.2.3(chokidar@5.0.0)
-      '@angular-devkit/schematics': 22.2.3(chokidar@5.0.0)
-      '@nx/devkit': 23.3.0(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))
-      '@nx/eslint': 23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@zkochan/js-yaml@0.0.7)(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0)
-      '@nx/js': 23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@swc/core@1.16.20(@swc/helpers@0.5.23))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0)
-      '@nx/web': 23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@nx/cypress@23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@zkochan/js-yaml@0.0.7)(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0)(typescript@6.0.3))(@nx/eslint@23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@zkochan/js-yaml@0.0.7)(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0))(@nx/playwright@23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@playwright/test@1.64.1)(@swc/core@1.16.20(@swc/helpers@0.5.23))(@zkochan/js-yaml@0.0.7)(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0))(@swc/core@1.16.20(@swc/helpers@0.5.23))(debug@4.4.3(supports-color@7.2.0))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0)
-      '@phenomnomnominal/tsquery': 6.2.0(typescript@6.0.3)
-      '@schematics/angular': 22.2.3(chokidar@5.0.0)
-      '@typescript-eslint/type-utils': 8.71.2(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3)
-      jsonc-parser: 3.3.1
-      magic-string: 0.30.21
-      picocolors: 1.1.1
-      picomatch: 4.0.4
-      rxjs: 7.8.2
-      semver: 7.8.5
-      tslib: 2.8.1
-    optionalDependencies:
-      '@angular-devkit/build-angular': 22.2.4(7c12943e70fa892a9ba788f22eaf4a9a)
-      '@angular/build': 22.2.3(8f40f58ce709dd781cb41b0d48f31e96)
-      '@nx/cypress': 23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@zkochan/js-yaml@0.0.7)(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0)(typescript@6.0.3)
-      '@nx/playwright': 23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@playwright/test@1.64.1)(@swc/core@1.16.20(@swc/helpers@0.5.23))(@zkochan/js-yaml@0.0.7)(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0)
-      ng-packagr: 22.2.4(@angular/compiler-cli@22.2.3(@angular/compiler@22.2.3)(typescript@6.0.3))(oxc-resolver@11.21.2)(supports-color@7.2.0)(tailwindcss@4.3.3)(tslib@2.8.1)(typescript@6.0.3)
-    transitivePeerDependencies:
-      - '@babel/traverse'
-      - '@nx/jest'
-      - '@nx/vite'
-      - '@swc-node/register'
-      - '@swc/cli'
-      - '@swc/core'
-      - '@zkochan/js-yaml'
-      - debug
-      - eslint
-      - nx
-      - supports-color
-      - typescript
-      - verdaccio
-
-  '@nx/angular@23.3.0(e3eef3a6e17569bb77750bcfcdda1cf4)':
+  '@nx/angular@23.3.0(146005897bfdf8144e3b4ac0075d7f5d)':
     dependencies:
       '@angular-devkit/core': 22.2.3(chokidar@5.0.0)
       '@angular-devkit/schematics': 22.2.3(chokidar@5.0.0)
@@ -12479,7 +12400,46 @@ snapshots:
       tslib: 2.8.1
     optionalDependencies:
       '@angular-devkit/build-angular': 22.2.4(7c12943e70fa892a9ba788f22eaf4a9a)
-      '@angular/build': 22.2.3(8f40f58ce709dd781cb41b0d48f31e96)
+      '@angular/build': 22.2.4(8f40f58ce709dd781cb41b0d48f31e96)
+      '@nx/cypress': 23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@zkochan/js-yaml@0.0.7)(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0)(typescript@6.0.3)
+      '@nx/playwright': 23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@playwright/test@1.64.1)(@swc/core@1.16.20(@swc/helpers@0.5.23))(@zkochan/js-yaml@0.0.7)(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0)
+      ng-packagr: 22.2.4(@angular/compiler-cli@22.2.3(@angular/compiler@22.2.3)(typescript@6.0.3))(oxc-resolver@11.21.2)(supports-color@7.2.0)(tailwindcss@4.3.3)(tslib@2.8.1)(typescript@6.0.3)
+    transitivePeerDependencies:
+      - '@babel/traverse'
+      - '@nx/jest'
+      - '@nx/vite'
+      - '@swc-node/register'
+      - '@swc/cli'
+      - '@swc/core'
+      - '@zkochan/js-yaml'
+      - debug
+      - eslint
+      - nx
+      - supports-color
+      - typescript
+      - verdaccio
+
+  '@nx/angular@23.3.0(c0f6f4b9ba0fb86aad9847184524abc5)':
+    dependencies:
+      '@angular-devkit/core': 22.2.3(chokidar@5.0.0)
+      '@angular-devkit/schematics': 22.2.3(chokidar@5.0.0)
+      '@nx/devkit': 23.3.0(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))
+      '@nx/eslint': 23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@zkochan/js-yaml@0.0.7)(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0)
+      '@nx/js': 23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@swc/core@1.16.20(@swc/helpers@0.5.23))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0)
+      '@nx/web': 23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@nx/cypress@23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@zkochan/js-yaml@0.0.7)(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0)(typescript@6.0.3))(@nx/eslint@23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@zkochan/js-yaml@0.0.7)(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0))(@nx/playwright@23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@playwright/test@1.64.1)(@swc/core@1.16.20(@swc/helpers@0.5.23))(@zkochan/js-yaml@0.0.7)(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0))(@swc/core@1.16.20(@swc/helpers@0.5.23))(debug@4.4.3(supports-color@7.2.0))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0)
+      '@phenomnomnominal/tsquery': 6.2.0(typescript@6.0.3)
+      '@schematics/angular': 22.2.3(chokidar@5.0.0)
+      '@typescript-eslint/type-utils': 8.71.2(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3)
+      jsonc-parser: 3.3.1
+      magic-string: 0.30.21
+      picocolors: 1.1.1
+      picomatch: 4.0.4
+      rxjs: 7.8.2
+      semver: 7.8.5
+      tslib: 2.8.1
+    optionalDependencies:
+      '@angular-devkit/build-angular': 22.2.4(7c12943e70fa892a9ba788f22eaf4a9a)
+      '@angular/build': 22.2.4(8f40f58ce709dd781cb41b0d48f31e96)
       '@nx/cypress': 23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@zkochan/js-yaml@0.0.7)(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0)(typescript@6.0.3)
       '@nx/playwright': 23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@playwright/test@1.64.1)(@swc/core@1.16.20(@swc/helpers@0.5.23))(@zkochan/js-yaml@0.0.7)(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0)
       ng-packagr: 22.2.4(@angular/compiler-cli@22.2.3(@angular/compiler@22.2.3)(typescript@6.0.3))(oxc-resolver@11.21.2)(supports-color@7.2.0)(tailwindcss@4.3.3)(tslib@2.8.1)(typescript@6.0.3)
@@ -13374,10 +13334,10 @@ snapshots:
       tslib: 2.8.1
       tw-animate-css: 1.4.0
 
-  '@spartan-ng/cli@1.8.0(2dae66d994c3e3c3bf2640a06cffd829)':
+  '@spartan-ng/cli@1.8.0(0c19abe6cc7e6aaf7e23b3589d7bdf0f)':
     dependencies:
       '@angular/core': 22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2)
-      '@nx/angular': 23.3.0(e3eef3a6e17569bb77750bcfcdda1cf4)
+      '@nx/angular': 23.3.0(146005897bfdf8144e3b4ac0075d7f5d)
       '@nx/devkit': 23.3.0(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))
       '@nx/js': 23.3.0(@babel/traverse@7.29.10(supports-color@7.2.0))(@swc/core@1.16.20(@swc/helpers@0.5.23))(nx@23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23)))(supports-color@7.2.0)
       '@nx/workspace': 23.3.0(@swc/core@1.16.20(@swc/helpers@0.5.23))
@@ -13426,13 +13386,19 @@ snapshots:
 
   '@standard-schema/spec@1.1.0': {}
 
-  '@storybook/angular-vite@10.6.3(b5032c17ab4a9e2b490eff6d1207cf83)':
+  '@storybook/addon-a11y@10.6.3(storybook@10.6.3(prettier@3.9.10)(react@19.3.1))':
     dependencies:
-      '@analogjs/vite-plugin-angular': 2.9.2(@angular-devkit/build-angular@22.2.4(7c12943e70fa892a9ba788f22eaf4a9a))(@angular/build@22.2.3(8f40f58ce709dd781cb41b0d48f31e96))(@emnapi/core@1.11.0)(@emnapi/runtime@1.11.0)(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@7.2.0))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(yaml@2.9.0))
+      '@storybook/global': 5.0.0
+      axe-core: 4.14.0
+      storybook: 10.6.3(prettier@3.9.10)(react@19.3.1)
+
+  '@storybook/angular-vite@10.6.3(a14f1b63886232221db2b26308cfde89)':
+    dependencies:
+      '@analogjs/vite-plugin-angular': 2.9.2(@angular-devkit/build-angular@22.2.4(7c12943e70fa892a9ba788f22eaf4a9a))(@angular/build@22.2.4(8f40f58ce709dd781cb41b0d48f31e96))(@emnapi/core@1.11.0)(@emnapi/runtime@1.11.0)(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@7.2.0))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(yaml@2.9.0))
       '@angular-devkit/architect': 0.2202.4(chokidar@5.0.0)
       '@angular-devkit/core': 22.2.3(chokidar@5.0.0)
       '@angular/animations': 22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))
-      '@angular/build': 22.2.3(8f40f58ce709dd781cb41b0d48f31e96)
+      '@angular/build': 22.2.4(8f40f58ce709dd781cb41b0d48f31e96)
       '@angular/common': 22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(rxjs@7.8.2)
       '@angular/compiler': 22.2.3
       '@angular/compiler-cli': 22.2.3(@angular/compiler@22.2.3)(typescript@6.0.3)
@@ -14535,6 +14501,8 @@ snapshots:
       picocolors: 1.1.1
       postcss: 8.5.31
       postcss-value-parser: 4.2.0
+
+  axe-core@4.14.0: {}
 
   axios@1.20.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0):
     dependencies:
