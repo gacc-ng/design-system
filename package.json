@@ -23,6 +23,8 @@
         "build": "nx build",
         "test": "nx test",
         "lint": "nx run-many -t lint",
+        "storybook": "nx run storybook:storybook",
+        "build-storybook": "nx run storybook:build-storybook",
         "format:check": "prettier --check .",
         "format:write": "prettier --write ."
     },
