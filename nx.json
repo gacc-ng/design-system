@@ -80,7 +80,7 @@
         "packageManager": "pnpm"
     },
     "release": {
-        "projects": ["ui-helm"],
+        "projects": ["ui"],
         "git": {
             "commit": false,
             "tag": true,

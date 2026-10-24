@@ -77,11 +77,11 @@ Each primitive is documented within its own secondary entry point:
 
 ```bash
 # Build the library in Angular Package Format (APF)
-pnpm nx build ui-helm
+pnpm nx build ui
 
 # Run unit tests across all primitives
-pnpm nx test ui-helm
+pnpm nx test ui
 
 # Lint TypeScript, templates, and dependency checks
-pnpm nx lint ui-helm
+pnpm nx lint ui
 ```

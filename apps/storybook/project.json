@@ -5,7 +5,7 @@
     "sourceRoot": "apps/storybook",
     "prefix": "gacc",
     "tags": ["type:app", "scope:storybook"],
-    "implicitDependencies": ["ui-helm"],
+    "implicitDependencies": ["ui"],
     "targets": {
         "storybook": {
             "executor": "@storybook/angular:start-storybook",

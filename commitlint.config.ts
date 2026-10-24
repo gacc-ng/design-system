@@ -84,6 +84,7 @@ const Configuration: UserConfig = {
             commit.includes('dependabot[bot]') ||
             commit.includes('chore(deps') ||
             commit.startsWith('chore(release):') ||
+            commit.startsWith('chore(ui): 🔧 release') ||
             commit.startsWith('chore(ui-helm): 🔧 release'),
     ],
     parserPreset: {
@@ -101,6 +102,7 @@ const Configuration: UserConfig = {
             RuleConfigSeverity.Error,
             'always',
             [
+                'ui',
                 'ui-helm',
                 'showcase',
                 'storybook',
