@@ -39,7 +39,7 @@ export const Default: Story = {
     render: () => ({
         template: `
             <div class="p-8 flex justify-center">
-                <hlm-tabs tab="account" class="w-[420px]">
+                <hlm-tabs tab="account" class="w-105">
                     <hlm-tabs-list class="grid w-full grid-cols-2">
                         <button hlmTabsTrigger="account">Account</button>
                         <button hlmTabsTrigger="password">Password</button>
@@ -98,7 +98,7 @@ export const SolidVariant: Story = {
     render: () => ({
         template: `
             <div class="p-8 flex justify-center">
-                <hlm-tabs tab="all" class="w-[400px]">
+                <hlm-tabs tab="all" class="w-100">
                     <hlm-tabs-list variant="solid" class="grid w-full grid-cols-3">
                         <button hlmTabsTrigger="all">All</button>
                         <button hlmTabsTrigger="unread">Unread</button>
@@ -155,7 +155,7 @@ export const Paginated: Story = {
     render: () => ({
         template: `
             <div class="p-8 flex justify-center">
-                <hlm-tabs tab="tab1" class="w-[500px]">
+                <hlm-tabs tab="tab1" class="w-125">
                     <hlm-tabs-paginated-list>
                         <button hlmTabsTrigger="tab1">Overview</button>
                         <button hlmTabsTrigger="tab2">Analytics</button>
