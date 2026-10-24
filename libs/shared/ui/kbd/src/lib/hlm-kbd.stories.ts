@@ -51,7 +51,7 @@ export const Shortcuts: Story = {
                     <kbd hlmKbdGroup>
                         <kbd hlmKbd>⌘</kbd>
                         <kbd hlmKbd>K</kbd>
-                    </kbdGroup>
+                    </kbd>
                 </div>
                 <div class="flex items-center justify-between w-64 text-sm text-muted-foreground">
                     <span>Command Palette</span>
@@ -59,7 +59,7 @@ export const Shortcuts: Story = {
                         <kbd hlmKbd>Ctrl</kbd>
                         <kbd hlmKbd>Shift</kbd>
                         <kbd hlmKbd>P</kbd>
-                    </kbdGroup>
+                    </kbd>
                 </div>
                 <div class="flex items-center justify-between w-64 text-sm text-muted-foreground">
                     <span>Cancel / Close</span>
