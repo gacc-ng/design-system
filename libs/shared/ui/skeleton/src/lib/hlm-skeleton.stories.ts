@@ -50,8 +50,8 @@ export const Preview: Story = {
             <div class="flex items-center gap-4">
                 <hlm-skeleton class="size-12 rounded-full" />
                 <div class="space-y-2">
-                    <hlm-skeleton class="h-4 w-[250px]" />
-                    <hlm-skeleton class="h-4 w-[200px]" />
+                    <hlm-skeleton class="h-4 w-62.5" />
+                    <hlm-skeleton class="h-4 w-50" />
                 </div>
             </div>
         `,
