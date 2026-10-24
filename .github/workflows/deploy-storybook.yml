@@ -44,7 +44,7 @@ jobs:
               run: pnpm install --frozen-lockfile
 
             - name: Build Storybook
-              run: pnpm nx build-storybook storybook --configuration=ci
+              run: pnpm nx run storybook:build-storybook -c ci
 
             - name: Setup Pages
               uses: actions/configure-pages@v5
@@ -52,7 +52,7 @@ jobs:
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
-                  path: 'dist/storybook'
+                  path: 'apps/storybook/dist/storybook'
 
             - name: Deploy to GitHub Pages
               id: deployment
