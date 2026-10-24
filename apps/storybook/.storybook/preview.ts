@@ -9,7 +9,7 @@ import { provideSpartanHlm } from '@gacc-ng/ui/utils';
 const withTheme: Decorator = (storyFn, context) => {
     const bg = context.globals?.['backgrounds'] as { value?: string } | string | undefined;
     const bgValue = typeof bg === 'object' && bg !== null ? bg.value : bg;
-    const isDark = bgValue === 'dark' || bgValue === '#000000';
+    const isDark = bgValue === 'dark' || bgValue === '#000000' || bgValue === '#18181b' || bgValue === '#09090b';
 
     if (typeof document !== 'undefined') {
         const root = document.documentElement;
@@ -31,7 +31,7 @@ const preview: Preview = {
         backgrounds: {
             options: {
                 light: { name: 'light', value: '#ffffff' },
-                dark: { name: 'dark', value: '#000000' },
+                dark: { name: 'dark', value: '#18181b' },
             },
         },
         controls: {
