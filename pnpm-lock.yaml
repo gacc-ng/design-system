@@ -245,6 +245,9 @@ importers:
       '@tailwindcss/vite':
         specifier: 4.3.3
         version: 4.3.3(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@7.2.0))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(yaml@2.9.0))
+      '@types/node':
+        specifier: ^26.6.5
+        version: 26.6.5
       '@typescript-eslint/utils':
         specifier: ^8.72.0
         version: 8.72.0(eslint@10.13.0(jiti@2.6.1)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3)
@@ -320,6 +323,9 @@ importers:
 
   libs/shared/ui:
     dependencies:
+      '@angular-devkit/schematics':
+        specifier: '>=19.0.0'
+        version: 22.2.3(chokidar@5.0.0)
       '@angular/cdk':
         specifier: '>=21.0.0'
         version: 22.2.4(@angular/common@22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(@angular/forms@22.2.3(@angular/common@22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(@angular/platform-browser@22.2.3(@angular/animations@22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2)))(@angular/common@22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2)))(rxjs@7.8.2))(@angular/platform-browser@22.2.3(@angular/animations@22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2)))(@angular/common@22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2)))(rxjs@7.8.2)
@@ -341,6 +347,9 @@ importers:
       '@ng-icons/lucide':
         specifier: '>=36.0.0'
         version: 36.1.0(@ng-icons/core@36.1.0(@angular-devkit/schematics@22.2.3(chokidar@5.0.0))(@angular/common@22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(@schematics/angular@22.2.3(chokidar@5.0.0))(rxjs@7.8.2))
+      '@schematics/angular':
+        specifier: '>=19.0.0'
+        version: 22.2.3(chokidar@5.0.0)
       '@spartan-ng/brain':
         specifier: ^1.8.0
         version: 1.8.0(9639c0c8bca266a6d3f07cc29dfb0e9f)
@@ -362,6 +371,8 @@ importers:
       tw-animate-css:
         specifier: '>=1.0.0'
         version: 1.4.0
+
+  libs/shared/ui/schematics: {}
 
 packages:
 

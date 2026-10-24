@@ -1,0 +1,10 @@
+{
+    "$schema": "../../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+    "schematics": {
+        "ng-add": {
+            "description": "Initialize @gacc-ng/ui design system primitives, styles, and providers.",
+            "factory": "./ng-add/index#default",
+            "schema": "./ng-add/schema.json"
+        }
+    }
+}

@@ -7,7 +7,13 @@
         "url": "https://github.com/gacc-ng/design-system.git",
         "directory": "libs/shared/ui"
     },
+    "schematics": "./schematics/collection.json",
+    "ng-add": {
+        "save": "dependencies"
+    },
     "peerDependencies": {
+        "@angular-devkit/schematics": ">=19.0.0",
+        "@schematics/angular": ">=19.0.0",
         "@angular/cdk": ">=21.0.0",
         "@angular/common": "^22.2.0",
         "@angular/core": "^22.2.0",
@@ -24,6 +30,12 @@
         "rxjs": "~7.8.0"
     },
     "peerDependenciesMeta": {
+        "@angular-devkit/schematics": {
+            "optional": true
+        },
+        "@schematics/angular": {
+            "optional": true
+        },
         "@ng-icons/core": {
             "optional": true
         },

@@ -19,10 +19,16 @@ export default [
                         '{projectRoot}/src/testing/**/*.ts',
                         '{projectRoot}/**/*.spec.ts',
                         '{projectRoot}/**/*.stories.ts',
+                        '{projectRoot}/schematics/**/*',
                     ],
                     // tailwindcss and tw-animate-css are required peer dependencies consumed through the
-                    // CSS preset (@import in preset.css), which dependency check cannot detect from TS imports.
-                    ignoredDependencies: ['tailwindcss', 'tw-animate-css'],
+                    // CSS preset (@import in preset.css). Schematics dependencies are consumed by the schematics collection.
+                    ignoredDependencies: [
+                        'tailwindcss',
+                        'tw-animate-css',
+                        '@angular-devkit/schematics',
+                        '@schematics/angular',
+                    ],
                 },
             ],
         },
@@ -60,6 +66,17 @@ export default [
             '@angular-eslint/prefer-output-readonly': 'error',
             '@angular-eslint/prefer-on-push-component-change-detection': 'error',
             '@angular-eslint/prefer-signals': 'error',
+        },
+    },
+    {
+        files: ['**/schematics/**/*.ts', 'schematics/**/*.ts'],
+        rules: {
+            '@angular-eslint/directive-selector': 'off',
+            '@angular-eslint/component-selector': 'off',
+            '@angular-eslint/prefer-signals': 'off',
+            '@angular-eslint/prefer-on-push-component-change-detection': 'off',
+            '@angular-eslint/prefer-output-readonly': 'off',
+            '@nx/enforce-module-boundaries': 'off',
         },
     },
     {
