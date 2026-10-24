@@ -13,7 +13,7 @@
             },
             "configurations": {
                 "ci": {
-                    "quiet": true
+                    "loglevel": "warn"
                 }
             }
         },
@@ -23,7 +23,7 @@
             },
             "configurations": {
                 "ci": {
-                    "quiet": true
+                    "loglevel": "warn"
                 }
             }
         },
