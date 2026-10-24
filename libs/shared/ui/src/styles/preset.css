@@ -7,8 +7,8 @@
    4. Base Styles (@layer base)
    ============================================================================== */
 
-@source '../../';
 @import '@spartan-ng/brain/hlm-tailwind-preset.css';
+@source '../../';
 
 :root {
     color-scheme: light;

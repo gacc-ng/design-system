@@ -4,5 +4,6 @@
         "outDir": "../../../dist/out-tsc",
         "types": ["vitest/globals"]
     },
-    "include": ["src/**/*.ts", "src/**/*.d.ts", "**/*.spec.ts"]
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "**/*.spec.ts"],
+    "exclude": ["schematics/**"]
 }

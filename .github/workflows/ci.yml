@@ -57,6 +57,10 @@ jobs:
             - name: Build affected projects
               run: pnpm nx affected -t build --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
 
+            - name: Run schematics unit tests
+              if: hashFiles('dist/libs/shared/ui/schematics/collection.json') != ''
+              run: pnpm nx run ui:test-schematics
+
             - name: Validate library package integrity
               if: hashFiles('dist/libs/shared/ui/package.json') != ''
               run: |
@@ -65,6 +69,7 @@ jobs:
                   pnpm pack --dry-run
                   test -f package.json
                   test -f src/styles/preset.css
+                  test -f schematics/collection.json
                   test -d button && test -d badge && test -d input && test -d label && test -d utils
                   echo "Library package structure and entry points verified successfully!"
 
