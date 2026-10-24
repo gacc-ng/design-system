@@ -19,7 +19,8 @@ const withTheme: Decorator = (storyFn, context) => {
         bgValue === '#09090b' ||
         bgValue === '#141414' ||
         bgValue === '#18181b' ||
-        bgValue === '#333333';
+        bgValue === '#333333' ||
+        bgValue === '#333';
 
     const isLightBg = bgValue === 'light' || bgValue === '#ffffff' || bgValue === '#F8F8F8';
 
@@ -30,6 +31,10 @@ const withTheme: Decorator = (storyFn, context) => {
         root.classList.toggle('dark', isDark);
         document.body.classList.toggle('dark', isDark);
         root.style.colorScheme = isDark ? 'dark' : 'light';
+
+        const bgTarget = isDark ? '#000000' : '#ffffff';
+        document.body.style.setProperty('background-color', bgTarget, 'important');
+        root.style.setProperty('background-color', bgTarget, 'important');
     }
 
     return storyFn();
@@ -45,6 +50,10 @@ const preview: Preview = {
     parameters: {
         backgrounds: {
             default: 'light',
+            options: {
+                light: { name: 'light', value: '#ffffff' },
+                dark: { name: 'dark', value: '#000000' },
+            },
             values: [
                 { name: 'light', value: '#ffffff' },
                 { name: 'dark', value: '#000000' },
@@ -56,6 +65,9 @@ const preview: Preview = {
                 date: /Date$/i,
             },
         },
+    },
+    initialGlobals: {
+        backgrounds: { value: '#ffffff' },
     },
 };
 
