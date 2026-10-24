@@ -20,25 +20,25 @@ export const Default: Story = {
     render: () => ({
         template: `
             <div class="p-8 flex justify-center">
-                <hlm-accordion class="w-[500px]">
-                    <hlm-accordion-item value="item-1">
-                        <button hlmAccordionTrigger>Is it accessible?</button>
+                <hlm-accordion class="w-125">
+                    <hlm-accordion-item>
+                        <hlm-accordion-trigger>How does billing work?</hlm-accordion-trigger>
                         <hlm-accordion-content>
-                            Yes. It adheres to the WAI-ARIA design pattern with full keyboard navigation and screen reader support.
+                            Billing is processed automatically on a monthly or annual cycle. You can update payment methods and invoice details at any time from your settings.
                         </hlm-accordion-content>
                     </hlm-accordion-item>
 
-                    <hlm-accordion-item value="item-2">
-                        <button hlmAccordionTrigger>Is it styled with the Maia preset?</button>
+                    <hlm-accordion-item>
+                        <hlm-accordion-trigger>Is my data secure?</hlm-accordion-trigger>
                         <hlm-accordion-content>
-                            Yes. It features generous rounded corners, crisp subtle border tokens, and smooth height transitions.
+                            Yes. All data is encrypted in transit and at rest using industry-standard protocols, regular audits, and SOC-2 Type II compliance.
                         </hlm-accordion-content>
                     </hlm-accordion-item>
 
-                    <hlm-accordion-item value="item-3">
-                        <button hlmAccordionTrigger>Is it animated?</button>
+                    <hlm-accordion-item>
+                        <hlm-accordion-trigger>What integrations do you support?</hlm-accordion-trigger>
                         <hlm-accordion-content>
-                            Yes. It's animated by default with hardware-accelerated transitions, but can be disabled via motion preferences.
+                            We provide native integrations with GitHub, GitLab, Slack, Linear, Jira, and custom webhook dispatchers for automated workflows.
                         </hlm-accordion-content>
                     </hlm-accordion-item>
                 </hlm-accordion>
@@ -51,38 +51,38 @@ export const Multiple: Story = {
     render: () => ({
         template: `
             <div class="p-8 flex justify-center">
-                <hlm-accordion type="multiple" class="w-[500px]">
-                    <hlm-accordion-item value="item-1">
-                        <button hlmAccordionTrigger>
+                <hlm-accordion type="multiple" class="w-125">
+                    <hlm-accordion-item>
+                        <hlm-accordion-trigger>
                             <span class="flex items-center gap-2">
                                 Workspace Billing
                                 <span hlmBadge variant="secondary" size="sm">Active</span>
                             </span>
-                        </button>
+                        </hlm-accordion-trigger>
                         <hlm-accordion-content>
                             Your workspace is on the Pro Plan. Next billing date is November 1, 2026.
                         </hlm-accordion-content>
                     </hlm-accordion-item>
 
-                    <hlm-accordion-item value="item-2">
-                        <button hlmAccordionTrigger>
+                    <hlm-accordion-item>
+                        <hlm-accordion-trigger>
                             <span class="flex items-center gap-2">
                                 Team Members
                                 <span hlmBadge variant="outline" size="sm">12 seats</span>
                             </span>
-                        </button>
+                        </hlm-accordion-trigger>
                         <hlm-accordion-content>
                             Manage roles, permissions, and invite links for developers and reviewers.
                         </hlm-accordion-content>
                     </hlm-accordion-item>
 
-                    <hlm-accordion-item value="item-3">
-                        <button hlmAccordionTrigger>
+                    <hlm-accordion-item>
+                        <hlm-accordion-trigger>
                             <span class="flex items-center gap-2">
                                 Security & Compliance
                                 <span hlmBadge variant="destructive" size="sm">Action needed</span>
                             </span>
-                        </button>
+                        </hlm-accordion-trigger>
                         <hlm-accordion-content>
                             Enforce mandatory 2FA and configure Single Sign-On (SSO) SAML identity providers.
                         </hlm-accordion-content>

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { lucideChevronDown, lucideChevronUp } from '@ng-icons/lucide';
+import { lucideChevronDown } from '@ng-icons/lucide';
 import { BrnAccordionImports } from '@spartan-ng/brain/accordion';
 import { type ClassValue } from 'clsx';
 
@@ -11,7 +11,7 @@ import { hlm } from '@gacc-ng/ui/utils';
     selector: 'hlm-accordion-trigger',
     exportAs: 'hlmAccordionTrigger',
     imports: [BrnAccordionImports, NgIcon],
-    providers: [provideIcons({ lucideChevronDown, lucideChevronUp })],
+    providers: [provideIcons({ lucideChevronDown })],
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
         <h3 brnAccordionHeader class="flex">
@@ -20,12 +20,7 @@ import { hlm } from '@gacc-ng/ui/utils';
                 <ng-icon
                     name="lucideChevronDown"
                     data-slot="accordion-trigger-icon"
-                    class="pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden"
-                />
-                <ng-icon
-                    name="lucideChevronUp"
-                    data-slot="accordion-trigger-icon"
-                    class="pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:inline group-aria-[expanded=false]/accordion-trigger:hidden"
+                    class="text-muted-foreground pointer-events-none size-4 shrink-0 transition-transform duration-200 group-aria-expanded/accordion-trigger:rotate-180 group-data-[state=open]/accordion-trigger:rotate-180"
                 />
             </button>
         </h3>
@@ -36,7 +31,7 @@ export class HlmAccordionTrigger {
 
     protected readonly _computedTriggerClass = computed(() =>
         hlm(
-            '**:data-[slot=accordion-trigger-icon]:text-muted-foreground! gap-6 p-4 text-start text-sm font-medium hover:underline **:data-[slot=accordion-trigger-icon]:ms-auto **:data-[slot=accordion-trigger-icon]:text-[length:--spacing(4)] group/accordion-trigger relative flex flex-1 items-start justify-between border border-transparent transition-all outline-none aria-disabled:pointer-events-none aria-disabled:opacity-50',
+            'flex flex-1 items-center justify-between p-4 text-start text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group/accordion-trigger cursor-pointer select-none',
             this.triggerClass(),
         ),
     );

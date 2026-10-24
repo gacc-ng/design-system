@@ -14,6 +14,6 @@ import { classes } from '@gacc-ng/ui/utils';
 })
 export class HlmAccordion {
     constructor() {
-        classes(() => 'overflow-hidden rounded-2xl border flex w-full flex-col');
+        classes(() => 'overflow-hidden rounded-xl border flex w-full flex-col bg-card text-card-foreground shadow-xs');
     }
 }

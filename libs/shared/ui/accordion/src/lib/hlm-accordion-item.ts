@@ -20,6 +20,6 @@ import { classes } from '@gacc-ng/ui/utils';
 })
 export class HlmAccordionItem {
     constructor() {
-        classes(() => 'data-open:bg-muted/50 not-last:border-b flex flex-col');
+        classes(() => 'border-b last:border-b-0 data-[state=open]:bg-muted/30 flex flex-col transition-colors');
     }
 }
