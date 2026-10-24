@@ -14,7 +14,7 @@
 #   revert:   ⏪ Reverts a previous commit
 #
 # Allowed scopes:
-#   ui-helm, showcase, button, badge, input, label, utils, preset, core, release
+#   ui, ui-helm, showcase, storybook, button, badge, input, label, utils, preset, core, release
 #
 # Rule: Emoji must be placed strictly AFTER the colon!
 # Example:

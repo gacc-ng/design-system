@@ -1,16 +1,21 @@
 import { type ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { provideRouter } from '@angular/router';
 
 import { describe, expect, it } from 'vitest';
 
+import { HlmAccordion } from '@gacc-ng/ui/accordion';
 import { HlmAlert } from '@gacc-ng/ui/alert';
 import { HlmAlertDialog } from '@gacc-ng/ui/alert-dialog';
 import { HlmAvatar } from '@gacc-ng/ui/avatar';
 import { HlmBadge } from '@gacc-ng/ui/badge';
+import { HlmBreadcrumb } from '@gacc-ng/ui/breadcrumb';
 import { HlmButton } from '@gacc-ng/ui/button';
 import { HlmCard } from '@gacc-ng/ui/card';
 import { HlmCheckbox } from '@gacc-ng/ui/checkbox';
+import { HlmCollapsible } from '@gacc-ng/ui/collapsible';
 import { HlmDialog } from '@gacc-ng/ui/dialog';
+import { HlmDropdownMenuTrigger } from '@gacc-ng/ui/dropdown-menu';
 import { HlmInput } from '@gacc-ng/ui/input';
 import { HlmKbd } from '@gacc-ng/ui/kbd';
 import { HlmLabel } from '@gacc-ng/ui/label';
@@ -21,6 +26,7 @@ import { HlmSheet } from '@gacc-ng/ui/sheet';
 import { HlmSkeleton } from '@gacc-ng/ui/skeleton';
 import { HlmSpinner } from '@gacc-ng/ui/spinner';
 import { HlmSwitch } from '@gacc-ng/ui/switch';
+import { HlmTabs } from '@gacc-ng/ui/tabs';
 import { HlmTextarea } from '@gacc-ng/ui/textarea';
 import { HlmToggle } from '@gacc-ng/ui/toggle';
 import { HlmToggleGroup } from '@gacc-ng/ui/toggle-group';
@@ -35,6 +41,7 @@ describe('App Showcase', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [App],
+            providers: [provideRouter([])],
         }).compileComponents();
 
         fixture = TestBed.createComponent(App);
@@ -289,6 +296,46 @@ describe('App Showcase', () => {
 
         const sheet = sheetsContainer.query(By.directive(HlmSheet));
         expect(sheet).toBeTruthy();
+    });
+
+    it('should render tabs section with hlm-tabs', () => {
+        const tabsContainer = fixture.debugElement.query(By.css('[data-testid="tabs-container"]'));
+        expect(tabsContainer).toBeTruthy();
+
+        const tabs = tabsContainer.query(By.directive(HlmTabs));
+        expect(tabs).toBeTruthy();
+    });
+
+    it('should render accordion section with hlm-accordion', () => {
+        const accordionContainer = fixture.debugElement.query(By.css('[data-testid="accordion-container"]'));
+        expect(accordionContainer).toBeTruthy();
+
+        const accordion = accordionContainer.query(By.directive(HlmAccordion));
+        expect(accordion).toBeTruthy();
+    });
+
+    it('should render collapsible section with hlm-collapsible', () => {
+        const collapsibleContainer = fixture.debugElement.query(By.css('[data-testid="collapsible-container"]'));
+        expect(collapsibleContainer).toBeTruthy();
+
+        const collapsible = collapsibleContainer.query(By.directive(HlmCollapsible));
+        expect(collapsible).toBeTruthy();
+    });
+
+    it('should render breadcrumb section with hlmBreadcrumb', () => {
+        const breadcrumbContainer = fixture.debugElement.query(By.css('[data-testid="breadcrumb-container"]'));
+        expect(breadcrumbContainer).toBeTruthy();
+
+        const breadcrumb = breadcrumbContainer.query(By.directive(HlmBreadcrumb));
+        expect(breadcrumb).toBeTruthy();
+    });
+
+    it('should render dropdown menu section with trigger', () => {
+        const dropdownContainer = fixture.debugElement.query(By.css('[data-testid="dropdown-menu-container"]'));
+        expect(dropdownContainer).toBeTruthy();
+
+        const trigger = dropdownContainer.query(By.directive(HlmDropdownMenuTrigger));
+        expect(trigger).toBeTruthy();
     });
 
     it('should toggle dark mode state when theme button is clicked', () => {

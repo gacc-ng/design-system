@@ -1,13 +1,17 @@
 import { Component, signal } from '@angular/core';
 
+import { HlmAccordionImports } from '@gacc-ng/ui/accordion';
 import { HlmAlertImports } from '@gacc-ng/ui/alert';
 import { HlmAlertDialogImports } from '@gacc-ng/ui/alert-dialog';
 import { HlmAvatarImports } from '@gacc-ng/ui/avatar';
 import { HlmBadge } from '@gacc-ng/ui/badge';
+import { HlmBreadcrumbImports } from '@gacc-ng/ui/breadcrumb';
 import { HlmButton } from '@gacc-ng/ui/button';
 import { HlmCardImports } from '@gacc-ng/ui/card';
 import { HlmCheckboxImports } from '@gacc-ng/ui/checkbox';
+import { HlmCollapsibleImports } from '@gacc-ng/ui/collapsible';
 import { HlmDialogImports } from '@gacc-ng/ui/dialog';
+import { HlmDropdownMenuImports } from '@gacc-ng/ui/dropdown-menu';
 import { HlmInput } from '@gacc-ng/ui/input';
 import { HlmKbdImports } from '@gacc-ng/ui/kbd';
 import { HlmLabel } from '@gacc-ng/ui/label';
@@ -18,6 +22,7 @@ import { HlmSheetImports } from '@gacc-ng/ui/sheet';
 import { HlmSkeletonImports } from '@gacc-ng/ui/skeleton';
 import { HlmSpinnerImports } from '@gacc-ng/ui/spinner';
 import { HlmSwitchImports } from '@gacc-ng/ui/switch';
+import { HlmTabsImports } from '@gacc-ng/ui/tabs';
 import { HlmTextareaImports } from '@gacc-ng/ui/textarea';
 import { HlmToggleImports } from '@gacc-ng/ui/toggle';
 import { HlmToggleGroupImports } from '@gacc-ng/ui/toggle-group';
@@ -47,6 +52,11 @@ import { HlmTooltipImports } from '@gacc-ng/ui/tooltip';
         HlmAlertDialogImports,
         HlmPopoverImports,
         HlmSheetImports,
+        HlmTabsImports,
+        HlmAccordionImports,
+        HlmCollapsibleImports,
+        HlmBreadcrumbImports,
+        HlmDropdownMenuImports,
     ],
     selector: 'gacc-root',
     templateUrl: './app.html',

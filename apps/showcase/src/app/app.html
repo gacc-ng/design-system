@@ -774,6 +774,136 @@
                     </hlm-sheet>
                 </div>
             </section>
+
+            <!-- Section 26: Tabs -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="tabs-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">26. Tabs (&lt;hlm-tabs&gt;)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Accessible segmented navigation panels with keyboard interaction and Maia rounded-full style.
+                    </p>
+                </div>
+                <hlm-tabs tab="account" class="w-full max-w-md">
+                    <hlm-tabs-list aria-label="Account Tabs">
+                        <button type="button" hlmTabsTrigger="account">Account</button>
+                        <button type="button" hlmTabsTrigger="security">Security</button>
+                    </hlm-tabs-list>
+                    <div hlmTabsContent="account" class="mt-4 text-xs text-muted-foreground">
+                        Account preferences and profile configuration.
+                    </div>
+                    <div hlmTabsContent="security" class="mt-4 text-xs text-muted-foreground">
+                        Security keys, 2FA credentials, and active sessions.
+                    </div>
+                </hlm-tabs>
+            </section>
+
+            <!-- Section 27: Accordion -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="accordion-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">27. Accordion (&lt;hlm-accordion&gt;)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Collapsible content items with Maia rounded-2xl geometry and smooth disclosure.
+                    </p>
+                </div>
+                <hlm-accordion class="w-full max-w-md">
+                    <hlm-accordion-item>
+                        <hlm-accordion-trigger>What is Maia style?</hlm-accordion-trigger>
+                        <hlm-accordion-content>
+                            Maia features generous rounded radiuses, crisp borders, and refined contrast tokens.
+                        </hlm-accordion-content>
+                    </hlm-accordion-item>
+                    <hlm-accordion-item>
+                        <hlm-accordion-trigger>Is it keyboard accessible?</hlm-accordion-trigger>
+                        <hlm-accordion-content>
+                            Yes, full WAI-ARIA accordion standards with arrow key navigation and focus trapping.
+                        </hlm-accordion-content>
+                    </hlm-accordion-item>
+                </hlm-accordion>
+            </section>
+
+            <!-- Section 28: Collapsible -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="collapsible-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">28. Collapsible (&lt;hlm-collapsible&gt;)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Atomic toggle disclosure container for progressive reveal of secondary details.
+                    </p>
+                </div>
+                <hlm-collapsible class="w-full max-w-md">
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm font-medium">Repository Details</span>
+                        <button type="button" hlmCollapsibleTrigger hlmBtn variant="ghost" size="sm">Toggle</button>
+                    </div>
+                    <hlm-collapsible-content class="mt-2 text-xs text-muted-foreground">
+                        Hidden package release metadata and commit history.
+                    </hlm-collapsible-content>
+                </hlm-collapsible>
+            </section>
+
+            <!-- Section 29: Breadcrumb -->
+            <section class="rounded-xl border border-border bg-card p-6 shadow-xs" data-testid="breadcrumb-container">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">29. Breadcrumb (&lt;nav hlmBreadcrumb&gt;)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Semantic hierarchical path indicator with separators, links, and page markers.
+                    </p>
+                </div>
+                <nav hlmBreadcrumb aria-label="Showcase Breadcrumb">
+                    <ol hlmBreadcrumbList>
+                        <li hlmBreadcrumbItem>
+                            <a hlmBreadcrumbLink link="/">Design System</a>
+                        </li>
+                        <li hlmBreadcrumbSeparator></li>
+                        <li hlmBreadcrumbItem>
+                            <hlm-breadcrumb-ellipsis />
+                        </li>
+                        <li hlmBreadcrumbSeparator></li>
+                        <li hlmBreadcrumbItem>
+                            <span hlmBreadcrumbPage>Bloque C</span>
+                        </li>
+                    </ol>
+                </nav>
+            </section>
+
+            <!-- Section 30: Dropdown Menu -->
+            <section
+                class="rounded-xl border border-border bg-card p-6 shadow-xs"
+                data-testid="dropdown-menu-container"
+            >
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold tracking-tight">30. Dropdown Menu (&lt;hlm-dropdown-menu&gt;)</h2>
+                    <p class="text-xs text-muted-foreground">
+                        Rich contextual popup menus featuring Maia rounded-3xl menus and rounded-2xl items.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-4">
+                    <button type="button" hlmBtn variant="outline" [hlmDropdownMenuTrigger]="showcaseMenu">
+                        Open Actions Menu
+                    </button>
+                    <ng-template #showcaseMenu>
+                        <hlm-dropdown-menu>
+                            <hlm-dropdown-menu-group>
+                                <hlm-dropdown-menu-label>Options</hlm-dropdown-menu-label>
+                                <button type="button" hlmDropdownMenuItem>
+                                    Edit Document
+                                    <hlm-dropdown-menu-shortcut>⌘E</hlm-dropdown-menu-shortcut>
+                                </button>
+                                <button type="button" hlmDropdownMenuItem>
+                                    Duplicate
+                                    <hlm-dropdown-menu-shortcut>⌘D</hlm-dropdown-menu-shortcut>
+                                </button>
+                            </hlm-dropdown-menu-group>
+                            <hlm-dropdown-menu-separator />
+                            <hlm-dropdown-menu-group>
+                                <button type="button" hlmDropdownMenuItem variant="destructive">
+                                    Delete
+                                    <hlm-dropdown-menu-shortcut>⌘⌫</hlm-dropdown-menu-shortcut>
+                                </button>
+                            </hlm-dropdown-menu-group>
+                        </hlm-dropdown-menu>
+                    </ng-template>
+                </div>
+            </section>
         </div>
     </div>
 </main>

@@ -3,7 +3,13 @@
     "analytics": false,
     "namedInputs": {
         "default": ["{projectRoot}/**/*", "sharedGlobals"],
-        "production": ["default", "!{projectRoot}/.eslintrc.json", "!{projectRoot}/eslint.config.mjs"],
+        "production": [
+            "default",
+            "!{projectRoot}/.eslintrc.json",
+            "!{projectRoot}/eslint.config.mjs",
+            "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
+            "!{projectRoot}/.storybook/**/*"
+        ],
         "sharedGlobals": []
     },
     "targetDefaults": {
@@ -49,6 +55,15 @@
             "options": {
                 "targetName": "lint"
             }
+        },
+        {
+            "plugin": "@nx/storybook/plugin",
+            "options": {
+                "buildStorybookTargetName": "build-storybook",
+                "serveStorybookTargetName": "storybook",
+                "testStorybookTargetName": "test-storybook",
+                "staticStorybookTargetName": "static-storybook"
+            }
         }
     ],
     "generators": {
@@ -70,7 +85,7 @@
         "packageManager": "pnpm"
     },
     "release": {
-        "projects": ["ui-helm"],
+        "projects": ["ui"],
         "git": {
             "commit": false,
             "tag": true,

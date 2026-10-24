@@ -80,4 +80,22 @@ export default [
             '@angular-eslint/template/label-has-associated-control': 'off',
         },
     },
+    {
+        files: ['**/*.ts'],
+        ignores: ['**/*.stories.ts', '**/*.stories.tsx'],
+        rules: {
+            'no-restricted-imports': [
+                'error',
+                {
+                    patterns: [
+                        {
+                            group: ['@storybook/*', '@storybook/**'],
+                            message:
+                                'Storybook imports are strictly forbidden in library production code. They are only allowed inside *.stories.ts.',
+                        },
+                    ],
+                },
+            ],
+        },
+    },
 ];

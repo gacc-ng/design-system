@@ -1,0 +1,10 @@
+{
+    "extends": "../../tsconfig.base.json",
+    "compilerOptions": {
+        "target": "ES2022",
+        "useDefineForClassFields": false,
+        "emitDecoratorMetadata": true
+    },
+    "exclude": ["../../libs/**/*.spec.ts"],
+    "include": ["../../libs/**/*.stories.ts", ".storybook/preview.ts"]
+}

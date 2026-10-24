@@ -1,2 +1,2 @@
-export * from './hlm-button';
-export * from './hlm-button.token';
+export * from './lib/hlm-button';
+export * from './lib/hlm-button.token';
