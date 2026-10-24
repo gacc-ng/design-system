@@ -3,7 +3,8 @@
     "compilerOptions": {
         "target": "ES2022",
         "useDefineForClassFields": false,
-        "emitDecoratorMetadata": true
+        "emitDecoratorMetadata": true,
+        "types": ["vite/client"]
     },
     "exclude": ["../../libs/**/*.spec.ts"],
     "include": ["../../libs/**/*.stories.ts", ".storybook/preview.ts"]
