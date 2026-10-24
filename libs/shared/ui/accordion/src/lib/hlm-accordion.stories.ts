@@ -1,6 +1,7 @@
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
 
-import { HlmBadge } from '../../../badge/src/hlm-badge';
+import { HlmBadge } from '@gacc-ng/ui/badge';
+
 import { HlmAccordionImports } from '../index';
 
 const meta: Meta = {

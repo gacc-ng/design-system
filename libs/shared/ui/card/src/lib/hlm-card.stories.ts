@@ -1,11 +1,10 @@
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
 
-import { HlmBadge } from '../../../badge/src/hlm-badge';
-import { HlmButton } from '../../../button/src/hlm-button';
-import { HlmInput } from '../../../input/src/hlm-input';
-import { HlmLabel } from '../../../label/src/hlm-label';
-import { HlmSwitch } from '../../../switch/src/lib/hlm-switch';
-import { HlmSwitchThumb } from '../../../switch/src/lib/hlm-switch-thumb';
+import { HlmBadge } from '@gacc-ng/ui/badge';
+import { HlmButton } from '@gacc-ng/ui/button';
+import { HlmInput } from '@gacc-ng/ui/input';
+import { HlmLabel } from '@gacc-ng/ui/label';
+import { HlmSwitch, HlmSwitchThumb } from '@gacc-ng/ui/switch';
 
 import { HlmCard } from './hlm-card';
 import { HlmCardAction } from './hlm-card-action';

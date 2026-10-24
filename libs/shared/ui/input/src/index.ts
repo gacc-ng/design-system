@@ -1,1 +1,1 @@
-export * from './hlm-input';
+export * from './lib/hlm-input';

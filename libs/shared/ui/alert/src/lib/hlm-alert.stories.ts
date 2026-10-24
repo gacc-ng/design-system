@@ -1,6 +1,6 @@
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
 
-import { HlmButton } from '../../../button/src/hlm-button';
+import { HlmButton } from '@gacc-ng/ui/button';
 
 import { HlmAlert } from './hlm-alert';
 import { HlmAlertAction } from './hlm-alert-action';

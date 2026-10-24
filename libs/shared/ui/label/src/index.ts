@@ -1,1 +1,1 @@
-export * from './hlm-label';
+export * from './lib/hlm-label';

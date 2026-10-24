@@ -1,8 +1,8 @@
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
 
-import { HlmButton } from '../../../button/src/hlm-button';
-import { HlmInput } from '../../../input/src/hlm-input';
-import { HlmLabel } from '../../../label/src/hlm-label';
+import { HlmButton } from '@gacc-ng/ui/button';
+import { HlmInput } from '@gacc-ng/ui/input';
+import { HlmLabel } from '@gacc-ng/ui/label';
 
 import { HlmPopoverImports } from './hlm-popover';
 

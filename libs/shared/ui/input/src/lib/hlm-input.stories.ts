@@ -1,6 +1,6 @@
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
 
-import { HlmLabel } from '../../label/src/hlm-label';
+import { HlmLabel } from '@gacc-ng/ui/label';
 
 import { HlmInput, type InputVariants } from './hlm-input';
 

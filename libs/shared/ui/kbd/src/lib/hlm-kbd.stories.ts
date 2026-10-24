@@ -1,6 +1,6 @@
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
 
-import { HlmInput } from '../../../input/src/hlm-input';
+import { HlmInput } from '@gacc-ng/ui/input';
 
 import { HlmKbd } from './hlm-kbd';
 import { HlmKbdGroup } from './hlm-kbd-group';

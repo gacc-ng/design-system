@@ -1,14 +1,17 @@
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
 
-import { HlmButton } from '../../../button/src/hlm-button';
-import { HlmCard } from '../../../card/src/lib/hlm-card';
-import { HlmCardContent } from '../../../card/src/lib/hlm-card-content';
-import { HlmCardDescription } from '../../../card/src/lib/hlm-card-description';
-import { HlmCardFooter } from '../../../card/src/lib/hlm-card-footer';
-import { HlmCardHeader } from '../../../card/src/lib/hlm-card-header';
-import { HlmCardTitle } from '../../../card/src/lib/hlm-card-title';
-import { HlmInput } from '../../../input/src/hlm-input';
-import { HlmLabel } from '../../../label/src/hlm-label';
+import { HlmButton } from '@gacc-ng/ui/button';
+import {
+    HlmCard,
+    HlmCardContent,
+    HlmCardDescription,
+    HlmCardFooter,
+    HlmCardHeader,
+    HlmCardTitle,
+} from '@gacc-ng/ui/card';
+import { HlmInput } from '@gacc-ng/ui/input';
+import { HlmLabel } from '@gacc-ng/ui/label';
+
 import { HlmTabsImports } from '../index';
 
 const meta: Meta = {
