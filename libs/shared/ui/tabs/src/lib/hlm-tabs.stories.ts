@@ -124,7 +124,7 @@ export const Vertical: Story = {
     render: () => ({
         template: `
             <div class="p-8 flex justify-center">
-                <hlm-tabs tab="general" orientation="vertical" class="flex gap-6 w-[500px]">
+                <hlm-tabs tab="general" orientation="vertical" class="flex gap-6 w-125">
                     <hlm-tabs-list orientation="vertical" class="w-40 flex flex-col justify-start">
                         <button hlmTabsTrigger="general" class="w-full justify-start">General</button>
                         <button hlmTabsTrigger="security" class="w-full justify-start">Security</button>
