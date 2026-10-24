@@ -19,7 +19,9 @@
         "clsx": "^2.1.1",
         "tailwind-merge": "^3.5.0",
         "tailwindcss": ">=4.0.0",
-        "tw-animate-css": ">=1.0.0"
+        "tw-animate-css": ">=1.0.0",
+        "@angular/router": "~22.2.3",
+        "rxjs": "~7.8.0"
     },
     "peerDependenciesMeta": {
         "@ng-icons/core": {
