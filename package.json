@@ -70,6 +70,7 @@
         "@nx/workspace": "23.3.0",
         "@schematics/angular": "~22.2.3",
         "@spartan-ng/cli": "^1.8.0",
+        "@storybook/addon-a11y": "10.6.3",
         "@storybook/angular": "^10.5.0",
         "@storybook/angular-vite": "^10.6.3",
         "@storybook/test-runner": "^0.26.0",

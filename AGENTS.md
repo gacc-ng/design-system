@@ -53,6 +53,15 @@
     - `chore`: `🔧`
     - `revert`: `⏪`
 
+## Git Workflow & Multi-Agent Isolation
+
+- **Trunk-Based Branching:** Never apply changes directly to `main`. Always branch off `origin/main` using `<type>/<kebab-case-name>` (e.g., `feat/avatar-badge`, `fix/tabs-overflow`).
+- **Multi-Agent / Concurrent Work Isolation:**
+    - When running concurrent tasks, background tasks, or multiple agents/subagents, ALWAYS isolate the workspace using a Git Worktree in `.worktrees/<branch-name>` or native branched workspaces.
+    - Never run `git checkout` on the root workspace if another process or uncommitted change is active.
+    - Clean up worktrees (`git worktree remove`) after the branch is pushed and PR is created.
+- **Pull Request Protocol:** Always push to the remote branch and open a PR targeting `main`. Verify CI quality gates before merge.
+
 ## Architecture Standards
 
 - **Component Architecture:** Presentational (Dumb Components), Standalone components, OnPush change detection, Zoneless, Signal-based (`input()`, `computed()`, `output()`).

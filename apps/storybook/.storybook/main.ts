@@ -7,7 +7,7 @@ const __dirname = dirname(__filename);
 
 const config: StorybookConfig = {
     stories: ['../../../libs/shared/ui/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
-    addons: [],
+    addons: ['@storybook/addon-a11y'],
     framework: {
         name: '@storybook/angular-vite',
         options: {
