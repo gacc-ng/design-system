@@ -29,59 +29,6 @@
         },
         "lint": {
             "executor": "@nx/eslint:lint"
-        },
-        "storybook": {
-            "executor": "@storybook/angular:start-storybook",
-            "options": {
-                "port": 4400,
-                "configDir": "libs/shared/ui/.storybook",
-                "browserTarget": "ui-helm:build-storybook",
-                "compodoc": false,
-                "experimentalZoneless": true,
-                "styles": ["libs/shared/ui/.storybook/tailwind.css"]
-            },
-            "configurations": {
-                "ci": {
-                    "quiet": true
-                }
-            }
-        },
-        "build-storybook": {
-            "executor": "@storybook/angular:build-storybook",
-            "outputs": ["{options.outputDir}"],
-            "options": {
-                "outputDir": "dist/storybook/ui-helm",
-                "configDir": "libs/shared/ui/.storybook",
-                "browserTarget": "ui-helm:build-storybook",
-                "compodoc": false,
-                "experimentalZoneless": true,
-                "styles": ["libs/shared/ui/.storybook/tailwind.css"]
-            },
-            "configurations": {
-                "ci": {
-                    "quiet": true
-                }
-            }
-        },
-        "test-storybook": {
-            "executor": "nx:run-commands",
-            "options": {
-                "command": "test-storybook -c libs/shared/ui/.storybook --url=http://localhost:4400"
-            }
-        },
-        "static-storybook": {
-            "executor": "@nx/web:file-server",
-            "dependsOn": ["build-storybook"],
-            "options": {
-                "buildTarget": "ui-helm:build-storybook",
-                "staticFilePath": "dist/storybook/ui-helm",
-                "spa": true
-            },
-            "configurations": {
-                "ci": {
-                    "buildTarget": "ui-helm:build-storybook:ci"
-                }
-            }
         }
     }
 }
