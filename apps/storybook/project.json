@@ -9,10 +9,7 @@
     "targets": {
         "storybook": {
             "options": {
-                "port": 4400,
-                "tsConfig": "apps/storybook/tsconfig.json",
-                "experimentalZoneless": true,
-                "styles": ["apps/storybook/.storybook/tailwind.css"]
+                "port": 4400
             },
             "configurations": {
                 "ci": {
@@ -22,10 +19,7 @@
         },
         "build-storybook": {
             "options": {
-                "outputDir": "dist/storybook",
-                "tsConfig": "apps/storybook/tsconfig.json",
-                "experimentalZoneless": true,
-                "styles": ["apps/storybook/.storybook/tailwind.css"]
+                "output-dir": "dist/storybook"
             },
             "configurations": {
                 "ci": {
@@ -35,7 +29,7 @@
         },
         "static-storybook": {
             "options": {
-                "staticFilePath": "dist/storybook",
+                "staticFilePath": "apps/storybook/dist/storybook",
                 "port": 4400
             }
         }
