@@ -1,3 +1,2 @@
 @import 'tailwindcss';
-@import '../../../node_modules/@spartan-ng/brain/hlm-tailwind-preset.css';
-@import '../../../libs/shared/ui/src/styles/preset.css';
+@import '@gacc-ng/ui/preset.css';
