@@ -1,4 +1,4 @@
-name: Deploy Storybook to GitHub Pages
+name: CD - Deploy Storybook to GitHub Pages
 
 on:
     workflow_run:
