@@ -38,7 +38,12 @@
             "@gacc-ng/ui/dialog": ["./libs/shared/ui/dialog/src/index.ts"],
             "@gacc-ng/ui/alert-dialog": ["./libs/shared/ui/alert-dialog/src/index.ts"],
             "@gacc-ng/ui/popover": ["./libs/shared/ui/popover/src/index.ts"],
-            "@gacc-ng/ui/sheet": ["./libs/shared/ui/sheet/src/index.ts"]
+            "@gacc-ng/ui/sheet": ["./libs/shared/ui/sheet/src/index.ts"],
+            "@gacc-ng/ui/tabs": ["./libs/shared/ui/tabs/src/index.ts"],
+            "@gacc-ng/ui/accordion": ["./libs/shared/ui/accordion/src/index.ts"],
+            "@gacc-ng/ui/collapsible": ["./libs/shared/ui/collapsible/src/index.ts"],
+            "@gacc-ng/ui/breadcrumb": ["./libs/shared/ui/breadcrumb/src/index.ts"],
+            "@gacc-ng/ui/dropdown-menu": ["./libs/shared/ui/dropdown-menu/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

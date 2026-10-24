@@ -1,0 +1,19 @@
+import { Directive } from '@angular/core';
+
+import { classes } from '@gacc-ng/ui/utils';
+
+@Directive({
+    selector: '[hlmBreadcrumbPage]',
+    exportAs: 'hlmBreadcrumbPage',
+    host: {
+        'data-slot': 'breadcrumb-page',
+        role: 'link',
+        'aria-disabled': 'true',
+        'aria-current': 'page',
+    },
+})
+export class HlmBreadcrumbPage {
+    constructor() {
+        classes(() => 'text-foreground font-normal');
+    }
+}
