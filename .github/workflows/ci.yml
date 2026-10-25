@@ -25,17 +25,8 @@ jobs:
               with:
                   fetch-depth: 0
 
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v6
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v7
-              with:
-                  node-version-file: '.nvmrc'
-                  cache: 'pnpm'
-
-            - name: Install dependencies
-              run: pnpm install --frozen-lockfile
+            - name: Setup workspace
+              uses: ./.github/actions/setup
 
             - name: Determine base and head commits
               id: set-shas
@@ -48,31 +39,8 @@ jobs:
             - name: Verify code formatting
               run: pnpm nx format:check --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
 
-            - name: Lint affected projects
-              run: pnpm nx affected -t lint --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
-
-            - name: Run unit tests on affected projects
-              run: pnpm nx affected -t test --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
-
-            - name: Build affected projects
-              run: pnpm nx affected -t build --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
-
-            - name: Run schematics unit tests
-              if: hashFiles('dist/libs/ui/schematics/collection.json') != ''
-              run: pnpm nx run ui:test-schematics
-
-            - name: Validate library package integrity
-              if: hashFiles('dist/libs/ui/package.json') != ''
-              run: |
-                  echo "Validating @gacc-ng/ui package..."
-                  cd dist/libs/ui
-                  pnpm pack --dry-run
-                  test -f package.json
-                  test -f src/styles/preset.css
-                  test -f schematics/collection.json
-                  test -f schematics/migration.json
-                  test -d button && test -d badge && test -d input && test -d label && test -d utils
-                  echo "Library package structure and entry points verified successfully!"
+            - name: Execute affected quality gates
+              run: pnpm nx affected -t lint test build test-schematics validate-package build-storybook --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
 
             - name: Upload library distribution artifact
               if: hashFiles('dist/libs/ui/package.json') != ''

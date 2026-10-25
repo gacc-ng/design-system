@@ -42,6 +42,14 @@
                 "command": "pnpm vitest run libs/ui/schematics"
             }
         },
+        "validate-package": {
+            "executor": "nx:run-commands",
+            "dependsOn": ["build"],
+            "inputs": ["{workspaceRoot}/dist/libs/ui/**/*", "{workspaceRoot}/tools/scripts/validate-package.mjs"],
+            "options": {
+                "command": "node tools/scripts/validate-package.mjs dist/libs/ui"
+            }
+        },
         "test": {
             "executor": "@nx/angular:unit-test",
             "options": {

@@ -31,17 +31,8 @@ jobs:
                   fetch-depth: 0
                   ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v6
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v7
-              with:
-                  node-version-file: '.nvmrc'
-                  cache: 'pnpm'
-
-            - name: Install dependencies
-              run: pnpm install --frozen-lockfile
+            - name: Setup workspace
+              uses: ./.github/actions/setup
 
             - name: Build Storybook
               run: pnpm nx run storybook:build-storybook -c ci
