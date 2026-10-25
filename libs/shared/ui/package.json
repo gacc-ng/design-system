@@ -11,6 +11,12 @@
     "ng-add": {
         "save": "dependencies"
     },
+    "ng-update": {
+        "migrations": "./schematics/migration.json",
+        "packageGroup": [
+            "@gacc-ng/ui"
+        ]
+    },
     "peerDependencies": {
         "@angular-devkit/schematics": ">=19.0.0",
         "@schematics/angular": ">=19.0.0",

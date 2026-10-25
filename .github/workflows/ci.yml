@@ -70,6 +70,7 @@ jobs:
                   test -f package.json
                   test -f src/styles/preset.css
                   test -f schematics/collection.json
+                  test -f schematics/migration.json
                   test -d button && test -d badge && test -d input && test -d label && test -d utils
                   echo "Library package structure and entry points verified successfully!"
 

@@ -1,0 +1,12 @@
+{
+    "$schema": "../../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+    "name": "@gacc-ng/ui-migrations",
+    "version": "1.0",
+    "schematics": {
+        "migration-v0-15-provide-gacc-ui": {
+            "version": "0.0.15",
+            "description": "Migrate deprecated provideSpartanHlm to provideGaccUi in application configuration",
+            "factory": "./migrations/v0-15/index#default"
+        }
+    }
+}

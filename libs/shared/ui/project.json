@@ -39,7 +39,7 @@
             "dependsOn": ["build-schematics"],
             "inputs": ["{projectRoot}/schematics/**/*", "{workspaceRoot}/dist/libs/shared/ui/schematics/**/*"],
             "options": {
-                "command": "pnpm vitest run libs/shared/ui/schematics/ng-add/index.spec.ts"
+                "command": "pnpm vitest run libs/shared/ui/schematics"
             }
         },
         "test": {
