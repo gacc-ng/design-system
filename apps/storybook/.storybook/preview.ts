@@ -5,14 +5,43 @@ import { provideSpartanHlm } from '@gacc-ng/ui/utils';
 
 import './tailwind.css';
 
+const MULTI_PART_COMPONENTS = new Set([
+    'accordion',
+    'alert-dialog',
+    'alert',
+    'avatar',
+    'breadcrumb',
+    'card',
+    'collapsible',
+    'command',
+    'dialog',
+    'dropdown-menu',
+    'field',
+    'input-otp',
+    'kbd',
+    'popover',
+    'radio-group',
+    'select',
+    'separator',
+    'sheet',
+    'slider',
+    'switch',
+    'tabs',
+]);
+
+const SPECIAL_IMPORTS: Record<string, string> = {
+    'toggle-group': 'HlmToggleGroup, HlmToggleGroupItem',
+};
+
 /**
- * Extracts and unindents the Angular HTML template from a CSF3 story definition,
- * stripping out internal Storybook `{ render: () => ({ template: ... }) }` wrapper code.
+ * Transforms CSF3 story source code into a clean, copy-pasteable Angular Standalone @Component snippet.
+ * Strips Storybook's internal `{ render: () => ({ template: ... }) }` wrapper and synthesizes
+ * the necessary Angular imports and standalone component metadata.
  */
-function cleanStoryTemplateSource(code: string): string {
+function formatStandaloneComponentSource(code: string, context?: { title?: string }): string {
     if (!code) return code;
 
-    // Match template: `...` inside render: () => ({ template: `...` })
+    // 1. Extract template string
     const templateMatch = code.match(/template:\s*`([\s\S]*?)`(?:\s*,\s*(?:props|styles|moduleMetadata|\}))?/);
     let extracted = templateMatch ? templateMatch[1] : null;
 
@@ -44,11 +73,49 @@ function cleanStoryTemplateSource(code: string): string {
         return Math.min(min, match ? match[1].length : 0);
     }, Infinity);
 
-    if (minIndent !== Infinity && minIndent > 0) {
-        return lines.map((line) => (line.length >= minIndent ? line.slice(minIndent) : line)).join('\n');
+    const dedentedTemplate =
+        minIndent !== Infinity && minIndent > 0
+            ? lines.map((line) => (line.length >= minIndent ? line.slice(minIndent) : line)).join('\n')
+            : lines.join('\n');
+
+    // 2. Resolve component naming from Story context
+    const title = typeof context?.title === 'string' ? context.title : '';
+    const rawName = title.replace(/^Primitives\//i, '').trim();
+
+    if (!rawName) {
+        return dedentedTemplate;
     }
 
-    return lines.join('\n');
+    const kebabName = rawName.toLowerCase().replace(/\s+/g, '-');
+    const pascalName = rawName.replace(/(?:^|\s|-)([a-z0-9])/gi, (_, c) => c.toUpperCase()).replace(/[\s-]+/g, '');
+
+    let importSymbol: string;
+    if (SPECIAL_IMPORTS[kebabName]) {
+        importSymbol = SPECIAL_IMPORTS[kebabName];
+    } else if (MULTI_PART_COMPONENTS.has(kebabName)) {
+        importSymbol = `Hlm${pascalName}Imports`;
+    } else {
+        importSymbol = `Hlm${pascalName}`;
+    }
+
+    const indentedTemplateForClass = dedentedTemplate
+        .split('\n')
+        .map((l) => (l.trim() ? `        ${l}` : ''))
+        .join('\n');
+
+    return [
+        `import { Component } from '@angular/core';`,
+        `import { ${importSymbol} } from '@gacc-ng/ui/${kebabName}';`,
+        ``,
+        `@Component({`,
+        `    selector: 'app-${kebabName}-demo',`,
+        `    imports: [${importSymbol}],`,
+        `    template: \``,
+        `${indentedTemplateForClass}`,
+        `    \`,`,
+        `})`,
+        `export class ${pascalName}DemoComponent {}`,
+    ].join('\n');
 }
 
 const preview: Preview = {
@@ -72,8 +139,9 @@ const preview: Preview = {
             codePanel: true,
             source: {
                 format: 'dedent',
-                language: 'html',
-                transform: (code: string) => cleanStoryTemplateSource(code),
+                language: 'typescript',
+                transform: (code: string, storyContext: { title?: string }) =>
+                    formatStandaloneComponentSource(code, storyContext),
             },
         },
         backgrounds: {
