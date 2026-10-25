@@ -5,7 +5,7 @@ import { addons } from 'storybook/preview-api';
 import { provideSpartanHlm } from '@gacc-ng/ui/utils';
 
 import { DocsContainer } from './docs-container';
-import { formatStandaloneComponentSource } from './preview-transform';
+import { formatStandaloneComponentSource, type StoryTransformContext } from './preview-transform';
 import {
     isRadiusPreset,
     RADIUS_CHANNEL_EVENT,
@@ -93,7 +93,7 @@ const preview: Preview = {
             source: {
                 format: 'dedent',
                 language: 'typescript',
-                transform: (code: string, storyContext: { title?: string }) =>
+                transform: (code: string, storyContext: StoryTransformContext) =>
                     formatStandaloneComponentSource(code, storyContext),
             },
         },
