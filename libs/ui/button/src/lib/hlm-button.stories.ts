@@ -1,3 +1,5 @@
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { lucideChevronRight, lucideLoader2, lucideMail } from '@ng-icons/lucide';
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 
 import { type ButtonVariants, HlmButton } from './hlm-button';
@@ -16,7 +18,8 @@ const meta: Meta<ButtonStoryArgs> = {
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
-            imports: [HlmButton],
+            imports: [HlmButton, NgIcon],
+            providers: [provideIcons({ lucideLoader2, lucideMail, lucideChevronRight })],
         }),
     ],
     argTypes: {
@@ -51,10 +54,10 @@ const meta: Meta<ButtonStoryArgs> = {
         },
         text: {
             control: 'text',
-            description: 'The label content displayed inside the button.',
+            description: 'The projected label content displayed inside the button.',
             table: {
-                category: 'Inputs',
-                type: { summary: 'string' },
+                category: 'Slots',
+                type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'Button'" },
             },
         },
@@ -112,6 +115,9 @@ export const AllSizes: Story = {
                 <button hlmBtn size="sm">Small</button>
                 <button hlmBtn size="default">Default</button>
                 <button hlmBtn size="lg">Large</button>
+                <button hlmBtn size="icon" aria-label="Mail icon">
+                    <ng-icon name="lucideMail" class="size-4" />
+                </button>
             </div>
         `,
     }),
@@ -128,6 +134,37 @@ export const Disabled: Story = {
             <button hlmBtn [variant]="variant" [size]="size" [disabled]="disabled">
                 {{ text }}
             </button>
+        `,
+    }),
+};
+
+export const Loading: Story = {
+    render: () => ({
+        template: `
+            <button hlmBtn disabled aria-busy="true">
+                <ng-icon name="lucideLoader2" class="size-4 animate-spin mr-2" />
+                Please wait
+            </button>
+        `,
+    }),
+};
+
+export const WithIcon: Story = {
+    render: () => ({
+        template: `
+            <div class="flex flex-wrap items-center gap-3">
+                <button hlmBtn variant="default">
+                    <ng-icon name="lucideMail" class="size-4 mr-2" />
+                    Login with Email
+                </button>
+                <button hlmBtn variant="secondary">
+                    Next step
+                    <ng-icon name="lucideChevronRight" class="size-4 ml-2" />
+                </button>
+                <button hlmBtn variant="outline" size="icon" aria-label="Send email">
+                    <ng-icon name="lucideMail" class="size-4" />
+                </button>
+            </div>
         `,
     }),
 };
