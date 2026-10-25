@@ -98,9 +98,6 @@ updates:
                   - '*'
               update-types:
                   - 'major'
-              labels:
-                  - 'breaking-change'
-                  - 'major-update'
       ignore:
           - dependency-name: 'typescript'
             update-types:
@@ -152,6 +149,3 @@ updates:
                   - '*'
               update-types:
                   - 'major'
-              labels:
-                  - 'breaking-change'
-                  - 'major-update'
