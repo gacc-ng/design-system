@@ -23,7 +23,7 @@ jobs:
             - name: Perform Dependency Review
               uses: actions/dependency-review-action@v4
               with:
-                  fail-on-severity: 'high,critical'
+                  fail-on-severity: 'high'
                   fail-on-scopes: 'runtime'
                   allow-licenses: '0BSD, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, MIT'
                   warn-only: true
