@@ -11,6 +11,7 @@ interface KbdStoryArgs {
 
 const meta: Meta<KbdStoryArgs> = {
     title: 'Primitives/Kbd',
+    component: HlmKbd,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
@@ -20,7 +21,12 @@ const meta: Meta<KbdStoryArgs> = {
     argTypes: {
         keyText: {
             control: 'text',
-            description: 'Key symbol or text',
+            description: 'The key symbol or shortcut label projected inside the kbd element.',
+            table: {
+                category: 'Slots',
+                type: { summary: 'string | TemplateRef' },
+                defaultValue: { summary: "'⌘K'" },
+            },
         },
     },
     args: {
