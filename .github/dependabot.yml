@@ -85,6 +85,15 @@ updates:
           - dependency-name: '@storybook/*'
             update-types:
                 - 'version-update:semver-major'
+          - dependency-name: '@angular/*'
+            update-types:
+                - 'version-update:semver-major'
+          - dependency-name: '@angular-devkit/*'
+            update-types:
+                - 'version-update:semver-major'
+          - dependency-name: '@schematics/*'
+            update-types:
+                - 'version-update:semver-major'
 
     # 2. GitHub Actions Workflows
     - package-ecosystem: 'github-actions'
