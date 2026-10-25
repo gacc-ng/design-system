@@ -1,7 +1,9 @@
-import { addons } from 'storybook/manager-api';
 import { create } from 'storybook/theming';
 
-const darkTheme = create({
+/**
+ * Storybook Dark Theme aligned with @gacc-ng/ui pitch black tokens (#09090b)
+ */
+export const darkTheme = create({
     base: 'dark',
     brandTitle: 'gacc-ng UI',
     appBg: '#09090b',
@@ -18,7 +20,10 @@ const darkTheme = create({
     gridCellSize: 12,
 });
 
-const lightTheme = create({
+/**
+ * Storybook Light Theme aligned with @gacc-ng/ui light tokens (#ffffff)
+ */
+export const lightTheme = create({
     base: 'light',
     brandTitle: 'gacc-ng UI',
     appBg: '#ffffff',
@@ -33,30 +38,4 @@ const lightTheme = create({
     inputBorder: 'rgba(0, 0, 0, 0.1)',
     inputTextColor: '#18181b',
     gridCellSize: 12,
-});
-
-addons.setConfig({
-    theme: lightTheme,
-});
-
-addons.register('gacc/manager-theme-sync', (api) => {
-    const applyTheme = (themeName?: string) => {
-        const selectedTheme = themeName === 'dark' ? darkTheme : lightTheme;
-        api.setOptions({
-            theme: selectedTheme,
-        });
-    };
-
-    // Initial sync from active globals (e.g. ?globals=theme:dark)
-    const initialGlobals = api.getGlobals();
-    if (initialGlobals?.theme) {
-        applyTheme(initialGlobals.theme);
-    }
-
-    // Dynamic sync on toolbar switch
-    api.on('globalsUpdated', ({ globals }) => {
-        if (globals?.theme) {
-            applyTheme(globals.theme);
-        }
-    });
 });

@@ -1,9 +1,19 @@
 import { withThemeByClassName } from '@storybook/addon-themes';
 import { applicationConfig, type Preview } from '@storybook/angular-vite';
+import { addons } from 'storybook/preview-api';
 
 import { provideSpartanHlm } from '@gacc-ng/ui/utils';
 
 import { DocsContainer } from './docs-container';
+import {
+    isRadiusPreset,
+    RADIUS_CHANNEL_EVENT,
+    RADIUS_MAP,
+    RADIUS_STORAGE_KEY,
+    type RadiusPreset,
+    type SetRadiusPayload,
+} from './radius-presets';
+import { isToolbarFeatureEnabled } from './toolbar-features';
 
 import './tailwind.css';
 
@@ -110,48 +120,61 @@ function formatStandaloneComponentSource(code: string, context?: { title?: strin
     ].join('\n');
 }
 
-const RADIUS_MAP: Record<string, string> = {
-    none: '0rem',
-    subtle: '0.25rem',
-    moderate: '0.875rem',
-    pronounced: '1.5rem',
-};
+let radiusTimer: ReturnType<typeof setTimeout> | undefined;
 
-const withRadiusDecorator = (storyFn: () => unknown, context: { globals?: { radius?: string } }) => {
-    const radius = context.globals?.radius;
-    if (typeof document !== 'undefined') {
-        if (!radius || radius === 'default') {
-            document.documentElement.style.removeProperty('--radius');
-        } else if (RADIUS_MAP[radius]) {
-            document.documentElement.style.setProperty('--radius', RADIUS_MAP[radius]);
-        }
+function applyRadius(radius?: string, animate = false): void {
+    if (typeof document === 'undefined') return;
+    const html = document.documentElement;
+
+    if (radiusTimer) {
+        clearTimeout(radiusTimer);
+        radiusTimer = undefined;
     }
-    return storyFn();
-};
+
+    if (animate) {
+        html.classList.add('is-adjusting-radius');
+        radiusTimer = setTimeout(() => {
+            html.classList.remove('is-adjusting-radius');
+            radiusTimer = undefined;
+        }, 220);
+    } else {
+        html.classList.remove('is-adjusting-radius');
+    }
+
+    if (!radius || radius === 'default') {
+        html.style.removeProperty('--radius');
+    } else if (RADIUS_MAP[radius]) {
+        html.style.setProperty('--radius', RADIUS_MAP[radius]);
+    }
+}
+
+function readInitialRadius(): RadiusPreset {
+    if (typeof window === 'undefined') return 'default';
+    const fromUrl = new URLSearchParams(window.location.search).get('radius');
+    if (isRadiusPreset(fromUrl)) return fromUrl;
+    try {
+        const stored = localStorage.getItem(RADIUS_STORAGE_KEY);
+        if (isRadiusPreset(stored)) return stored;
+    } catch {
+        // Handle restricted iframes or disabled localStorage
+    }
+    return 'default';
+}
+
+// Zero-teardown channel listener (bypasses globalTypes & story re-rendering)
+if (typeof window !== 'undefined' && isToolbarFeatureEnabled('radius')) {
+    applyRadius(readInitialRadius(), false);
+
+    addons.getChannel().on(RADIUS_CHANNEL_EVENT, ({ radius, animate = true }: SetRadiusPayload) => {
+        if (isRadiusPreset(radius)) {
+            applyRadius(radius, animate);
+        }
+    });
+}
 
 const preview: Preview = {
     tags: ['autodocs'],
-    globalTypes: {
-        radius: {
-            name: 'Radius',
-            description: 'Corner radius preset token',
-            defaultValue: 'default',
-            toolbar: {
-                title: 'Radius',
-                icon: 'box',
-                dynamicTitle: true,
-                items: [
-                    { value: 'default', title: 'Default' },
-                    { value: 'none', title: 'None' },
-                    { value: 'subtle', title: 'Subtle' },
-                    { value: 'moderate', title: 'Moderate' },
-                    { value: 'pronounced', title: 'Pronounced' },
-                ],
-            },
-        },
-    },
     decorators: [
-        withRadiusDecorator,
         withThemeByClassName({
             themes: {
                 light: '',
@@ -176,8 +199,14 @@ const preview: Preview = {
                     formatStandaloneComponentSource(code, storyContext),
             },
         },
+        a11y: {
+            disable: !isToolbarFeatureEnabled('a11y'),
+        },
+        themes: {
+            disable: !isToolbarFeatureEnabled('theme'),
+        },
         backgrounds: {
-            disable: true,
+            disable: !isToolbarFeatureEnabled('backgrounds'),
         },
         controls: {
             matchers: {
