@@ -56,8 +56,8 @@ export default class AngularStyleChangelogRenderer extends ResolvedBaseRenderer 
                 const badgeMarkdown = `[![${type} - ${shortHash}](${badgeUrl})](${commitUrl})`;
 
                 let description = (change.description || '').replace(LEADING_EMOJI_REGEX, '').trim();
-                // Escape pipe characters to maintain valid markdown table formatting
-                description = description.replace(/\|/g, '\\|');
+                // Escape backslashes first, then pipe characters, to maintain valid markdown table formatting (CWE-116)
+                description = description.replace(/\\/g, '\\\\').replace(/\|/g, '\\|');
 
                 let references = '';
                 if (

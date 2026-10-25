@@ -1,4 +1,4 @@
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { copyFileSync, mkdirSync, readdirSync, rmSync, statSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -13,7 +13,10 @@ rmSync(schematicsDist, { recursive: true, force: true });
 mkdirSync(schematicsDist, { recursive: true });
 
 console.log('Compiling schematics TypeScript...');
-execSync(`pnpm tsc -p ${schematicsSrc}/tsconfig.schematics.json`, { stdio: 'inherit', cwd: root });
+execFileSync('pnpm', ['tsc', '-p', join(schematicsSrc, 'tsconfig.schematics.json')], {
+    stdio: 'inherit',
+    cwd: root,
+});
 
 console.log('Syncing schematics JSON and package assets...');
 function copyJsonRecursive(srcDir, destDir) {
