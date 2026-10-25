@@ -2,21 +2,30 @@ import React, { useCallback, useState } from 'react';
 import { IconButton, TooltipLinkList, WithTooltip } from 'storybook/internal/components';
 import { addons, useStorybookApi } from 'storybook/manager-api';
 
-import { RADIUS_OPTIONS, type RadiusPreset } from './radius-presets';
-
-const STORAGE_KEY = 'gacc-storybook-radius';
+import {
+    isRadiusPreset,
+    RADIUS_CHANNEL_EVENT,
+    RADIUS_OPTIONS,
+    RADIUS_STORAGE_KEY,
+    type RadiusPreset,
+    type SetRadiusPayload,
+} from './radius-presets';
 
 export function RadiusTool(): React.JSX.Element {
     const api = useStorybookApi();
     const [radius, setRadius] = useState<RadiusPreset>(() => {
         if (typeof window !== 'undefined') {
             const urlParam = api?.getQueryParam('radius');
-            if (urlParam && RADIUS_OPTIONS.some((o) => o.id === urlParam)) {
-                return urlParam as RadiusPreset;
+            if (isRadiusPreset(urlParam)) {
+                return urlParam;
             }
-            const stored = localStorage.getItem(STORAGE_KEY);
-            if (stored && RADIUS_OPTIONS.some((o) => o.id === stored)) {
-                return stored as RadiusPreset;
+            try {
+                const stored = localStorage.getItem(RADIUS_STORAGE_KEY);
+                if (isRadiusPreset(stored)) {
+                    return stored;
+                }
+            } catch {
+                /* noop: private browsing or restricted iframe */
             }
         }
         return 'default';
@@ -26,9 +35,14 @@ export function RadiusTool(): React.JSX.Element {
         (newRadius: RadiusPreset) => {
             setRadius(newRadius);
             if (typeof window !== 'undefined') {
-                localStorage.setItem(STORAGE_KEY, newRadius);
+                try {
+                    localStorage.setItem(RADIUS_STORAGE_KEY, newRadius);
+                } catch {
+                    /* noop */
+                }
                 api?.setQueryParams({ radius: newRadius === 'default' ? '' : newRadius });
-                addons.getChannel().emit('gacc/set-radius', { radius: newRadius });
+                const payload: SetRadiusPayload = { radius: newRadius, animate: true };
+                addons.getChannel().emit(RADIUS_CHANNEL_EVENT, payload);
             }
         },
         [api],
