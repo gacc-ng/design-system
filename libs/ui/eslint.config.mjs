@@ -1,11 +1,14 @@
 import nx from '@nx/eslint-plugin';
 
+import storybook from 'eslint-plugin-storybook';
+
 import baseConfig from '../../eslint.config.mjs';
 
 export default [
     ...baseConfig,
     ...nx.configs['flat/angular'],
     ...nx.configs['flat/angular-template'],
+    ...storybook.configs['flat/recommended'],
     {
         files: ['**/*.json'],
         rules: {
