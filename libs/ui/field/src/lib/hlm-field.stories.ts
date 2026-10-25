@@ -1,5 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/angular-vite';
-import { moduleMetadata } from '@storybook/angular-vite';
+import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 
 import { HlmButton } from '@gacc-ng/ui/button';
 import { HlmCheckbox } from '@gacc-ng/ui/checkbox';
@@ -8,26 +7,50 @@ import { HlmTextarea } from '@gacc-ng/ui/textarea';
 
 import { HlmFieldImports } from '../index';
 
-const meta: Meta = {
-    title: 'UI/Field',
+import { HlmField } from './hlm-field';
+
+interface FieldStoryArgs {
+    orientation: 'vertical' | 'horizontal';
+}
+
+const meta: Meta<FieldStoryArgs> = {
+    title: 'Primitives/Field',
+    component: HlmField,
+    tags: ['autodocs'],
     decorators: [
         moduleMetadata({
             imports: [HlmFieldImports, HlmInput, HlmButton, HlmCheckbox, HlmTextarea],
         }),
     ],
+    argTypes: {
+        orientation: {
+            control: 'select',
+            options: ['vertical', 'horizontal'],
+            description: 'The layout axis orientation for the field label and control.',
+            table: {
+                category: 'Inputs',
+                type: { summary: "'vertical' | 'horizontal'" },
+                defaultValue: { summary: "'vertical'" },
+            },
+        },
+    },
+    args: {
+        orientation: 'vertical',
+    },
 };
 
 export default meta;
-type Story = StoryObj;
+type Story = StoryObj<FieldStoryArgs>;
 
 export const Default: Story = {
-    render: () => ({
+    render: (args) => ({
+        props: args,
         template: `
             <div class="p-8 max-w-sm mx-auto">
-                <div hlmField>
+                <div hlmField [orientation]="orientation">
                     <label hlmFieldLabel for="email-field">Email address</label>
                     <input hlmInput id="email-field" placeholder="john@example.com" type="email" />
-                    <p hlmFieldDescription>We'll never share your email with anyone else.</p>
+                    <p hlmFieldDescription>We will never share your email with anyone else.</p>
                 </div>
             </div>
         `,
@@ -61,39 +84,15 @@ export const Horizontal: Story = {
     }),
 };
 
-export const FormFieldSet: Story = {
+export const WithTextarea: Story = {
     render: () => ({
         template: `
-            <div class="p-8 max-w-md mx-auto">
-                <fieldset hlmFieldSet>
-                    <legend hlmFieldLegend>Account Settings</legend>
-                    <p hlmFieldDescription>Manage your public profile and preferences.</p>
-
-                    <div hlmFieldGroup>
-                        <div hlmField>
-                            <label hlmFieldLabel for="profile-name">Display Name</label>
-                            <input hlmInput id="profile-name" placeholder="John Doe" />
-                        </div>
-
-                        <div hlmField>
-                            <label hlmFieldLabel for="profile-bio">Bio</label>
-                            <textarea hlmTextarea id="profile-bio" placeholder="Tell us about yourself..." class="resize-none"></textarea>
-                            <p hlmFieldDescription>Brief description for your profile.</p>
-                        </div>
-
-                        <hlm-field-separator>Notifications</hlm-field-separator>
-
-                        <div hlmField orientation="horizontal">
-                            <hlm-checkbox inputId="newsletter" [checked]="true" />
-                            <label hlmFieldLabel for="newsletter">Receive weekly product updates</label>
-                        </div>
-
-                        <div hlmField orientation="horizontal" class="pt-4">
-                            <button hlmBtn>Save Changes</button>
-                            <button hlmBtn variant="outline">Cancel</button>
-                        </div>
-                    </div>
-                </fieldset>
+            <div class="p-8 max-w-sm mx-auto">
+                <div hlmField>
+                    <label hlmFieldLabel for="bio-textarea">Biography</label>
+                    <textarea hlmTextarea id="bio-textarea" placeholder="Brief summary of your background..."></textarea>
+                    <p hlmFieldDescription>Maximum 500 characters.</p>
+                </div>
             </div>
         `,
     }),

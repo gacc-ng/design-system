@@ -1,3 +1,13 @@
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import {
+    lucideAlignCenter,
+    lucideAlignJustify,
+    lucideAlignLeft,
+    lucideAlignRight,
+    lucideBold,
+    lucideItalic,
+    lucideUnderline,
+} from '@ng-icons/lucide';
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 
 import { HlmToggleGroup } from './hlm-toggle-group';
@@ -12,31 +22,63 @@ interface ToggleGroupStoryArgs {
 
 const meta: Meta<ToggleGroupStoryArgs> = {
     title: 'Primitives/ToggleGroup',
+    component: HlmToggleGroup,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
-            imports: [HlmToggleGroup, HlmToggleGroupItem],
+            imports: [HlmToggleGroup, HlmToggleGroupItem, NgIcon],
+            providers: [
+                provideIcons({
+                    lucideBold,
+                    lucideItalic,
+                    lucideUnderline,
+                    lucideAlignLeft,
+                    lucideAlignCenter,
+                    lucideAlignRight,
+                    lucideAlignJustify,
+                }),
+            ],
         }),
     ],
     argTypes: {
         variant: {
             control: 'select',
             options: ['default', 'outline'],
-            description: 'Visual variant for the whole group',
+            description: 'The visual style variant for the toggle group container.',
+            table: {
+                category: 'Inputs',
+                type: { summary: "'default' | 'outline'" },
+                defaultValue: { summary: "'default'" },
+            },
         },
         size: {
             control: 'select',
             options: ['default', 'sm', 'lg'],
-            description: 'Size of the toggle items',
+            description: 'The size dimension of the toggle items.',
+            table: {
+                category: 'Inputs',
+                type: { summary: "'default' | 'sm' | 'lg'" },
+                defaultValue: { summary: "'default'" },
+            },
         },
         orientation: {
             control: 'select',
             options: ['horizontal', 'vertical'],
-            description: 'Layout orientation',
+            description: 'Layout axis orientation for the toggle items.',
+            table: {
+                category: 'Inputs',
+                type: { summary: "'horizontal' | 'vertical'" },
+                defaultValue: { summary: "'horizontal'" },
+            },
         },
         spacing: {
             control: 'number',
-            description: 'Spacing between items',
+            description: 'Spacing in pixels between toggle items.',
+            table: {
+                category: 'Inputs',
+                type: { summary: 'number' },
+                defaultValue: { summary: '0' },
+            },
         },
     },
     args: {
@@ -56,66 +98,73 @@ export const Default: Story = {
         template: `
             <hlm-toggle-group [variant]="variant" [size]="size" [orientation]="orientation" [spacing]="spacing" value="bold">
                 <button hlmToggleGroupItem value="bold" aria-label="Toggle bold">
-                    <span class="font-bold">B</span>
+                    <ng-icon name="lucideBold" class="size-4" />
                 </button>
                 <button hlmToggleGroupItem value="italic" aria-label="Toggle italic">
-                    <span class="italic">I</span>
+                    <ng-icon name="lucideItalic" class="size-4" />
                 </button>
                 <button hlmToggleGroupItem value="underline" aria-label="Toggle underline">
-                    <span class="underline">U</span>
+                    <ng-icon name="lucideUnderline" class="size-4" />
                 </button>
             </hlm-toggle-group>
         `,
     }),
 };
 
-export const Outline: Story = {
-    args: {
-        variant: 'outline',
-    },
-    render: (args) => ({
-        props: args,
+export const AllVariants: Story = {
+    render: () => ({
         template: `
-            <hlm-toggle-group [variant]="variant" [size]="size" [orientation]="orientation" [spacing]="spacing" value="center">
-                <button hlmToggleGroupItem value="left" aria-label="Align left">Left</button>
-                <button hlmToggleGroupItem value="center" aria-label="Align center">Center</button>
-                <button hlmToggleGroupItem value="right" aria-label="Align right">Right</button>
-                <button hlmToggleGroupItem value="justify" aria-label="Align justify">Justify</button>
-            </hlm-toggle-group>
+            <div class="flex flex-col gap-4">
+                <div>
+                    <span class="text-xs text-muted-foreground mb-1 block">Default Variant</span>
+                    <hlm-toggle-group variant="default" value="left">
+                        <button hlmToggleGroupItem value="left" aria-label="Align left"><ng-icon name="lucideAlignLeft" class="size-4" /></button>
+                        <button hlmToggleGroupItem value="center" aria-label="Align center"><ng-icon name="lucideAlignCenter" class="size-4" /></button>
+                        <button hlmToggleGroupItem value="right" aria-label="Align right"><ng-icon name="lucideAlignRight" class="size-4" /></button>
+                    </hlm-toggle-group>
+                </div>
+                <div>
+                    <span class="text-xs text-muted-foreground mb-1 block">Outline Variant</span>
+                    <hlm-toggle-group variant="outline" value="left">
+                        <button hlmToggleGroupItem value="left" aria-label="Align left"><ng-icon name="lucideAlignLeft" class="size-4" /></button>
+                        <button hlmToggleGroupItem value="center" aria-label="Align center"><ng-icon name="lucideAlignCenter" class="size-4" /></button>
+                        <button hlmToggleGroupItem value="right" aria-label="Align right"><ng-icon name="lucideAlignRight" class="size-4" /></button>
+                    </hlm-toggle-group>
+                </div>
+            </div>
         `,
     }),
 };
 
-export const WithSpacing: Story = {
-    args: {
-        variant: 'outline',
-        spacing: 2,
-    },
-    render: (args) => ({
-        props: args,
+export const AllSizes: Story = {
+    render: () => ({
         template: `
-            <hlm-toggle-group [variant]="variant" [size]="size" [orientation]="orientation" [spacing]="spacing" value="day">
-                <button hlmToggleGroupItem value="day">Day</button>
-                <button hlmToggleGroupItem value="week">Week</button>
-                <button hlmToggleGroupItem value="month">Month</button>
-                <button hlmToggleGroupItem value="year">Year</button>
-            </hlm-toggle-group>
+            <div class="flex flex-col gap-4">
+                <hlm-toggle-group size="sm" value="bold">
+                    <button hlmToggleGroupItem value="bold" aria-label="Toggle bold"><ng-icon name="lucideBold" class="size-3.5" /></button>
+                    <button hlmToggleGroupItem value="italic" aria-label="Toggle italic"><ng-icon name="lucideItalic" class="size-3.5" /></button>
+                </hlm-toggle-group>
+                <hlm-toggle-group size="default" value="bold">
+                    <button hlmToggleGroupItem value="bold" aria-label="Toggle bold"><ng-icon name="lucideBold" class="size-4" /></button>
+                    <button hlmToggleGroupItem value="italic" aria-label="Toggle italic"><ng-icon name="lucideItalic" class="size-4" /></button>
+                </hlm-toggle-group>
+                <hlm-toggle-group size="lg" value="bold">
+                    <button hlmToggleGroupItem value="bold" aria-label="Toggle bold"><ng-icon name="lucideBold" class="size-5" /></button>
+                    <button hlmToggleGroupItem value="italic" aria-label="Toggle italic"><ng-icon name="lucideItalic" class="size-5" /></button>
+                </hlm-toggle-group>
+            </div>
         `,
     }),
 };
 
 export const Vertical: Story = {
-    args: {
-        variant: 'outline',
-        orientation: 'vertical',
-    },
-    render: (args) => ({
-        props: args,
+    render: () => ({
         template: `
-            <hlm-toggle-group [variant]="variant" [size]="size" [orientation]="orientation" [spacing]="spacing" value="top">
-                <button hlmToggleGroupItem value="top">Top</button>
-                <button hlmToggleGroupItem value="middle">Middle</button>
-                <button hlmToggleGroupItem value="bottom">Bottom</button>
+            <hlm-toggle-group orientation="vertical" value="left">
+                <button hlmToggleGroupItem value="left" aria-label="Align left"><ng-icon name="lucideAlignLeft" class="size-4" /></button>
+                <button hlmToggleGroupItem value="center" aria-label="Align center"><ng-icon name="lucideAlignCenter" class="size-4" /></button>
+                <button hlmToggleGroupItem value="right" aria-label="Align right"><ng-icon name="lucideAlignRight" class="size-4" /></button>
+                <button hlmToggleGroupItem value="justify" aria-label="Align justify"><ng-icon name="lucideAlignJustify" class="size-4" /></button>
             </hlm-toggle-group>
         `,
     }),

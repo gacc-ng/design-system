@@ -4,7 +4,11 @@ import { applicationConfig, type Meta, moduleMetadata, type StoryObj } from '@st
 
 import { HlmBreadcrumbImports } from '../index';
 
-const meta: Meta = {
+interface BreadcrumbStoryArgs {
+    separatorText: string;
+}
+
+const meta: Meta<BreadcrumbStoryArgs> = {
     title: 'Primitives/Breadcrumb',
     tags: ['autodocs'],
     decorators: [
@@ -15,10 +19,24 @@ const meta: Meta = {
             imports: [HlmBreadcrumbImports],
         }),
     ],
+    argTypes: {
+        separatorText: {
+            control: 'text',
+            description: 'Custom separator character or symbol.',
+            table: {
+                category: 'Slots',
+                type: { summary: 'string | TemplateRef' },
+                defaultValue: { summary: "'/'" },
+            },
+        },
+    },
+    args: {
+        separatorText: '/',
+    },
 };
 
 export default meta;
-type Story = StoryObj;
+type Story = StoryObj<BreadcrumbStoryArgs>;
 
 export const Default: Story = {
     render: () => ({
@@ -73,25 +91,22 @@ export const WithEllipsis: Story = {
 };
 
 export const CustomSeparator: Story = {
-    render: () => ({
+    render: (args) => ({
+        props: args,
         template: `
             <div class="p-8 flex justify-center">
                 <nav hlmBreadcrumb>
                     <ol hlmBreadcrumbList>
                         <li hlmBreadcrumbItem>
-                            <a hlmBreadcrumbLink routerLink="/">Dashboard</a>
+                            <a hlmBreadcrumbLink routerLink="/">Home</a>
                         </li>
-                        <li hlmBreadcrumbSeparator>
-                            <span class="text-xs text-muted-foreground font-mono">/</span>
-                        </li>
+                        <li hlmBreadcrumbSeparator>{{ separatorText }}</li>
                         <li hlmBreadcrumbItem>
-                            <a hlmBreadcrumbLink routerLink="/analytics">Analytics</a>
+                            <a hlmBreadcrumbLink routerLink="/docs">Docs</a>
                         </li>
-                        <li hlmBreadcrumbSeparator>
-                            <span class="text-xs text-muted-foreground font-mono">/</span>
-                        </li>
+                        <li hlmBreadcrumbSeparator>{{ separatorText }}</li>
                         <li hlmBreadcrumbItem>
-                            <span hlmBreadcrumbPage>Real-time Traffic</span>
+                            <span hlmBreadcrumbPage>Architecture</span>
                         </li>
                     </ol>
                 </nav>
