@@ -19,7 +19,7 @@
         "setupProvider": {
             "type": "boolean",
             "default": true,
-            "description": "Whether to register provideSpartanHlm() in the root application config."
+            "description": "Whether to register provideGaccUi() in the root application config."
         }
     },
     "additionalProperties": false
