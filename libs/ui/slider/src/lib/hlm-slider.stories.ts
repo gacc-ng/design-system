@@ -1,6 +1,6 @@
 import { signal } from '@angular/core';
 
-import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
+import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 
 import { HlmSliderImports } from '../index';
 

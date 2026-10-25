@@ -1,7 +1,7 @@
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideCalendar, lucideCog, lucideSmile, lucideUser, lucideWallet } from '@ng-icons/lucide';
-import type { Meta, StoryObj } from '@storybook/angular';
-import { moduleMetadata } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular-vite';
+import { moduleMetadata } from '@storybook/angular-vite';
 
 import { HlmCommandImports } from '../index';
 

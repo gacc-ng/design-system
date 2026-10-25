@@ -1,5 +1,5 @@
 import { BrnInputOtpImports } from '@spartan-ng/brain/input-otp';
-import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
+import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 
 import { HlmInputOtpImports } from '../index';
 

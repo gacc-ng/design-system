@@ -1,4 +1,4 @@
-import { applicationConfig, type Decorator, type Preview } from '@storybook/angular';
+import { applicationConfig, type Decorator, type Preview } from '@storybook/angular-vite';
 
 import { provideSpartanHlm } from '@gacc-ng/ui/utils';
 

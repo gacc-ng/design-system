@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/angular';
-import { moduleMetadata } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular-vite';
+import { moduleMetadata } from '@storybook/angular-vite';
 
 import { HlmButton } from '@gacc-ng/ui/button';
 import { HlmCheckbox } from '@gacc-ng/ui/checkbox';

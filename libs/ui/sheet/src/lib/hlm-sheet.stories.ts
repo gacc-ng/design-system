@@ -1,4 +1,4 @@
-import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
+import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 
 import { HlmButton } from '@gacc-ng/ui/button';
 import { HlmInput } from '@gacc-ng/ui/input';

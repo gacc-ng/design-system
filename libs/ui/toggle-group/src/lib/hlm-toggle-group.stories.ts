@@ -1,4 +1,4 @@
-import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
+import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 
 import { HlmToggleGroup } from './hlm-toggle-group';
 import { HlmToggleGroupItem } from './hlm-toggle-group-item';
