@@ -4,7 +4,7 @@ import { SchematicTestRunner, type UnitTestTree } from '@angular-devkit/schemati
 import { resolve } from 'node:path';
 import { beforeEach, describe, expect, it } from 'vitest';
 
-const migrationPath = resolve(__dirname, '../../../../../../dist/libs/shared/ui/schematics/migration.json');
+const migrationPath = resolve(__dirname, '../../../../../dist/libs/ui/schematics/migration.json');
 
 describe('migration-v0-15-provide-gacc-ui', () => {
     let runner: SchematicTestRunner;

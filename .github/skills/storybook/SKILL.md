@@ -15,7 +15,7 @@ This repository uses **Storybook 10** with **`@storybook/angular-vite`**, **`@st
 - **Configuration Entrypoint:** [`apps/storybook/.storybook/main.ts`](file:///apps/storybook/.storybook/main.ts)
 - **Preview Decorators & Tokens:** [`apps/storybook/.storybook/preview.ts`](file:///apps/storybook/.storybook/preview.ts)
 - **Vite Bundler Config:** [`apps/storybook/vite.config.mts`](file:///apps/storybook/vite.config.mts)
-- **Stories Pattern:** Colocated alongside primitives in [`libs/shared/ui/**/*.stories.ts`](file:///libs/shared/ui)
+- **Stories Pattern:** Colocated alongside primitives in [`libs/ui/**/*.stories.ts`](file:///libs/ui)
 
 ### Core Tasks (Nx CLI)
 

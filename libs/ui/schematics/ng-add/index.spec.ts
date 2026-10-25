@@ -4,7 +4,7 @@ import { SchematicTestRunner, type UnitTestTree } from '@angular-devkit/schemati
 import { resolve } from 'node:path';
 import { beforeEach, describe, expect, it } from 'vitest';
 
-const collectionPath = resolve(__dirname, '../../../../../dist/libs/shared/ui/schematics/collection.json');
+const collectionPath = resolve(__dirname, '../../../../dist/libs/ui/schematics/collection.json');
 
 describe('ng-add schematic', () => {
     let runner: SchematicTestRunner;

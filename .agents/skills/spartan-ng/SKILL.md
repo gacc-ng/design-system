@@ -60,7 +60,7 @@ To add a new Spartan primitive or component to the design system:
 # call_mcp_tool -> ServerName: "spartan-ui", ToolName: "spartan_components_get", Arguments: { "name": "<component>" }
 
 # Or scaffold via Spartan CLI:
-pnpm nx g @spartan-ng/cli:ui <component> --directory=libs/shared/ui/src/lib
+pnpm nx g @spartan-ng/cli:ui <component> --directory=libs/ui/src/lib
 ```
 
 ---

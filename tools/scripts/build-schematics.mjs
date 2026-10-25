@@ -5,8 +5,8 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '../..');
-const schematicsSrc = resolve(root, 'libs/shared/ui/schematics');
-const schematicsDist = resolve(root, 'dist/libs/shared/ui/schematics');
+const schematicsSrc = resolve(root, 'libs/ui/schematics');
+const schematicsDist = resolve(root, 'dist/libs/ui/schematics');
 
 console.log('Cleaning schematics dist directory...');
 rmSync(schematicsDist, { recursive: true, force: true });
