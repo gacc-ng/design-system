@@ -82,3 +82,5 @@ export class HlmSlider {
         ]);
     }
 }
+
+export const HlmSliderImports = [HlmSlider] as const;

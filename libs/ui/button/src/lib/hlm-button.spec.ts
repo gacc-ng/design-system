@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 
 import { describe, expect, it } from 'vitest';
 
-import { HlmButton } from './hlm-button';
+import { HlmButton, HlmButtonImports } from './hlm-button';
 
 @Component({
     standalone: true,
@@ -64,5 +64,9 @@ describe('HlmButton', () => {
         const disabledBtn = buttons[3].nativeElement as HTMLButtonElement;
 
         expect(disabledBtn.disabled).toBe(true);
+    });
+
+    it('should export HlmButtonImports containing HlmButton', () => {
+        expect(HlmButtonImports).toEqual([HlmButton]);
     });
 });

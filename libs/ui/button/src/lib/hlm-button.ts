@@ -70,3 +70,5 @@ export class HlmButton {
         this._additionalClasses.set(classes);
     }
 }
+
+export const HlmButtonImports = [HlmButton] as const;

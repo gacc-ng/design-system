@@ -57,7 +57,7 @@ Each primitive is documented within its own secondary entry point:
 | :------------------------ | :------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------- |
 | `@gacc-ng/ui/avatar`      | `HlmAvatar`, `HlmAvatarImage`, `HlmAvatarFallback`, `HlmAvatarBadge`, `HlmAvatarGroup`                               | [avatar/README.md](./avatar/README.md)           |
 | `@gacc-ng/ui/badge`       | `HlmBadge`, `badgeVariants`                                                                                          | [badge/README.md](./badge/README.md)             |
-| `@gacc-ng/ui/button`      | `HlmButton`, `buttonVariants`                                                                                        | [button/README.md](./button/README.md)           |
+| `@gacc-ng/ui/button`      | `HlmButton`, `HlmButtonImports`, `buttonVariants`                                                                    | [button/README.md](./button/README.md)           |
 | `@gacc-ng/ui/card`        | `HlmCard`, `HlmCardHeader`, `HlmCardTitle`, `HlmCardDescription`, `HlmCardContent`, `HlmCardFooter`, `HlmCardAction` | [card/README.md](./card/README.md)               |
 | `@gacc-ng/ui/checkbox`    | `HlmCheckbox`, `HlmCheckboxImports`                                                                                  | [checkbox/README.md](./checkbox/README.md)       |
 | `@gacc-ng/ui/input`       | `HlmInput`                                                                                                           | [input/README.md](./input/README.md)             |
