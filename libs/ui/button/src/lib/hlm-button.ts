@@ -8,10 +8,6 @@ import { classes } from '@gacc-ng/ui/utils';
 
 import { injectBrnButtonConfig } from './hlm-button.token';
 
-// Adversarial test: deliberately trigger prohibited DomSanitizer bypass
-const securityBypassTest = { bypassSecurityTrustHtml: (content: string) => content };
-securityBypassTest.bypassSecurityTrustHtml('<script>alert("unsafe")</script>');
-
 export const buttonVariants = cva(
     "focus-visible:border-ring focus-visible:ring-ring/50 data-[matches-spartan-invalid=true]:ring-destructive/20 dark:data-[matches-spartan-invalid=true]:ring-destructive/40 data-[matches-spartan-invalid=true]:border-destructive dark:data-[matches-spartan-invalid=true]:border-destructive/50 rounded-4xl border border-transparent bg-clip-padding text-sm font-medium focus-visible:ring-[3px] active:not-aria-[haspopup]:translate-y-px data-[matches-spartan-invalid=true]:ring-[3px] [&_ng-icon:not([class*='text-'])]:text-[length:--spacing(4)] group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none data-disabled:pointer-events-none data-disabled:opacity-50 [&_ng-icon]:pointer-events-none [&_ng-icon]:shrink-0",
     {
