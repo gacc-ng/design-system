@@ -12,6 +12,7 @@ interface ButtonStoryArgs {
 
 const meta: Meta<ButtonStoryArgs> = {
     title: 'Primitives/Button',
+    component: HlmButton,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
