@@ -1,0 +1,13 @@
+name: 'CodeQL Custom Configuration'
+
+paths-ignore:
+    - 'dist/**'
+    - '.nx/**'
+    - 'apps/storybook/**'
+    - '**/*.spec.ts'
+    - '**/*.stories.ts'
+
+paths:
+    - 'libs/**'
+    - 'tools/**'
+    - 'apps/showcase/**'
