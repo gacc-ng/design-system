@@ -66,6 +66,15 @@
 
 - **Component Architecture:** Presentational (Dumb Components), Standalone components, OnPush change detection, Zoneless, Signal-based (`input()`, `computed()`, `output()`).
 
+## Governance & Decision Making (RFCs vs. Issues)
+
+- **RFCs & Architecture Proposals (GitHub Discussions):**
+    - All architectural proposals, strategic designs, and RFCs MUST be published in **GitHub Discussions** under the **Ideas** category (`id: DIC_kwDOVNy4CM4DJjpk`), NEVER as Pull Requests with markdown files.
+    - Always invoke and follow the `.agents/skills/github-rfc/SKILL.md` skill to draft, structure, and publish RFCs via `gh api graphql`.
+- **Actionable Work & Backlog (GitHub Issues):**
+    - **GitHub Issues** are strictly reserved for committed, actionable work: reproducible bug fixes, approved features, chore/maintenance tasks, and work units derived from approved RFCs.
+    - Never open an Issue for open-ended architectural debate. When implementing an approved RFC, create an Issue linking back to the Discussion (`Derived from RFC #<NUMBER>`).
+
 ## Spartan NG Standards & MCP Tools
 
 - **Spartan Architecture:**
