@@ -41,6 +41,7 @@ Do NOT use this skill for:
     - `## Proposed Architecture & Design`
     - `## Questions for Discussion`
 7. **Post-Publication:** Always save the published RFC decision to Engram via `mem_save`.
+8. **RFC to Actionable Work Transition:** Once an RFC reaches consensus or approval, actionable work units MUST be extracted as GitHub Issues adhering strictly to [`.agents/skills/github-issue/SKILL.md`](../github-issue/SKILL.md) with explicit Definition of Ready (DoR), numbered Acceptance Criteria (AC), and Definition of Done (DoD), linking back to the discussion (`Derived from RFC #<NUMBER>`).
 
 ---
 
