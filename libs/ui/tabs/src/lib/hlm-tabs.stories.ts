@@ -43,11 +43,10 @@ const meta: Meta<TabsStoryArgs> = {
     ],
     argTypes: {
         orientation: {
-            control: 'select',
+            control: 'inline-radio',
             options: ['horizontal', 'vertical'],
             description: 'The layout axis orientation for the tabs list and content.',
             table: {
-                category: 'Inputs',
                 type: { summary: "'horizontal' | 'vertical'" },
                 defaultValue: { summary: "'horizontal'" },
             },
@@ -56,7 +55,6 @@ const meta: Meta<TabsStoryArgs> = {
             control: 'text',
             description: 'The initially selected active tab identifier.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'string' },
                 defaultValue: { summary: "'account'" },
             },

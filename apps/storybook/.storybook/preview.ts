@@ -107,6 +107,8 @@ const preview: Preview = {
             disable: !isToolbarFeatureEnabled('backgrounds'),
         },
         controls: {
+            expanded: true,
+            sort: 'requiredFirst',
             matchers: {
                 color: /(background|color)$/i,
                 date: /Date$/i,

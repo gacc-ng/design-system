@@ -29,11 +29,10 @@ const meta: Meta<AvatarStoryArgs> = {
     ],
     argTypes: {
         size: {
-            control: 'select',
+            control: 'inline-radio',
             options: ['default', 'sm', 'lg'],
             description: 'The size dimension scale of the avatar component.',
             table: {
-                category: 'Inputs',
                 type: { summary: "'default' | 'sm' | 'lg'" },
                 defaultValue: { summary: "'default'" },
             },

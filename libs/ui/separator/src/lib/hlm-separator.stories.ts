@@ -18,11 +18,10 @@ const meta: Meta<SeparatorStoryArgs> = {
     ],
     argTypes: {
         orientation: {
-            control: 'select',
+            control: 'inline-radio',
             options: ['horizontal', 'vertical'],
             description: 'The orientation dimension of the separator divider.',
             table: {
-                category: 'Inputs',
                 type: { summary: "'horizontal' | 'vertical'" },
                 defaultValue: { summary: "'horizontal'" },
             },
@@ -31,7 +30,6 @@ const meta: Meta<SeparatorStoryArgs> = {
             control: 'boolean',
             description: 'Whether the separator is purely decorative without semantic role.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'true' },
             },

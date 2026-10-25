@@ -17,6 +17,10 @@ export const darkTheme = create({
     inputBg: '#18181b',
     inputBorder: 'rgba(255, 255, 255, 0.1)',
     inputTextColor: '#fafafa',
+    fontBase: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    fontCode: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+    appBorderRadius: 10,
+    inputBorderRadius: 8,
     gridCellSize: 12,
 });
 
@@ -37,5 +41,9 @@ export const lightTheme = create({
     inputBg: '#ffffff',
     inputBorder: 'rgba(0, 0, 0, 0.1)',
     inputTextColor: '#18181b',
+    fontBase: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    fontCode: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+    appBorderRadius: 10,
+    inputBorderRadius: 8,
     gridCellSize: 12,
 });

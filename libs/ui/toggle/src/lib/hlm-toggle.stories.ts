@@ -22,21 +22,19 @@ const meta: Meta<ToggleStoryArgs> = {
     ],
     argTypes: {
         variant: {
-            control: 'select',
+            control: 'inline-radio',
             options: ['default', 'outline'],
             description: 'The visual style variant of the toggle button.',
             table: {
-                category: 'Inputs',
                 type: { summary: "'default' | 'outline'" },
                 defaultValue: { summary: "'default'" },
             },
         },
         size: {
-            control: 'select',
+            control: 'inline-radio',
             options: ['default', 'sm', 'lg'],
             description: 'The size dimension scale of the toggle button.',
             table: {
-                category: 'Inputs',
                 type: { summary: "'default' | 'sm' | 'lg'" },
                 defaultValue: { summary: "'default'" },
             },
@@ -45,7 +43,6 @@ const meta: Meta<ToggleStoryArgs> = {
             control: 'boolean',
             description: 'Whether the toggle button is interactively disabled.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },

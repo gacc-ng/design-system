@@ -24,11 +24,10 @@ const meta: Meta<FieldStoryArgs> = {
     ],
     argTypes: {
         orientation: {
-            control: 'select',
+            control: 'inline-radio',
             options: ['vertical', 'horizontal'],
             description: 'The layout axis orientation for the field label and control.',
             table: {
-                category: 'Inputs',
                 type: { summary: "'vertical' | 'horizontal'" },
                 defaultValue: { summary: "'vertical'" },
             },
