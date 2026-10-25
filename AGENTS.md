@@ -81,6 +81,15 @@
 - **Actionable Work & Backlog (GitHub Issues):**
     - **GitHub Issues** are strictly reserved for committed, actionable work: reproducible bug fixes, approved features, chore/maintenance tasks, and work units derived from approved RFCs.
     - Never open an Issue for open-ended architectural debate. When implementing an approved RFC, create an Issue linking back to the Discussion (`Derived from RFC #<NUMBER>`).
+    - **Mandatory Engineering Structure (DoR, AC, DoD):**
+        - Every GitHub Issue created by agents or contributors MUST strictly follow the standard schema defined in [`.agents/skills/github-issue/SKILL.md`](.agents/skills/github-issue/SKILL.md):
+            1. **Context & Problem Statement:** Diagnostic background, incident run/log citations, or origin RFC discussion link.
+            2. **Architecture & Target Solution:** Technical design, component mapping, and expected architectural shift.
+            3. **Definition of Ready (DoR):** Checkable preconditions satisfied before implementation begins (root cause validated, baseline SemVer identified, tooling/permissions confirmed, runtime environment verified).
+            4. **Acceptance Criteria (AC):** Numbered, testable, binary-verifiable conditions (`AC-1`, `AC-2`, etc.).
+            5. **Implementation Checklist:** Concrete actionable tasks.
+            6. **Definition of Done (DoD):** Non-negotiable quality and compliance gates required for PR completion and issue closure (worktree isolation, `pnpm nx format:check`, lint/test/build quality gates, conventional commit + gitmoji without AI attribution, clean mergeable status, and human authorization gate).
+            7. **Security & Governance:** DevSecOps impact, branch protection compliance, permissions, or supply-chain considerations.
 
 ## Agent Skills Architecture
 
