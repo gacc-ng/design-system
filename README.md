@@ -69,7 +69,7 @@ This monorepo is fully equipped with MCP servers and specialized skills for Clau
 - **Spartan MCP (`@spartan-ng/mcp`):** Query available components, retrieve implementation code, inspect dependencies, and verify accessibility.
     - _Tools:_ `spartan_components_list`, `spartan_components_get`, `spartan_components_dependencies`, `spartan_docs_get`, `spartan_accessibility_check`.
 - **Nx MCP (`nx-mcp`):** Monorepo navigation, task execution, and generator inspection.
-- **Skills:** Loaded from `.agents/skills/spartan/` and `.agents/skills/spartan-ng/` (mirrored in `.github/skills/`).
+- **Skills:** Centralized under [`.agents/skills/`](.agents/skills/) as the single source of truth across all agent runtimes (Antigravity, Cursor, Codex, Claude Code, Gemini CLI).
 
 ---
 
