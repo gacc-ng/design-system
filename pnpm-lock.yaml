@@ -230,6 +230,9 @@ importers:
       '@storybook/addon-mcp':
         specifier: 10.6.3
         version: 10.6.3(storybook@10.6.3(prettier@3.9.10)(react@19.3.1))(typescript@6.0.3)
+      '@storybook/addon-themes':
+        specifier: 10.6.3
+        version: 10.6.3(storybook@10.6.3(prettier@3.9.10)(react@19.3.1))
       '@storybook/angular-vite':
         specifier: 10.6.3
         version: 10.6.3(7815c02c458432c1f5530bfbcd4696d2)
@@ -4120,6 +4123,11 @@ packages:
     peerDependenciesMeta:
       '@storybook/addon-vitest':
         optional: true
+
+  '@storybook/addon-themes@10.6.3':
+    resolution: {integrity: sha512-6LGpeMMg06qpynKhOiCR10l7tkLL/LpBdJxf+9JEjfMohbgGZj1ukR8hVDgMNJAx2RN45Ovz78/HlwMM5PCa4g==}
+    peerDependencies:
+      storybook: ^10.6.3
 
   '@storybook/angular-vite@10.6.3':
     resolution: {integrity: sha512-p/zKTPkk0acBBC1D9RTR++EIjnrqUinx55hnm3ZoogSN06DnLqM1EHYJ5QpBbkrEAuQcryV9EZfL+JHBUcyR6w==}
@@ -13391,6 +13399,11 @@ snapshots:
     transitivePeerDependencies:
       - '@tmcp/auth'
       - typescript
+
+  '@storybook/addon-themes@10.6.3(storybook@10.6.3(prettier@3.9.10)(react@19.3.1))':
+    dependencies:
+      storybook: 10.6.3(prettier@3.9.10)(react@19.3.1)
+      ts-dedent: 2.3.0
 
   '@storybook/angular-vite@10.6.3(7815c02c458432c1f5530bfbcd4696d2)':
     dependencies:
