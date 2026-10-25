@@ -1,4 +1,4 @@
-import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
+import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 
 import { HlmAvatar } from './hlm-avatar';
 import { HlmAvatarBadge } from './hlm-avatar-badge';

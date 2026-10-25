@@ -1,6 +1,6 @@
 import { provideRouter } from '@angular/router';
 
-import { applicationConfig, type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
+import { applicationConfig, type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 
 import { HlmBreadcrumbImports } from '../index';
 
