@@ -93,6 +93,7 @@
         },
         "version": {
             "conventionalCommits": true,
+            "adjustSemverBumpsForZeroMajorVersion": false,
             "fallbackCurrentVersionResolver": "disk"
         },
         "changelog": {
