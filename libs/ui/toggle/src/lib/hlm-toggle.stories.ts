@@ -1,3 +1,5 @@
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { lucideBold, lucideItalic, lucideUnderline } from '@ng-icons/lucide';
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 
 import { HlmToggle } from './hlm-toggle';
@@ -10,26 +12,43 @@ interface ToggleStoryArgs {
 
 const meta: Meta<ToggleStoryArgs> = {
     title: 'Primitives/Toggle',
+    component: HlmToggle,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
-            imports: [HlmToggle],
+            imports: [HlmToggle, NgIcon],
+            providers: [provideIcons({ lucideBold, lucideItalic, lucideUnderline })],
         }),
     ],
     argTypes: {
         variant: {
             control: 'select',
             options: ['default', 'outline'],
-            description: 'Visual variant of the toggle',
+            description: 'The visual style variant of the toggle button.',
+            table: {
+                category: 'Inputs',
+                type: { summary: "'default' | 'outline'" },
+                defaultValue: { summary: "'default'" },
+            },
         },
         size: {
             control: 'select',
             options: ['default', 'sm', 'lg'],
-            description: 'Size of the toggle',
+            description: 'The size dimension scale of the toggle button.',
+            table: {
+                category: 'Inputs',
+                type: { summary: "'default' | 'sm' | 'lg'" },
+                defaultValue: { summary: "'default'" },
+            },
         },
         disabled: {
             control: 'boolean',
-            description: 'Whether the toggle is disabled',
+            description: 'Whether the toggle button is interactively disabled.',
+            table: {
+                category: 'Inputs',
+                type: { summary: 'boolean' },
+                defaultValue: { summary: 'false' },
+            },
         },
     },
     args: {
@@ -47,38 +66,39 @@ export const Default: Story = {
         props: args,
         template: `
             <button hlmToggle [variant]="variant" [size]="size" [disabled]="disabled" aria-label="Toggle bold">
-                <span class="font-bold">B</span>
+                <ng-icon name="lucideBold" class="size-4" />
             </button>
         `,
     }),
 };
 
-export const Outline: Story = {
-    args: {
-        variant: 'outline',
-    },
-    render: (args) => ({
-        props: args,
-        template: `
-            <button hlmToggle [variant]="variant" [size]="size" [disabled]="disabled" aria-label="Toggle italic">
-                <span class="italic">I</span>
-            </button>
-        `,
-    }),
-};
-
-export const Sizes: Story = {
+export const AllVariants: Story = {
     render: () => ({
         template: `
             <div class="flex items-center gap-3">
-                <button hlmToggle size="sm" aria-label="Small">
-                    <span>SM</span>
+                <button hlmToggle variant="default" aria-label="Default toggle">
+                    <ng-icon name="lucideBold" class="size-4" />
                 </button>
-                <button hlmToggle size="default" aria-label="Default">
-                    <span>Default</span>
+                <button hlmToggle variant="outline" aria-label="Outline toggle">
+                    <ng-icon name="lucideItalic" class="size-4" />
                 </button>
-                <button hlmToggle size="lg" aria-label="Large">
-                    <span>LG</span>
+            </div>
+        `,
+    }),
+};
+
+export const AllSizes: Story = {
+    render: () => ({
+        template: `
+            <div class="flex items-center gap-3">
+                <button hlmToggle size="sm" aria-label="Small toggle">
+                    <ng-icon name="lucideBold" class="size-3.5" />
+                </button>
+                <button hlmToggle size="default" aria-label="Default toggle">
+                    <ng-icon name="lucideBold" class="size-4" />
+                </button>
+                <button hlmToggle size="lg" aria-label="Large toggle">
+                    <ng-icon name="lucideBold" class="size-5" />
                 </button>
             </div>
         `,
@@ -89,11 +109,29 @@ export const Disabled: Story = {
     render: () => ({
         template: `
             <div class="flex items-center gap-3">
-                <button hlmToggle disabled aria-label="Disabled default">
-                    <span>Off</span>
+                <button hlmToggle [disabled]="true" aria-label="Disabled toggle">
+                    <ng-icon name="lucideBold" class="size-4" />
                 </button>
-                <button hlmToggle variant="outline" disabled aria-label="Disabled outline">
-                    <span>Outline</span>
+                <button hlmToggle variant="outline" [disabled]="true" aria-label="Disabled outline toggle">
+                    <ng-icon name="lucideItalic" class="size-4" />
+                </button>
+            </div>
+        `,
+    }),
+};
+
+export const WithIcon: Story = {
+    render: () => ({
+        template: `
+            <div class="flex items-center gap-2 rounded-lg border border-border p-1 bg-background">
+                <button hlmToggle variant="default" size="sm" aria-label="Toggle bold">
+                    <ng-icon name="lucideBold" class="size-4" />
+                </button>
+                <button hlmToggle variant="default" size="sm" aria-label="Toggle italic">
+                    <ng-icon name="lucideItalic" class="size-4" />
+                </button>
+                <button hlmToggle variant="default" size="sm" aria-label="Toggle underline">
+                    <ng-icon name="lucideUnderline" class="size-4" />
                 </button>
             </div>
         `,

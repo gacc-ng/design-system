@@ -4,27 +4,71 @@ import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vit
 
 import { HlmSliderImports } from '../index';
 
-const meta: Meta = {
+import { HlmSlider } from './hlm-slider';
+
+interface SliderStoryArgs {
+    disabled: boolean;
+    showTicks: boolean;
+    step: number;
+}
+
+const meta: Meta<SliderStoryArgs> = {
     title: 'Primitives/Slider',
+    component: HlmSlider,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
             imports: [HlmSliderImports],
         }),
     ],
+    argTypes: {
+        disabled: {
+            control: 'boolean',
+            description: 'Whether the slider is interactively disabled.',
+            table: {
+                category: 'Inputs',
+                type: { summary: 'boolean' },
+                defaultValue: { summary: 'false' },
+            },
+        },
+        showTicks: {
+            control: 'boolean',
+            description: 'Whether step tick indicators are displayed along the track.',
+            table: {
+                category: 'Inputs',
+                type: { summary: 'boolean' },
+                defaultValue: { summary: 'false' },
+            },
+        },
+        step: {
+            control: 'number',
+            description: 'The stepping interval for slider value increments.',
+            table: {
+                category: 'Inputs',
+                type: { summary: 'number' },
+                defaultValue: { summary: '10' },
+            },
+        },
+    },
+    args: {
+        disabled: false,
+        showTicks: false,
+        step: 10,
+    },
 };
 
 export default meta;
-type Story = StoryObj;
+type Story = StoryObj<SliderStoryArgs>;
 
 export const Default: Story = {
-    render: () => ({
+    render: (args) => ({
         props: {
+            ...args,
             value: signal([50]),
         },
         template: `
             <div class="p-8 flex justify-center w-full max-w-md mx-auto">
-                <hlm-slider [value]="value()" />
+                <hlm-slider [value]="value()" [disabled]="disabled" [showTicks]="showTicks" [step]="step" />
             </div>
         `,
     }),

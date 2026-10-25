@@ -13,6 +13,7 @@ interface InputStoryArgs {
 
 const meta: Meta<InputStoryArgs> = {
     title: 'Primitives/Input',
+    component: HlmInput,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
@@ -23,20 +24,40 @@ const meta: Meta<InputStoryArgs> = {
         size: {
             control: 'select',
             options: ['sm', 'default', 'lg'],
-            description: 'The height and typography size of the input field',
+            description: 'The height and typography dimension size of the input field.',
+            table: {
+                category: 'Inputs',
+                type: { summary: 'InputVariants["size"]' },
+                defaultValue: { summary: "'default'" },
+            },
         },
         placeholder: {
             control: 'text',
-            description: 'Placeholder text displayed when the input is empty',
+            description: 'Placeholder text displayed when the input is empty.',
+            table: {
+                category: 'Inputs',
+                type: { summary: 'string' },
+                defaultValue: { summary: "'Enter text...'" },
+            },
         },
         disabled: {
             control: 'boolean',
-            description: 'Whether the input field is interactively disabled',
+            description: 'Whether the input field is interactively disabled.',
+            table: {
+                category: 'Inputs',
+                type: { summary: 'boolean' },
+                defaultValue: { summary: 'false' },
+            },
         },
         type: {
             control: 'select',
-            options: ['text', 'email', 'password', 'number'],
-            description: 'Native HTML input type',
+            options: ['text', 'email', 'password', 'number', 'file'],
+            description: 'Native HTML input type.',
+            table: {
+                category: 'Inputs',
+                type: { summary: 'string' },
+                defaultValue: { summary: "'text'" },
+            },
         },
     },
     args: {
@@ -91,31 +112,32 @@ export const AllSizes: Story = {
 export const WithLabel: Story = {
     render: () => ({
         template: `
-            <div class="flex flex-col gap-2 w-80">
-                <label hlmLabel for="email-input">Email address</label>
-                <input hlmInput id="email-input" type="email" placeholder="john@example.com" />
-                <p class="text-xs text-muted-foreground">We will never share your email with anyone else.</p>
+            <div class="flex flex-col gap-1.5 w-80">
+                <label hlmLabel for="email-field">Email address</label>
+                <input hlmInput id="email-field" type="email" placeholder="user@example.com" />
+                <p class="text-xs text-muted-foreground">We will never share your email with third parties.</p>
             </div>
         `,
     }),
 };
 
 export const Disabled: Story = {
-    args: {
-        disabled: true,
-        placeholder: 'Disabled input field',
-    },
-    render: (args) => ({
-        props: args,
+    render: () => ({
         template: `
-            <div class="w-80">
-                <input
-                    hlmInput
-                    [type]="type"
-                    [size]="size"
-                    [placeholder]="placeholder"
-                    [disabled]="disabled"
-                />
+            <div class="flex flex-col gap-1.5 w-80">
+                <label hlmLabel for="disabled-input">Disabled Field</label>
+                <input hlmInput id="disabled-input" disabled value="Readonly content" />
+            </div>
+        `,
+    }),
+};
+
+export const File: Story = {
+    render: () => ({
+        template: `
+            <div class="flex flex-col gap-1.5 w-80">
+                <label hlmLabel for="file-upload">Resume Attachment</label>
+                <input hlmInput id="file-upload" type="file" />
             </div>
         `,
     }),
