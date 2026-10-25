@@ -1,5 +1,5 @@
 {
-    "extends": "../../../../tsconfig.base.json",
+    "extends": "../../../tsconfig.base.json",
     "compilerOptions": {
         "target": "es2022",
         "module": "node16",
@@ -8,7 +8,7 @@
         "types": ["node"],
         "declaration": false,
         "isolatedModules": false,
-        "outDir": "../../../../dist/libs/shared/ui/schematics",
+        "outDir": "../../../dist/libs/ui/schematics",
         "rootDir": "."
     },
     "include": ["**/*.ts"],

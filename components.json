@@ -1,6 +1,6 @@
 {
     "$schema": "https://spartan.ng/schema.json",
-    "componentsPath": "libs/shared/ui",
+    "componentsPath": "libs/ui",
     "buildable": true,
     "generateAs": "entrypoint",
     "style": "maia",
