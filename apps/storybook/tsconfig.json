@@ -4,8 +4,9 @@
         "target": "ES2022",
         "useDefineForClassFields": false,
         "emitDecoratorMetadata": true,
+        "jsx": "react-jsx",
         "types": ["vite/client"]
     },
     "exclude": ["../../libs/**/*.spec.ts"],
-    "include": ["../../libs/**/*.stories.ts", ".storybook/**/*.ts"]
+    "include": ["../../libs/**/*.stories.ts", ".storybook/**/*.ts", ".storybook/**/*.tsx"]
 }
