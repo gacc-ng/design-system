@@ -87,22 +87,9 @@
     "release": {
         "projects": ["ui"],
         "git": {
-            "commit": true,
-            "commitMessage": "chore(release): 🚀 release {version} [skip ci]",
-            "tag": true,
-            "push": true
-        },
-        "version": {
-            "conventionalCommits": true,
-            "adjustSemverBumpsForZeroMajorVersion": false,
-            "fallbackCurrentVersionResolver": "disk"
-        },
-        "changelog": {
-            "workspaceChangelog": {
-                "createRelease": "github",
-                "renderer": "{workspaceRoot}/tools/release/changelog-renderer.ts"
-            },
-            "automaticFromRef": true
+            "commit": false,
+            "tag": false,
+            "push": false
         }
     }
 }
