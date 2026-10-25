@@ -231,10 +231,10 @@ importers:
         specifier: 10.6.3
         version: 10.6.3(storybook@10.6.3(prettier@3.9.10)(react@19.3.1))(typescript@6.0.3)
       '@storybook/angular':
-        specifier: ^10.5.0
+        specifier: 10.6.3
         version: 10.6.3(b05949c99414edbfc6eb8507951d1ab7)
       '@storybook/angular-vite':
-        specifier: ^10.6.3
+        specifier: 10.6.3
         version: 10.6.3(a14f1b63886232221db2b26308cfde89)
       '@storybook/test-runner':
         specifier: ^0.26.0
@@ -297,7 +297,7 @@ importers:
         specifier: ~3.9.10
         version: 3.9.10
       storybook:
-        specifier: ^10.5.0
+        specifier: 10.6.3
         version: 10.6.3(prettier@3.9.10)(react@19.3.1)
       tailwindcss:
         specifier: ^4.3.3
