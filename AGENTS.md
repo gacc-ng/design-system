@@ -69,6 +69,19 @@
 
 - **Component Architecture:** Presentational (Dumb Components), Standalone components, OnPush change detection, Zoneless, Signal-based (`input()`, `computed()`, `output()`).
 
+## Governance & Decision Making (RFCs vs. Issues)
+
+- **RFCs & Architecture Proposals (GitHub Discussions):**
+    - All architectural proposals, strategic designs, and RFCs MUST be published in **GitHub Discussions** under the **Ideas** category (`id: DIC_kwDOVNy4CM4DJjpk`), NEVER as Pull Requests with markdown files.
+    - Always invoke and follow the [`.agents/skills/github-rfc/SKILL.md`](.agents/skills/github-rfc/SKILL.md) skill to draft, structure, and publish RFCs via `gh api graphql`.
+- **Actionable Work & Backlog (GitHub Issues):**
+    - **GitHub Issues** are strictly reserved for committed, actionable work: reproducible bug fixes, approved features, chore/maintenance tasks, and work units derived from approved RFCs.
+    - Never open an Issue for open-ended architectural debate. When implementing an approved RFC, create an Issue linking back to the Discussion (`Derived from RFC #<NUMBER>`).
+
+## Agent Skills Architecture
+
+- **Canonical Shared Skills Hub:** All workspace skills are strictly centralized in [`.agents/skills/`](.agents/skills/). Individual tool harnesses (`.github/`, `.gemini/`, `.codex/`, `.claude/`) retain ONLY their proprietary configuration (workflows, agent definitions, prompts, commands, or plugins), eliminating cross-harness skill duplication.
+
 ## Spartan NG Standards & MCP Tools
 
 - **Spartan Architecture:**
