@@ -148,8 +148,8 @@ function addProviderRule(options: Schema): Rule {
             for (const file of possibleConfigFiles) {
                 if (tree.exists(file)) {
                     const content = tree.readText(file);
-                    if (content.includes('provideSpartanHlm')) {
-                        context.logger.info(`provideSpartanHlm is already registered in ${file}.`);
+                    if (content.includes('provideGaccUi') || content.includes('provideSpartanHlm')) {
+                        context.logger.info(`provideGaccUi is already registered in ${file}.`);
                         return;
                     }
                 }
@@ -158,13 +158,13 @@ function addProviderRule(options: Schema): Rule {
             try {
                 return addRootProvider(
                     projectName,
-                    ({ code, external }) => code`${external('provideSpartanHlm', '@gacc-ng/ui/utils')}()`,
+                    ({ code, external }) => code`${external('provideGaccUi', '@gacc-ng/ui/utils')}()`,
                 );
             } catch (err: unknown) {
                 const message = err instanceof Error ? err.message : String(err);
-                context.logger.warn(`Could not automatically register provideSpartanHlm(): ${message}`);
+                context.logger.warn(`Could not automatically register provideGaccUi(): ${message}`);
                 context.logger.info(
-                    'For NgModule or custom setups, please add provideSpartanHlm() from "@gacc-ng/ui/utils" to your providers manually.',
+                    'For NgModule or custom setups, please add provideGaccUi() from "@gacc-ng/ui/utils" to your providers manually.',
                 );
             }
         };

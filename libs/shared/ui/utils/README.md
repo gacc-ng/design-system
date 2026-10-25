@@ -14,15 +14,18 @@ import { hlm } from '@gacc-ng/ui/utils';
 const className = hlm('px-4 py-2 bg-primary', isActive && 'bg-destructive', customClass);
 ```
 
-### `provideSpartanHlm(): Provider[]`
+### `provideGaccUi(): EnvironmentProviders`
 
-Registers overlay providers to ensure Spartan floating elements (dialogs, popovers) render properly with Angular CDK:
+Registers default configuration and overlay providers for `@gacc-ng/ui` components:
 
 ```typescript
 import { ApplicationConfig } from '@angular/core';
-import { provideSpartanHlm } from '@gacc-ng/ui/utils';
+import { provideGaccUi } from '@gacc-ng/ui/utils';
 
 export const appConfig: ApplicationConfig = {
-    providers: [provideSpartanHlm()],
+    providers: [provideGaccUi()],
 };
 ```
+
+> [!NOTE]
+> `provideSpartanHlm()` is maintained as an alias for backward compatibility.

@@ -58,15 +58,15 @@ describe('ng-add schematic', () => {
         const styles = result.readContent('/projects/test-app/src/styles.css');
         const config = result.readContent('/projects/test-app/src/app/app.config.ts');
         const styleOccurrences = (styles.match(/@gacc-ng\/ui\/preset\.css/g) || []).length;
-        const providerCallOccurrences = (config.match(/provideSpartanHlm\(\)/g) || []).length;
+        const providerCallOccurrences = (config.match(/provideGaccUi\(\)/g) || []).length;
         expect(styleOccurrences).toBe(1);
         expect(providerCallOccurrences).toBe(1);
     });
 
-    it('should inject provideSpartanHlm into app.config.ts', async () => {
+    it('should inject provideGaccUi into app.config.ts', async () => {
         const result = await runner.runSchematic('ng-add', { project: 'test-app' }, tree);
         const appConfig = result.readContent('/projects/test-app/src/app/app.config.ts');
-        expect(appConfig).toContain('provideSpartanHlm');
+        expect(appConfig).toContain('provideGaccUi');
     });
 
     it('should respect --setupStyles=false and --setupProvider=false', async () => {
@@ -82,7 +82,7 @@ describe('ng-add schematic', () => {
         const styles = result.readContent('/projects/test-app/src/styles.css');
         const appConfig = result.readContent('/projects/test-app/src/app/app.config.ts');
         expect(styles).not.toContain('@gacc-ng/ui/preset.css');
-        expect(appConfig).not.toContain('provideSpartanHlm');
+        expect(appConfig).not.toContain('provideGaccUi');
     });
 
     it('should handle legacy NgModule application gracefully', async () => {

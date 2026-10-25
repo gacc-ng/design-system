@@ -36,14 +36,14 @@ Import the unified preset in your application's global stylesheet (e.g., `src/st
 
 ### 3. Overlay Provider
 
-Register `provideSpartanHlm()` in your application config (`app.config.ts`):
+Register `provideGaccUi()` in your application config (`app.config.ts`):
 
 ```typescript
 import { ApplicationConfig } from '@angular/core';
-import { provideSpartanHlm } from '@gacc-ng/ui/utils';
+import { provideGaccUi } from '@gacc-ng/ui/utils';
 
 export const appConfig: ApplicationConfig = {
-    providers: [provideSpartanHlm()],
+    providers: [provideGaccUi()],
 };
 ```
 
@@ -69,7 +69,7 @@ Each primitive is documented within its own secondary entry point:
 | `@gacc-ng/ui/spinner`     | `HlmSpinner`, `HlmSpinnerImports`                                                                                    | [spinner/README.md](./spinner/README.md)         |
 | `@gacc-ng/ui/switch`      | `HlmSwitch`, `HlmSwitchThumb`, `HlmSwitchImports`                                                                    | [switch/README.md](./switch/README.md)           |
 | `@gacc-ng/ui/textarea`    | `HlmTextarea`, `HlmTextareaImports`                                                                                  | [textarea/README.md](./textarea/README.md)       |
-| `@gacc-ng/ui/utils`       | `hlm()`, `classes()`, `provideSpartanHlm()`                                                                          | [utils/README.md](./utils/README.md)             |
+| `@gacc-ng/ui/utils`       | `hlm()`, `classes()`, `provideGaccUi()`                                                                              | [utils/README.md](./utils/README.md)             |
 
 ---
 
