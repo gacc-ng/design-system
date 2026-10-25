@@ -42,31 +42,28 @@ const meta: Meta<ToggleGroupStoryArgs> = {
     ],
     argTypes: {
         variant: {
-            control: 'select',
+            control: 'inline-radio',
             options: ['default', 'outline'],
             description: 'The visual style variant for the toggle group container.',
             table: {
-                category: 'Inputs',
                 type: { summary: "'default' | 'outline'" },
                 defaultValue: { summary: "'default'" },
             },
         },
         size: {
-            control: 'select',
+            control: 'inline-radio',
             options: ['default', 'sm', 'lg'],
             description: 'The size dimension of the toggle items.',
             table: {
-                category: 'Inputs',
                 type: { summary: "'default' | 'sm' | 'lg'" },
                 defaultValue: { summary: "'default'" },
             },
         },
         orientation: {
-            control: 'select',
+            control: 'inline-radio',
             options: ['horizontal', 'vertical'],
             description: 'Layout axis orientation for the toggle items.',
             table: {
-                category: 'Inputs',
                 type: { summary: "'horizontal' | 'vertical'" },
                 defaultValue: { summary: "'horizontal'" },
             },
@@ -75,7 +72,6 @@ const meta: Meta<ToggleGroupStoryArgs> = {
             control: 'number',
             description: 'Spacing in pixels between toggle items.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'number' },
                 defaultValue: { summary: '0' },
             },

@@ -28,7 +28,6 @@ const meta: Meta<ButtonStoryArgs> = {
             options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'],
             description: 'The visual style variant of the button.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'ButtonVariants["variant"]' },
                 defaultValue: { summary: "'default'" },
             },
@@ -38,7 +37,6 @@ const meta: Meta<ButtonStoryArgs> = {
             options: ['default', 'xs', 'sm', 'lg', 'icon'],
             description: 'The size dimension of the button.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'ButtonVariants["size"]' },
                 defaultValue: { summary: "'default'" },
             },
@@ -47,7 +45,6 @@ const meta: Meta<ButtonStoryArgs> = {
             control: 'boolean',
             description: 'Whether the button is interactively disabled.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },
@@ -56,7 +53,6 @@ const meta: Meta<ButtonStoryArgs> = {
             control: 'text',
             description: 'The projected label content displayed inside the button.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'Button'" },
             },
@@ -65,7 +61,6 @@ const meta: Meta<ButtonStoryArgs> = {
             action: 'clicked',
             description: 'Native DOM click event emitted when the user activates the button.',
             table: {
-                category: 'Events',
                 type: { summary: 'MouseEvent' },
             },
         },

@@ -21,7 +21,6 @@ const meta: Meta<SkeletonStoryArgs> = {
             control: 'text',
             description: 'Custom Tailwind width class for the skeleton placeholder.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'string' },
                 defaultValue: { summary: "'w-48'" },
             },
@@ -30,7 +29,6 @@ const meta: Meta<SkeletonStoryArgs> = {
             control: 'text',
             description: 'Custom Tailwind height class for the skeleton placeholder.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'string' },
                 defaultValue: { summary: "'h-4'" },
             },

@@ -23,11 +23,10 @@ const meta: Meta<SheetStoryArgs> = {
     ],
     argTypes: {
         side: {
-            control: 'select',
+            control: 'inline-radio',
             options: ['top', 'bottom', 'left', 'right'],
             description: 'The edge of the viewport where the sheet slides in from.',
             table: {
-                category: 'Inputs',
                 type: { summary: "'top' | 'bottom' | 'left' | 'right'" },
                 defaultValue: { summary: "'right'" },
             },

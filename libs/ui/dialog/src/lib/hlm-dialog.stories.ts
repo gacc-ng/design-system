@@ -27,7 +27,6 @@ const meta: Meta<DialogStoryArgs> = {
             control: 'text',
             description: 'The heading title displayed inside the dialog header.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'Edit Profile'" },
             },
@@ -36,7 +35,6 @@ const meta: Meta<DialogStoryArgs> = {
             control: 'text',
             description: 'The subtitle or instruction text inside the dialog header.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'Make changes to your profile here.'" },
             },

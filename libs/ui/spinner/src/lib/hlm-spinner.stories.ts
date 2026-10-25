@@ -23,7 +23,6 @@ const meta: Meta<SpinnerStoryArgs> = {
             control: 'text',
             description: 'Accessibility aria-label for assistive screen readers.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'string' },
                 defaultValue: { summary: "'Loading...'" },
             },
@@ -32,7 +31,6 @@ const meta: Meta<SpinnerStoryArgs> = {
             control: 'text',
             description: 'The name of the Lucide icon used for the animated spinner.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'string' },
                 defaultValue: { summary: "'lucideLoader2'" },
             },

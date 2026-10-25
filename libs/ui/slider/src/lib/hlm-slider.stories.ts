@@ -26,7 +26,6 @@ const meta: Meta<SliderStoryArgs> = {
             control: 'boolean',
             description: 'Whether the slider is interactively disabled.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },
@@ -35,7 +34,6 @@ const meta: Meta<SliderStoryArgs> = {
             control: 'boolean',
             description: 'Whether step tick indicators are displayed along the track.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },
@@ -44,7 +42,6 @@ const meta: Meta<SliderStoryArgs> = {
             control: 'number',
             description: 'The stepping interval for slider value increments.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'number' },
                 defaultValue: { summary: '10' },
             },

@@ -25,7 +25,6 @@ const meta: Meta<RadioGroupStoryArgs> = {
             control: 'text',
             description: 'The initially selected radio value.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'string' },
                 defaultValue: { summary: "'default'" },
             },
@@ -34,7 +33,6 @@ const meta: Meta<RadioGroupStoryArgs> = {
             control: 'boolean',
             description: 'Whether the entire radio group is interactively disabled.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },

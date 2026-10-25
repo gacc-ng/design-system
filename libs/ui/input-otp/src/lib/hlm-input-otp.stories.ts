@@ -24,7 +24,6 @@ const meta: Meta<InputOtpStoryArgs> = {
             control: 'number',
             description: 'The number of characters/digits in the one-time passcode.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'number' },
                 defaultValue: { summary: '6' },
             },
@@ -33,7 +32,6 @@ const meta: Meta<InputOtpStoryArgs> = {
             control: 'boolean',
             description: 'Whether the OTP inputs are interactively disabled.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },

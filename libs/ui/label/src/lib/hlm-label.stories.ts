@@ -23,7 +23,6 @@ const meta: Meta<LabelStoryArgs> = {
             control: 'text',
             description: 'The projected label text content.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'Label text'" },
             },
@@ -32,7 +31,6 @@ const meta: Meta<LabelStoryArgs> = {
             control: 'text',
             description: 'The id of the target form element this label associates with.',
             table: {
-                category: 'Brain Primitives',
                 type: { summary: 'string' },
                 defaultValue: { summary: "''" },
             },

@@ -23,7 +23,6 @@ const meta: Meta<KbdStoryArgs> = {
             control: 'text',
             description: 'The key symbol or shortcut label projected inside the kbd element.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'⌘K'" },
             },

@@ -24,7 +24,6 @@ const meta: Meta<DropdownMenuStoryArgs> = {
             control: 'text',
             description: 'The heading label for the first dropdown menu section.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'My Account'" },
             },

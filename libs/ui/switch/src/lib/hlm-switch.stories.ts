@@ -25,7 +25,6 @@ const meta: Meta<SwitchStoryArgs> = {
             control: 'boolean',
             description: 'The checked active state of the toggle switch.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },
@@ -34,17 +33,15 @@ const meta: Meta<SwitchStoryArgs> = {
             control: 'boolean',
             description: 'Whether the switch is interactively disabled.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },
         },
         size: {
-            control: 'select',
+            control: 'inline-radio',
             options: ['default', 'sm'],
             description: 'The physical size dimension of the switch.',
             table: {
-                category: 'Inputs',
                 type: { summary: "'default' | 'sm'" },
                 defaultValue: { summary: "'default'" },
             },

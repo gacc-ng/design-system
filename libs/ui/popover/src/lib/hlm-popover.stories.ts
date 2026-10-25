@@ -27,7 +27,6 @@ const meta: Meta<PopoverStoryArgs> = {
             control: 'text',
             description: 'The heading title of the popover header.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'Dimensions'" },
             },
@@ -36,7 +35,6 @@ const meta: Meta<PopoverStoryArgs> = {
             control: 'text',
             description: 'The subtitle or instruction text of the popover.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'Set the width and max-height for this layer.'" },
             },

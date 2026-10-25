@@ -27,11 +27,10 @@ const meta: Meta<AlertStoryArgs> = {
     ],
     argTypes: {
         variant: {
-            control: 'select',
+            control: 'inline-radio',
             options: ['default', 'destructive'],
             description: 'The visual severity styling of the alert box.',
             table: {
-                category: 'Inputs',
                 type: { summary: "'default' | 'destructive'" },
                 defaultValue: { summary: "'default'" },
             },
@@ -40,7 +39,6 @@ const meta: Meta<AlertStoryArgs> = {
             control: 'text',
             description: 'The heading title of the alert.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'Heads up!'" },
             },
@@ -49,7 +47,6 @@ const meta: Meta<AlertStoryArgs> = {
             control: 'text',
             description: 'The explanatory body message of the alert.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'You can add components to your app using the cli.'" },
             },

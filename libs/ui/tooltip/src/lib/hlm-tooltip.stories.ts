@@ -26,17 +26,15 @@ const meta: Meta<TooltipStoryArgs> = {
             control: 'text',
             description: 'The textual content displayed inside the floating tooltip popover.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'Add to favorites'" },
             },
         },
         position: {
-            control: 'select',
+            control: 'inline-radio',
             options: ['top', 'bottom', 'left', 'right'],
             description: 'Placement of the tooltip relative to the trigger element.',
             table: {
-                category: 'Inputs',
                 type: { summary: "'top' | 'bottom' | 'left' | 'right'" },
                 defaultValue: { summary: "'top'" },
             },

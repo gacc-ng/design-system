@@ -25,7 +25,6 @@ const meta: Meta<CheckboxStoryArgs> = {
             control: 'boolean',
             description: 'Whether the checkbox is checked.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },
@@ -34,7 +33,6 @@ const meta: Meta<CheckboxStoryArgs> = {
             control: 'boolean',
             description: 'Whether the checkbox is interactively disabled.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },
@@ -43,7 +41,6 @@ const meta: Meta<CheckboxStoryArgs> = {
             control: 'boolean',
             description: 'Whether the checkbox is rendered in an indeterminate tri-state.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },
@@ -52,7 +49,6 @@ const meta: Meta<CheckboxStoryArgs> = {
             control: 'boolean',
             description: 'Whether the checkbox is required for form submission.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },

@@ -23,7 +23,6 @@ const meta: Meta<SelectStoryArgs> = {
             control: 'text',
             description: 'Placeholder label rendered when no option is chosen.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'string' },
                 defaultValue: { summary: "'Select a fruit'" },
             },
@@ -32,7 +31,6 @@ const meta: Meta<SelectStoryArgs> = {
             control: 'boolean',
             description: 'Whether the select component is interactively disabled.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },

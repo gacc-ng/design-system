@@ -25,7 +25,6 @@ const meta: Meta<AlertDialogStoryArgs> = {
             control: 'text',
             description: 'The critical alert heading question.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'Are you absolutely sure?'" },
             },
@@ -34,7 +33,6 @@ const meta: Meta<AlertDialogStoryArgs> = {
             control: 'text',
             description: 'The explanatory warning text describing consequences.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'This action cannot be undone.'" },
             },

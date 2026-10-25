@@ -22,11 +22,10 @@ const meta: Meta<InputStoryArgs> = {
     ],
     argTypes: {
         size: {
-            control: 'select',
+            control: 'inline-radio',
             options: ['sm', 'default', 'lg'],
             description: 'The height and typography dimension size of the input field.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'InputVariants["size"]' },
                 defaultValue: { summary: "'default'" },
             },
@@ -35,7 +34,6 @@ const meta: Meta<InputStoryArgs> = {
             control: 'text',
             description: 'Placeholder text displayed when the input is empty.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'string' },
                 defaultValue: { summary: "'Enter text...'" },
             },
@@ -44,7 +42,6 @@ const meta: Meta<InputStoryArgs> = {
             control: 'boolean',
             description: 'Whether the input field is interactively disabled.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },
@@ -54,7 +51,6 @@ const meta: Meta<InputStoryArgs> = {
             options: ['text', 'email', 'password', 'number', 'file'],
             description: 'Native HTML input type.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'string' },
                 defaultValue: { summary: "'text'" },
             },

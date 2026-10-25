@@ -33,7 +33,6 @@ const meta: Meta<CommandStoryArgs> = {
             control: 'text',
             description: 'Placeholder string for the search command input.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'string' },
                 defaultValue: { summary: "'Type a command or search...'" },
             },

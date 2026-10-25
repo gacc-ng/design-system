@@ -26,7 +26,6 @@ const meta: Meta<CollapsibleStoryArgs> = {
             control: 'boolean',
             description: 'Whether the collapsible panel is open.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },
@@ -35,7 +34,6 @@ const meta: Meta<CollapsibleStoryArgs> = {
             control: 'boolean',
             description: 'Whether the collapsible trigger is interactively disabled.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },

@@ -48,7 +48,6 @@ const meta: Meta<CardStoryArgs> = {
             control: 'text',
             description: 'The heading content projected into the card title slot.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'Notification Preferences'" },
             },
@@ -57,7 +56,6 @@ const meta: Meta<CardStoryArgs> = {
             control: 'text',
             description: 'The subtitle content projected into the card description slot.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'Choose what you want to receive and how you want to be notified.'" },
             },
@@ -66,7 +64,6 @@ const meta: Meta<CardStoryArgs> = {
             control: 'text',
             description: 'The main body content projected into the card content slot.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'Your notifications will appear here based on your account activity.'" },
             },

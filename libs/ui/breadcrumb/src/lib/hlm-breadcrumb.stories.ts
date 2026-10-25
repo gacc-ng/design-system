@@ -24,7 +24,6 @@ const meta: Meta<BreadcrumbStoryArgs> = {
             control: 'text',
             description: 'Custom separator character or symbol.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'/'" },
             },

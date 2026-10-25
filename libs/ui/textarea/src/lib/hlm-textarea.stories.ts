@@ -24,7 +24,6 @@ const meta: Meta<TextareaStoryArgs> = {
             control: 'text',
             description: 'Placeholder text displayed when the textarea is empty.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'string' },
                 defaultValue: { summary: "'Type your message here...'" },
             },
@@ -33,7 +32,6 @@ const meta: Meta<TextareaStoryArgs> = {
             control: 'boolean',
             description: 'Whether the textarea is interactively disabled.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' },
             },
@@ -42,7 +40,6 @@ const meta: Meta<TextareaStoryArgs> = {
             control: 'number',
             description: 'The visible text lines height for the textarea.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'number' },
                 defaultValue: { summary: '4' },
             },

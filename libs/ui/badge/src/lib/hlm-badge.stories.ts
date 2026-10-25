@@ -25,7 +25,6 @@ const meta: Meta<BadgeStoryArgs> = {
             options: ['default', 'secondary', 'destructive', 'outline', 'ghost', 'link'],
             description: 'The visual style variant of the badge.',
             table: {
-                category: 'Inputs',
                 type: { summary: 'BadgeVariants["variant"]' },
                 defaultValue: { summary: "'default'" },
             },
@@ -34,7 +33,6 @@ const meta: Meta<BadgeStoryArgs> = {
             control: 'text',
             description: 'The projected label content inside the badge.',
             table: {
-                category: 'Slots',
                 type: { summary: 'string | TemplateRef' },
                 defaultValue: { summary: "'Badge'" },
             },

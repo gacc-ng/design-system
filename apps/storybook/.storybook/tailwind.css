@@ -90,7 +90,13 @@ html.is-adjusting-radius *::after {
     box-shadow: 0 0 0 1px var(--ring, #a1a1aa) !important;
 }
 
-/* Inline radio buttons polish */
+/* Inline radio & checkbox polish */
+.sbdocs-content .docblock-argstable input[type='radio'],
+.sbdocs-content .docblock-argstable input[type='checkbox'] {
+    accent-color: var(--primary, #18181b) !important;
+    cursor: pointer !important;
+}
+
 .sbdocs-content .docblock-argstable label {
     font-size: 0.8125rem !important;
     cursor: pointer !important;
