@@ -7,6 +7,7 @@ interface ButtonStoryArgs {
     size: NonNullable<ButtonVariants['size']>;
     disabled: boolean;
     text: string;
+    clicked?: (event: MouseEvent) => void;
 }
 
 const meta: Meta<ButtonStoryArgs> = {
@@ -21,20 +22,48 @@ const meta: Meta<ButtonStoryArgs> = {
         variant: {
             control: 'select',
             options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'],
-            description: 'The visual style variant of the button',
+            description: 'The visual style variant of the button.',
+            table: {
+                category: 'Inputs',
+                type: { summary: 'ButtonVariants["variant"]' },
+                defaultValue: { summary: "'default'" },
+            },
         },
         size: {
             control: 'select',
             options: ['default', 'xs', 'sm', 'lg', 'icon'],
-            description: 'The size dimension of the button',
+            description: 'The size dimension of the button.',
+            table: {
+                category: 'Inputs',
+                type: { summary: 'ButtonVariants["size"]' },
+                defaultValue: { summary: "'default'" },
+            },
         },
         disabled: {
             control: 'boolean',
-            description: 'Whether the button is interactively disabled',
+            description: 'Whether the button is interactively disabled.',
+            table: {
+                category: 'Inputs',
+                type: { summary: 'boolean' },
+                defaultValue: { summary: 'false' },
+            },
         },
         text: {
             control: 'text',
-            description: 'The text label content inside the button',
+            description: 'The label content displayed inside the button.',
+            table: {
+                category: 'Inputs',
+                type: { summary: 'string' },
+                defaultValue: { summary: "'Button'" },
+            },
+        },
+        clicked: {
+            action: 'clicked',
+            description: 'Native DOM click event emitted when the user activates the button.',
+            table: {
+                category: 'Events',
+                type: { summary: 'MouseEvent' },
+            },
         },
     },
     args: {
@@ -52,7 +81,7 @@ export const Default: Story = {
     render: (args) => ({
         props: args,
         template: `
-            <button hlmBtn [variant]="variant" [size]="size" [disabled]="disabled">
+            <button hlmBtn [variant]="variant" [size]="size" [disabled]="disabled" (click)="clicked?.($event)">
                 {{ text }}
             </button>
         `,
