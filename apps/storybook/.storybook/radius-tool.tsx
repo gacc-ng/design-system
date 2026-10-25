@@ -1,16 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { IconButton, TooltipLinkList, WithTooltip } from 'storybook/internal/components';
 import { addons, useStorybookApi } from 'storybook/manager-api';
 
-export const RADIUS_OPTIONS = [
-    { id: 'default', title: 'Default' },
-    { id: 'none', title: 'None (0px)' },
-    { id: 'subtle', title: 'Subtle (4px)' },
-    { id: 'moderate', title: 'Moderate (14px)' },
-    { id: 'pronounced', title: 'Pronounced (24px)' },
-] as const;
-
-export type RadiusPreset = (typeof RADIUS_OPTIONS)[number]['id'];
+import { RADIUS_OPTIONS, type RadiusPreset } from './radius-presets';
 
 const STORAGE_KEY = 'gacc-storybook-radius';
 
@@ -41,19 +33,6 @@ export function RadiusTool(): React.JSX.Element {
         },
         [api],
     );
-
-    // Initial broadcast when preview connects
-    useEffect(() => {
-        const emitCurrent = () => {
-            addons.getChannel().emit('gacc/set-radius', { radius });
-        };
-        addons.getChannel().on('storyRendered', emitCurrent);
-        addons.getChannel().on('docsRendered', emitCurrent);
-        return () => {
-            addons.getChannel().off('storyRendered', emitCurrent);
-            addons.getChannel().off('docsRendered', emitCurrent);
-        };
-    }, [radius]);
 
     const activeOption = RADIUS_OPTIONS.find((o) => o.id === radius) ?? RADIUS_OPTIONS[0];
 

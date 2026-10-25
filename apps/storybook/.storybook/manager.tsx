@@ -3,8 +3,25 @@ import { addons, types } from 'storybook/manager-api';
 import { RadiusTool } from './radius-tool';
 import { darkTheme, lightTheme } from './themes';
 
+function getInitialTheme(): typeof darkTheme | typeof lightTheme {
+    if (typeof window !== 'undefined') {
+        const params = new URLSearchParams(window.location.search);
+        const globals = params.get('globals');
+        if (globals) {
+            const pairs = globals.split(';');
+            for (const pair of pairs) {
+                const [key, value] = pair.split(':');
+                if (key === 'theme' && value === 'dark') {
+                    return darkTheme;
+                }
+            }
+        }
+    }
+    return lightTheme;
+}
+
 addons.setConfig({
-    theme: lightTheme,
+    theme: getInitialTheme(),
 });
 
 addons.register('gacc/manager-theme-sync', (api) => {
@@ -21,19 +38,15 @@ addons.register('gacc/manager-theme-sync', (api) => {
         applyTheme(initialGlobals.theme);
     }
 
-    // Dynamic sync on initial preview connection
-    api.on('setGlobals', ({ globals }: { globals?: { theme?: string } }) => {
+    // Shared sync listener for initial preview connection & toolbar switch
+    const handleThemeSync = ({ globals }: { globals?: { theme?: string } }) => {
         if (globals?.theme) {
             applyTheme(globals.theme);
         }
-    });
+    };
 
-    // Dynamic sync on toolbar switch
-    api.on('globalsUpdated', ({ globals }: { globals?: { theme?: string } }) => {
-        if (globals?.theme) {
-            applyTheme(globals.theme);
-        }
-    });
+    api.on('setGlobals', handleThemeSync);
+    api.on('globalsUpdated', handleThemeSync);
 
     // Custom non-destructive Radius tool
     addons.add('gacc/radius-tool', {

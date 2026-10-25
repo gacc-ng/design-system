@@ -5,6 +5,7 @@ import { addons } from 'storybook/preview-api';
 import { provideSpartanHlm } from '@gacc-ng/ui/utils';
 
 import { DocsContainer } from './docs-container';
+import { RADIUS_MAP } from './radius-presets';
 
 import './tailwind.css';
 
@@ -111,22 +112,25 @@ function formatStandaloneComponentSource(code: string, context?: { title?: strin
     ].join('\n');
 }
 
-const RADIUS_MAP: Record<string, string> = {
-    none: '0rem',
-    subtle: '0.25rem',
-    moderate: '0.875rem',
-    pronounced: '1.5rem',
-};
+let radiusTimer: ReturnType<typeof setTimeout> | undefined;
 
 function applyRadius(radius?: string, animate = false): void {
     if (typeof document === 'undefined') return;
     const html = document.documentElement;
 
+    if (radiusTimer) {
+        clearTimeout(radiusTimer);
+        radiusTimer = undefined;
+    }
+
     if (animate) {
         html.classList.add('is-adjusting-radius');
-        setTimeout(() => {
+        radiusTimer = setTimeout(() => {
             html.classList.remove('is-adjusting-radius');
+            radiusTimer = undefined;
         }, 220);
+    } else {
+        html.classList.remove('is-adjusting-radius');
     }
 
     if (!radius || radius === 'default') {
