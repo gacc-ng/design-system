@@ -1,2 +1,19 @@
 @import 'tailwindcss';
 @import '@gacc-ng/ui/preset.css';
+
+@theme inline {
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Scoped transition active only during toolbar adjustments (200ms) */
+html.is-adjusting-radius *,
+html.is-adjusting-radius *::before,
+html.is-adjusting-radius *::after {
+    transition: border-radius 200ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}

@@ -1,5 +1,6 @@
 import { withThemeByClassName } from '@storybook/addon-themes';
-import { applicationConfig, type Decorator, type Preview } from '@storybook/angular-vite';
+import { applicationConfig, type Preview } from '@storybook/angular-vite';
+import { addons } from 'storybook/preview-api';
 
 import { provideSpartanHlm } from '@gacc-ng/ui/utils';
 
@@ -117,43 +118,38 @@ const RADIUS_MAP: Record<string, string> = {
     pronounced: '1.5rem',
 };
 
-const withRadiusDecorator: Decorator = (storyFn, context) => {
-    const radius = context.globals?.radius;
-    if (typeof document !== 'undefined') {
-        if (!radius || radius === 'default') {
-            document.documentElement.style.removeProperty('--radius');
-        } else if (RADIUS_MAP[radius]) {
-            document.documentElement.style.setProperty('--radius', RADIUS_MAP[radius]);
-        }
+function applyRadius(radius?: string, animate = false): void {
+    if (typeof document === 'undefined') return;
+    const html = document.documentElement;
+
+    if (animate) {
+        html.classList.add('is-adjusting-radius');
+        setTimeout(() => {
+            html.classList.remove('is-adjusting-radius');
+        }, 220);
     }
-    return storyFn();
-};
+
+    if (!radius || radius === 'default') {
+        html.style.removeProperty('--radius');
+    } else if (RADIUS_MAP[radius]) {
+        html.style.setProperty('--radius', RADIUS_MAP[radius]);
+    }
+}
+
+// Zero-teardown channel listener (bypasses globalTypes & story re-rendering)
+if (typeof window !== 'undefined') {
+    const params = new URLSearchParams(window.location.search);
+    const initialRadius = params.get('radius') || localStorage.getItem('gacc-storybook-radius') || 'default';
+    applyRadius(initialRadius, false);
+
+    addons.getChannel().on('gacc/set-radius', ({ radius }: { radius?: string }) => {
+        applyRadius(radius, true);
+    });
+}
 
 const preview: Preview = {
     tags: ['autodocs'],
-    initialGlobals: {
-        radius: 'default',
-    },
-    globalTypes: {
-        radius: {
-            name: 'Radius',
-            description: 'Corner radius preset token',
-            toolbar: {
-                title: 'Radius',
-                icon: 'box',
-                dynamicTitle: true,
-                items: [
-                    { value: 'default', title: 'Default' },
-                    { value: 'none', title: 'None' },
-                    { value: 'subtle', title: 'Subtle' },
-                    { value: 'moderate', title: 'Moderate' },
-                    { value: 'pronounced', title: 'Pronounced' },
-                ],
-            },
-        },
-    },
     decorators: [
-        withRadiusDecorator,
         withThemeByClassName({
             themes: {
                 light: '',

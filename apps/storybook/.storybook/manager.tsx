@@ -1,5 +1,6 @@
-import { addons } from 'storybook/manager-api';
+import { addons, types } from 'storybook/manager-api';
 
+import { RadiusTool } from './radius-tool';
 import { darkTheme, lightTheme } from './themes';
 
 addons.setConfig({
@@ -32,5 +33,13 @@ addons.register('gacc/manager-theme-sync', (api) => {
         if (globals?.theme) {
             applyTheme(globals.theme);
         }
+    });
+
+    // Custom non-destructive Radius tool
+    addons.add('gacc/radius-tool', {
+        title: 'Corner Radius',
+        type: types.TOOL,
+        match: ({ viewMode, tabId }) => !!(viewMode && viewMode.match(/^(story|docs)$/)) && !tabId,
+        render: RadiusTool,
     });
 });

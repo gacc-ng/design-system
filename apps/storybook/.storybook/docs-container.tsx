@@ -1,6 +1,5 @@
 import { DocsContainer as BaseDocsContainer, type DocsContainerProps } from '@storybook/addon-docs/blocks';
-import type React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { addons } from 'storybook/preview-api';
 
 import { darkTheme, lightTheme } from './themes';
