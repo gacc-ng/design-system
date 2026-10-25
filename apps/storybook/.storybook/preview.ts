@@ -1,5 +1,5 @@
 import { withThemeByClassName } from '@storybook/addon-themes';
-import { applicationConfig, type Preview } from '@storybook/angular-vite';
+import { applicationConfig, type Decorator, type Preview } from '@storybook/angular-vite';
 
 import { provideSpartanHlm } from '@gacc-ng/ui/utils';
 
@@ -117,7 +117,7 @@ const RADIUS_MAP: Record<string, string> = {
     pronounced: '1.5rem',
 };
 
-const withRadiusDecorator = (storyFn: () => unknown, context: { globals?: { radius?: string } }) => {
+const withRadiusDecorator: Decorator = (storyFn, context) => {
     const radius = context.globals?.radius;
     if (typeof document !== 'undefined') {
         if (!radius || radius === 'default') {
@@ -131,11 +131,13 @@ const withRadiusDecorator = (storyFn: () => unknown, context: { globals?: { radi
 
 const preview: Preview = {
     tags: ['autodocs'],
+    initialGlobals: {
+        radius: 'default',
+    },
     globalTypes: {
         radius: {
             name: 'Radius',
             description: 'Corner radius preset token',
-            defaultValue: 'default',
             toolbar: {
                 title: 'Radius',
                 icon: 'box',
