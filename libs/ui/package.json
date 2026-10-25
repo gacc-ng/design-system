@@ -5,7 +5,7 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/gacc-ng/design-system.git",
-        "directory": "libs/shared/ui"
+        "directory": "libs/ui"
     },
     "schematics": "./schematics/collection.json",
     "ng-add": {

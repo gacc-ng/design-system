@@ -58,14 +58,14 @@ jobs:
               run: pnpm nx affected -t build --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
 
             - name: Run schematics unit tests
-              if: hashFiles('dist/libs/shared/ui/schematics/collection.json') != ''
+              if: hashFiles('dist/libs/ui/schematics/collection.json') != ''
               run: pnpm nx run ui:test-schematics
 
             - name: Validate library package integrity
-              if: hashFiles('dist/libs/shared/ui/package.json') != ''
+              if: hashFiles('dist/libs/ui/package.json') != ''
               run: |
                   echo "Validating @gacc-ng/ui package..."
-                  cd dist/libs/shared/ui
+                  cd dist/libs/ui
                   pnpm pack --dry-run
                   test -f package.json
                   test -f src/styles/preset.css
@@ -75,9 +75,9 @@ jobs:
                   echo "Library package structure and entry points verified successfully!"
 
             - name: Upload library distribution artifact
-              if: hashFiles('dist/libs/shared/ui/package.json') != ''
+              if: hashFiles('dist/libs/ui/package.json') != ''
               uses: actions/upload-artifact@v7
               with:
                   name: gacc-ng-ui-dist
-                  path: dist/libs/shared/ui
+                  path: dist/libs/ui
                   retention-days: 7

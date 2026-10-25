@@ -1,7 +1,7 @@
 {
     "name": "ui",
-    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "libs/shared/ui",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/ui",
     "prefix": "gacc",
     "projectType": "library",
     "tags": [],
@@ -12,15 +12,15 @@
         },
         "build-lib": {
             "executor": "@nx/angular:ng-packagr-lite",
-            "outputs": ["{workspaceRoot}/dist/libs/shared/ui"],
+            "outputs": ["{workspaceRoot}/dist/libs/ui"],
             "defaultConfiguration": "production",
             "options": {
-                "project": "libs/shared/ui/ng-package.json",
-                "tsConfig": "libs/shared/ui/tsconfig.lib.json"
+                "project": "libs/ui/ng-package.json",
+                "tsConfig": "libs/ui/tsconfig.lib.json"
             },
             "configurations": {
                 "production": {
-                    "tsConfig": "libs/shared/ui/tsconfig.lib.prod.json"
+                    "tsConfig": "libs/ui/tsconfig.lib.prod.json"
                 },
                 "development": {}
             }
@@ -29,7 +29,7 @@
             "executor": "nx:run-commands",
             "dependsOn": ["build-lib"],
             "inputs": ["{projectRoot}/schematics/**/*", "{workspaceRoot}/tools/scripts/build-schematics.mjs"],
-            "outputs": ["{workspaceRoot}/dist/libs/shared/ui/schematics"],
+            "outputs": ["{workspaceRoot}/dist/libs/ui/schematics"],
             "options": {
                 "command": "node tools/scripts/build-schematics.mjs"
             }
@@ -37,9 +37,9 @@
         "test-schematics": {
             "executor": "nx:run-commands",
             "dependsOn": ["build-schematics"],
-            "inputs": ["{projectRoot}/schematics/**/*", "{workspaceRoot}/dist/libs/shared/ui/schematics/**/*"],
+            "inputs": ["{projectRoot}/schematics/**/*", "{workspaceRoot}/dist/libs/ui/schematics/**/*"],
             "options": {
-                "command": "pnpm vitest run libs/shared/ui/schematics"
+                "command": "pnpm vitest run libs/ui/schematics"
             }
         },
         "test": {
@@ -47,8 +47,8 @@
             "options": {
                 "watch": false,
                 "buildTarget": "ui:build-lib",
-                "tsConfig": "libs/shared/ui/tsconfig.spec.json",
-                "exclude": ["libs/shared/ui/schematics/**", "**/schematics/**"]
+                "tsConfig": "libs/ui/tsconfig.spec.json",
+                "exclude": ["libs/ui/schematics/**", "**/schematics/**"]
             }
         },
         "lint": {
