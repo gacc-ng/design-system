@@ -60,7 +60,10 @@
     - When running concurrent tasks, background tasks, or multiple agents/subagents, ALWAYS isolate the workspace using a Git Worktree in `.worktrees/<branch-name>` or native branched workspaces.
     - Never run `git checkout` on the root workspace if another process or uncommitted change is active.
     - Clean up worktrees (`git worktree remove`) after the branch is pushed and PR is created.
-- **Pull Request Protocol:** Always push to the remote branch and open a PR targeting `main`. Verify CI quality gates before merge.
+- **Pull Request Protocol & Human Merge Gate (Fundamental Rule):**
+    - Autonomous agents are fully authorized to branch, commit, push, and open Pull Requests (PRs) freely.
+    - **STRICT MERGE PROHIBITION:** Autonomous agents MUST NEVER merge any Pull Request (via `gh pr merge`, `git merge`, or API) without explicit, affirmative human authorization in the current prompt.
+    - Always verify CI quality gates on the PR and present the review link to the user.
 
 ## Architecture Standards
 

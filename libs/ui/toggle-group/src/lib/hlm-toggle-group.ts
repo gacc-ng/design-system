@@ -7,7 +7,6 @@ import type { ToggleVariants } from '@gacc-ng/ui/toggle';
 import { classes } from '@gacc-ng/ui/utils';
 
 import { provideHlmToggleGroup } from './hlm-toggle-group.token';
-import { HlmToggleGroupItem } from './hlm-toggle-group-item';
 
 @Directive({
     selector: '[hlmToggleGroup],hlm-toggle-group',
@@ -42,5 +41,3 @@ export class HlmToggleGroup {
         );
     }
 }
-
-export const HlmToggleGroupImports = [HlmToggleGroup, HlmToggleGroupItem] as const;

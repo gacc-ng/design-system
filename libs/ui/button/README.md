@@ -2,6 +2,12 @@
 
 Button directive primitive built with Tailwind CSS, CVA, and Spartan Brain headless logic (`BrnButton`).
 
+## Imports
+
+```typescript
+import { HlmButton, HlmButtonImports } from '@gacc-ng/ui/button';
+```
+
 ## Usage
 
 ```html

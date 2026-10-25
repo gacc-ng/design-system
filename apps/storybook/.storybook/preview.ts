@@ -29,11 +29,8 @@ const MULTI_PART_COMPONENTS = new Set([
     'slider',
     'switch',
     'tabs',
+    'toggle-group',
 ]);
-
-const SPECIAL_IMPORTS: Record<string, string> = {
-    'toggle-group': 'HlmToggleGroup, HlmToggleGroupItem',
-};
 
 /**
  * Transforms CSF3 story source code into a clean, copy-pasteable Angular Standalone @Component snippet.
@@ -91,14 +88,7 @@ function formatStandaloneComponentSource(code: string, context?: { title?: strin
     const kebabName = rawName.toLowerCase().replace(/\s+/g, '-');
     const pascalName = rawName.replace(/(?:^|\s|-)([a-z0-9])/gi, (_, c) => c.toUpperCase()).replace(/[\s-]+/g, '');
 
-    let importSymbol: string;
-    if (SPECIAL_IMPORTS[kebabName]) {
-        importSymbol = SPECIAL_IMPORTS[kebabName];
-    } else if (MULTI_PART_COMPONENTS.has(kebabName)) {
-        importSymbol = `Hlm${pascalName}Imports`;
-    } else {
-        importSymbol = `Hlm${pascalName}`;
-    }
+    const importSymbol = MULTI_PART_COMPONENTS.has(kebabName) ? `Hlm${pascalName}Imports` : `Hlm${pascalName}`;
 
     const indentedTemplateForClass = dedentedTemplate
         .split('\n')

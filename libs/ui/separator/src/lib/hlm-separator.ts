@@ -20,3 +20,5 @@ export class HlmSeparator {
         classes(() => hlmSeparatorClass);
     }
 }
+
+export const HlmSeparatorImports = [HlmSeparator] as const;
