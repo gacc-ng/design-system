@@ -2,6 +2,7 @@ import { addons, types } from 'storybook/manager-api';
 
 import { RadiusTool } from './radius-tool';
 import { darkTheme, lightTheme } from './themes';
+import { isToolbarFeatureEnabled } from './toolbar-features';
 
 function getInitialTheme(): typeof darkTheme | typeof lightTheme {
     if (typeof window !== 'undefined') {
@@ -48,11 +49,13 @@ addons.register('gacc/manager-theme-sync', (api) => {
     api.on('setGlobals', handleThemeSync);
     api.on('globalsUpdated', handleThemeSync);
 
-    // Custom non-destructive Radius tool
-    addons.add('gacc/radius-tool', {
-        title: 'Corner Radius',
-        type: types.TOOL,
-        match: ({ viewMode, tabId }) => !!(viewMode && viewMode.match(/^(story|docs)$/)) && !tabId,
-        render: RadiusTool,
-    });
+    // Custom non-destructive Radius tool (conditional on feature flag)
+    if (isToolbarFeatureEnabled('radius')) {
+        addons.add('gacc/radius-tool', {
+            title: 'Corner Radius',
+            type: types.TOOL,
+            match: ({ viewMode, tabId }) => !!(viewMode && viewMode.match(/^(story|docs)$/)) && !tabId,
+            render: RadiusTool,
+        });
+    }
 });

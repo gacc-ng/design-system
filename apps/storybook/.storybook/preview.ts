@@ -6,6 +6,7 @@ import { provideSpartanHlm } from '@gacc-ng/ui/utils';
 
 import { DocsContainer } from './docs-container';
 import { RADIUS_MAP } from './radius-presets';
+import { isToolbarFeatureEnabled } from './toolbar-features';
 
 import './tailwind.css';
 
@@ -141,7 +142,7 @@ function applyRadius(radius?: string, animate = false): void {
 }
 
 // Zero-teardown channel listener (bypasses globalTypes & story re-rendering)
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && isToolbarFeatureEnabled('radius')) {
     const params = new URLSearchParams(window.location.search);
     const initialRadius = params.get('radius') || localStorage.getItem('gacc-storybook-radius') || 'default';
     applyRadius(initialRadius, false);
@@ -178,8 +179,14 @@ const preview: Preview = {
                     formatStandaloneComponentSource(code, storyContext),
             },
         },
+        a11y: {
+            disable: !isToolbarFeatureEnabled('a11y'),
+        },
+        themes: {
+            disable: !isToolbarFeatureEnabled('theme'),
+        },
         backgrounds: {
-            disable: true,
+            disable: !isToolbarFeatureEnabled('backgrounds'),
         },
         controls: {
             matchers: {
