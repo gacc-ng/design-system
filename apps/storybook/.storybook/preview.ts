@@ -6,6 +6,7 @@ import { provideSpartanHlm } from '@gacc-ng/ui/utils';
 import './tailwind.css';
 
 const preview: Preview = {
+    tags: ['autodocs'],
     decorators: [
         withThemeByClassName({
             themes: {
@@ -20,6 +21,10 @@ const preview: Preview = {
         }),
     ],
     parameters: {
+        docs: {
+            toc: true,
+            codePanel: true,
+        },
         backgrounds: {
             options: {
                 light: { name: 'light', value: '#ffffff' },

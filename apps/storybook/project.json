@@ -27,6 +27,20 @@
                 }
             }
         },
+        "storybook-docs": {
+            "executor": "nx:run-commands",
+            "options": {
+                "cwd": "apps/storybook",
+                "command": "storybook dev --docs --port=4400"
+            }
+        },
+        "build-storybook-docs": {
+            "executor": "nx:run-commands",
+            "options": {
+                "cwd": "apps/storybook",
+                "command": "storybook build --docs --output-dir=dist/storybook-docs"
+            }
+        },
         "static-storybook": {
             "options": {
                 "staticFilePath": "apps/storybook/dist/storybook",
