@@ -4,32 +4,63 @@ import { HlmButton } from '@gacc-ng/ui/button';
 
 import { HlmAlertDialogImports } from '../index';
 
-const meta: Meta = {
+import { HlmAlertDialog } from './hlm-alert-dialog';
+
+interface AlertDialogStoryArgs {
+    title: string;
+    description: string;
+}
+
+const meta: Meta<AlertDialogStoryArgs> = {
     title: 'Primitives/AlertDialog',
+    component: HlmAlertDialog,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
             imports: [HlmAlertDialogImports, HlmButton],
         }),
     ],
+    argTypes: {
+        title: {
+            control: 'text',
+            description: 'The critical alert heading question.',
+            table: {
+                category: 'Slots',
+                type: { summary: 'string | TemplateRef' },
+                defaultValue: { summary: "'Are you absolutely sure?'" },
+            },
+        },
+        description: {
+            control: 'text',
+            description: 'The explanatory warning text describing consequences.',
+            table: {
+                category: 'Slots',
+                type: { summary: 'string | TemplateRef' },
+                defaultValue: { summary: "'This action cannot be undone.'" },
+            },
+        },
+    },
+    args: {
+        title: 'Are you absolutely sure?',
+        description:
+            'This action cannot be undone. This will permanently delete your account and remove your personal tokens from our servers.',
+    },
 };
 
 export default meta;
-type Story = StoryObj;
+type Story = StoryObj<AlertDialogStoryArgs>;
 
 export const Default: Story = {
-    render: () => ({
+    render: (args) => ({
+        props: args,
         template: `
             <div class="p-8 flex justify-center">
                 <hlm-alert-dialog>
                     <button hlmBtn hlmAlertDialogTrigger variant="destructive">Delete Account</button>
                     <hlm-alert-dialog-content *hlmAlertDialogPortal="let ctx">
                         <hlm-alert-dialog-header>
-                            <h2 hlmAlertDialogTitle>Are you absolutely sure?</h2>
-                            <p hlmAlertDialogDescription>
-                                This action cannot be undone. This will permanently delete your account
-                                and remove your personal tokens from our servers.
-                            </p>
+                            <h2 hlmAlertDialogTitle>{{ title }}</h2>
+                            <p hlmAlertDialogDescription>{{ description }}</p>
                         </hlm-alert-dialog-header>
                         <hlm-alert-dialog-footer>
                             <button hlmBtn variant="outline" hlmAlertDialogCancel>Cancel</button>

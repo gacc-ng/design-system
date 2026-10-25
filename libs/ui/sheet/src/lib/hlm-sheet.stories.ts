@@ -6,29 +6,52 @@ import { HlmLabel } from '@gacc-ng/ui/label';
 
 import { HlmSheetImports } from '../index';
 
-const meta: Meta = {
+import { HlmSheet } from './hlm-sheet';
+
+interface SheetStoryArgs {
+    side: 'top' | 'bottom' | 'left' | 'right';
+}
+
+const meta: Meta<SheetStoryArgs> = {
     title: 'Primitives/Sheet',
+    component: HlmSheet,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
             imports: [HlmSheetImports, HlmButton, HlmInput, HlmLabel],
         }),
     ],
+    argTypes: {
+        side: {
+            control: 'select',
+            options: ['top', 'bottom', 'left', 'right'],
+            description: 'The edge of the viewport where the sheet slides in from.',
+            table: {
+                category: 'Inputs',
+                type: { summary: "'top' | 'bottom' | 'left' | 'right'" },
+                defaultValue: { summary: "'right'" },
+            },
+        },
+    },
+    args: {
+        side: 'right',
+    },
 };
 
 export default meta;
-type Story = StoryObj;
+type Story = StoryObj<SheetStoryArgs>;
 
 export const Default: Story = {
-    render: () => ({
+    render: (args) => ({
+        props: args,
         template: `
             <div class="p-8 flex justify-center">
                 <hlm-sheet>
-                    <button hlmBtn hlmSheetTrigger variant="outline">Open Sheet (Right)</button>
-                    <hlm-sheet-content *hlmSheetPortal="let ctx" side="right">
+                    <button hlmBtn hlmSheetTrigger variant="outline">Open Sheet ({{ side }})</button>
+                    <hlm-sheet-content *hlmSheetPortal="let ctx" [side]="side">
                         <hlm-sheet-header>
                             <h3 hlmSheetTitle>Edit Profile</h3>
-                            <p hlmSheetDescription>Make changes to your profile here. Click save when you're done.</p>
+                            <p hlmSheetDescription>Make changes to your profile here. Click save when you are done.</p>
                         </hlm-sheet-header>
                         <div class="space-y-4 py-4">
                             <div class="space-y-1.5">
@@ -60,17 +83,47 @@ export const LeftSide: Story = {
                     <hlm-sheet-content *hlmSheetPortal="let ctx" side="left">
                         <hlm-sheet-header>
                             <h3 hlmSheetTitle>Navigation Menu</h3>
-                            <p hlmSheetDescription>Access workspace projects and settings.</p>
+                            <p hlmSheetDescription>Browse design system documentation and component specs.</p>
                         </hlm-sheet-header>
-                        <div class="flex flex-col gap-2 py-4 text-sm">
-                            <a href="#" class="rounded-md px-3 py-2 hover:bg-muted font-medium">Dashboard</a>
-                            <a href="#" class="rounded-md px-3 py-2 hover:bg-muted font-medium">Design Tokens</a>
-                            <a href="#" class="rounded-md px-3 py-2 hover:bg-muted font-medium">Components</a>
-                            <a href="#" class="rounded-md px-3 py-2 hover:bg-muted font-medium">Settings</a>
+                        <div class="flex flex-col gap-2 py-4">
+                            <a href="#" class="px-3 py-2 rounded-lg hover:bg-muted font-medium text-sm">Getting Started</a>
+                            <a href="#" class="px-3 py-2 rounded-lg hover:bg-muted font-medium text-sm">Architecture RFCs</a>
+                            <a href="#" class="px-3 py-2 rounded-lg hover:bg-muted font-medium text-sm">Components Matrix</a>
+                            <a href="#" class="px-3 py-2 rounded-lg hover:bg-muted font-medium text-sm">Accessibility Gates</a>
                         </div>
-                        <hlm-sheet-footer>
-                            <button hlmBtn hlmSheetClose variant="ghost" class="w-full">Close Menu</button>
-                        </hlm-sheet-footer>
+                    </hlm-sheet-content>
+                </hlm-sheet>
+            </div>
+        `,
+    }),
+};
+
+export const AllSides: Story = {
+    render: () => ({
+        template: `
+            <div class="p-8 flex flex-wrap justify-center gap-4">
+                <hlm-sheet>
+                    <button hlmBtn hlmSheetTrigger variant="outline">Top Sheet</button>
+                    <hlm-sheet-content *hlmSheetPortal="let ctx" side="top">
+                        <h4 class="font-semibold text-sm">Top Notification Banner</h4>
+                    </hlm-sheet-content>
+                </hlm-sheet>
+                <hlm-sheet>
+                    <button hlmBtn hlmSheetTrigger variant="outline">Right Sheet</button>
+                    <hlm-sheet-content *hlmSheetPortal="let ctx" side="right">
+                        <h4 class="font-semibold text-sm">Right Drawer</h4>
+                    </hlm-sheet-content>
+                </hlm-sheet>
+                <hlm-sheet>
+                    <button hlmBtn hlmSheetTrigger variant="outline">Bottom Sheet</button>
+                    <hlm-sheet-content *hlmSheetPortal="let ctx" side="bottom">
+                        <h4 class="font-semibold text-sm">Bottom Action Panel</h4>
+                    </hlm-sheet-content>
+                </hlm-sheet>
+                <hlm-sheet>
+                    <button hlmBtn hlmSheetTrigger variant="outline">Left Sheet</button>
+                    <hlm-sheet-content *hlmSheetPortal="let ctx" side="left">
+                        <h4 class="font-semibold text-sm">Left Sidebar</h4>
                     </hlm-sheet-content>
                 </hlm-sheet>
             </div>

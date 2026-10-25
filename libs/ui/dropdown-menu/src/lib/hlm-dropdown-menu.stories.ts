@@ -4,21 +4,43 @@ import { HlmButton } from '@gacc-ng/ui/button';
 
 import { HlmDropdownMenuImports } from '../index';
 
-const meta: Meta = {
+import { HlmDropdownMenu } from './hlm-dropdown-menu';
+
+interface DropdownMenuStoryArgs {
+    label: string;
+}
+
+const meta: Meta<DropdownMenuStoryArgs> = {
     title: 'Primitives/DropdownMenu',
+    component: HlmDropdownMenu,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
             imports: [HlmDropdownMenuImports, HlmButton],
         }),
     ],
+    argTypes: {
+        label: {
+            control: 'text',
+            description: 'The heading label for the first dropdown menu section.',
+            table: {
+                category: 'Slots',
+                type: { summary: 'string | TemplateRef' },
+                defaultValue: { summary: "'My Account'" },
+            },
+        },
+    },
+    args: {
+        label: 'My Account',
+    },
 };
 
 export default meta;
-type Story = StoryObj;
+type Story = StoryObj<DropdownMenuStoryArgs>;
 
 export const Default: Story = {
-    render: () => ({
+    render: (args) => ({
+        props: args,
         template: `
             <div class="p-16 flex justify-center">
                 <button type="button" hlmBtn variant="outline" [hlmDropdownMenuTrigger]="menu">
@@ -27,7 +49,7 @@ export const Default: Story = {
                 <ng-template #menu>
                     <hlm-dropdown-menu class="w-56">
                         <hlm-dropdown-menu-group>
-                            <hlm-dropdown-menu-label>My Account</hlm-dropdown-menu-label>
+                            <hlm-dropdown-menu-label>{{ label }}</hlm-dropdown-menu-label>
                             <button type="button" hlmDropdownMenuItem>
                                 Profile
                                 <hlm-dropdown-menu-shortcut>⇧⌘P</hlm-dropdown-menu-shortcut>
@@ -44,7 +66,7 @@ export const Default: Story = {
                         <hlm-dropdown-menu-separator />
                         <hlm-dropdown-menu-group>
                             <button type="button" hlmDropdownMenuItem>
-                                Team
+                                Team Members
                             </button>
                             <button type="button" hlmDropdownMenuItem>
                                 Invite Users
@@ -64,100 +86,27 @@ export const Default: Story = {
     }),
 };
 
-export const WithCheckboxes: Story = {
+export const WithCheckboxItems: Story = {
     render: () => ({
         template: `
             <div class="p-16 flex justify-center">
-                <button type="button" hlmBtn variant="outline" [hlmDropdownMenuTrigger]="checkboxMenu">
+                <button type="button" hlmBtn variant="outline" [hlmDropdownMenuTrigger]="optionsMenu">
                     View Options
                 </button>
-                <ng-template #checkboxMenu>
+                <ng-template #optionsMenu>
                     <hlm-dropdown-menu class="w-56">
-                        <hlm-dropdown-menu-label>Appearance</hlm-dropdown-menu-label>
-                        <hlm-dropdown-menu-separator />
-                        <button type="button" hlmDropdownMenuCheckbox [checked]="true">
-                            <hlm-dropdown-menu-checkbox-indicator />
-                            Status Bar
-                        </button>
-                        <button type="button" hlmDropdownMenuCheckbox [checked]="true">
-                            <hlm-dropdown-menu-checkbox-indicator />
-                            Activity Bar
-                        </button>
-                        <button type="button" hlmDropdownMenuCheckbox [checked]="false">
-                            <hlm-dropdown-menu-checkbox-indicator />
-                            Mini Map
-                        </button>
-                    </hlm-dropdown-menu>
-                </ng-template>
-            </div>
-        `,
-    }),
-};
-
-export const WithRadios: Story = {
-    render: () => ({
-        template: `
-            <div class="p-16 flex justify-center">
-                <button type="button" hlmBtn variant="outline" [hlmDropdownMenuTrigger]="radioMenu">
-                    Select Theme
-                </button>
-                <ng-template #radioMenu>
-                    <hlm-dropdown-menu class="w-56">
-                        <hlm-dropdown-menu-label>Color Theme</hlm-dropdown-menu-label>
-                        <hlm-dropdown-menu-separator />
-                        <button type="button" hlmDropdownMenuRadio [checked]="true">
-                            <hlm-dropdown-menu-radio-indicator />
-                            System Default
-                        </button>
-                        <button type="button" hlmDropdownMenuRadio [checked]="false">
-                            <hlm-dropdown-menu-radio-indicator />
-                            Light Mode
-                        </button>
-                        <button type="button" hlmDropdownMenuRadio [checked]="false">
-                            <hlm-dropdown-menu-radio-indicator />
-                            Dark Mode
-                        </button>
-                    </hlm-dropdown-menu>
-                </ng-template>
-            </div>
-        `,
-    }),
-};
-
-export const WithSubmenu: Story = {
-    render: () => ({
-        template: `
-            <div class="p-16 flex justify-center">
-                <button type="button" hlmBtn variant="outline" [hlmDropdownMenuTrigger]="mainMenu">
-                    More Options
-                </button>
-                <ng-template #mainMenu>
-                    <hlm-dropdown-menu class="w-56">
-                        <button type="button" hlmDropdownMenuItem>
-                            New Tab
-                            <hlm-dropdown-menu-shortcut>⌘T</hlm-dropdown-menu-shortcut>
-                        </button>
-                        <button type="button" hlmDropdownMenuItem>
-                            New Window
-                            <hlm-dropdown-menu-shortcut>⌘N</hlm-dropdown-menu-shortcut>
-                        </button>
-                        <hlm-dropdown-menu-separator />
-                        <button type="button" hlmDropdownMenuItem [hlmDropdownMenuSubTrigger]="shareSubmenu">
-                            Share
-                            <hlm-dropdown-menu-item-sub-indicator class="ml-auto" />
-                        </button>
-                        <hlm-dropdown-menu-separator />
-                        <button type="button" hlmDropdownMenuItem variant="destructive">
-                            Close
-                        </button>
-                    </hlm-dropdown-menu>
-                </ng-template>
-
-                <ng-template #shareSubmenu>
-                    <hlm-dropdown-menu hlmDropdownMenuSub class="w-48">
-                        <button type="button" hlmDropdownMenuItem>Email Link</button>
-                        <button type="button" hlmDropdownMenuItem>Messages</button>
-                        <button type="button" hlmDropdownMenuItem>Slack</button>
+                        <hlm-dropdown-menu-group>
+                            <hlm-dropdown-menu-label>Appearance</hlm-dropdown-menu-label>
+                            <button type="button" hlmDropdownMenuItemCheckbox [checked]="true">
+                                Status Bar
+                            </button>
+                            <button type="button" hlmDropdownMenuItemCheckbox [checked]="false">
+                                Activity Bar
+                            </button>
+                            <button type="button" hlmDropdownMenuItemCheckbox [checked]="true">
+                                Panel Dock
+                            </button>
+                        </hlm-dropdown-menu-group>
                     </hlm-dropdown-menu>
                 </ng-template>
             </div>

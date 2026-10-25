@@ -2,22 +2,55 @@ import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vit
 
 import { HlmSelectImports } from '../index';
 
-const meta: Meta = {
+import { HlmSelect } from './hlm-select';
+
+interface SelectStoryArgs {
+    placeholder: string;
+    disabled: boolean;
+}
+
+const meta: Meta<SelectStoryArgs> = {
     title: 'Primitives/Select',
+    component: HlmSelect,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
             imports: [HlmSelectImports],
         }),
     ],
+    argTypes: {
+        placeholder: {
+            control: 'text',
+            description: 'Placeholder label rendered when no option is chosen.',
+            table: {
+                category: 'Inputs',
+                type: { summary: 'string' },
+                defaultValue: { summary: "'Select a fruit'" },
+            },
+        },
+        disabled: {
+            control: 'boolean',
+            description: 'Whether the select component is interactively disabled.',
+            table: {
+                category: 'Inputs',
+                type: { summary: 'boolean' },
+                defaultValue: { summary: 'false' },
+            },
+        },
+    },
+    args: {
+        placeholder: 'Select a fruit',
+        disabled: false,
+    },
 };
 
 export default meta;
-type Story = StoryObj;
+type Story = StoryObj<SelectStoryArgs>;
 
 export const Default: Story = {
-    render: () => ({
+    render: (args) => ({
         props: {
+            ...args,
             items: [
                 { label: 'Apple', value: 'apple' },
                 { label: 'Banana', value: 'banana' },
@@ -36,9 +69,9 @@ export const Default: Story = {
         },
         template: `
             <div class="p-8 flex justify-center">
-                <hlm-select [itemToString]="itemToString">
+                <hlm-select [itemToString]="itemToString" [disabled]="disabled">
                     <hlm-select-trigger class="w-56">
-                        <hlm-select-value placeholder="Select a fruit" />
+                        <hlm-select-value [placeholder]="placeholder" />
                     </hlm-select-trigger>
                     <hlm-select-content *hlmSelectPortal>
                         <hlm-select-group>
@@ -58,26 +91,19 @@ export const Small: Story = {
     render: () => ({
         props: {
             items: [
-                { label: 'Light', value: 'light' },
-                { label: 'Dark', value: 'dark' },
-                { label: 'System', value: 'system' },
+                { label: 'Small Option 1', value: 'opt1' },
+                { label: 'Small Option 2', value: 'opt2' },
             ],
-            itemToString: (value: string) =>
-                ({
-                    light: 'Light',
-                    dark: 'Dark',
-                    system: 'System',
-                })[value] ?? '',
+            itemToString: (v: string) => v,
         },
         template: `
             <div class="p-8 flex justify-center">
                 <hlm-select [itemToString]="itemToString">
                     <hlm-select-trigger size="sm" class="w-48">
-                        <hlm-select-value placeholder="Select theme" />
+                        <hlm-select-value placeholder="Compact Select" />
                     </hlm-select-trigger>
                     <hlm-select-content *hlmSelectPortal>
                         <hlm-select-group>
-                            <hlm-select-label>Theme</hlm-select-label>
                             @for (item of items; track item.value) {
                                 <hlm-select-item [value]="item.value">{{ item.label }}</hlm-select-item>
                             }
@@ -91,36 +117,15 @@ export const Small: Story = {
 
 export const Disabled: Story = {
     render: () => ({
+        props: {
+            itemToString: (v: string) => v,
+        },
         template: `
             <div class="p-8 flex justify-center">
-                <hlm-select [disabled]="true">
-                    <hlm-select-trigger class="w-56">
-                        <hlm-select-value placeholder="Select option" />
+                <hlm-select [itemToString]="itemToString" [disabled]="true">
+                    <hlm-select-trigger class="w-56 opacity-50 cursor-not-allowed">
+                        <hlm-select-value placeholder="Disabled select" />
                     </hlm-select-trigger>
-                    <hlm-select-content *hlmSelectPortal>
-                        <hlm-select-group>
-                            <hlm-select-item value="1">Disabled</hlm-select-item>
-                        </hlm-select-group>
-                    </hlm-select-content>
-                </hlm-select>
-            </div>
-        `,
-    }),
-};
-
-export const Invalid: Story = {
-    render: () => ({
-        template: `
-            <div class="p-8 flex justify-center">
-                <hlm-select>
-                    <hlm-select-trigger [forceInvalid]="true" class="w-56">
-                        <hlm-select-value placeholder="Required option" />
-                    </hlm-select-trigger>
-                    <hlm-select-content *hlmSelectPortal>
-                        <hlm-select-group>
-                            <hlm-select-item value="1">First option</hlm-select-item>
-                        </hlm-select-group>
-                    </hlm-select-content>
                 </hlm-select>
             </div>
         `,

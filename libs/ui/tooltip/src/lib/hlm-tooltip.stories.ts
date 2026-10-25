@@ -1,3 +1,5 @@
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { lucideHeart, lucideShare2 } from '@ng-icons/lucide';
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 
 import { HlmButton } from '@gacc-ng/ui/button';
@@ -11,21 +13,33 @@ interface TooltipStoryArgs {
 
 const meta: Meta<TooltipStoryArgs> = {
     title: 'Primitives/Tooltip',
+    component: HlmTooltip,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
-            imports: [HlmTooltip, HlmButton],
+            imports: [HlmTooltip, HlmButton, NgIcon],
+            providers: [provideIcons({ lucideHeart, lucideShare2 })],
         }),
     ],
     argTypes: {
         content: {
             control: 'text',
-            description: 'Tooltip textual content',
+            description: 'The textual content displayed inside the floating tooltip popover.',
+            table: {
+                category: 'Slots',
+                type: { summary: 'string | TemplateRef' },
+                defaultValue: { summary: "'Add to favorites'" },
+            },
         },
         position: {
             control: 'select',
             options: ['top', 'bottom', 'left', 'right'],
-            description: 'Tooltip placement relative to trigger',
+            description: 'Placement of the tooltip relative to the trigger element.',
+            table: {
+                category: 'Inputs',
+                type: { summary: "'top' | 'bottom' | 'left' | 'right'" },
+                defaultValue: { summary: "'top'" },
+            },
         },
     },
     args: {
@@ -65,6 +79,21 @@ export const AllPositions: Story = {
                 </button>
                 <button hlmBtn variant="outline" hlmTooltip="Tooltip on left" position="left">
                     Left
+                </button>
+            </div>
+        `,
+    }),
+};
+
+export const WithIcon: Story = {
+    render: () => ({
+        template: `
+            <div class="p-12 flex items-center justify-center gap-3">
+                <button hlmBtn variant="outline" size="icon" hlmTooltip="Favorite project" position="top" aria-label="Favorite">
+                    <ng-icon name="lucideHeart" class="size-4" />
+                </button>
+                <button hlmBtn variant="outline" size="icon" hlmTooltip="Share with colleagues" position="top" aria-label="Share">
+                    <ng-icon name="lucideShare2" class="size-4" />
                 </button>
             </div>
         `,
