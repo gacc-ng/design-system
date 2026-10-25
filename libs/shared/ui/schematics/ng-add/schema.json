@@ -14,14 +14,12 @@
         "setupStyles": {
             "type": "boolean",
             "default": true,
-            "description": "Whether to inject @gacc-ng/ui preset styles into the global stylesheet.",
-            "x-prompt": "Would you like to import @gacc-ng/ui/preset.css into your main stylesheet?"
+            "description": "Whether to inject @gacc-ng/ui preset styles into the global stylesheet."
         },
         "setupProvider": {
             "type": "boolean",
             "default": true,
-            "description": "Whether to register provideSpartanHlm() in the root application config.",
-            "x-prompt": "Would you like to register provideSpartanHlm() in app.config.ts?"
+            "description": "Whether to register provideSpartanHlm() in the root application config."
         }
     },
     "additionalProperties": false
