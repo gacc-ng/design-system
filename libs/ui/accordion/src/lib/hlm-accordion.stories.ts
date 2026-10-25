@@ -21,7 +21,7 @@ const meta: Meta<AccordionStoryArgs> = {
     ],
     argTypes: {
         type: {
-            control: 'inline-radio',
+            control: 'select',
             options: ['single', 'multiple'],
             description: 'Whether single or multiple accordion items can be open concurrently.',
             table: {

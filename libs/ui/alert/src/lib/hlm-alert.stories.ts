@@ -27,7 +27,7 @@ const meta: Meta<AlertStoryArgs> = {
     ],
     argTypes: {
         variant: {
-            control: 'inline-radio',
+            control: 'select',
             options: ['default', 'destructive'],
             description: 'The visual severity styling of the alert box.',
             table: {

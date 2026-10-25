@@ -22,7 +22,7 @@ const meta: Meta<InputStoryArgs> = {
     ],
     argTypes: {
         size: {
-            control: 'inline-radio',
+            control: 'select',
             options: ['sm', 'default', 'lg'],
             description: 'The height and typography dimension size of the input field.',
             table: {

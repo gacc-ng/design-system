@@ -22,7 +22,7 @@ const meta: Meta<ToggleStoryArgs> = {
     ],
     argTypes: {
         variant: {
-            control: 'inline-radio',
+            control: 'select',
             options: ['default', 'outline'],
             description: 'The visual style variant of the toggle button.',
             table: {
@@ -31,7 +31,7 @@ const meta: Meta<ToggleStoryArgs> = {
             },
         },
         size: {
-            control: 'inline-radio',
+            control: 'select',
             options: ['default', 'sm', 'lg'],
             description: 'The size dimension scale of the toggle button.',
             table: {

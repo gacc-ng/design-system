@@ -31,7 +31,7 @@ const meta: Meta<TooltipStoryArgs> = {
             },
         },
         position: {
-            control: 'inline-radio',
+            control: 'select',
             options: ['top', 'bottom', 'left', 'right'],
             description: 'Placement of the tooltip relative to the trigger element.',
             table: {

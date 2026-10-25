@@ -43,7 +43,7 @@ const meta: Meta<TabsStoryArgs> = {
     ],
     argTypes: {
         orientation: {
-            control: 'inline-radio',
+            control: 'select',
             options: ['horizontal', 'vertical'],
             description: 'The layout axis orientation for the tabs list and content.',
             table: {

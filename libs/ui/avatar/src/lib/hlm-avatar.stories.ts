@@ -29,7 +29,7 @@ const meta: Meta<AvatarStoryArgs> = {
     ],
     argTypes: {
         size: {
-            control: 'inline-radio',
+            control: 'select',
             options: ['default', 'sm', 'lg'],
             description: 'The size dimension scale of the avatar component.',
             table: {

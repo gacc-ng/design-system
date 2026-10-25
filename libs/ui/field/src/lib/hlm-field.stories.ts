@@ -24,7 +24,7 @@ const meta: Meta<FieldStoryArgs> = {
     ],
     argTypes: {
         orientation: {
-            control: 'inline-radio',
+            control: 'select',
             options: ['vertical', 'horizontal'],
             description: 'The layout axis orientation for the field label and control.',
             table: {

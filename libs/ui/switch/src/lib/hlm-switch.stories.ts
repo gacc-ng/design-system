@@ -38,7 +38,7 @@ const meta: Meta<SwitchStoryArgs> = {
             },
         },
         size: {
-            control: 'inline-radio',
+            control: 'select',
             options: ['default', 'sm'],
             description: 'The physical size dimension of the switch.',
             table: {

@@ -18,7 +18,7 @@ const meta: Meta<SeparatorStoryArgs> = {
     ],
     argTypes: {
         orientation: {
-            control: 'inline-radio',
+            control: 'select',
             options: ['horizontal', 'vertical'],
             description: 'The orientation dimension of the separator divider.',
             table: {

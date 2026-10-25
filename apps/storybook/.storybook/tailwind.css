@@ -12,47 +12,65 @@ html.is-adjusting-radius *::after {
    Storybook Autodocs ArgsTable & Controls Polish
    ========================================================================== */
 
-/* Outer container border & radius */
+/* Outer table container: clean unified card border without internal clipping */
 .sbdocs-content .docblock-argstable {
     border-collapse: separate !important;
     border-spacing: 0 !important;
-    border-radius: 0.75rem !important;
-    border: 1px solid var(--border, rgba(255, 255, 255, 0.1)) !important;
+    border-radius: 0.5rem !important;
+    border: 1px solid var(--border, rgba(0, 0, 0, 0.1)) !important;
     overflow: hidden !important;
-    margin: 1.75rem 0 !important;
-    background-color: var(--card, transparent) !important;
-    box-shadow:
-        0 1px 3px 0 rgba(0, 0, 0, 0.04),
-        0 1px 2px -1px rgba(0, 0, 0, 0.04) !important;
     width: 100% !important;
+    margin: 1.5rem 0 !important;
+    box-shadow: none !important;
 }
 
-/* Table header */
-.sbdocs-content .docblock-argstable-head th {
-    font-size: 0.75rem !important;
-    font-weight: 600 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.06em !important;
-    padding: 0.875rem 1rem !important;
-    border-bottom: 1px solid var(--border, rgba(255, 255, 255, 0.1)) !important;
-    color: var(--muted-foreground, #71717a) !important;
-    background-color: var(--muted, rgba(255, 255, 255, 0.02)) !important;
+/* Remove Storybook's drop-shadow filter, inner card radius, and misaligned cell borders */
+.sbdocs-content .docblock-argstable tbody {
+    filter: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
 }
 
-/* Table rows */
-.sbdocs-content .docblock-argstable-body tr td {
-    padding: 0.875rem 1rem !important;
-    border-top: 1px solid var(--border, rgba(255, 255, 255, 0.06)) !important;
+.sbdocs-content .docblock-argstable tbody > tr > td {
+    border-top: 1px solid var(--border, rgba(0, 0, 0, 0.08)) !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0 !important;
     vertical-align: middle !important;
+    padding: 0.75rem 1rem !important;
     font-size: 0.875rem !important;
 }
 
-.sbdocs-content .docblock-argstable-body tr:first-child td {
-    border-top: none !important;
+.sbdocs-content .docblock-argstable tbody > tr:first-of-type > td:first-of-type,
+.sbdocs-content .docblock-argstable tbody > tr:first-of-type > td:last-of-type,
+.sbdocs-content .docblock-argstable tbody > tr:last-of-type > td:first-of-type,
+.sbdocs-content .docblock-argstable tbody > tr:last-of-type > td:last-of-type {
+    border-radius: 0 !important;
 }
 
-.sbdocs-content .docblock-argstable-body tr:hover td {
-    background-color: rgba(255, 255, 255, 0.015) !important;
+/* Table header */
+.sbdocs-content .docblock-argstable thead th {
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 0.75rem 1rem !important;
+    border-bottom: 1px solid var(--border, rgba(0, 0, 0, 0.1)) !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    color: var(--muted-foreground, #71717a) !important;
+    background-color: var(--muted, rgba(0, 0, 0, 0.02)) !important;
+}
+
+/* Subtle row hover */
+.sbdocs-content .docblock-argstable tbody tr:hover td {
+    background-color: rgba(0, 0, 0, 0.015) !important;
+}
+
+.dark .sbdocs-content .docblock-argstable tbody tr:hover td {
+    background-color: rgba(255, 255, 255, 0.02) !important;
 }
 
 /* Monospace chips for prop types and default values */
@@ -61,47 +79,8 @@ html.is-adjusting-radius *::after {
     font-size: 0.75rem !important;
     line-height: 1.25 !important;
     padding: 0.125rem 0.375rem !important;
-    border-radius: 0.375rem !important;
-    border: 1px solid var(--border, rgba(255, 255, 255, 0.12)) !important;
-    background-color: var(--muted, rgba(255, 255, 255, 0.06)) !important;
+    border-radius: 0.25rem !important;
+    border: 1px solid var(--border, rgba(0, 0, 0, 0.08)) !important;
+    background-color: var(--muted, rgba(0, 0, 0, 0.04)) !important;
     color: inherit !important;
-}
-
-/* Polished controls inputs */
-.sbdocs-content .docblock-argstable select,
-.sbdocs-content .docblock-argstable input[type='text'],
-.sbdocs-content .docblock-argstable textarea {
-    border-radius: 0.375rem !important;
-    border: 1px solid var(--border, rgba(255, 255, 255, 0.15)) !important;
-    padding: 0.375rem 0.625rem !important;
-    font-size: 0.8125rem !important;
-    background-color: var(--background, #09090b) !important;
-    color: inherit !important;
-    transition:
-        border-color 150ms ease,
-        box-shadow 150ms ease !important;
-}
-
-.sbdocs-content .docblock-argstable select:focus,
-.sbdocs-content .docblock-argstable input[type='text']:focus,
-.sbdocs-content .docblock-argstable textarea:focus {
-    outline: none !important;
-    border-color: var(--ring, #a1a1aa) !important;
-    box-shadow: 0 0 0 1px var(--ring, #a1a1aa) !important;
-}
-
-/* Inline radio & checkbox polish */
-.sbdocs-content .docblock-argstable input[type='radio'],
-.sbdocs-content .docblock-argstable input[type='checkbox'] {
-    accent-color: var(--primary, #18181b) !important;
-    cursor: pointer !important;
-}
-
-.sbdocs-content .docblock-argstable label {
-    font-size: 0.8125rem !important;
-    cursor: pointer !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 0.375rem !important;
-    margin-right: 0.75rem !important;
 }

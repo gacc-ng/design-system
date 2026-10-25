@@ -23,7 +23,7 @@ const meta: Meta<SheetStoryArgs> = {
     ],
     argTypes: {
         side: {
-            control: 'inline-radio',
+            control: 'select',
             options: ['top', 'bottom', 'left', 'right'],
             description: 'The edge of the viewport where the sheet slides in from.',
             table: {

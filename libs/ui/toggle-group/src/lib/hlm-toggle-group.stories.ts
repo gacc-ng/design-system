@@ -42,7 +42,7 @@ const meta: Meta<ToggleGroupStoryArgs> = {
     ],
     argTypes: {
         variant: {
-            control: 'inline-radio',
+            control: 'select',
             options: ['default', 'outline'],
             description: 'The visual style variant for the toggle group container.',
             table: {
@@ -51,7 +51,7 @@ const meta: Meta<ToggleGroupStoryArgs> = {
             },
         },
         size: {
-            control: 'inline-radio',
+            control: 'select',
             options: ['default', 'sm', 'lg'],
             description: 'The size dimension of the toggle items.',
             table: {
@@ -60,7 +60,7 @@ const meta: Meta<ToggleGroupStoryArgs> = {
             },
         },
         orientation: {
-            control: 'inline-radio',
+            control: 'select',
             options: ['horizontal', 'vertical'],
             description: 'Layout axis orientation for the toggle items.',
             table: {
