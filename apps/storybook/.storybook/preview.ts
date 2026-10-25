@@ -3,6 +3,8 @@ import { applicationConfig, type Preview } from '@storybook/angular-vite';
 
 import { provideSpartanHlm } from '@gacc-ng/ui/utils';
 
+import { DocsContainer } from './docs-container';
+
 import './tailwind.css';
 
 const MULTI_PART_COMPONENTS = new Set([
@@ -118,9 +120,48 @@ function formatStandaloneComponentSource(code: string, context?: { title?: strin
     ].join('\n');
 }
 
+const RADIUS_MAP: Record<string, string> = {
+    none: '0rem',
+    subtle: '0.25rem',
+    moderate: '0.875rem',
+    pronounced: '1.5rem',
+};
+
+const withRadiusDecorator = (storyFn: () => unknown, context: { globals?: { radius?: string } }) => {
+    const radius = context.globals?.radius;
+    if (typeof document !== 'undefined') {
+        if (!radius || radius === 'default') {
+            document.documentElement.style.removeProperty('--radius');
+        } else if (RADIUS_MAP[radius]) {
+            document.documentElement.style.setProperty('--radius', RADIUS_MAP[radius]);
+        }
+    }
+    return storyFn();
+};
+
 const preview: Preview = {
     tags: ['autodocs'],
+    globalTypes: {
+        radius: {
+            name: 'Radius',
+            description: 'Corner radius preset token',
+            defaultValue: 'default',
+            toolbar: {
+                title: 'Radius',
+                icon: 'box',
+                dynamicTitle: true,
+                items: [
+                    { value: 'default', title: 'Default' },
+                    { value: 'none', title: 'None' },
+                    { value: 'subtle', title: 'Subtle' },
+                    { value: 'moderate', title: 'Moderate' },
+                    { value: 'pronounced', title: 'Pronounced' },
+                ],
+            },
+        },
+    },
     decorators: [
+        withRadiusDecorator,
         withThemeByClassName({
             themes: {
                 light: '',
@@ -135,6 +176,7 @@ const preview: Preview = {
     ],
     parameters: {
         docs: {
+            container: DocsContainer,
             toc: true,
             codePanel: true,
             source: {
@@ -145,10 +187,7 @@ const preview: Preview = {
             },
         },
         backgrounds: {
-            options: {
-                light: { name: 'light', value: '#ffffff' },
-                dark: { name: 'dark', value: '#18181b' },
-            },
+            disable: true,
         },
         controls: {
             matchers: {
@@ -156,9 +195,6 @@ const preview: Preview = {
                 date: /Date$/i,
             },
         },
-    },
-    initialGlobals: {
-        backgrounds: { value: 'light' },
     },
 };
 
