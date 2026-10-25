@@ -63,6 +63,10 @@
 - **Pull Request Protocol & Human Merge Gate (Fundamental Rule):**
     - Autonomous agents are fully authorized to branch, commit, push, and open Pull Requests (PRs) freely.
     - **STRICT MERGE PROHIBITION:** Autonomous agents MUST NEVER merge any Pull Request (via `gh pr merge`, `git merge`, or API) without explicit, affirmative human authorization in the current prompt.
+    - **Pre-Merge Conflict Validation (Mandatory):**
+        - Before requesting human authorization to merge or executing any authorized merge, ALWAYS validate that the branch has NO merge conflicts against the base branch (`origin/main`).
+        - Verify conflict status via GitHub CLI (`gh pr view <number> --json mergeable,mergeStateStatus`) or local fetch/merge-base check (`git fetch origin main && git merge-base --is-ancestor origin/main HEAD` or dry-run `git merge --no-commit --no-ff origin/main`).
+        - If conflicts or a dirty state exist, resolve them on the feature branch, re-verify CI gates, and confirm a clean mergeable status before proceeding.
     - Always verify CI quality gates on the PR and present the review link to the user.
 
 ## Architecture Standards
