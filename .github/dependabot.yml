@@ -24,15 +24,24 @@ updates:
                   - 'ng-packagr'
                   - 'zone.js'
                   - 'rxjs'
+              update-types:
+                  - 'minor'
+                  - 'patch'
           spartan-ui:
               patterns:
                   - '@spartan-ng/*'
                   - 'spartan-ng'
+              update-types:
+                  - 'minor'
+                  - 'patch'
           nx-ecosystem:
               patterns:
                   - '@nx/*'
                   - 'nx'
                   - '@swc/*'
+              update-types:
+                  - 'minor'
+                  - 'patch'
           testing:
               patterns:
                   - 'vitest'
@@ -40,6 +49,9 @@ updates:
                   - 'jsdom'
                   - '@types/chai'
                   - 'chai'
+              update-types:
+                  - 'minor'
+                  - 'patch'
           linting-and-quality:
               patterns:
                   - '*eslint*'
@@ -51,6 +63,9 @@ updates:
                   - 'typescript'
                   - 'tslib'
                   - 'lefthook'
+              update-types:
+                  - 'minor'
+                  - 'patch'
           ui-styling:
               patterns:
                   - 'tailwindcss'
@@ -61,14 +76,31 @@ updates:
                   - 'tailwind-merge'
                   - 'class-variance-authority'
                   - 'tw-animate-css'
+              update-types:
+                  - 'minor'
+                  - 'patch'
           storybook:
               patterns:
                   - 'storybook'
                   - '@storybook/*'
+              update-types:
+                  - 'minor'
+                  - 'patch'
           vite-ecosystem:
               patterns:
                   - 'vite'
                   - '@analogjs/*'
+              update-types:
+                  - 'minor'
+                  - 'patch'
+          breaking-major-updates:
+              patterns:
+                  - '*'
+              update-types:
+                  - 'major'
+              labels:
+                  - 'breaking-change'
+                  - 'major-update'
       ignore:
           - dependency-name: 'typescript'
             update-types:
@@ -83,6 +115,15 @@ updates:
             update-types:
                 - 'version-update:semver-major'
           - dependency-name: '@storybook/*'
+            update-types:
+                - 'version-update:semver-major'
+          - dependency-name: '@angular/*'
+            update-types:
+                - 'version-update:semver-major'
+          - dependency-name: '@angular-devkit/*'
+            update-types:
+                - 'version-update:semver-major'
+          - dependency-name: '@schematics/*'
             update-types:
                 - 'version-update:semver-major'
 
@@ -103,3 +144,14 @@ updates:
           github-actions-workflows:
               patterns:
                   - '*'
+              update-types:
+                  - 'minor'
+                  - 'patch'
+          github-actions-major:
+              patterns:
+                  - '*'
+              update-types:
+                  - 'major'
+              labels:
+                  - 'breaking-change'
+                  - 'major-update'

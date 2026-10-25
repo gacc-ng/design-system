@@ -92,4 +92,18 @@ export default defineConfig([
             ],
         },
     },
+    {
+        name: 'workspace/angular-security',
+        files: ['**/*.ts'],
+        rules: {
+            'no-restricted-syntax': [
+                'error',
+                {
+                    selector: 'CallExpression[callee.property.name=/^bypassSecurityTrust/]',
+                    message:
+                        'Bypassing Angular DomSanitizer security (bypassSecurityTrust*) is prohibited in this design system to prevent DOM XSS vulnerabilities.',
+                },
+            ],
+        },
+    },
 ]);

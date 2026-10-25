@@ -87,7 +87,8 @@
     "release": {
         "projects": ["ui"],
         "git": {
-            "commit": false,
+            "commit": true,
+            "commitMessage": "chore(release): 🚀 release {version} [skip ci]",
             "tag": true,
             "push": true
         },
