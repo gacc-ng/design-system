@@ -140,8 +140,8 @@ importers:
         specifier: ^36.1.0
         version: 36.1.0(@ng-icons/core@36.1.0(@angular-devkit/schematics@22.2.4(chokidar@5.0.0))(@angular/common@22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(@schematics/angular@22.2.4(chokidar@5.0.0))(rxjs@7.8.2))
       '@spartan-ng/brain':
-        specifier: ^1.8.1
-        version: 1.8.1(9639c0c8bca266a6d3f07cc29dfb0e9f)
+        specifier: ^1.8.2
+        version: 1.8.2(9639c0c8bca266a6d3f07cc29dfb0e9f)
       '@tanstack/angular-table':
         specifier: ^9.3.1
         version: 9.3.1(@angular/common@22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))
@@ -228,8 +228,8 @@ importers:
         specifier: ~22.2.4
         version: 22.2.4(chokidar@5.0.0)
       '@spartan-ng/cli':
-        specifier: ^1.8.1
-        version: 1.8.1(3cbbef14edae00029656924941e4d0ae)
+        specifier: ^1.8.2
+        version: 1.8.2(3cbbef14edae00029656924941e4d0ae)
       '@storybook/addon-a11y':
         specifier: 10.6.3
         version: 10.6.3(storybook@10.6.3(@types/react@19.3.0)(prettier@3.9.10)(react@19.3.1))
@@ -373,7 +373,7 @@ importers:
         version: 22.2.4(chokidar@5.0.0)
       '@spartan-ng/brain':
         specifier: ^1.8.0
-        version: 1.8.1(9639c0c8bca266a6d3f07cc29dfb0e9f)
+        version: 1.8.2(9639c0c8bca266a6d3f07cc29dfb0e9f)
       '@tanstack/angular-table':
         specifier: '>=8.0.0'
         version: 9.3.1(@angular/common@22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))
@@ -4116,8 +4116,8 @@ packages:
   '@sinonjs/fake-timers@15.4.0':
     resolution: {integrity: sha512-DsG+8/LscQIQg68J6Ef3dv10u6nVyetYn923s3/sus5eaGfTo1of5WMZSLf0UJc9KDuKPilPH0UDJCjvNbDNCA==}
 
-  '@spartan-ng/brain@1.8.1':
-    resolution: {integrity: sha512-jkzVRYl1CyCXT0XKGVn8CwtbNCh54VC3T6Xoc1Xvn9WkPjyor71+/TArvVTivkxy6rqsaQRK4YaoN4Xz+Gfd8g==}
+  '@spartan-ng/brain@1.8.2':
+    resolution: {integrity: sha512-7pvMgcjiY/CKCfZ8WEGW763xMzC3jI6mJg4Sj4sgSLe/L//rjq6kiIJKwhXl+XMSuxbFVywM3Vuz5ciHKzDliQ==}
     peerDependencies:
       '@angular/cdk': '>=21.0.0 <23.0.0'
       '@angular/common': '>=21.0.0 <23.0.0'
@@ -4132,8 +4132,8 @@ packages:
       luxon:
         optional: true
 
-  '@spartan-ng/cli@1.8.1':
-    resolution: {integrity: sha512-r3g1PzWw0cu+AdEOzHI7eAryxumNGVNS5SvhflxOKzETqywYVaeQ8wr0yjAf7DYMGlBGR0B7b1pNfMvQ1AY2aA==}
+  '@spartan-ng/cli@1.8.2':
+    resolution: {integrity: sha512-TuNUnxK2EreDPVg3Ms8wtyc7S7KhnqzLtRu8B3Kzhg4u276YAod4lHWVJ9iGOO3DB/azuh4lLECbE4Ul2HjTyg==}
     peerDependencies:
       tslib: ^2.3.0
 
@@ -13434,7 +13434,7 @@ snapshots:
     dependencies:
       '@sinonjs/commons': 3.0.1
 
-  '@spartan-ng/brain@1.8.1(9639c0c8bca266a6d3f07cc29dfb0e9f)':
+  '@spartan-ng/brain@1.8.2(9639c0c8bca266a6d3f07cc29dfb0e9f)':
     dependencies:
       '@angular/cdk': 22.2.4(@angular/common@22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(@angular/forms@22.2.3(@angular/common@22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(@angular/platform-browser@22.2.3(@angular/animations@22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2)))(@angular/common@22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2)))(rxjs@7.8.2))(@angular/platform-browser@22.2.3(@angular/animations@22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2)))(@angular/common@22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2)))(rxjs@7.8.2)
       '@angular/common': 22.2.3(@angular/core@22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2))(rxjs@7.8.2)
@@ -13446,7 +13446,7 @@ snapshots:
       tslib: 2.8.1
       tw-animate-css: 1.4.0
 
-  '@spartan-ng/cli@1.8.1(3cbbef14edae00029656924941e4d0ae)':
+  '@spartan-ng/cli@1.8.2(3cbbef14edae00029656924941e4d0ae)':
     dependencies:
       '@angular/core': 22.2.3(@angular/compiler@22.2.3)(rxjs@7.8.2)
       '@nx/angular': 23.3.0(ac6021f4f803f8faa51a86e79ffd982c)
