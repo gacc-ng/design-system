@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/gacc-ng/design-system/compare/v0.2.0...v0.3.0) (2026-10-26)
+
+
+### Features
+
+* **storybook:** ✨ standardize autodocs controls, standalone snippets & state matrix ([#109](https://github.com/gacc-ng/design-system/issues/109)) ([6dd237c](https://github.com/gacc-ng/design-system/commit/6dd237c4c3ea992c6d457b01526b1cd8a9a98257))
+
 ## [0.2.0](https://github.com/gacc-ng/design-system/compare/v0.1.9...v0.2.0) (2026-10-25)
 
 
