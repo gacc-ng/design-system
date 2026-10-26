@@ -3,7 +3,6 @@ import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vit
 import { HlmLabel } from '@gacc-ng/ui/label';
 
 import { HlmSwitch } from './hlm-switch';
-import { HlmSwitchThumb } from './hlm-switch-thumb';
 
 interface SwitchStoryArgs {
     checked: boolean;
@@ -17,7 +16,7 @@ const meta: Meta<SwitchStoryArgs> = {
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
-            imports: [HlmSwitch, HlmSwitchThumb, HlmLabel],
+            imports: [HlmSwitch, HlmLabel],
         }),
     ],
     argTypes: {
@@ -61,9 +60,7 @@ export const Default: Story = {
     render: (args) => ({
         props: args,
         template: `
-            <hlm-switch [checked]="checked" [disabled]="disabled" [size]="size">
-                <hlm-switch-thumb />
-            </hlm-switch>
+            <hlm-switch [checked]="checked" [disabled]="disabled" [size]="size" />
         `,
     }),
 };
@@ -72,9 +69,7 @@ export const WithLabel: Story = {
     render: () => ({
         template: `
             <div class="flex items-center space-x-3">
-                <hlm-switch id="airplane-mode">
-                    <hlm-switch-thumb />
-                </hlm-switch>
+                <hlm-switch id="airplane-mode" />
                 <label hlmLabel for="airplane-mode">Airplane Mode</label>
             </div>
         `,
@@ -86,15 +81,11 @@ export const AllSizes: Story = {
         template: `
             <div class="flex flex-col gap-4">
                 <div class="flex items-center space-x-3">
-                    <hlm-switch id="switch-default" size="default" [checked]="true">
-                        <hlm-switch-thumb />
-                    </hlm-switch>
+                    <hlm-switch id="switch-default" size="default" [checked]="true" />
                     <label hlmLabel for="switch-default">Default Size (checked)</label>
                 </div>
                 <div class="flex items-center space-x-3">
-                    <hlm-switch id="switch-sm" size="sm" [checked]="true">
-                        <hlm-switch-thumb />
-                    </hlm-switch>
+                    <hlm-switch id="switch-sm" size="sm" [checked]="true" />
                     <label hlmLabel for="switch-sm">Small Size (checked)</label>
                 </div>
             </div>
@@ -107,15 +98,11 @@ export const Disabled: Story = {
         template: `
             <div class="flex flex-col gap-4">
                 <div class="flex items-center space-x-3">
-                    <hlm-switch id="switch-disabled-off" [disabled]="true" [checked]="false">
-                        <hlm-switch-thumb />
-                    </hlm-switch>
+                    <hlm-switch id="switch-disabled-off" [disabled]="true" [checked]="false" />
                     <label hlmLabel for="switch-disabled-off" class="text-muted-foreground">Disabled (Off)</label>
                 </div>
                 <div class="flex items-center space-x-3">
-                    <hlm-switch id="switch-disabled-on" [disabled]="true" [checked]="true">
-                        <hlm-switch-thumb />
-                    </hlm-switch>
+                    <hlm-switch id="switch-disabled-on" [disabled]="true" [checked]="true" />
                     <label hlmLabel for="switch-disabled-on" class="text-muted-foreground">Disabled (On)</label>
                 </div>
             </div>

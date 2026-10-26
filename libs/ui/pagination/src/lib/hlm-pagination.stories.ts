@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
-import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
+import { applicationConfig, type Meta, type StoryObj } from '@storybook/angular-vite';
 
 import { HlmPaginationImports } from '../index';
 
@@ -84,7 +84,7 @@ const meta: Meta<PaginationPreviewComponent> = {
     title: 'Layout/Pagination',
     component: PaginationPreviewComponent,
     decorators: [
-        moduleMetadata({
+        applicationConfig({
             providers: [provideRouter([])],
         }),
     ],
