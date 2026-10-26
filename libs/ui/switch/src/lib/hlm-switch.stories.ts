@@ -12,7 +12,7 @@ interface SwitchStoryArgs {
 }
 
 const meta: Meta<SwitchStoryArgs> = {
-    title: 'Primitives/Switch',
+    title: 'Forms/Switch',
     component: HlmSwitch,
     tags: ['autodocs'],
     decorators: [

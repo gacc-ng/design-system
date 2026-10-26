@@ -11,7 +11,7 @@ interface DropdownMenuStoryArgs {
 }
 
 const meta: Meta<DropdownMenuStoryArgs> = {
-    title: 'Primitives/DropdownMenu',
+    title: 'Overlays/Dropdown Menu',
     component: HlmDropdownMenu,
     tags: ['autodocs'],
     decorators: [

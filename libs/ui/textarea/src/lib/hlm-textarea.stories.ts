@@ -11,7 +11,7 @@ interface TextareaStoryArgs {
 }
 
 const meta: Meta<TextareaStoryArgs> = {
-    title: 'Primitives/Textarea',
+    title: 'Forms/Textarea',
     component: HlmTextarea,
     tags: ['autodocs'],
     decorators: [

@@ -22,7 +22,7 @@ interface TabsStoryArgs {
 }
 
 const meta: Meta<TabsStoryArgs> = {
-    title: 'Primitives/Tabs',
+    title: 'Layout/Tabs',
     component: HlmTabs,
     tags: ['autodocs'],
     decorators: [

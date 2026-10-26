@@ -9,7 +9,7 @@ interface BreadcrumbStoryArgs {
 }
 
 const meta: Meta<BreadcrumbStoryArgs> = {
-    title: 'Primitives/Breadcrumb',
+    title: 'Layout/Breadcrumb',
     tags: ['autodocs'],
     decorators: [
         applicationConfig({

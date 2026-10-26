@@ -14,7 +14,7 @@ interface FieldStoryArgs {
 }
 
 const meta: Meta<FieldStoryArgs> = {
-    title: 'Primitives/Field',
+    title: 'Forms/Field',
     component: HlmField,
     tags: ['autodocs'],
     decorators: [

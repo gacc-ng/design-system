@@ -11,7 +11,7 @@ interface InputOtpStoryArgs {
 }
 
 const meta: Meta<InputOtpStoryArgs> = {
-    title: 'Primitives/Input OTP',
+    title: 'Forms/Input OTP',
     component: HlmInputOtp,
     tags: ['autodocs'],
     decorators: [

@@ -14,7 +14,7 @@ interface DialogStoryArgs {
 }
 
 const meta: Meta<DialogStoryArgs> = {
-    title: 'Primitives/Dialog',
+    title: 'Overlays/Dialog',
     component: HlmDialog,
     tags: ['autodocs'],
     decorators: [

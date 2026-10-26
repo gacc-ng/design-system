@@ -12,7 +12,7 @@ interface CheckboxStoryArgs {
 }
 
 const meta: Meta<CheckboxStoryArgs> = {
-    title: 'Primitives/Checkbox',
+    title: 'Forms/Checkbox',
     component: HlmCheckbox,
     tags: ['autodocs'],
     decorators: [

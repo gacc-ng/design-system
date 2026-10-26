@@ -11,7 +11,7 @@ interface AccordionStoryArgs {
 }
 
 const meta: Meta<AccordionStoryArgs> = {
-    title: 'Primitives/Accordion',
+    title: 'Layout/Accordion',
     component: HlmAccordion,
     tags: ['autodocs'],
     decorators: [
