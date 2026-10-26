@@ -84,3 +84,141 @@ html.is-adjusting-radius *::after {
     background-color: var(--muted, rgba(0, 0, 0, 0.04)) !important;
     color: inherit !important;
 }
+
+/* ==========================================================================
+   Storybook Code Block: One Dark Pro Theme
+   ========================================================================== */
+
+/* Outer code container & pre element */
+.sbdocs-content pre.prismjs,
+.sbdocs-preview pre.prismjs,
+.sbdocs-content .docblock-source pre,
+.sbdocs-preview .docblock-source pre {
+    background-color: #282c34 !important;
+    color: #abb2bf !important;
+    font-family:
+        ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !important;
+    font-size: 0.8125rem !important;
+    line-height: 1.65 !important;
+    border-radius: 0.5rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+    padding: 1.25rem 1.5rem !important;
+    tab-size: 2 !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* Code container inner block */
+.sbdocs-content pre.prismjs > div,
+.sbdocs-preview pre.prismjs > div {
+    background: transparent !important;
+}
+
+/* 1. Keywords (import, from, export, class, const, return, readonly, protected, new) */
+.sbdocs-content pre.prismjs .token.keyword,
+.sbdocs-preview pre.prismjs .token.keyword {
+    color: #c678dd !important;
+    font-weight: 500 !important;
+}
+
+/* 2. Functions & Method Calls */
+.sbdocs-content pre.prismjs .token.function,
+.sbdocs-preview pre.prismjs .token.function {
+    color: #61afef !important;
+}
+
+/* 3. Decorators (@Component) */
+.sbdocs-content pre.prismjs .token.decorator,
+.sbdocs-preview pre.prismjs .token.decorator,
+.sbdocs-content pre.prismjs .token.decorator .token.function,
+.sbdocs-preview pre.prismjs .token.decorator .token.function,
+.sbdocs-content pre.prismjs .token.decorator.at,
+.sbdocs-preview pre.prismjs .token.decorator.at {
+    color: #61afef !important;
+}
+
+/* 4. Classes, Types, and Interfaces (ChangeDetectionStrategy, Component, HlmAccordionImports) */
+.sbdocs-content pre.prismjs .token.class-name,
+.sbdocs-preview pre.prismjs .token.class-name,
+.sbdocs-content pre.prismjs .token.maybe-class-name,
+.sbdocs-preview pre.prismjs .token.maybe-class-name {
+    color: #e5c07b !important;
+}
+
+/* 5. Strings & Characters ('@angular/core', 'app-accordion-demo') */
+.sbdocs-content pre.prismjs .token.string,
+.sbdocs-preview pre.prismjs .token.string,
+.sbdocs-content pre.prismjs .token.char,
+.sbdocs-preview pre.prismjs .token.char {
+    color: #98c379 !important;
+}
+
+/* 6. Template String Literals (inside `...`) */
+.sbdocs-content pre.prismjs .token.template-string.string,
+.sbdocs-preview pre.prismjs .token.template-string.string {
+    color: #98c379 !important;
+}
+
+.sbdocs-content pre.prismjs .token.template-punctuation,
+.sbdocs-preview pre.prismjs .token.template-punctuation {
+    color: #56b6c2 !important;
+}
+
+/* 7. Numbers, Booleans, and Constants */
+.sbdocs-content pre.prismjs .token.number,
+.sbdocs-preview pre.prismjs .token.number,
+.sbdocs-content pre.prismjs .token.boolean,
+.sbdocs-preview pre.prismjs .token.boolean,
+.sbdocs-content pre.prismjs .token.constant,
+.sbdocs-preview pre.prismjs .token.constant {
+    color: #d19a66 !important;
+}
+
+/* 8. Operators (=, :, =>, +, -, .) */
+.sbdocs-content pre.prismjs .token.operator,
+.sbdocs-preview pre.prismjs .token.operator {
+    color: #56b6c2 !important;
+}
+
+/* 9. Punctuation ({, }, [, ], (, ), ;, ,) */
+.sbdocs-content pre.prismjs .token.punctuation,
+.sbdocs-preview pre.prismjs .token.punctuation {
+    color: #abb2bf !important;
+}
+
+/* 10. Comments */
+.sbdocs-content pre.prismjs .token.comment,
+.sbdocs-preview pre.prismjs .token.comment {
+    color: #5c6370 !important;
+    font-style: italic !important;
+}
+
+/* 11. HTML Tags, Properties, & Attributes */
+.sbdocs-content pre.prismjs .token.tag,
+.sbdocs-preview pre.prismjs .token.tag {
+    color: #e06c75 !important;
+}
+
+.sbdocs-content pre.prismjs .token.attr-name,
+.sbdocs-preview pre.prismjs .token.attr-name {
+    color: #d19a66 !important;
+}
+
+.sbdocs-content pre.prismjs .token.attr-value,
+.sbdocs-preview pre.prismjs .token.attr-value {
+    color: #98c379 !important;
+}
+
+.sbdocs-content pre.prismjs .token.property,
+.sbdocs-preview pre.prismjs .token.property {
+    color: #e06c75 !important;
+}
+
+/* Action bar buttons (Show/Hide code, Copy code) */
+.sbdocs-preview .docblock-code-toggle,
+.sbdocs-preview button[class*='docblock-code-toggle'] {
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    border-radius: 0.375rem !important;
+    transition: all 150ms ease-in-out !important;
+}
