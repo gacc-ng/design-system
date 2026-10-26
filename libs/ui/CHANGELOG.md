@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/gacc-ng/design-system/compare/v0.5.0...v0.5.1) (2026-10-26)
+
+
+### Bug Fixes
+
+* **storybook:** 🐛 resolve pagination and switch runtime errors in storybook ([#136](https://github.com/gacc-ng/design-system/issues/136)) ([2437734](https://github.com/gacc-ng/design-system/commit/2437734d3ccd9b0dd43800c7efea256f73e07945))
+
 ## [0.5.0](https://github.com/gacc-ng/design-system/compare/v0.4.0...v0.5.0) (2026-10-26)
 
 
