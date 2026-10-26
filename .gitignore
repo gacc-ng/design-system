@@ -45,6 +45,7 @@ Thumbs.db
 .worktrees/
 .claude/settings.local.json
 .superpowers/
+docs/superpowers/
 
 .nx/polygraph
 .angular
