@@ -86,6 +86,19 @@ const preview: Preview = {
         }),
     ],
     parameters: {
+        options: {
+            storySort: {
+                order: [
+                    'Foundations',
+                    ['Introduction', 'Colors', 'Typography', 'Radius'],
+                    'Primitives',
+                    'Forms',
+                    'Layout',
+                    'Overlays',
+                    'Blocks',
+                ],
+            },
+        },
         docs: {
             container: DocsContainer,
             toc: true,

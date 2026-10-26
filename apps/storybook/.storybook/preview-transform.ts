@@ -137,10 +137,19 @@ export function formatStandaloneComponentSource(code: string, context?: StoryTra
     // 2. Resolve component naming
     let rawName = '';
     if (context?.title) {
-        rawName = context.title.replace(/^Primitives\//i, '').trim();
+        rawName = context.title.includes('/') ? (context.title.split('/').pop()?.trim() ?? '') : context.title.trim();
     } else if (context?.id) {
-        const baseId = context.id.replace(/^primitives-/i, '').split('--')[0];
-        rawName = baseId;
+        const withoutStory = context.id.split('--')[0];
+        const strippedCategory = withoutStory.replace(
+            /^(?:primitives|layout|forms|overlays|foundations|blocks|ui)-/i,
+            '',
+        );
+        rawName =
+            strippedCategory !== withoutStory
+                ? strippedCategory
+                : withoutStory.includes('-')
+                  ? withoutStory.substring(withoutStory.indexOf('-') + 1)
+                  : withoutStory;
     } else if (context?.component?.name) {
         rawName = context.component.name.replace(/^Hlm/i, '');
     }
