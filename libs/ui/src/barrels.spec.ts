@@ -19,6 +19,7 @@ import { HlmInputOtpImports } from '../input-otp/src';
 import { HlmKbdImports } from '../kbd/src';
 import { HlmLabelImports } from '../label/src';
 import { HlmPopoverImports } from '../popover/src';
+import { HlmProgressImports } from '../progress/src';
 import { HlmRadioGroupImports } from '../radio-group/src';
 import { HlmSelectImports } from '../select/src';
 import { HlmSeparatorImports } from '../separator/src';
@@ -54,6 +55,7 @@ describe('UI Primitives Barrel Exports Contract', () => {
         kbd: HlmKbdImports,
         label: HlmLabelImports,
         popover: HlmPopoverImports,
+        progress: HlmProgressImports,
         'radio-group': HlmRadioGroupImports,
         select: HlmSelectImports,
         separator: HlmSeparatorImports,
