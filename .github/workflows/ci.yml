@@ -28,7 +28,7 @@ jobs:
             pull-requests: read
         steps:
             - name: Checkout repository
-              uses: actions/checkout@v7
+              uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
               with:
                   fetch-depth: 0
 
@@ -37,7 +37,7 @@ jobs:
 
             - name: Determine base and head commits
               id: set-shas
-              uses: nrwl/nx-set-shas@v5
+              uses: nrwl/nx-set-shas@e602fada7ad5987b0f7b1905e7a99ea1c661514c # v5.1.0
 
             - name: Validate Conventional Commits
               if: github.event_name == 'pull_request' && !startsWith(github.head_ref, 'dependabot/')
@@ -59,7 +59,7 @@ jobs:
             contents: read
         steps:
             - name: Checkout repository
-              uses: actions/checkout@v7
+              uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
               with:
                   fetch-depth: 0
 
@@ -68,14 +68,14 @@ jobs:
 
             - name: Determine base and head commits
               id: set-shas
-              uses: nrwl/nx-set-shas@v5
+              uses: nrwl/nx-set-shas@e602fada7ad5987b0f7b1905e7a99ea1c661514c # v5.1.0
 
             - name: Execute affected build and validation
               run: pnpm nx affected -t build validate-package build-storybook --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
 
             - name: Upload library distribution artifact
               if: hashFiles('dist/libs/ui/package.json') != ''
-              uses: actions/upload-artifact@v7
+              uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
               with:
                   name: gacc-ng-ui-dist
                   path: dist/libs/ui
@@ -90,18 +90,18 @@ jobs:
             security-events: write
         steps:
             - name: Checkout repository
-              uses: actions/checkout@v7
+              uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
               with:
                   fetch-depth: 0
 
             - name: Initialize CodeQL
-              uses: github/codeql-action/init@v4
+              uses: github/codeql-action/init@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4
               with:
                   languages: javascript-typescript
                   config-file: ./.github/codeql/codeql-config.yml
 
             - name: Perform CodeQL Analysis
-              uses: github/codeql-action/analyze@v4
+              uses: github/codeql-action/analyze@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4
               with:
                   category: '/language:javascript-typescript'
 
@@ -113,14 +113,14 @@ jobs:
             contents: read
         steps:
             - name: Checkout repository
-              uses: actions/checkout@v7
+              uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
             - name: Perform Dependency Review
-              uses: actions/dependency-review-action@v5
+              uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
               with:
                   fail-on-severity: 'high'
                   fail-on-scopes: 'runtime'
-                  allow-licenses: '0BSD, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, MIT'
+                  allow-licenses: '0BSD, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, MIT, BlueOak-1.0.0, CC0-1.0, MIT-0, Python-2.0'
                   warn-only: true
 
     quality-gate:
