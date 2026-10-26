@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/gacc-ng/design-system/compare/v0.3.0...v0.4.0) (2026-10-26)
+
+
+### Features
+
+* **storybook:** ✨ complete component taxonomy hierarchy (Layout, Forms, Overlays & Primitives) ([#122](https://github.com/gacc-ng/design-system/issues/122)) ([c9e71fb](https://github.com/gacc-ng/design-system/commit/c9e71fba80a476347aa1acad7c6baec4f12d3506))
+
 ## [0.3.0](https://github.com/gacc-ng/design-system/compare/v0.2.0...v0.3.0) (2026-10-26)
 
 
