@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideLoader2 } from '@ng-icons/lucide';
@@ -10,7 +10,6 @@ import { classes } from '@gacc-ng/ui/utils';
     exportAs: 'hlmSpinner',
     imports: [NgIcon],
     providers: [provideIcons({ lucideLoader2 })],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         'data-slot': 'spinner',
         role: 'status',

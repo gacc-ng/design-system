@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideEllipsis } from '@ng-icons/lucide';
@@ -10,7 +10,6 @@ import { classes } from '@gacc-ng/ui/utils';
     exportAs: 'hlmBreadcrumbEllipsis',
     imports: [NgIcon],
     providers: [provideIcons({ lucideEllipsis })],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         'data-slot': 'breadcrumb-ellipsis',
         role: 'presentation',

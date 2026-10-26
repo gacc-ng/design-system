@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideChevronDown } from '@ng-icons/lucide';
@@ -11,7 +11,6 @@ import { classes } from '@gacc-ng/ui/utils';
     exportAs: 'hlmSelectScrollDown',
     imports: [NgIcon],
     providers: [provideIcons({ lucideChevronDown })],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     hostDirectives: [BrnSelectScrollDown],
     template: ` <ng-icon name="lucideChevronDown" /> `,
 })

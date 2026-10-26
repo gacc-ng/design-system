@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { HlmSeparator } from '@gacc-ng/ui/separator';
 import { classes } from '@gacc-ng/ui/utils';
@@ -7,7 +7,6 @@ import { classes } from '@gacc-ng/ui/utils';
     selector: 'hlm-field-separator',
     exportAs: 'hlmFieldSeparator',
     imports: [HlmSeparator],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     host: { 'data-slot': 'field-separator' },
     template: `
         <hlm-separator class="absolute inset-0 top-1/2" />

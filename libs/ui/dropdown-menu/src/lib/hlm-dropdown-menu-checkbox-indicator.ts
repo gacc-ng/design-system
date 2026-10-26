@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideCheck } from '@ng-icons/lucide';
@@ -10,7 +10,6 @@ import { classes } from '@gacc-ng/ui/utils';
     exportAs: 'hlmDropdownMenuCheckboxIndicator',
     imports: [NgIcon],
     providers: [provideIcons({ lucideCheck })],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     host: { 'data-slot': 'dropdown-menu-checkbox-item-indicator' },
     template: ` <ng-icon name="lucideCheck" /> `,
 })
