@@ -11,6 +11,7 @@ import { HlmCardImports } from '../card/src';
 import { HlmCheckboxImports } from '../checkbox/src';
 import { HlmCollapsibleImports } from '../collapsible/src';
 import { HlmCommandImports } from '../command/src';
+import { HlmDataTableImports } from '../data-table/src';
 import { HlmDialogImports } from '../dialog/src';
 import { HlmDropdownMenuImports } from '../dropdown-menu/src';
 import { HlmEmptyImports } from '../empty/src';
@@ -51,6 +52,7 @@ describe('UI Primitives Barrel Exports Contract', () => {
         checkbox: HlmCheckboxImports,
         collapsible: HlmCollapsibleImports,
         command: HlmCommandImports,
+        'data-table': HlmDataTableImports,
         dialog: HlmDialogImports,
         'dropdown-menu': HlmDropdownMenuImports,
         empty: HlmEmptyImports,
