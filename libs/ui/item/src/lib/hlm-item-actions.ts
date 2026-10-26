@@ -1,0 +1,16 @@
+import { Directive } from '@angular/core';
+
+import { classes } from '@gacc-ng/ui/utils';
+
+@Directive({
+    selector: '[hlmItemActions],hlm-item-actions',
+    exportAs: 'hlmItemActions',
+    host: {
+        'data-slot': 'item-actions',
+    },
+})
+export class HlmItemActions {
+    constructor() {
+        classes(() => 'gap-2 flex items-center');
+    }
+}

@@ -11,14 +11,19 @@ import { HlmCardImports } from '../card/src';
 import { HlmCheckboxImports } from '../checkbox/src';
 import { HlmCollapsibleImports } from '../collapsible/src';
 import { HlmCommandImports } from '../command/src';
+import { HlmDataTableImports } from '../data-table/src';
 import { HlmDialogImports } from '../dialog/src';
 import { HlmDropdownMenuImports } from '../dropdown-menu/src';
+import { HlmEmptyImports } from '../empty/src';
 import { HlmFieldImports } from '../field/src';
 import { HlmInputImports } from '../input/src';
 import { HlmInputOtpImports } from '../input-otp/src';
+import { HlmItemImports } from '../item/src';
 import { HlmKbdImports } from '../kbd/src';
 import { HlmLabelImports } from '../label/src';
+import { HlmPaginationImports } from '../pagination/src';
 import { HlmPopoverImports } from '../popover/src';
+import { HlmProgressImports } from '../progress/src';
 import { HlmRadioGroupImports } from '../radio-group/src';
 import { HlmSelectImports } from '../select/src';
 import { HlmSeparatorImports } from '../separator/src';
@@ -27,6 +32,7 @@ import { HlmSkeletonImports } from '../skeleton/src';
 import { HlmSliderImports } from '../slider/src';
 import { HlmSpinnerImports } from '../spinner/src';
 import { HlmSwitchImports } from '../switch/src';
+import { HlmTableImports } from '../table/src';
 import { HlmTabsImports } from '../tabs/src';
 import { HlmTextareaImports } from '../textarea/src';
 import { HlmToggleImports } from '../toggle/src';
@@ -46,14 +52,19 @@ describe('UI Primitives Barrel Exports Contract', () => {
         checkbox: HlmCheckboxImports,
         collapsible: HlmCollapsibleImports,
         command: HlmCommandImports,
+        'data-table': HlmDataTableImports,
         dialog: HlmDialogImports,
         'dropdown-menu': HlmDropdownMenuImports,
+        empty: HlmEmptyImports,
         field: HlmFieldImports,
         input: HlmInputImports,
         'input-otp': HlmInputOtpImports,
+        item: HlmItemImports,
         kbd: HlmKbdImports,
         label: HlmLabelImports,
+        pagination: HlmPaginationImports,
         popover: HlmPopoverImports,
+        progress: HlmProgressImports,
         'radio-group': HlmRadioGroupImports,
         select: HlmSelectImports,
         separator: HlmSeparatorImports,
@@ -62,6 +73,7 @@ describe('UI Primitives Barrel Exports Contract', () => {
         slider: HlmSliderImports,
         spinner: HlmSpinnerImports,
         switch: HlmSwitchImports,
+        table: HlmTableImports,
         tabs: HlmTabsImports,
         textarea: HlmTextareaImports,
         toggle: HlmToggleImports,
