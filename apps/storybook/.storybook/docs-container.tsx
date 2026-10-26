@@ -2,6 +2,7 @@ import { DocsContainer as BaseDocsContainer, type DocsContainerProps } from '@st
 import React, { useEffect, useState } from 'react';
 import { addons } from 'storybook/preview-api';
 
+import { readInitialThemeMode, resolveTheme, THEME_MODE_CHANNEL_EVENT } from './theme-presets';
 import { darkTheme, lightTheme } from './themes';
 
 function getInitialTheme(): boolean {
@@ -19,7 +20,9 @@ function getInitialTheme(): boolean {
             }
         }
     }
-    return document.documentElement.classList.contains('dark');
+    const initialMode = readInitialThemeMode();
+    const resolved = resolveTheme(initialMode);
+    return resolved === 'dark' || document.documentElement.classList.contains('dark');
 }
 
 export function DocsContainer(props: DocsContainerProps): React.JSX.Element {
@@ -37,9 +40,17 @@ export function DocsContainer(props: DocsContainerProps): React.JSX.Element {
             }
         };
 
+        const handleThemeModeEvent = ({ resolved }: { resolved?: string }) => {
+            if (resolved) {
+                setIsDark(resolved === 'dark');
+            }
+        };
+
         channel.on('globalsUpdated', handleGlobalsUpdated);
+        channel.on(THEME_MODE_CHANNEL_EVENT, handleThemeModeEvent);
         return () => {
             channel.off('globalsUpdated', handleGlobalsUpdated);
+            channel.off(THEME_MODE_CHANNEL_EVENT, handleThemeModeEvent);
         };
     }, [channel]);
 
