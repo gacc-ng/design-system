@@ -1,0 +1,76 @@
+/* ==========================================================================
+   Storybook Autodocs ArgsTable & Controls Polish
+   ========================================================================== */
+
+/* Outer table container: clean unified card border without internal clipping */
+.sbdocs-content .docblock-argstable {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    border-radius: 0.5rem !important;
+    border: 1px solid var(--border, rgba(0, 0, 0, 0.1)) !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    margin: 1.5rem 0 !important;
+    box-shadow: none !important;
+}
+
+/* Remove Storybook's drop-shadow filter, inner card radius, and misaligned cell borders */
+.sbdocs-content .docblock-argstable tbody {
+    filter: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+.sbdocs-content .docblock-argstable tbody > tr > td {
+    border-top: 1px solid var(--border, rgba(0, 0, 0, 0.08)) !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0 !important;
+    vertical-align: middle !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.875rem !important;
+}
+
+.sbdocs-content .docblock-argstable tbody > tr:first-of-type > td:first-of-type,
+.sbdocs-content .docblock-argstable tbody > tr:first-of-type > td:last-of-type,
+.sbdocs-content .docblock-argstable tbody > tr:last-of-type > td:first-of-type,
+.sbdocs-content .docblock-argstable tbody > tr:last-of-type > td:last-of-type {
+    border-radius: 0 !important;
+}
+
+/* Table header */
+.sbdocs-content .docblock-argstable thead th {
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 0.75rem 1rem !important;
+    border-bottom: 1px solid var(--border, rgba(0, 0, 0, 0.1)) !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    color: var(--muted-foreground, #71717a) !important;
+    background-color: var(--muted, rgba(0, 0, 0, 0.02)) !important;
+}
+
+/* Subtle row hover */
+.sbdocs-content .docblock-argstable tbody tr:hover td {
+    background-color: rgba(0, 0, 0, 0.015) !important;
+}
+
+.dark .sbdocs-content .docblock-argstable tbody tr:hover td {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Monospace chips for prop types and default values */
+.sbdocs-content .docblock-argstable code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+    font-size: 0.75rem !important;
+    line-height: 1.25 !important;
+    padding: 0.125rem 0.375rem !important;
+    border-radius: 0.25rem !important;
+    border: 1px solid var(--border, rgba(0, 0, 0, 0.08)) !important;
+    background-color: var(--muted, rgba(0, 0, 0, 0.04)) !important;
+    color: inherit !important;
+}

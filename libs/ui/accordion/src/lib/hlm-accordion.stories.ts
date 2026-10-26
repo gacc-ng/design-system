@@ -4,24 +4,46 @@ import { HlmBadge } from '@gacc-ng/ui/badge';
 
 import { HlmAccordionImports } from '../index';
 
-const meta: Meta = {
+import { HlmAccordion } from './hlm-accordion';
+
+interface AccordionStoryArgs {
+    type: 'single' | 'multiple';
+}
+
+const meta: Meta<AccordionStoryArgs> = {
     title: 'Primitives/Accordion',
+    component: HlmAccordion,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
             imports: [HlmAccordionImports, HlmBadge],
         }),
     ],
+    argTypes: {
+        type: {
+            control: 'select',
+            options: ['single', 'multiple'],
+            description: 'Whether single or multiple accordion items can be open concurrently.',
+            table: {
+                type: { summary: "'single' | 'multiple'" },
+                defaultValue: { summary: "'single'" },
+            },
+        },
+    },
+    args: {
+        type: 'single',
+    },
 };
 
 export default meta;
-type Story = StoryObj;
+type Story = StoryObj<AccordionStoryArgs>;
 
 export const Default: Story = {
-    render: () => ({
+    render: (args) => ({
+        props: args,
         template: `
             <div class="p-8 flex justify-center">
-                <hlm-accordion class="w-125">
+                <hlm-accordion [type]="type" class="w-125">
                     <hlm-accordion-item>
                         <hlm-accordion-trigger>How does billing work?</hlm-accordion-trigger>
                         <hlm-accordion-content>
@@ -57,35 +79,48 @@ export const Multiple: Story = {
                         <hlm-accordion-trigger>
                             <span class="flex items-center gap-2">
                                 Workspace Billing
-                                <span hlmBadge variant="secondary" size="sm">Active</span>
+                                <span hlmBadge variant="secondary">Active</span>
                             </span>
                         </hlm-accordion-trigger>
                         <hlm-accordion-content>
-                            Your workspace is on the Pro Plan. Next billing date is November 1, 2026.
+                            Your workspace is currently on the Enterprise plan with 45 active seats.
                         </hlm-accordion-content>
                     </hlm-accordion-item>
 
                     <hlm-accordion-item>
                         <hlm-accordion-trigger>
                             <span class="flex items-center gap-2">
-                                Team Members
-                                <span hlmBadge variant="outline" size="sm">12 seats</span>
+                                Team Permissions
+                                <span hlmBadge variant="outline">2 Admins</span>
                             </span>
                         </hlm-accordion-trigger>
                         <hlm-accordion-content>
-                            Manage roles, permissions, and invite links for developers and reviewers.
+                            Role-based access control is enabled with mandatory multi-factor authentication.
                         </hlm-accordion-content>
                     </hlm-accordion-item>
+                </hlm-accordion>
+            </div>
+        `,
+    }),
+};
 
+export const DisabledItem: Story = {
+    render: () => ({
+        template: `
+            <div class="p-8 flex justify-center">
+                <hlm-accordion class="w-125">
                     <hlm-accordion-item>
-                        <hlm-accordion-trigger>
-                            <span class="flex items-center gap-2">
-                                Security & Compliance
-                                <span hlmBadge variant="destructive" size="sm">Action needed</span>
-                            </span>
+                        <hlm-accordion-trigger>Available Feature</hlm-accordion-trigger>
+                        <hlm-accordion-content>
+                            This item can be toggled normally.
+                        </hlm-accordion-content>
+                    </hlm-accordion-item>
+                    <hlm-accordion-item [disabled]="true">
+                        <hlm-accordion-trigger [disabled]="true" class="cursor-not-allowed opacity-50">
+                            Locked Enterprise Feature
                         </hlm-accordion-trigger>
                         <hlm-accordion-content>
-                            Enforce mandatory 2FA and configure Single Sign-On (SSO) SAML identity providers.
+                            Upgrade your plan to unlock this setting.
                         </hlm-accordion-content>
                     </hlm-accordion-item>
                 </hlm-accordion>

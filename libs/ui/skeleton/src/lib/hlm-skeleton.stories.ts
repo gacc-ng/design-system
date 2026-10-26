@@ -9,6 +9,7 @@ interface SkeletonStoryArgs {
 
 const meta: Meta<SkeletonStoryArgs> = {
     title: 'Primitives/Skeleton',
+    component: HlmSkeleton,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
@@ -18,11 +19,19 @@ const meta: Meta<SkeletonStoryArgs> = {
     argTypes: {
         width: {
             control: 'text',
-            description: 'Custom width class for the skeleton placeholder',
+            description: 'Custom Tailwind width class for the skeleton placeholder.',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: "'w-48'" },
+            },
         },
         height: {
             control: 'text',
-            description: 'Custom height class for the skeleton placeholder',
+            description: 'Custom Tailwind height class for the skeleton placeholder.',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: "'h-4'" },
+            },
         },
     },
     args: {

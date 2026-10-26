@@ -13,6 +13,7 @@ interface AvatarStoryArgs {
 
 const meta: Meta<AvatarStoryArgs> = {
     title: 'Primitives/Avatar',
+    component: HlmAvatar,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
@@ -30,7 +31,11 @@ const meta: Meta<AvatarStoryArgs> = {
         size: {
             control: 'select',
             options: ['default', 'sm', 'lg'],
-            description: 'Size of the avatar component',
+            description: 'The size dimension scale of the avatar component.',
+            table: {
+                type: { summary: "'default' | 'sm' | 'lg'" },
+                defaultValue: { summary: "'default'" },
+            },
         },
     },
     args: {
@@ -57,12 +62,41 @@ export const Default: Story = {
     }),
 };
 
+export const AllSizes: Story = {
+    render: () => ({
+        template: `
+            <div class="flex items-center gap-4">
+                <hlm-avatar size="sm">
+                    <img hlmAvatarImage src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Avatar small" />
+                    <span hlmAvatarFallback>SM</span>
+                </hlm-avatar>
+                <hlm-avatar size="default">
+                    <img hlmAvatarImage src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Avatar default" />
+                    <span hlmAvatarFallback>MD</span>
+                </hlm-avatar>
+                <hlm-avatar size="lg">
+                    <img hlmAvatarImage src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Avatar large" />
+                    <span hlmAvatarFallback>LG</span>
+                </hlm-avatar>
+            </div>
+        `,
+    }),
+};
+
 export const FallbackOnly: Story = {
     render: () => ({
         template: `
-            <hlm-avatar>
-                <span hlmAvatarFallback>AG</span>
-            </hlm-avatar>
+            <div class="flex items-center gap-4">
+                <hlm-avatar>
+                    <span hlmAvatarFallback>AG</span>
+                </hlm-avatar>
+                <hlm-avatar>
+                    <span hlmAvatarFallback class="bg-primary text-primary-foreground">SP</span>
+                </hlm-avatar>
+                <hlm-avatar>
+                    <span hlmAvatarFallback class="bg-muted text-muted-foreground">CN</span>
+                </hlm-avatar>
+            </div>
         `,
     }),
 };
@@ -78,31 +112,13 @@ export const WithBadge: Story = {
                 </hlm-avatar>
                 <hlm-avatar size="default">
                     <img hlmAvatarImage src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Avatar" />
-                    <span hlmAvatarFallback>DF</span>
-                    <span hlmAvatarBadge class="bg-emerald-500"></span>
+                    <span hlmAvatarFallback>GC</span>
+                    <span hlmAvatarBadge class="bg-amber-500"></span>
                 </hlm-avatar>
                 <hlm-avatar size="lg">
                     <img hlmAvatarImage src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Avatar" />
                     <span hlmAvatarFallback>LG</span>
-                    <span hlmAvatarBadge class="bg-emerald-500"></span>
-                </hlm-avatar>
-            </div>
-        `,
-    }),
-};
-
-export const Sizes: Story = {
-    render: () => ({
-        template: `
-            <div class="flex items-center gap-4">
-                <hlm-avatar size="sm">
-                    <span hlmAvatarFallback>SM</span>
-                </hlm-avatar>
-                <hlm-avatar size="default">
-                    <span hlmAvatarFallback>DF</span>
-                </hlm-avatar>
-                <hlm-avatar size="lg">
-                    <span hlmAvatarFallback>LG</span>
+                    <span hlmAvatarBadge class="bg-rose-500"></span>
                 </hlm-avatar>
             </div>
         `,
@@ -112,9 +128,9 @@ export const Sizes: Story = {
 export const AvatarGroup: Story = {
     render: () => ({
         template: `
-            <hlm-avatar-group>
+            <div hlmAvatarGroup>
                 <hlm-avatar>
-                    <img hlmAvatarImage src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&auto=format&fit=crop&q=80" alt="User 1" />
+                    <img hlmAvatarImage src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="User 1" />
                     <span hlmAvatarFallback>U1</span>
                 </hlm-avatar>
                 <hlm-avatar>
@@ -122,11 +138,11 @@ export const AvatarGroup: Story = {
                     <span hlmAvatarFallback>U2</span>
                 </hlm-avatar>
                 <hlm-avatar>
-                    <img hlmAvatarImage src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="User 3" />
+                    <img hlmAvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="User 3" />
                     <span hlmAvatarFallback>U3</span>
                 </hlm-avatar>
                 <span hlmAvatarGroupCount>+4</span>
-            </hlm-avatar-group>
+            </div>
         `,
     }),
 };

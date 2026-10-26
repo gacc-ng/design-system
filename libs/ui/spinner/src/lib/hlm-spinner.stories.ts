@@ -6,10 +6,12 @@ import { HlmSpinner } from './hlm-spinner';
 
 interface SpinnerStoryArgs {
     ariaLabel: string;
+    icon: string;
 }
 
 const meta: Meta<SpinnerStoryArgs> = {
     title: 'Primitives/Spinner',
+    component: HlmSpinner,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
@@ -19,11 +21,24 @@ const meta: Meta<SpinnerStoryArgs> = {
     argTypes: {
         ariaLabel: {
             control: 'text',
-            description: 'Accessibility aria-label for assistive screen readers',
+            description: 'Accessibility aria-label for assistive screen readers.',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: "'Loading...'" },
+            },
+        },
+        icon: {
+            control: 'text',
+            description: 'The name of the Lucide icon used for the animated spinner.',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: "'lucideLoader2'" },
+            },
         },
     },
     args: {
         ariaLabel: 'Loading...',
+        icon: 'lucideLoader2',
     },
 };
 
@@ -35,7 +50,7 @@ export const Default: Story = {
         props: args,
         template: `
             <div class="flex items-center gap-4 text-primary">
-                <hlm-spinner [aria-label]="ariaLabel" />
+                <hlm-spinner [aria-label]="ariaLabel" [icon]="icon" />
             </div>
         `,
     }),
@@ -65,6 +80,19 @@ export const CustomColors: Story = {
                 <hlm-spinner class="text-primary text-xl" />
                 <hlm-spinner class="text-destructive text-xl" />
                 <hlm-spinner class="text-muted-foreground text-xl" />
+            </div>
+        `,
+    }),
+};
+
+export const AllSizes: Story = {
+    render: () => ({
+        template: `
+            <div class="flex items-center gap-6">
+                <hlm-spinner class="text-xs" />
+                <hlm-spinner class="text-base" />
+                <hlm-spinner class="text-xl" />
+                <hlm-spinner class="text-3xl" />
             </div>
         `,
     }),

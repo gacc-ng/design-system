@@ -1,12 +1,19 @@
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideCalendar, lucideCog, lucideSmile, lucideUser, lucideWallet } from '@ng-icons/lucide';
-import type { Meta, StoryObj } from '@storybook/angular-vite';
-import { moduleMetadata } from '@storybook/angular-vite';
+import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 
 import { HlmCommandImports } from '../index';
 
-const meta: Meta = {
-    title: 'UI/Command',
+import { HlmCommand } from './hlm-command';
+
+interface CommandStoryArgs {
+    placeholder: string;
+}
+
+const meta: Meta<CommandStoryArgs> = {
+    title: 'Primitives/Command',
+    component: HlmCommand,
+    tags: ['autodocs'],
     decorators: [
         moduleMetadata({
             imports: [HlmCommandImports, NgIcon],
@@ -21,18 +28,32 @@ const meta: Meta = {
             ],
         }),
     ],
+    argTypes: {
+        placeholder: {
+            control: 'text',
+            description: 'Placeholder string for the search command input.',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: "'Type a command or search...'" },
+            },
+        },
+    },
+    args: {
+        placeholder: 'Type a command or search...',
+    },
 };
 
 export default meta;
-type Story = StoryObj;
+type Story = StoryObj<CommandStoryArgs>;
 
 export const Default: Story = {
-    render: () => ({
+    render: (args) => ({
+        props: args,
         template: `
             <div class="p-8 max-w-md mx-auto">
                 <div class="rounded-xl border shadow-md">
                     <hlm-command>
-                        <hlm-command-input placeholder="Type a command or search..." />
+                        <hlm-command-input [placeholder]="placeholder" />
                         <hlm-command-list>
                             <div *hlmCommandEmptyState hlmCommandEmpty>No results found.</div>
                             <hlm-command-group>
@@ -65,6 +86,25 @@ export const Default: Story = {
                                     <hlm-command-shortcut>⌘S</hlm-command-shortcut>
                                 </button>
                             </hlm-command-group>
+                        </hlm-command-list>
+                    </hlm-command>
+                </div>
+            </div>
+        `,
+    }),
+};
+
+export const EmptyState: Story = {
+    render: () => ({
+        template: `
+            <div class="p-8 max-w-md mx-auto">
+                <div class="rounded-xl border shadow-md">
+                    <hlm-command>
+                        <hlm-command-input value="nonexistent-query" placeholder="Type a command or search..." />
+                        <hlm-command-list>
+                            <div hlmCommandEmpty class="py-6 text-center text-sm text-muted-foreground">
+                                No matching commands or shortcuts found.
+                            </div>
                         </hlm-command-list>
                     </hlm-command>
                 </div>

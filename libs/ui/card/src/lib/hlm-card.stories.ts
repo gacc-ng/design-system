@@ -22,6 +22,7 @@ interface CardStoryArgs {
 
 const meta: Meta<CardStoryArgs> = {
     title: 'Primitives/Card',
+    component: HlmCard,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
@@ -45,15 +46,27 @@ const meta: Meta<CardStoryArgs> = {
     argTypes: {
         title: {
             control: 'text',
-            description: 'Card title heading',
+            description: 'The heading content projected into the card title slot.',
+            table: {
+                type: { summary: 'string | TemplateRef' },
+                defaultValue: { summary: "'Notification Preferences'" },
+            },
         },
         description: {
             control: 'text',
-            description: 'Card subtitle / description text',
+            description: 'The subtitle content projected into the card description slot.',
+            table: {
+                type: { summary: 'string | TemplateRef' },
+                defaultValue: { summary: "'Choose what you want to receive and how you want to be notified.'" },
+            },
         },
         content: {
             control: 'text',
-            description: 'Card main body content',
+            description: 'The main body content projected into the card content slot.',
+            table: {
+                type: { summary: 'string | TemplateRef' },
+                defaultValue: { summary: "'Your notifications will appear here based on your account activity.'" },
+            },
         },
     },
     args: {
@@ -116,7 +129,7 @@ export const WithHeaderAction: Story = {
 export const WithImageCover: Story = {
     render: () => ({
         template: `
-            <hlm-card class="w-96">
+            <hlm-card class="w-96 overflow-hidden">
                 <img
                     src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=60"
                     alt="Abstract cover"
@@ -158,42 +171,22 @@ export const WithSettingsSwitch: Story = {
                             <label hlmLabel for="mfa-toggle" class="font-medium text-sm">Two-Factor Auth</label>
                             <p class="text-xs text-muted-foreground">Require an authenticator app code on login</p>
                         </div>
-                        <hlm-switch id="mfa-toggle" [checked]="true" />
+                        <hlm-switch id="mfa-toggle" [checked]="true">
+                            <hlm-switch-thumb />
+                        </hlm-switch>
                     </div>
                     <div class="flex items-center justify-between space-x-3">
                         <div class="space-y-0.5">
                             <label hlmLabel for="session-toggle" class="font-medium text-sm">Session Timeout</label>
                             <p class="text-xs text-muted-foreground">Auto logout after 15 minutes of inactivity</p>
                         </div>
-                        <hlm-switch id="session-toggle" [checked]="false" />
+                        <hlm-switch id="session-toggle" [checked]="false">
+                            <hlm-switch-thumb />
+                        </hlm-switch>
                     </div>
                 </div>
                 <hlm-card-footer class="justify-end">
                     <button hlmBtn size="sm">Save Changes</button>
-                </hlm-card-footer>
-            </hlm-card>
-        `,
-    }),
-};
-
-export const WithBadgesAndMetrics: Story = {
-    render: () => ({
-        template: `
-            <hlm-card class="w-80">
-                <hlm-card-header>
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Monthly MRR</span>
-                        <span hlmBadge variant="outline" class="text-xs text-emerald-600 border-emerald-300 dark:border-emerald-700">+12.4%</span>
-                    </div>
-                    <div class="mt-2 text-3xl font-extrabold tracking-tight">$48,250</div>
-                </hlm-card-header>
-                <div hlmCardContent>
-                    <p class="text-xs text-muted-foreground">
-                        Compared to $42,910 last month. 34 new enterprise subscriptions added.
-                    </p>
-                </div>
-                <hlm-card-footer class="border-t pt-3">
-                    <button hlmBtn variant="link" class="p-0 h-auto text-xs">View full analytics report &rarr;</button>
                 </hlm-card-footer>
             </hlm-card>
         `,

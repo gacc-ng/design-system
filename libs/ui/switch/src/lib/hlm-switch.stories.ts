@@ -13,6 +13,7 @@ interface SwitchStoryArgs {
 
 const meta: Meta<SwitchStoryArgs> = {
     title: 'Primitives/Switch',
+    component: HlmSwitch,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
@@ -22,16 +23,28 @@ const meta: Meta<SwitchStoryArgs> = {
     argTypes: {
         checked: {
             control: 'boolean',
-            description: 'The checked on/off state of the switch',
+            description: 'The checked active state of the toggle switch.',
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: 'false' },
+            },
         },
         disabled: {
             control: 'boolean',
-            description: 'Whether the switch is interactively disabled',
+            description: 'Whether the switch is interactively disabled.',
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: 'false' },
+            },
         },
         size: {
             control: 'select',
             options: ['default', 'sm'],
-            description: 'The physical size dimension of the switch toggle',
+            description: 'The physical size dimension of the switch.',
+            table: {
+                type: { summary: "'default' | 'sm'" },
+                defaultValue: { summary: "'default'" },
+            },
         },
     },
     args: {
@@ -48,7 +61,9 @@ export const Default: Story = {
     render: (args) => ({
         props: args,
         template: `
-            <hlm-switch [checked]="checked" [disabled]="disabled" [size]="size" />
+            <hlm-switch [checked]="checked" [disabled]="disabled" [size]="size">
+                <hlm-switch-thumb />
+            </hlm-switch>
         `,
     }),
 };
@@ -57,7 +72,9 @@ export const WithLabel: Story = {
     render: () => ({
         template: `
             <div class="flex items-center space-x-3">
-                <hlm-switch id="airplane-mode" />
+                <hlm-switch id="airplane-mode">
+                    <hlm-switch-thumb />
+                </hlm-switch>
                 <label hlmLabel for="airplane-mode">Airplane Mode</label>
             </div>
         `,
@@ -69,11 +86,15 @@ export const AllSizes: Story = {
         template: `
             <div class="flex flex-col gap-4">
                 <div class="flex items-center space-x-3">
-                    <hlm-switch id="switch-default" size="default" [checked]="true" />
+                    <hlm-switch id="switch-default" size="default" [checked]="true">
+                        <hlm-switch-thumb />
+                    </hlm-switch>
                     <label hlmLabel for="switch-default">Default Size (checked)</label>
                 </div>
                 <div class="flex items-center space-x-3">
-                    <hlm-switch id="switch-sm" size="sm" [checked]="true" />
+                    <hlm-switch id="switch-sm" size="sm" [checked]="true">
+                        <hlm-switch-thumb />
+                    </hlm-switch>
                     <label hlmLabel for="switch-sm">Small Size (checked)</label>
                 </div>
             </div>
@@ -82,21 +103,20 @@ export const AllSizes: Story = {
 };
 
 export const Disabled: Story = {
-    args: {
-        disabled: true,
-        checked: true,
-    },
-    render: (args) => ({
-        props: args,
+    render: () => ({
         template: `
-            <div class="flex flex-col gap-3">
+            <div class="flex flex-col gap-4">
                 <div class="flex items-center space-x-3">
-                    <hlm-switch id="disabled-checked" [checked]="true" [disabled]="true" />
-                    <label hlmLabel for="disabled-checked" class="text-muted-foreground">Disabled (checked)</label>
+                    <hlm-switch id="switch-disabled-off" [disabled]="true" [checked]="false">
+                        <hlm-switch-thumb />
+                    </hlm-switch>
+                    <label hlmLabel for="switch-disabled-off" class="text-muted-foreground">Disabled (Off)</label>
                 </div>
                 <div class="flex items-center space-x-3">
-                    <hlm-switch id="disabled-unchecked" [checked]="false" [disabled]="true" />
-                    <label hlmLabel for="disabled-unchecked" class="text-muted-foreground">Disabled (unchecked)</label>
+                    <hlm-switch id="switch-disabled-on" [disabled]="true" [checked]="true">
+                        <hlm-switch-thumb />
+                    </hlm-switch>
+                    <label hlmLabel for="switch-disabled-on" class="text-muted-foreground">Disabled (On)</label>
                 </div>
             </div>
         `,

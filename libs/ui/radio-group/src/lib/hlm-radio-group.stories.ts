@@ -8,10 +8,12 @@ import { HlmRadioIndicator } from './hlm-radio-indicator';
 
 interface RadioGroupStoryArgs {
     defaultValue: string;
+    disabled: boolean;
 }
 
 const meta: Meta<RadioGroupStoryArgs> = {
     title: 'Primitives/RadioGroup',
+    component: HlmRadioGroup,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
@@ -21,11 +23,24 @@ const meta: Meta<RadioGroupStoryArgs> = {
     argTypes: {
         defaultValue: {
             control: 'text',
-            description: 'Selected value',
+            description: 'The initially selected radio value.',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: "'default'" },
+            },
+        },
+        disabled: {
+            control: 'boolean',
+            description: 'Whether the entire radio group is interactively disabled.',
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: 'false' },
+            },
         },
     },
     args: {
         defaultValue: 'default',
+        disabled: false,
     },
 };
 
@@ -36,7 +51,7 @@ export const Default: Story = {
     render: (args) => ({
         props: args,
         template: `
-            <hlm-radio-group [value]="defaultValue">
+            <hlm-radio-group [value]="defaultValue" [disabled]="disabled">
                 <div class="flex items-center space-x-2">
                     <hlm-radio value="default" inputId="r-default">
                         <hlm-radio-indicator />
@@ -60,42 +75,54 @@ export const Default: Story = {
     }),
 };
 
-export const WithCardLayout: Story = {
+export const WithLabel: Story = {
     render: () => ({
         template: `
-            <hlm-radio-group value="pro" class="max-w-md">
-                <label for="plan-free" class="flex cursor-pointer items-start space-x-3 rounded-lg border p-4 hover:bg-muted/50 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5">
-                    <hlm-radio value="free" inputId="plan-free" class="mt-0.5">
+            <hlm-radio-group value="card">
+                <div class="flex items-start space-x-3">
+                    <hlm-radio value="card" inputId="pay-card" class="mt-0.5">
                         <hlm-radio-indicator />
                     </hlm-radio>
-                    <div class="space-y-1">
-                        <div class="font-medium text-sm">Free Plan</div>
-                        <div class="text-xs text-muted-foreground">Up to 3 projects, community support, 1 GB storage.</div>
+                    <div class="grid gap-1">
+                        <label hlmLabel for="pay-card" class="font-medium cursor-pointer">Credit or Debit Card</label>
+                        <p class="text-xs text-muted-foreground">Pay with Visa, Mastercard, or American Express.</p>
                     </div>
-                </label>
-                <label for="plan-pro" class="flex cursor-pointer items-start space-x-3 rounded-lg border p-4 hover:bg-muted/50 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5">
-                    <hlm-radio value="pro" inputId="plan-pro" class="mt-0.5">
+                </div>
+                <div class="flex items-start space-x-3 mt-4">
+                    <hlm-radio value="paypal" inputId="pay-paypal" class="mt-0.5">
                         <hlm-radio-indicator />
                     </hlm-radio>
-                    <div class="space-y-1">
-                        <div class="font-medium text-sm">Pro Plan ($20/mo)</div>
-                        <div class="text-xs text-muted-foreground">Unlimited projects, priority SLA support, 100 GB storage.</div>
+                    <div class="grid gap-1">
+                        <label hlmLabel for="pay-paypal" class="font-medium cursor-pointer">PayPal Account</label>
+                        <p class="text-xs text-muted-foreground">Redirect to PayPal to authenticate your transaction.</p>
                     </div>
-                </label>
+                </div>
             </hlm-radio-group>
         `,
     }),
 };
 
-export const Disabled: Story = {
+export const DisabledItem: Story = {
     render: () => ({
         template: `
-            <hlm-radio-group value="disabled-opt" disabled>
+            <hlm-radio-group value="starter">
                 <div class="flex items-center space-x-2">
-                    <hlm-radio value="disabled-opt" inputId="r-disabled" disabled>
+                    <hlm-radio value="starter" inputId="plan-starter">
                         <hlm-radio-indicator />
                     </hlm-radio>
-                    <label hlmLabel for="r-disabled" class="text-muted-foreground">Disabled Option</label>
+                    <label hlmLabel for="plan-starter">Starter Plan (Free)</label>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <hlm-radio value="pro" inputId="plan-pro">
+                        <hlm-radio-indicator />
+                    </hlm-radio>
+                    <label hlmLabel for="plan-pro">Pro Plan ($29/mo)</label>
+                </div>
+                <div class="flex items-center space-x-2 opacity-50">
+                    <hlm-radio value="enterprise" inputId="plan-ent" [disabled]="true">
+                        <hlm-radio-indicator />
+                    </hlm-radio>
+                    <label hlmLabel for="plan-ent" class="cursor-not-allowed text-muted-foreground">Enterprise (Sold Out)</label>
                 </div>
             </hlm-radio-group>
         `,

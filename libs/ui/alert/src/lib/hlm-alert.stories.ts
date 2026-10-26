@@ -1,3 +1,5 @@
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { lucideAlertCircle, lucideTerminal } from '@ng-icons/lucide';
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 
 import { HlmButton } from '@gacc-ng/ui/button';
@@ -15,31 +17,45 @@ interface AlertStoryArgs {
 
 const meta: Meta<AlertStoryArgs> = {
     title: 'Primitives/Alert',
+    component: HlmAlert,
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
-            imports: [HlmAlert, HlmAlertTitle, HlmAlertDescription, HlmAlertAction, HlmButton],
+            imports: [HlmAlert, HlmAlertTitle, HlmAlertDescription, HlmAlertAction, HlmButton, NgIcon],
+            providers: [provideIcons({ lucideTerminal, lucideAlertCircle })],
         }),
     ],
     argTypes: {
         variant: {
             control: 'select',
             options: ['default', 'destructive'],
-            description: 'The visual severity styling of the alert',
+            description: 'The visual severity styling of the alert box.',
+            table: {
+                type: { summary: "'default' | 'destructive'" },
+                defaultValue: { summary: "'default'" },
+            },
         },
         title: {
             control: 'text',
-            description: 'The heading title of the alert',
+            description: 'The heading title of the alert.',
+            table: {
+                type: { summary: 'string | TemplateRef' },
+                defaultValue: { summary: "'Heads up!'" },
+            },
         },
         description: {
             control: 'text',
-            description: 'The body message of the alert',
+            description: 'The explanatory body message of the alert.',
+            table: {
+                type: { summary: 'string | TemplateRef' },
+                defaultValue: { summary: "'You can add components to your app using the cli.'" },
+            },
         },
     },
     args: {
         variant: 'default',
         title: 'Heads up!',
-        description: 'You can add components to your app using the cli.',
+        description: 'You can add components to your app using the Spartan CLI.',
     },
 };
 
@@ -61,33 +77,29 @@ export const Default: Story = {
 };
 
 export const Destructive: Story = {
-    args: {
-        variant: 'destructive',
-        title: 'Session Expired',
-        description: 'Your authentication token has expired. Please sign in again to continue.',
-    },
-    render: (args) => ({
-        props: args,
+    render: () => ({
         template: `
             <div class="w-full max-w-lg">
-                <hlm-alert [variant]="variant">
-                    <h5 hlmAlertTitle>{{ title }}</h5>
-                    <div hlmAlertDescription>{{ description }}</div>
+                <hlm-alert variant="destructive">
+                    <ng-icon name="lucideAlertCircle" class="size-4" />
+                    <h5 hlmAlertTitle>Error Encountered</h5>
+                    <div hlmAlertDescription>Your session has expired. Please log in again to continue editing.</div>
                 </hlm-alert>
             </div>
         `,
     }),
 };
 
-export const WithAction: Story = {
+export const WithIcon: Story = {
     render: () => ({
         template: `
             <div class="w-full max-w-lg">
-                <hlm-alert>
-                    <h5 hlmAlertTitle>New version available</h5>
-                    <div hlmAlertDescription>Spartan NG 0.0.1-alpha.375 is now published.</div>
+                <hlm-alert variant="default">
+                    <ng-icon name="lucideTerminal" class="size-4" />
+                    <h5 hlmAlertTitle>CLI Installed</h5>
+                    <div hlmAlertDescription>Run pnpm nx g @spartan-ng/cli:ui to scaffold new components.</div>
                     <div hlmAlertAction>
-                        <button hlmBtn variant="outline" size="sm">Upgrade</button>
+                        <button hlmBtn variant="outline" size="sm">Learn More</button>
                     </div>
                 </hlm-alert>
             </div>
