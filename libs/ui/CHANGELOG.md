@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/gacc-ng/design-system/compare/v0.4.0...v0.5.0) (2026-10-26)
+
+
+### Features
+
+* **ui:** ✨ implement tabular data presentation components (Phase 2.1) ([#134](https://github.com/gacc-ng/design-system/issues/134)) ([8e17300](https://github.com/gacc-ng/design-system/commit/8e17300604d7071198d142357653e9dcb2e4f0c1))
+
 ## [0.4.0](https://github.com/gacc-ng/design-system/compare/v0.3.0...v0.4.0) (2026-10-26)
 
 
