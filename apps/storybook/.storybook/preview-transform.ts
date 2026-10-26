@@ -208,7 +208,7 @@ export function formatStandaloneComponentSource(code: string, context?: StoryTra
     }
 
     // Build TypeScript import statements
-    const importStatements = [`import { ChangeDetectionStrategy, Component } from '@angular/core';`];
+    const importStatements = [`import { Component } from '@angular/core';`];
 
     for (const [pkg, symbols] of importMap.entries()) {
         const sortedSymbols = Array.from(symbols).sort();
@@ -257,7 +257,6 @@ export function formatStandaloneComponentSource(code: string, context?: StoryTra
     }
 
     componentMetadataLines.push(
-        `    changeDetection: ChangeDetectionStrategy.OnPush,`,
         `    template: \``,
         `${indentedTemplate}`,
         `    \`,`,

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, forwardRef } from '@angular/core';
+import { Component, forwardRef } from '@angular/core';
 
 import { BrnDialog, provideBrnDialogDefaultOptions } from '@spartan-ng/brain/dialog';
 import { BrnSheet } from '@spartan-ng/brain/sheet';
@@ -22,7 +22,6 @@ import { HlmSheetOverlay } from './hlm-sheet-overlay';
             // add custom options here
         }),
     ],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
         <hlm-sheet-overlay />
         <ng-content />

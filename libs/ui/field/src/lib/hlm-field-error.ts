@@ -1,7 +1,6 @@
 import { type BooleanInput } from '@angular/cdk/coercion';
 import {
     booleanAttribute,
-    ChangeDetectionStrategy,
     Component,
     computed,
     effect,
@@ -18,7 +17,6 @@ import { classes } from '@gacc-ng/ui/utils';
 @Component({
     selector: 'hlm-field-error',
     exportAs: 'hlmFieldError',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         role: 'alert',
         'data-slot': 'field-error',

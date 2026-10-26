@@ -1,13 +1,5 @@
 import { type BooleanInput } from '@angular/cdk/coercion';
-import {
-    booleanAttribute,
-    ChangeDetectionStrategy,
-    Component,
-    computed,
-    input,
-    linkedSignal,
-    output,
-} from '@angular/core';
+import { booleanAttribute, Component, computed, input, linkedSignal, output } from '@angular/core';
 
 import { type BrnDialogState } from '@spartan-ng/brain/dialog';
 import { type ClassValue } from 'clsx';
@@ -19,7 +11,6 @@ import { hlm } from '@gacc-ng/ui/utils';
     selector: 'hlm-command-dialog',
     exportAs: 'hlmCommandDialog',
     imports: [HlmDialogImports],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
         <hlm-dialog [state]="_state()" (stateChanged)="stateChanged($event)">
             <hlm-dialog-content

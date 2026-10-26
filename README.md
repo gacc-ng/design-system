@@ -42,7 +42,7 @@ This repository follows a strict two-layer component architecture based on **Spa
 ### Component Design Principles
 
 - **Modern Angular:** Standalone components and directives only.
-- **Performance:** `ChangeDetectionStrategy.OnPush` with Zoneless signals (`input()`, `computed()`, `output()`).
+- **Performance:** Native OnPush by default (Angular 22+) with Zoneless signals (`input()`, `computed()`, `output()`).
 - **Composition:** Headless Brain primitives are composed onto elements via Angular `hostDirectives`.
 
 ---

@@ -2,7 +2,7 @@
 
 Accessible, composable, signal-based Angular UI primitive directives built on top of [Spartan](https://spartan.ng) (Brain headless logic + Helm visual layer), Tailwind CSS v4, and Angular CDK.
 
-Designed strictly for modern Angular (v22+), supporting **Zoneless change detection**, **`ChangeDetectionStrategy.OnPush`**, and **Signals** (`input()`, `computed()`, `output()`).
+Designed strictly for modern Angular (v22+), supporting **Zoneless change detection** (with **OnPush by default**), and **Signals** (`input()`, `computed()`, `output()`).
 
 ---
 

@@ -1,11 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { classes } from '@gacc-ng/ui/utils';
 
 @Component({
     selector: 'hlm-radio-indicator',
     exportAs: 'hlmRadioIndicator',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         'data-slot': 'radio-group-indicator',
     },

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideMinus } from '@ng-icons/lucide';
@@ -10,7 +10,6 @@ import { classes } from '@gacc-ng/ui/utils';
     exportAs: 'hlmInputOtpSeparator',
     imports: [NgIcon],
     providers: [provideIcons({ lucideMinus })],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         role: 'separator',
         'data-slot': 'input-otp-separator',
