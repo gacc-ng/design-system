@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 import { BrnAvatar } from '@spartan-ng/brain/avatar';
 
@@ -7,7 +7,6 @@ import { classes } from '@gacc-ng/ui/utils';
 @Component({
     selector: 'hlm-avatar',
     exportAs: 'hlmAvatar',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         'data-slot': 'avatar',
         '[attr.data-size]': 'size()',

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideChevronRight } from '@ng-icons/lucide';
@@ -11,7 +11,6 @@ import { classes } from '@gacc-ng/ui/utils';
     exportAs: 'hlmBreadcrumbSeparator',
     imports: [NgIcon],
     providers: [provideIcons({ lucideChevronRight })],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         'data-slot': 'breadcrumb-separator',
         role: 'presentation',

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideChevronUp } from '@ng-icons/lucide';
@@ -11,7 +11,6 @@ import { classes } from '@gacc-ng/ui/utils';
     exportAs: 'hlmSelectScrollUp',
     imports: [NgIcon],
     providers: [provideIcons({ lucideChevronUp })],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     hostDirectives: [BrnSelectScrollUp],
     template: ` <ng-icon name="lucideChevronUp" /> `,
 })

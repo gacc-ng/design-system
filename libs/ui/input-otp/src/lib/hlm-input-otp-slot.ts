@@ -1,5 +1,5 @@
 import { type BooleanInput, type NumberInput } from '@angular/cdk/coercion';
-import { booleanAttribute, ChangeDetectionStrategy, Component, input, numberAttribute } from '@angular/core';
+import { booleanAttribute, Component, input, numberAttribute } from '@angular/core';
 
 import { BrnInputOtpSlot } from '@spartan-ng/brain/input-otp';
 
@@ -11,7 +11,6 @@ import { HlmInputOtpFakeCaret } from './hlm-input-otp-fake-caret';
     selector: 'hlm-input-otp-slot',
     exportAs: 'hlmInputOtpSlot',
     imports: [BrnInputOtpSlot, HlmInputOtpFakeCaret],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     host: { 'data-slot': 'input-otp-slot' },
     template: `
         <brn-input-otp-slot [index]="index()" [forceInvalid]="forceInvalid()">

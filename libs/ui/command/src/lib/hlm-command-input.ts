@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideSearch } from '@ng-icons/lucide';
@@ -11,7 +11,6 @@ import { classes } from '@gacc-ng/ui/utils';
     exportAs: 'hlmCommandInput',
     imports: [NgIcon, BrnCommandInput],
     providers: [provideIcons({ lucideSearch })],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         'data-slot': 'command-input-wrapper',
     },

@@ -19,7 +19,7 @@ export class CustomDemoComponent {}
         expect(formatStandaloneComponentSource(componentCode)).toBe(componentCode);
     });
 
-    it('synthesizes standalone component for single directives like Button with OnPush', () => {
+    it('synthesizes standalone component for single directives like Button', () => {
         const code = `
             render: (args) => ({
                 template: \`
@@ -29,11 +29,11 @@ export class CustomDemoComponent {}
         `;
         const result = formatStandaloneComponentSource(code, { title: 'Primitives/Button' });
 
-        expect(result).toContain("import { ChangeDetectionStrategy, Component } from '@angular/core';");
+        expect(result).toContain("import { Component } from '@angular/core';");
         expect(result).toContain("import { HlmButton } from '@gacc-ng/ui/button';");
         expect(result).toContain("selector: 'app-button-demo'");
         expect(result).toContain('imports: [HlmButton]');
-        expect(result).toContain('changeDetection: ChangeDetectionStrategy.OnPush,');
+        expect(result).not.toContain('changeDetection:');
         expect(result).toContain('<button hlmBtn variant="default">Button</button>');
         expect(result).toContain('export class ButtonDemoComponent {}');
         expect(result).not.toContain('provideIcons');
@@ -53,7 +53,7 @@ export class CustomDemoComponent {}
 
         expect(result).toContain("import { HlmAccordionImports } from '@gacc-ng/ui/accordion';");
         expect(result).toContain('imports: [HlmAccordionImports]');
-        expect(result).toContain('changeDetection: ChangeDetectionStrategy.OnPush,');
+        expect(result).not.toContain('changeDetection:');
         expect(result).toContain('export class AccordionDemoComponent {}');
     });
 

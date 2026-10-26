@@ -1,7 +1,7 @@
 import { type BooleanInput } from '@angular/cdk/coercion';
 import { type ComponentType } from '@angular/cdk/portal';
 import { NgComponentOutlet } from '@angular/common';
-import { booleanAttribute, ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import { booleanAttribute, Component, computed, inject, input } from '@angular/core';
 
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideX } from '@ng-icons/lucide';
@@ -24,7 +24,6 @@ export type HlmDialogContentContext = {
     exportAs: 'hlmDialogContent',
     imports: [NgComponentOutlet, HlmButton, HlmDialogClose, NgIcon],
     providers: [provideIcons({ lucideX })],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         'data-slot': 'dialog-content',
         '[attr.data-state]': 'state()',

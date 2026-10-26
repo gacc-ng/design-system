@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideChevronDown } from '@ng-icons/lucide';
@@ -12,7 +12,6 @@ import { hlm } from '@gacc-ng/ui/utils';
     exportAs: 'hlmAccordionTrigger',
     imports: [BrnAccordionImports, NgIcon],
     providers: [provideIcons({ lucideChevronDown })],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
         <h3 brnAccordionHeader class="flex">
             <button brnAccordionTrigger data-slot="accordion-trigger" [class]="_computedTriggerClass()">

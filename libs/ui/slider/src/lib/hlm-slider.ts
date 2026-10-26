@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { BrnSlider, BrnSliderImports, injectBrnSlider } from '@spartan-ng/brain/slider';
 
@@ -8,7 +8,6 @@ import { classes } from '@gacc-ng/ui/utils';
     selector: 'hlm-slider, brn-slider [hlm]',
     exportAs: 'hlmSlider',
     imports: [BrnSliderImports],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     hostDirectives: [
         {
             directive: BrnSlider,

@@ -1,13 +1,5 @@
 import { CdkObserveContent } from '@angular/cdk/observers';
-import {
-    ChangeDetectionStrategy,
-    Component,
-    computed,
-    contentChildren,
-    type ElementRef,
-    input,
-    viewChild,
-} from '@angular/core';
+import { Component, computed, contentChildren, type ElementRef, input, viewChild } from '@angular/core';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { type Observable } from 'rxjs';
 
@@ -26,7 +18,6 @@ import { listVariants } from './hlm-tabs-list';
     exportAs: 'hlmTabsPaginatedList',
     imports: [CdkObserveContent, NgIcon],
     providers: [provideIcons({ lucideChevronRight, lucideChevronLeft })],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         'data-slot': 'tabs-paginated-list',
     },

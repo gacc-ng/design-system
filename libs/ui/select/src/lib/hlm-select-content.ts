@@ -1,5 +1,5 @@
 import { type BooleanInput } from '@angular/cdk/coercion';
-import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { booleanAttribute, Component, computed, input } from '@angular/core';
 
 import { BrnSelectContent, BrnSelectList } from '@spartan-ng/brain/select';
 
@@ -12,7 +12,6 @@ import { HlmSelectScrollUp } from './hlm-select-scroll-up';
     selector: 'hlm-select-content',
     exportAs: 'hlmSelectContent',
     imports: [HlmSelectScrollUp, HlmSelectScrollDown, BrnSelectList],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     hostDirectives: [BrnSelectContent],
     template: `
         @if (showScroll()) {
