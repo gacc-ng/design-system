@@ -30,6 +30,7 @@ import { HlmSkeletonImports } from '../skeleton/src';
 import { HlmSliderImports } from '../slider/src';
 import { HlmSpinnerImports } from '../spinner/src';
 import { HlmSwitchImports } from '../switch/src';
+import { HlmTableImports } from '../table/src';
 import { HlmTabsImports } from '../tabs/src';
 import { HlmTextareaImports } from '../textarea/src';
 import { HlmToggleImports } from '../toggle/src';
@@ -68,6 +69,7 @@ describe('UI Primitives Barrel Exports Contract', () => {
         slider: HlmSliderImports,
         spinner: HlmSpinnerImports,
         switch: HlmSwitchImports,
+        table: HlmTableImports,
         tabs: HlmTabsImports,
         textarea: HlmTextareaImports,
         toggle: HlmToggleImports,
