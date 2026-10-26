@@ -16,6 +16,7 @@ import { HlmCheckboxImports } from '../checkbox/src';
 import { HlmCollapsibleImports } from '../collapsible/src';
 import { HlmComboboxImports } from '../combobox/src';
 import { HlmCommandImports } from '../command/src';
+import { HlmContextMenuImports } from '../context-menu/src';
 import { HlmDataTableImports } from '../data-table/src';
 import { HlmDatePickerImports } from '../date-picker/src';
 import { HlmDialogImports } from '../dialog/src';
@@ -23,13 +24,16 @@ import { HlmDrawerImports } from '../drawer/src';
 import { HlmDropdownMenuImports } from '../dropdown-menu/src';
 import { HlmEmptyImports } from '../empty/src';
 import { HlmFieldImports } from '../field/src';
+import { HlmHoverCardImports } from '../hover-card/src';
 import { HlmInputImports } from '../input/src';
 import { HlmInputGroupImports } from '../input-group/src';
 import { HlmInputOtpImports } from '../input-otp/src';
 import { HlmItemImports } from '../item/src';
 import { HlmKbdImports } from '../kbd/src';
 import { HlmLabelImports } from '../label/src';
+import { HlmMenubarImports } from '../menubar/src';
 import { HlmNativeSelectImports } from '../native-select/src';
+import { HlmNavigationMenuImports } from '../navigation-menu/src';
 import { HlmPaginationImports } from '../pagination/src';
 import { HlmPopoverImports } from '../popover/src';
 import { HlmProgressImports } from '../progress/src';
@@ -42,6 +46,7 @@ import { HlmSheetImports } from '../sheet/src';
 import { HlmSidebarImports } from '../sidebar/src';
 import { HlmSkeletonImports } from '../skeleton/src';
 import { HlmSliderImports } from '../slider/src';
+import { HlmToasterImports } from '../sonner/src';
 import { HlmSpinnerImports } from '../spinner/src';
 import { HlmSwitchImports } from '../switch/src';
 import { HlmTableImports } from '../table/src';
@@ -69,6 +74,7 @@ describe('UI Primitives Barrel Exports Contract', () => {
         collapsible: HlmCollapsibleImports,
         combobox: HlmComboboxImports,
         command: HlmCommandImports,
+        'context-menu': HlmContextMenuImports,
         'data-table': HlmDataTableImports,
         'date-picker': HlmDatePickerImports,
         dialog: HlmDialogImports,
@@ -76,13 +82,16 @@ describe('UI Primitives Barrel Exports Contract', () => {
         'dropdown-menu': HlmDropdownMenuImports,
         empty: HlmEmptyImports,
         field: HlmFieldImports,
+        'hover-card': HlmHoverCardImports,
         input: HlmInputImports,
         'input-group': HlmInputGroupImports,
         'input-otp': HlmInputOtpImports,
         item: HlmItemImports,
         kbd: HlmKbdImports,
         label: HlmLabelImports,
+        menubar: HlmMenubarImports,
         'native-select': HlmNativeSelectImports,
+        'navigation-menu': HlmNavigationMenuImports,
         pagination: HlmPaginationImports,
         popover: HlmPopoverImports,
         progress: HlmProgressImports,
@@ -95,6 +104,7 @@ describe('UI Primitives Barrel Exports Contract', () => {
         sidebar: HlmSidebarImports,
         skeleton: HlmSkeletonImports,
         slider: HlmSliderImports,
+        sonner: HlmToasterImports,
         spinner: HlmSpinnerImports,
         switch: HlmSwitchImports,
         table: HlmTableImports,

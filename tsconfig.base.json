@@ -66,7 +66,12 @@
             "@gacc-ng/ui/scroll-area": ["./libs/ui/scroll-area/src/index.ts"],
             "@gacc-ng/ui/resizable": ["./libs/ui/resizable/src/index.ts"],
             "@gacc-ng/ui/drawer": ["./libs/ui/drawer/src/index.ts"],
-            "@gacc-ng/ui/sidebar": ["./libs/ui/sidebar/src/index.ts"]
+            "@gacc-ng/ui/sidebar": ["./libs/ui/sidebar/src/index.ts"],
+            "@gacc-ng/ui/context-menu": ["./libs/ui/context-menu/src/index.ts"],
+            "@gacc-ng/ui/hover-card": ["./libs/ui/hover-card/src/index.ts"],
+            "@gacc-ng/ui/menubar": ["./libs/ui/menubar/src/index.ts"],
+            "@gacc-ng/ui/navigation-menu": ["./libs/ui/navigation-menu/src/index.ts"],
+            "@gacc-ng/ui/sonner": ["./libs/ui/sonner/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
