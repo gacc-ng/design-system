@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/gacc-ng/design-system/compare/v0.5.1...v0.6.0) (2026-10-26)
+
+
+### Features
+
+* **ui:** ✨ implement Phase 2.2 advanced form controls and pickers ([#140](https://github.com/gacc-ng/design-system/issues/140)) ([1720b3d](https://github.com/gacc-ng/design-system/commit/1720b3d4abf6632131dd0a71c66a15a85cc92c71))
+
 ## [0.5.1](https://github.com/gacc-ng/design-system/compare/v0.5.0...v0.5.1) (2026-10-26)
 
 
