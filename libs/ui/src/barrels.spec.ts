@@ -13,6 +13,7 @@ import { HlmCollapsibleImports } from '../collapsible/src';
 import { HlmCommandImports } from '../command/src';
 import { HlmDialogImports } from '../dialog/src';
 import { HlmDropdownMenuImports } from '../dropdown-menu/src';
+import { HlmEmptyImports } from '../empty/src';
 import { HlmFieldImports } from '../field/src';
 import { HlmInputImports } from '../input/src';
 import { HlmInputOtpImports } from '../input-otp/src';
@@ -49,6 +50,7 @@ describe('UI Primitives Barrel Exports Contract', () => {
         command: HlmCommandImports,
         dialog: HlmDialogImports,
         'dropdown-menu': HlmDropdownMenuImports,
+        empty: HlmEmptyImports,
         field: HlmFieldImports,
         input: HlmInputImports,
         'input-otp': HlmInputOtpImports,
