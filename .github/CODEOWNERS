@@ -1,0 +1,6 @@
+# Critical security, supply chain, and CI/CD infrastructure
+.github/workflows/          @gacc94
+.github/codeql/             @gacc94
+.github/dependabot.yml      @gacc94
+.github/CODEOWNERS          @gacc94
+SECURITY.md                 @gacc94
