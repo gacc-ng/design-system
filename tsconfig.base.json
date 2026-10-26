@@ -71,7 +71,16 @@
             "@gacc-ng/ui/hover-card": ["./libs/ui/hover-card/src/index.ts"],
             "@gacc-ng/ui/menubar": ["./libs/ui/menubar/src/index.ts"],
             "@gacc-ng/ui/navigation-menu": ["./libs/ui/navigation-menu/src/index.ts"],
-            "@gacc-ng/ui/sonner": ["./libs/ui/sonner/src/index.ts"]
+            "@gacc-ng/ui/sonner": ["./libs/ui/sonner/src/index.ts"],
+            "@gacc-ng/ui/carousel": ["./libs/ui/carousel/src/index.ts"],
+            "@gacc-ng/ui/code-block": ["./libs/ui/code-block/src/index.ts"],
+            "@gacc-ng/ui/bubble": ["./libs/ui/bubble/src/index.ts"],
+            "@gacc-ng/ui/message": ["./libs/ui/message/src/index.ts"],
+            "@gacc-ng/ui/message-scroller": ["./libs/ui/message-scroller/src/index.ts"],
+            "@gacc-ng/ui/attachment": ["./libs/ui/attachment/src/index.ts"],
+            "@gacc-ng/ui/marker": ["./libs/ui/marker/src/index.ts"],
+            "@gacc-ng/ui/questionnaire": ["./libs/ui/questionnaire/src/index.ts"],
+            "@gacc-ng/ui/trace": ["./libs/ui/trace/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
