@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/gacc-ng/design-system/compare/v0.6.0...v0.7.0) (2026-10-26)
+
+
+### Features
+
+* **ui:** ✨ implement Phase 2.3 layout and panel surfaces ([#147](https://github.com/gacc-ng/design-system/issues/147)) ([b474dc2](https://github.com/gacc-ng/design-system/commit/b474dc2bf601cc7191827b17c8d35d0179be2ecf))
+
 ## [0.6.0](https://github.com/gacc-ng/design-system/compare/v0.5.1...v0.6.0) (2026-10-26)
 
 
