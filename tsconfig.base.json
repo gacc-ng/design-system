@@ -57,7 +57,8 @@
             "@gacc-ng/ui/item": ["./libs/ui/item/src/index.ts"],
             "@gacc-ng/ui/button-group": ["./libs/ui/button-group/src/index.ts"],
             "@gacc-ng/ui/input-group": ["./libs/ui/input-group/src/index.ts"],
-            "@gacc-ng/ui/native-select": ["./libs/ui/native-select/src/index.ts"]
+            "@gacc-ng/ui/native-select": ["./libs/ui/native-select/src/index.ts"],
+            "@gacc-ng/ui/combobox": ["./libs/ui/combobox/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
