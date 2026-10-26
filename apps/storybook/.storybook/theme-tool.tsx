@@ -128,22 +128,36 @@ export function ThemeTool(): React.JSX.Element {
             placement="bottom-start"
             trigger="click"
             closeOnOutsideClick
+            modifiers={[
+                {
+                    name: 'preventOverflow',
+                    options: {
+                        padding: 8,
+                    },
+                },
+                {
+                    name: 'offset',
+                    options: {
+                        offset: [-14, 6],
+                    },
+                },
+            ]}
             tooltip={() => (
                 <div
                     style={{
-                        padding: '16px',
-                        width: '260px',
+                        padding: '18px 20px',
+                        width: '270px',
                         fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                         color: textColor,
                         backgroundColor: cardBg,
-                        borderRadius: '10px',
+                        borderRadius: '12px',
                         boxShadow: isDarkUi
                             ? '0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5)'
                             : '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05)',
                     }}
                 >
                     {/* Section: Color Mode */}
-                    <div style={{ fontSize: '13px', fontWeight: 600, marginBottom: '12px', color: textColor }}>
+                    <div style={{ fontSize: '14px', fontWeight: 700, marginBottom: '12px', color: textColor }}>
                         Color
                     </div>
 
@@ -152,7 +166,7 @@ export function ThemeTool(): React.JSX.Element {
                             display: 'grid',
                             gridTemplateColumns: 'repeat(3, 1fr)',
                             gap: '8px',
-                            marginBottom: '16px',
+                            marginBottom: '20px',
                         }}
                     >
                         {/* Light Card */}
@@ -166,7 +180,7 @@ export function ThemeTool(): React.JSX.Element {
                                 justifyContent: 'center',
                                 gap: '8px',
                                 padding: '12px 6px',
-                                borderRadius: '6px',
+                                borderRadius: '8px',
                                 border: mode === 'light' ? '1.5px solid #2563eb' : `1px solid ${cardBorder}`,
                                 backgroundColor:
                                     mode === 'light'
@@ -182,24 +196,27 @@ export function ThemeTool(): React.JSX.Element {
                             {/* Toggle Switch Graphic: Light */}
                             <div
                                 style={{
-                                    width: 36,
-                                    height: 20,
-                                    borderRadius: 10,
+                                    width: 40,
+                                    height: 22,
+                                    borderRadius: 11,
                                     backgroundColor: '#e4e4e7',
                                     border: '1px solid #d4d4d8',
-                                    position: 'relative',
                                     display: 'flex',
                                     alignItems: 'center',
-                                    padding: '0 2px',
+                                    justifyContent: 'space-between',
+                                    padding: '0 3px',
                                 }}
                             >
                                 <div
                                     style={{ width: 14, height: 14, borderRadius: '50%', backgroundColor: '#2563eb' }}
                                 />
+                                <div
+                                    style={{ width: 14, height: 14, borderRadius: '50%', backgroundColor: '#ffffff' }}
+                                />
                             </div>
                             <span
                                 style={{
-                                    fontSize: '12px',
+                                    fontSize: '13px',
                                     fontWeight: 600,
                                     color: mode === 'light' ? '#2563eb' : textColor,
                                 }}
@@ -219,7 +236,7 @@ export function ThemeTool(): React.JSX.Element {
                                 justifyContent: 'center',
                                 gap: '8px',
                                 padding: '12px 6px',
-                                borderRadius: '6px',
+                                borderRadius: '8px',
                                 border: mode === 'dark' ? '1.5px solid #2563eb' : `1px solid ${cardBorder}`,
                                 backgroundColor:
                                     mode === 'dark'
@@ -235,25 +252,27 @@ export function ThemeTool(): React.JSX.Element {
                             {/* Toggle Switch Graphic: Dark */}
                             <div
                                 style={{
-                                    width: 36,
-                                    height: 20,
-                                    borderRadius: 10,
+                                    width: 40,
+                                    height: 22,
+                                    borderRadius: 11,
                                     backgroundColor: '#18181b',
                                     border: '1px solid #3f3f46',
-                                    position: 'relative',
                                     display: 'flex',
                                     alignItems: 'center',
-                                    justifyContent: 'flex-end',
-                                    padding: '0 2px',
+                                    justifyContent: 'space-between',
+                                    padding: '0 3px',
                                 }}
                             >
                                 <div
                                     style={{ width: 14, height: 14, borderRadius: '50%', backgroundColor: '#2563eb' }}
                                 />
+                                <div
+                                    style={{ width: 14, height: 14, borderRadius: '50%', backgroundColor: '#09090b' }}
+                                />
                             </div>
                             <span
                                 style={{
-                                    fontSize: '12px',
+                                    fontSize: '13px',
                                     fontWeight: 600,
                                     color: mode === 'dark' ? '#2563eb' : textColor,
                                 }}
@@ -273,7 +292,7 @@ export function ThemeTool(): React.JSX.Element {
                                 justifyContent: 'center',
                                 gap: '8px',
                                 padding: '12px 6px',
-                                borderRadius: '6px',
+                                borderRadius: '8px',
                                 border: mode === 'system' ? '1.5px solid #2563eb' : `1px solid ${cardBorder}`,
                                 backgroundColor:
                                     mode === 'system'
@@ -289,24 +308,27 @@ export function ThemeTool(): React.JSX.Element {
                             {/* Toggle Switch Graphic: System Split */}
                             <div
                                 style={{
-                                    width: 36,
-                                    height: 20,
-                                    borderRadius: 10,
-                                    background: 'linear-gradient(90deg, #e4e4e7 50%, #18181b 50%)',
+                                    width: 40,
+                                    height: 22,
+                                    borderRadius: 11,
+                                    backgroundColor: '#e4e4e7',
                                     border: '1px solid #71717a',
-                                    position: 'relative',
                                     display: 'flex',
                                     alignItems: 'center',
-                                    justifyContent: 'center',
+                                    justifyContent: 'space-between',
+                                    padding: '0 3px',
                                 }}
                             >
                                 <div
                                     style={{ width: 14, height: 14, borderRadius: '50%', backgroundColor: '#2563eb' }}
                                 />
+                                <div
+                                    style={{ width: 14, height: 14, borderRadius: '50%', backgroundColor: '#18181b' }}
+                                />
                             </div>
                             <span
                                 style={{
-                                    fontSize: '12px',
+                                    fontSize: '13px',
                                     fontWeight: 600,
                                     color: mode === 'system' ? '#2563eb' : textColor,
                                 }}
@@ -317,53 +339,33 @@ export function ThemeTool(): React.JSX.Element {
                     </div>
 
                     {/* Section: Corner Radius */}
-                    <div style={{ borderTop: `1px solid ${cardBorder}`, paddingTop: '12px' }}>
-                        <div style={{ fontSize: '13px', fontWeight: 600, marginBottom: '8px', color: textColor }}>
+                    <div>
+                        <div style={{ fontSize: '14px', fontWeight: 700, marginBottom: '8px', color: textColor }}>
                             Corner radius
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
                             {RADIUS_OPTIONS.map((opt) => {
                                 const isSelected = opt.id === radius;
+                                const label = opt.id === 'default' ? 'Default' : opt.title.split(' ')[0];
                                 return (
                                     <button
                                         key={opt.id}
                                         type="button"
                                         onClick={() => selectRadius(opt.id)}
                                         style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'space-between',
-                                            padding: '6px 8px',
-                                            borderRadius: '4px',
+                                            background: 'none',
                                             border: 'none',
-                                            backgroundColor: isSelected
-                                                ? isDarkUi
-                                                    ? 'rgba(37, 99, 235, 0.18)'
-                                                    : 'rgba(37, 99, 235, 0.1)'
-                                                : 'transparent',
-                                            color: isSelected ? '#2563eb' : isDarkUi ? '#fafafa' : '#18181b',
-                                            fontWeight: isSelected ? 600 : 400,
-                                            fontSize: '12px',
-                                            cursor: 'pointer',
+                                            padding: '5px 0',
                                             textAlign: 'left',
-                                            transition: 'background-color 120ms ease',
+                                            fontSize: '14px',
+                                            fontWeight: isSelected ? 600 : 400,
+                                            color: isSelected ? '#2563eb' : textColor,
+                                            cursor: 'pointer',
+                                            outline: 'none',
+                                            transition: 'color 120ms ease',
                                         }}
                                     >
-                                        <span>{opt.title}</span>
-                                        {isSelected && (
-                                            <svg
-                                                width="13"
-                                                height="13"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                strokeWidth="2.5"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                            >
-                                                <polyline points="20 6 9 17 4 12" />
-                                            </svg>
-                                        )}
+                                        {label}
                                     </button>
                                 );
                             })}
