@@ -125,7 +125,7 @@ export function ThemeTool(): React.JSX.Element {
 
     return (
         <WithTooltip
-            placement="top"
+            placement="bottom-start"
             trigger="click"
             closeOnOutsideClick
             tooltip={() => (

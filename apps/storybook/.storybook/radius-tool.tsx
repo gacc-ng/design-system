@@ -52,7 +52,7 @@ export function RadiusTool(): React.JSX.Element {
 
     return (
         <WithTooltip
-            placement="top"
+            placement="bottom-start"
             trigger="click"
             closeOnOutsideClick
             tooltip={({ onHide }) => (
