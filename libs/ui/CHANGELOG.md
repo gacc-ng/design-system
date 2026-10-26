@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://github.com/gacc-ng/design-system/compare/v0.8.0...v0.9.0) (2026-10-26)
+
+
+### Features
+
+* **ui:** ✨ implement Phase 2.5 rich media and conversational primitives ([#151](https://github.com/gacc-ng/design-system/issues/151)) ([f0d385f](https://github.com/gacc-ng/design-system/commit/f0d385f61b2841982a9b2da6f972d87e5a8197ca))
+
 ## [0.8.0](https://github.com/gacc-ng/design-system/compare/v0.7.0...v0.8.0) (2026-10-26)
 
 
