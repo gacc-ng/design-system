@@ -17,6 +17,7 @@ import { HlmEmptyImports } from '../empty/src';
 import { HlmFieldImports } from '../field/src';
 import { HlmInputImports } from '../input/src';
 import { HlmInputOtpImports } from '../input-otp/src';
+import { HlmItemImports } from '../item/src';
 import { HlmKbdImports } from '../kbd/src';
 import { HlmLabelImports } from '../label/src';
 import { HlmPopoverImports } from '../popover/src';
@@ -54,6 +55,7 @@ describe('UI Primitives Barrel Exports Contract', () => {
         field: HlmFieldImports,
         input: HlmInputImports,
         'input-otp': HlmInputOtpImports,
+        item: HlmItemImports,
         kbd: HlmKbdImports,
         label: HlmLabelImports,
         popover: HlmPopoverImports,
