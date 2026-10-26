@@ -1,8 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
-import type { Meta, StoryObj } from '@storybook/angular';
-import { moduleMetadata } from '@storybook/angular';
+import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 
 import { HlmPaginationImports } from '../index';
 
