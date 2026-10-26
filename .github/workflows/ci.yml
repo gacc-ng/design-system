@@ -6,20 +6,26 @@ on:
     pull_request:
         branches: [main]
     merge_group:
+    schedule:
+        - cron: '0 6 * * 1'
+    workflow_dispatch:
 
 concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
-    cancel-in-progress: true
+    cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
-    actions: read
     contents: read
-    pull-requests: read
 
 jobs:
-    quality-gate:
-        name: Lint, Format, Test & Build
+    checks:
+        name: Checks & Tests
+        if: github.event_name != 'schedule'
         runs-on: ubuntu-latest
+        permissions:
+            actions: read
+            contents: read
+            pull-requests: read
         steps:
             - name: Checkout repository
               uses: actions/checkout@v7
@@ -40,8 +46,32 @@ jobs:
             - name: Verify code formatting
               run: pnpm nx format:check --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
 
-            - name: Execute affected quality gates
-              run: pnpm nx affected -t lint test build test-schematics validate-package build-storybook --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
+            - name: Execute affected lint and tests
+              run: pnpm nx affected -t lint test test-schematics --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
+
+    build:
+        name: Build & Package
+        needs: [checks]
+        if: github.event_name != 'schedule'
+        runs-on: ubuntu-latest
+        permissions:
+            actions: read
+            contents: read
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v7
+              with:
+                  fetch-depth: 0
+
+            - name: Setup workspace
+              uses: ./.github/actions/setup
+
+            - name: Determine base and head commits
+              id: set-shas
+              uses: nrwl/nx-set-shas@v5
+
+            - name: Execute affected build and validation
+              run: pnpm nx affected -t build validate-package build-storybook --base=${{ steps.set-shas.outputs.base }} --head=${{ steps.set-shas.outputs.head }}
 
             - name: Upload library distribution artifact
               if: hashFiles('dist/libs/ui/package.json') != ''
@@ -50,3 +80,64 @@ jobs:
                   name: gacc-ng-ui-dist
                   path: dist/libs/ui
                   retention-days: 7
+
+    security-codeql:
+        name: CodeQL Analysis
+        runs-on: ubuntu-latest
+        permissions:
+            actions: read
+            contents: read
+            security-events: write
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v7
+              with:
+                  fetch-depth: 0
+
+            - name: Initialize CodeQL
+              uses: github/codeql-action/init@v4
+              with:
+                  languages: javascript-typescript
+                  config-file: ./.github/codeql/codeql-config.yml
+
+            - name: Perform CodeQL Analysis
+              uses: github/codeql-action/analyze@v4
+              with:
+                  category: '/language:javascript-typescript'
+
+    dependency-review:
+        name: Dependency Review
+        if: github.event_name == 'pull_request'
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v7
+
+            - name: Perform Dependency Review
+              uses: actions/dependency-review-action@v5
+              with:
+                  fail-on-severity: 'high'
+                  fail-on-scopes: 'runtime'
+                  allow-licenses: '0BSD, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, MIT'
+                  warn-only: true
+
+    quality-gate:
+        name: Lint, Format, Test & Build
+        needs: [checks, build, security-codeql, dependency-review]
+        if: always() && github.event_name != 'schedule'
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+        steps:
+            - name: Evaluate upstream results
+              env:
+                  NEEDS: ${{ toJSON(needs) }}
+                  EVENT: ${{ github.event_name }}
+              run: |
+                  echo "$NEEDS" | jq -e --arg event "$EVENT" '
+                    to_entries | all(
+                      .value.result == "success"
+                      or (.key == "dependency-review" and $event != "pull_request" and .value.result == "skipped")
+                    )'
