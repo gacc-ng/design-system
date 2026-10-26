@@ -25,6 +25,12 @@ import { HlmSidebar, HlmSidebarImports, HlmSidebarService, HlmSidebarTrigger, pr
                                         <span>Dashboard</span>
                                     </button>
                                 </li>
+                                <hlm-sidebar-separator
+                                    data-testid="sidebar-separator"
+                                    orientation="horizontal"
+                                    [decorative]="true"
+                                />
+                                <hlm-sidebar-menu-skeleton data-testid="sidebar-menu-skeleton" [showIcon]="true" />
                             </ul>
                         </div>
                     </div>
@@ -139,6 +145,62 @@ describe('HlmSidebar System', () => {
             expect(service.open()).toBe(initialOpen);
         });
 
+        it('should handle keyboard shortcut case-insensitively', () => {
+            const initialOpen = service.open();
+
+            const upperBEvent = new KeyboardEvent('keydown', {
+                key: 'B',
+                ctrlKey: true,
+                bubbles: true,
+                cancelable: true,
+            });
+            window.dispatchEvent(upperBEvent);
+
+            expect(service.open()).toBe(!initialOpen);
+        });
+
+        it('should ignore keyboard shortcut when event target is input, textarea, or contentEditable', () => {
+            const initialOpen = service.open();
+
+            const inputEl = document.createElement('input');
+            document.body.appendChild(inputEl);
+            const inputEvent = new KeyboardEvent('keydown', {
+                key: 'b',
+                ctrlKey: true,
+                bubbles: true,
+                cancelable: true,
+            });
+            inputEl.dispatchEvent(inputEvent);
+            expect(service.open()).toBe(initialOpen);
+            inputEl.remove();
+
+            const textareaEl = document.createElement('textarea');
+            document.body.appendChild(textareaEl);
+            const textareaEvent = new KeyboardEvent('keydown', {
+                key: 'b',
+                ctrlKey: true,
+                bubbles: true,
+                cancelable: true,
+            });
+            textareaEl.dispatchEvent(textareaEvent);
+            expect(service.open()).toBe(initialOpen);
+            textareaEl.remove();
+
+            const editableEl = document.createElement('div');
+            editableEl.setAttribute('contenteditable', 'true');
+            Object.defineProperty(editableEl, 'isContentEditable', { value: true, configurable: true });
+            document.body.appendChild(editableEl);
+            const editableEvent = new KeyboardEvent('keydown', {
+                key: 'b',
+                ctrlKey: true,
+                bubbles: true,
+                cancelable: true,
+            });
+            editableEl.dispatchEvent(editableEvent);
+            expect(service.open()).toBe(initialOpen);
+            editableEl.remove();
+        });
+
         it('should restore open state from cookie on creation', () => {
             TestBed.resetTestingModule();
             document.cookie = 'sidebar_restore_cookie=false; path=/; max-age=3600';
@@ -197,6 +259,8 @@ describe('HlmSidebar System', () => {
             const menuButton = fixture.debugElement.query(By.css('[data-testid="sidebar-menu-button"]'));
             const rail = fixture.debugElement.query(By.css('[data-testid="sidebar-rail"]'));
             const inset = fixture.debugElement.query(By.css('[data-testid="sidebar-inset"]'));
+            const separator = fixture.debugElement.query(By.css('[data-testid="sidebar-separator"]'));
+            const skeleton = fixture.debugElement.query(By.css('[data-testid="sidebar-menu-skeleton"]'));
 
             expect(header.nativeElement.getAttribute('data-slot')).toBe('sidebar-header');
             expect(content.nativeElement.getAttribute('data-slot')).toBe('sidebar-content');
@@ -209,6 +273,15 @@ describe('HlmSidebar System', () => {
             expect(menuButton.nativeElement.getAttribute('data-slot')).toBe('sidebar-menu-button');
             expect(rail.nativeElement.getAttribute('data-slot')).toBe('sidebar-rail');
             expect(inset.nativeElement.getAttribute('data-slot')).toBe('sidebar-inset');
+
+            expect(separator.nativeElement.getAttribute('data-slot')).toBe('sidebar-separator');
+            expect(separator.nativeElement.getAttribute('data-orientation')).toBe('horizontal');
+
+            expect(skeleton.nativeElement.getAttribute('data-slot')).toBe('sidebar-menu-skeleton');
+            const skeletonIcon = skeleton.query(By.css('[data-sidebar="menu-skeleton-icon"]'));
+            const skeletonText = skeleton.query(By.css('[data-sidebar="menu-skeleton-text"]'));
+            expect(skeletonIcon).toBeTruthy();
+            expect(skeletonText).toBeTruthy();
         });
 
         it('should update data attributes on sidebar host for collapsible="icon"', () => {

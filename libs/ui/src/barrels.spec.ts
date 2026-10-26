@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { HlmAccordionImports } from '../accordion/src';
 import { HlmAlertImports } from '../alert/src';
 import { HlmAlertDialogImports } from '../alert-dialog/src';
+import { HlmAspectRatioImports } from '../aspect-ratio/src';
 import { HlmAutocompleteImports } from '../autocomplete/src';
 import { HlmAvatarImports } from '../avatar/src';
 import { HlmBadgeImports } from '../badge/src';
@@ -18,6 +19,7 @@ import { HlmCommandImports } from '../command/src';
 import { HlmDataTableImports } from '../data-table/src';
 import { HlmDatePickerImports } from '../date-picker/src';
 import { HlmDialogImports } from '../dialog/src';
+import { HlmDrawerImports } from '../drawer/src';
 import { HlmDropdownMenuImports } from '../dropdown-menu/src';
 import { HlmEmptyImports } from '../empty/src';
 import { HlmFieldImports } from '../field/src';
@@ -32,9 +34,12 @@ import { HlmPaginationImports } from '../pagination/src';
 import { HlmPopoverImports } from '../popover/src';
 import { HlmProgressImports } from '../progress/src';
 import { HlmRadioGroupImports } from '../radio-group/src';
+import { HlmResizableImports } from '../resizable/src';
+import { HlmScrollAreaImports } from '../scroll-area/src';
 import { HlmSelectImports } from '../select/src';
 import { HlmSeparatorImports } from '../separator/src';
 import { HlmSheetImports } from '../sheet/src';
+import { HlmSidebarImports } from '../sidebar/src';
 import { HlmSkeletonImports } from '../skeleton/src';
 import { HlmSliderImports } from '../slider/src';
 import { HlmSpinnerImports } from '../spinner/src';
@@ -51,6 +56,7 @@ describe('UI Primitives Barrel Exports Contract', () => {
         accordion: HlmAccordionImports,
         alert: HlmAlertImports,
         'alert-dialog': HlmAlertDialogImports,
+        'aspect-ratio': HlmAspectRatioImports,
         autocomplete: HlmAutocompleteImports,
         avatar: HlmAvatarImports,
         badge: HlmBadgeImports,
@@ -66,6 +72,7 @@ describe('UI Primitives Barrel Exports Contract', () => {
         'data-table': HlmDataTableImports,
         'date-picker': HlmDatePickerImports,
         dialog: HlmDialogImports,
+        drawer: HlmDrawerImports,
         'dropdown-menu': HlmDropdownMenuImports,
         empty: HlmEmptyImports,
         field: HlmFieldImports,
@@ -80,9 +87,12 @@ describe('UI Primitives Barrel Exports Contract', () => {
         popover: HlmPopoverImports,
         progress: HlmProgressImports,
         'radio-group': HlmRadioGroupImports,
+        resizable: HlmResizableImports,
+        'scroll-area': HlmScrollAreaImports,
         select: HlmSelectImports,
         separator: HlmSeparatorImports,
         sheet: HlmSheetImports,
+        sidebar: HlmSidebarImports,
         skeleton: HlmSkeletonImports,
         slider: HlmSliderImports,
         spinner: HlmSpinnerImports,

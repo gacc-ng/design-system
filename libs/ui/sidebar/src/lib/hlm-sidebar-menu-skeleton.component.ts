@@ -16,13 +16,12 @@ import { classes } from '@gacc-ng/ui/utils';
     template: `
         @if (showIcon()) {
             <hlm-skeleton data-sidebar="menu-skeleton-icon" class="size-4 rounded-md" />
-        } @else {
-            <hlm-skeleton
-                data-sidebar="menu-skeleton-text"
-                class="h-4 max-w-(--skeleton-width) flex-1"
-                [style.--skeleton-width]="_width"
-            />
         }
+        <hlm-skeleton
+            data-sidebar="menu-skeleton-text"
+            class="h-4 max-w-(--skeleton-width) flex-1"
+            [style.--skeleton-width]="_width"
+        />
     `,
 })
 export class HlmSidebarMenuSkeleton {

@@ -56,7 +56,20 @@ export class HlmSidebarService {
             }
 
             const keydownHandler = (event: KeyboardEvent) => {
-                if (event.key === this._config.sidebarKeyboardShortcut && (event.ctrlKey || event.metaKey)) {
+                const target = event.target as HTMLElement | null;
+                if (
+                    target?.tagName === 'INPUT' ||
+                    target?.tagName === 'TEXTAREA' ||
+                    target?.isContentEditable ||
+                    target?.getAttribute?.('contenteditable') === 'true' ||
+                    target?.getAttribute?.('contenteditable') === ''
+                ) {
+                    return;
+                }
+                if (
+                    event.key.toLowerCase() === this._config.sidebarKeyboardShortcut.toLowerCase() &&
+                    (event.ctrlKey || event.metaKey)
+                ) {
                     event.preventDefault();
                     this.toggleSidebar();
                 }
