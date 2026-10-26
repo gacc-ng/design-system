@@ -3,24 +3,31 @@ import { describe, expect, it } from 'vitest';
 import { HlmAccordionImports } from '../accordion/src';
 import { HlmAlertImports } from '../alert/src';
 import { HlmAlertDialogImports } from '../alert-dialog/src';
+import { HlmAutocompleteImports } from '../autocomplete/src';
 import { HlmAvatarImports } from '../avatar/src';
 import { HlmBadgeImports } from '../badge/src';
 import { HlmBreadcrumbImports } from '../breadcrumb/src';
 import { HlmButtonImports } from '../button/src';
+import { HlmButtonGroupImports } from '../button-group/src';
+import { HlmCalendarImports } from '../calendar/src';
 import { HlmCardImports } from '../card/src';
 import { HlmCheckboxImports } from '../checkbox/src';
 import { HlmCollapsibleImports } from '../collapsible/src';
+import { HlmComboboxImports } from '../combobox/src';
 import { HlmCommandImports } from '../command/src';
 import { HlmDataTableImports } from '../data-table/src';
+import { HlmDatePickerImports } from '../date-picker/src';
 import { HlmDialogImports } from '../dialog/src';
 import { HlmDropdownMenuImports } from '../dropdown-menu/src';
 import { HlmEmptyImports } from '../empty/src';
 import { HlmFieldImports } from '../field/src';
 import { HlmInputImports } from '../input/src';
+import { HlmInputGroupImports } from '../input-group/src';
 import { HlmInputOtpImports } from '../input-otp/src';
 import { HlmItemImports } from '../item/src';
 import { HlmKbdImports } from '../kbd/src';
 import { HlmLabelImports } from '../label/src';
+import { HlmNativeSelectImports } from '../native-select/src';
 import { HlmPaginationImports } from '../pagination/src';
 import { HlmPopoverImports } from '../popover/src';
 import { HlmProgressImports } from '../progress/src';
@@ -44,24 +51,31 @@ describe('UI Primitives Barrel Exports Contract', () => {
         accordion: HlmAccordionImports,
         alert: HlmAlertImports,
         'alert-dialog': HlmAlertDialogImports,
+        autocomplete: HlmAutocompleteImports,
         avatar: HlmAvatarImports,
         badge: HlmBadgeImports,
         breadcrumb: HlmBreadcrumbImports,
         button: HlmButtonImports,
+        'button-group': HlmButtonGroupImports,
+        calendar: HlmCalendarImports,
         card: HlmCardImports,
         checkbox: HlmCheckboxImports,
         collapsible: HlmCollapsibleImports,
+        combobox: HlmComboboxImports,
         command: HlmCommandImports,
         'data-table': HlmDataTableImports,
+        'date-picker': HlmDatePickerImports,
         dialog: HlmDialogImports,
         'dropdown-menu': HlmDropdownMenuImports,
         empty: HlmEmptyImports,
         field: HlmFieldImports,
         input: HlmInputImports,
+        'input-group': HlmInputGroupImports,
         'input-otp': HlmInputOtpImports,
         item: HlmItemImports,
         kbd: HlmKbdImports,
         label: HlmLabelImports,
+        'native-select': HlmNativeSelectImports,
         pagination: HlmPaginationImports,
         popover: HlmPopoverImports,
         progress: HlmProgressImports,
