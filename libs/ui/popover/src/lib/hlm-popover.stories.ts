@@ -14,7 +14,7 @@ interface PopoverStoryArgs {
 }
 
 const meta: Meta<PopoverStoryArgs> = {
-    title: 'Primitives/Popover',
+    title: 'Overlays/Popover',
     component: HlmPopover,
     tags: ['autodocs'],
     decorators: [

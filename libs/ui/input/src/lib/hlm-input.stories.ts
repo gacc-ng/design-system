@@ -12,7 +12,7 @@ interface InputStoryArgs {
 }
 
 const meta: Meta<InputStoryArgs> = {
-    title: 'Primitives/Input',
+    title: 'Forms/Input',
     component: HlmInput,
     tags: ['autodocs'],
     decorators: [

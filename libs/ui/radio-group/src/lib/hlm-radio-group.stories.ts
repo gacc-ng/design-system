@@ -12,7 +12,7 @@ interface RadioGroupStoryArgs {
 }
 
 const meta: Meta<RadioGroupStoryArgs> = {
-    title: 'Primitives/RadioGroup',
+    title: 'Forms/Radio Group',
     component: HlmRadioGroup,
     tags: ['autodocs'],
     decorators: [

@@ -12,7 +12,7 @@ interface TooltipStoryArgs {
 }
 
 const meta: Meta<TooltipStoryArgs> = {
-    title: 'Primitives/Tooltip',
+    title: 'Overlays/Tooltip',
     component: HlmTooltip,
     tags: ['autodocs'],
     decorators: [

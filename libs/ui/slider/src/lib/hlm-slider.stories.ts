@@ -13,7 +13,7 @@ interface SliderStoryArgs {
 }
 
 const meta: Meta<SliderStoryArgs> = {
-    title: 'Primitives/Slider',
+    title: 'Forms/Slider',
     component: HlmSlider,
     tags: ['autodocs'],
     decorators: [

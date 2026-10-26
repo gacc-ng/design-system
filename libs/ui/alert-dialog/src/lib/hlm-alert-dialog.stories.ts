@@ -12,7 +12,7 @@ interface AlertDialogStoryArgs {
 }
 
 const meta: Meta<AlertDialogStoryArgs> = {
-    title: 'Primitives/AlertDialog',
+    title: 'Overlays/Alert Dialog',
     component: HlmAlertDialog,
     tags: ['autodocs'],
     decorators: [

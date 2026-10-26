@@ -11,7 +11,7 @@ interface CommandStoryArgs {
 }
 
 const meta: Meta<CommandStoryArgs> = {
-    title: 'Primitives/Command',
+    title: 'Overlays/Command',
     component: HlmCommand,
     tags: ['autodocs'],
     decorators: [

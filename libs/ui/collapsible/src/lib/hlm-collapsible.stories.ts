@@ -13,7 +13,7 @@ interface CollapsibleStoryArgs {
 }
 
 const meta: Meta<CollapsibleStoryArgs> = {
-    title: 'Primitives/Collapsible',
+    title: 'Layout/Collapsible',
     component: HlmCollapsible,
     tags: ['autodocs'],
     decorators: [

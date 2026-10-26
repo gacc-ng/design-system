@@ -13,7 +13,7 @@ interface SheetStoryArgs {
 }
 
 const meta: Meta<SheetStoryArgs> = {
-    title: 'Primitives/Sheet',
+    title: 'Overlays/Sheet',
     component: HlmSheet,
     tags: ['autodocs'],
     decorators: [

@@ -11,7 +11,7 @@ interface ToggleStoryArgs {
 }
 
 const meta: Meta<ToggleStoryArgs> = {
-    title: 'Primitives/Toggle',
+    title: 'Forms/Toggle',
     component: HlmToggle,
     tags: ['autodocs'],
     decorators: [

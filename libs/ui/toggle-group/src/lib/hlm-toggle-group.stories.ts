@@ -21,7 +21,7 @@ interface ToggleGroupStoryArgs {
 }
 
 const meta: Meta<ToggleGroupStoryArgs> = {
-    title: 'Primitives/ToggleGroup',
+    title: 'Forms/Toggle Group',
     component: HlmToggleGroup,
     tags: ['autodocs'],
     decorators: [

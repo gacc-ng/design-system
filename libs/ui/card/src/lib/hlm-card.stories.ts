@@ -21,7 +21,7 @@ interface CardStoryArgs {
 }
 
 const meta: Meta<CardStoryArgs> = {
-    title: 'Primitives/Card',
+    title: 'Layout/Card',
     component: HlmCard,
     tags: ['autodocs'],
     decorators: [

@@ -10,7 +10,7 @@ interface SelectStoryArgs {
 }
 
 const meta: Meta<SelectStoryArgs> = {
-    title: 'Primitives/Select',
+    title: 'Forms/Select',
     component: HlmSelect,
     tags: ['autodocs'],
     decorators: [

@@ -57,6 +57,65 @@ export class CustomDemoComponent {}
         expect(result).toContain('export class AccordionDemoComponent {}');
     });
 
+    it('synthesizes standalone component across arbitrary category prefixes in title', () => {
+        const layoutCode = `
+            render: () => ({
+                template: \`
+                    <div hlmCard>
+                        <div hlmCardHeader>Title</div>
+                    </div>
+                \`,
+            })
+        `;
+        const layoutResult = formatStandaloneComponentSource(layoutCode, { title: 'Layout/Card' });
+        expect(layoutResult).toContain("import { HlmCardImports } from '@gacc-ng/ui/card';");
+        expect(layoutResult).toContain("selector: 'app-card-demo'");
+        expect(layoutResult).toContain('export class CardDemoComponent {}');
+
+        const formCode = `
+            render: () => ({
+                template: \`
+                    <input hlmInput placeholder="Email" />
+                \`,
+            })
+        `;
+        const formResult = formatStandaloneComponentSource(formCode, { title: 'Forms/Input' });
+        expect(formResult).toContain("import { HlmInput } from '@gacc-ng/ui/input';");
+        expect(formResult).toContain("selector: 'app-input-demo'");
+        expect(formResult).toContain('export class InputDemoComponent {}');
+
+        const overlayCode = `
+            render: () => ({
+                template: \`
+                    <hlm-dialog>
+                        <div hlmDialogContent>Modal Content</div>
+                    </hlm-dialog>
+                \`,
+            })
+        `;
+        const overlayResult = formatStandaloneComponentSource(overlayCode, { title: 'Overlays/Dialog' });
+        expect(overlayResult).toContain("import { HlmDialogImports } from '@gacc-ng/ui/dialog';");
+        expect(overlayResult).toContain("selector: 'app-dialog-demo'");
+        expect(overlayResult).toContain('export class DialogDemoComponent {}');
+    });
+
+    it('resolves component names from category-prefixed story IDs', () => {
+        const cardHtml = `<div hlmCard>Card content</div>`;
+        const cardResult = formatStandaloneComponentSource(cardHtml, { id: 'layout-card--default' });
+        expect(cardResult).toContain("import { HlmCardImports } from '@gacc-ng/ui/card';");
+        expect(cardResult).toContain("selector: 'app-card-demo'");
+
+        const inputOtpHtml = `<hlm-input-otp>OTP</hlm-input-otp>`;
+        const inputOtpResult = formatStandaloneComponentSource(inputOtpHtml, { id: 'forms-input-otp--default' });
+        expect(inputOtpResult).toContain("import { HlmInputOtpImports } from '@gacc-ng/ui/input-otp';");
+        expect(inputOtpResult).toContain("selector: 'app-input-otp-demo'");
+
+        const dialogHtml = `<hlm-dialog>Dialog</hlm-dialog>`;
+        const dialogResult = formatStandaloneComponentSource(dialogHtml, { id: 'overlays-dialog--default' });
+        expect(dialogResult).toContain("import { HlmDialogImports } from '@gacc-ng/ui/dialog';");
+        expect(dialogResult).toContain("selector: 'app-dialog-demo'");
+    });
+
     it('handles raw HTML template strings passed directly by Storybook docs addon', () => {
         const rawHtml = `
             <div class="p-16">
