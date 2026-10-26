@@ -2,11 +2,11 @@
    Storybook Code Block: One Dark Pro Theme
    ========================================================================== */
 
-/* Outer code container & pre element */
+/* Outer code container & source blocks */
+.sbdocs-content .docblock-source,
+.sbdocs-preview .docblock-source,
 .sbdocs-content pre.prismjs,
-.sbdocs-preview pre.prismjs,
-.sbdocs-content .docblock-source pre,
-.sbdocs-preview .docblock-source pre {
+.sbdocs-preview pre.prismjs {
     background-color: #282c34 !important;
     color: #abb2bf !important;
     font-family:
@@ -16,9 +16,35 @@
     border-radius: 0.5rem !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
-    padding: 1.25rem 1.5rem !important;
+    position: relative !important;
+    overflow: hidden !important;
     tab-size: 2 !important;
     letter-spacing: -0.01em !important;
+}
+
+/* Inner scroller & pre inside docblock-source */
+.sbdocs-content .docblock-source > div,
+.sbdocs-preview .docblock-source > div {
+    background: transparent !important;
+    width: 100% !important;
+    flex: 1 1 100% !important;
+}
+
+.sbdocs-content .docblock-source pre,
+.sbdocs-preview .docblock-source pre {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 1.25rem 1.5rem !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+/* Standalone pre padding */
+.sbdocs-content pre.prismjs:not(.docblock-source pre),
+.sbdocs-preview pre.prismjs:not(.docblock-source pre) {
+    padding: 1.25rem 1.5rem !important;
 }
 
 /* Code container inner block */
@@ -128,10 +154,36 @@
 }
 
 /* Action bar buttons (Show/Hide code, Copy code) */
+.sbdocs-content .docblock-source button,
+.sbdocs-preview .docblock-source button,
+.sbdocs-content .docblock-code-toggle,
 .sbdocs-preview .docblock-code-toggle,
 .sbdocs-preview button[class*='docblock-code-toggle'] {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #abb2bf !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 0.375rem !important;
     font-size: 0.75rem !important;
     font-weight: 500 !important;
-    border-radius: 0.375rem !important;
+    padding: 0.25rem 0.625rem !important;
+    cursor: pointer !important;
     transition: all 150ms ease-in-out !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+.sbdocs-content .docblock-source button:hover,
+.sbdocs-preview .docblock-source button:hover,
+.sbdocs-content .docblock-code-toggle:hover,
+.sbdocs-preview .docblock-code-toggle:hover,
+.sbdocs-preview button[class*='docblock-code-toggle']:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Prevent white actionbar background leakage */
+.sbdocs-content .docblock-source div[class*='Container'],
+.sbdocs-preview .docblock-source div[class*='Container'] {
+    background: transparent !important;
+    border: none !important;
 }
