@@ -116,7 +116,7 @@ export const DisabledItem: Story = {
                         </hlm-accordion-content>
                     </hlm-accordion-item>
                     <hlm-accordion-item [disabled]="true">
-                        <hlm-accordion-trigger [disabled]="true" class="cursor-not-allowed opacity-50">
+                        <hlm-accordion-trigger class="cursor-not-allowed opacity-50">
                             Locked Enterprise Feature
                         </hlm-accordion-trigger>
                         <hlm-accordion-content>
