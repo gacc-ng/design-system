@@ -61,7 +61,12 @@
             "@gacc-ng/ui/combobox": ["./libs/ui/combobox/src/index.ts"],
             "@gacc-ng/ui/autocomplete": ["./libs/ui/autocomplete/src/index.ts"],
             "@gacc-ng/ui/calendar": ["./libs/ui/calendar/src/index.ts"],
-            "@gacc-ng/ui/date-picker": ["./libs/ui/date-picker/src/index.ts"]
+            "@gacc-ng/ui/date-picker": ["./libs/ui/date-picker/src/index.ts"],
+            "@gacc-ng/ui/aspect-ratio": ["./libs/ui/aspect-ratio/src/index.ts"],
+            "@gacc-ng/ui/scroll-area": ["./libs/ui/scroll-area/src/index.ts"],
+            "@gacc-ng/ui/resizable": ["./libs/ui/resizable/src/index.ts"],
+            "@gacc-ng/ui/drawer": ["./libs/ui/drawer/src/index.ts"],
+            "@gacc-ng/ui/sidebar": ["./libs/ui/sidebar/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
