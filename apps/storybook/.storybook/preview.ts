@@ -14,6 +14,12 @@ import {
     type RadiusPreset,
     type SetRadiusPayload,
 } from './radius-presets';
+import {
+    readInitialThemeMode,
+    resolveTheme,
+    type SetThemeModePayload,
+    THEME_MODE_CHANNEL_EVENT,
+} from './theme-presets';
 import { isToolbarFeatureEnabled } from './toolbar-features';
 
 import './tailwind.css';
@@ -60,14 +66,34 @@ function readInitialRadius(): RadiusPreset {
 }
 
 // Zero-teardown channel listener (bypasses globalTypes & story re-rendering)
-if (typeof window !== 'undefined' && isToolbarFeatureEnabled('radius')) {
-    applyRadius(readInitialRadius(), false);
+if (typeof window !== 'undefined') {
+    // Initial Theme class application
+    const initialThemeMode = readInitialThemeMode();
+    const initialResolved = resolveTheme(initialThemeMode);
+    if (initialResolved === 'dark') {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
 
-    addons.getChannel().on(RADIUS_CHANNEL_EVENT, ({ radius, animate = true }: SetRadiusPayload) => {
-        if (isRadiusPreset(radius)) {
-            applyRadius(radius, animate);
+    // Dynamic Theme mode channel listener
+    addons.getChannel().on(THEME_MODE_CHANNEL_EVENT, ({ resolved }: SetThemeModePayload) => {
+        if (resolved === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
         }
     });
+
+    if (isToolbarFeatureEnabled('radius')) {
+        applyRadius(readInitialRadius(), false);
+
+        addons.getChannel().on(RADIUS_CHANNEL_EVENT, ({ radius, animate = true }: SetRadiusPayload) => {
+            if (isRadiusPreset(radius)) {
+                applyRadius(radius, animate);
+            }
+        });
+    }
 }
 
 const preview: Preview = {
@@ -89,6 +115,7 @@ const preview: Preview = {
         options: {
             storySort: {
                 order: [
+                    'Welcome',
                     'Foundations',
                     ['Introduction', 'Colors', 'Typography', 'Radius'],
                     'Primitives',
@@ -114,7 +141,7 @@ const preview: Preview = {
             disable: !isToolbarFeatureEnabled('a11y'),
         },
         themes: {
-            disable: !isToolbarFeatureEnabled('theme'),
+            disable: true,
         },
         backgrounds: {
             disable: !isToolbarFeatureEnabled('backgrounds'),

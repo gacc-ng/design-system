@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const config: StorybookConfig = {
-    stories: ['../../../libs/ui/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
+    stories: ['../docs/**/*.mdx', '../../../libs/ui/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
     addons: ['@storybook/addon-a11y', '@storybook/addon-mcp', '@storybook/addon-themes', '@storybook/addon-docs'],
     features: {
         experimentalDocgenServer: false,

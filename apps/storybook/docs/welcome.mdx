@@ -1,0 +1,379 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Welcome" />
+
+# Getting Started
+
+## @gacc-ng/ui
+
+<div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', margin: '16px 0 24px 0' }}>
+    <img
+        src="https://img.shields.io/badge/Angular-22%2B-DD0031?style=flat-square&logo=angular&logoColor=white"
+        alt="Angular v22+"
+    />
+    <img
+        src="https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white"
+        alt="Tailwind CSS v4"
+    />
+    <img src="https://img.shields.io/badge/Spartan_NG-Brain%20%2B%20Helm-000000?style=flat-square" alt="Spartan NG" />
+    <img src="https://img.shields.io/badge/Change_Detection-Zoneless-0ea5e9?style=flat-square" alt="Zoneless" />
+    <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="MIT License" />
+</div>
+
+**@gacc-ng/ui** is an accessible, composable, signal-based Angular UI primitive library built on top of [Spartan NG](https://spartan.ng) (Brain headless CDK logic + Helm visual layer), Tailwind CSS v4, and Angular CDK.
+
+Strictly designed for modern Angular (v22+), every primitive enforces **Zoneless change detection**, **OnPush by default**, and reactive **Signals** (`input()`, `computed()`, `output()`).
+
+---
+
+## Architectural Highlights
+
+- **Brain Layer (`@spartan-ng/brain/*`)**: Headless behavioral logic, Angular CDK overlays, WAI-ARIA compliance, and keyboard focus management. Strictly free of visual styles or utility classes.
+- **Helm Layer (`@gacc-ng/ui/*`)**: Presentational directives applying Tailwind CSS v4 design tokens, `class-variance-authority` (`cva()`), and the `hlm()` merging helper (`clsx` + `tailwind-merge`).
+- **Signal-First Reactivity**: Native Angular signals for all inputs and state transitions, eliminating `zone.js` runtime overhead.
+- **Secondary Entry Points**: Every primitive is packaged independently under `@gacc-ng/ui/<primitive>` for fine-grained tree-shaking and isolated imports.
+
+---
+
+## Installation
+
+### 1. Peer Dependencies
+
+Install the core peer dependencies in your consuming Angular workspace:
+
+```bash
+pnpm add @angular/cdk @angular/forms @spartan-ng/brain class-variance-authority clsx tailwind-merge tailwindcss tw-animate-css
+```
+
+### 2. Library Package
+
+Install the `@gacc-ng/ui` package:
+
+```bash
+pnpm add @gacc-ng/ui
+```
+
+---
+
+## Global CSS Setup
+
+Add Tailwind CSS v4 and the unified `@gacc-ng/ui` preset to your root stylesheet (e.g. `src/styles.css`):
+
+```css
+@import 'tailwindcss';
+@import '@gacc-ng/ui/preset.css';
+```
+
+> The unified preset automatically configures `@source` scanning for Tailwind CSS v4, supplies the full OKLCH color token palette (light & dark mode), sets up CDK overlay positioning, and integrates tw-animate-css keyframes.
+
+---
+
+## Application Configuration
+
+Register the core UI provider and zoneless change detection in your application entry point (`app.config.ts`):
+
+```typescript
+import { ApplicationConfig, provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { provideSpartanHlm } from '@gacc-ng/ui/utils';
+
+export const appConfig: ApplicationConfig = {
+    providers: [provideExperimentalZonelessChangeDetection(), provideSpartanHlm()],
+};
+```
+
+---
+
+## Usage Example
+
+Import primitives from their isolated secondary entry points. Here is a standard button composition using `HlmButtonDirective` with `variant` and `size` inputs:
+
+```typescript
+import { Component } from '@angular/core';
+import { HlmButtonDirective } from '@gacc-ng/ui/button';
+
+@Component({
+    selector: 'app-example',
+    standalone: true,
+    imports: [HlmButtonDirective],
+    template: `
+        <div class="flex items-center gap-3">
+            <button hlmBtn variant="default" size="default">Primary Action</button>
+            <button hlmBtn variant="secondary" size="default">Secondary</button>
+            <button hlmBtn variant="outline" size="sm">Small Outline</button>
+        </div>
+    `,
+})
+export class ExampleComponent {}
+```
+
+---
+
+## Font Installation & Typography
+
+The design system uses a high-performance system font stack via the `--font-sans` token by default:
+
+```css
+--font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+```
+
+To use a custom font family like **Geist**, **Inter**, or **Figtree**, load the font in your `index.html` or root stylesheet and override `--font-sans`:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+```
+
+```css
+@theme {
+    --font-sans: 'Geist', sans-serif;
+}
+```
+
+---
+
+## Theming & Design Tokens
+
+Styling is driven by OKLCH CSS custom properties supporting dynamic theme switching and radius scaling:
+
+- **Light & Dark Mode**: Toggle the `.dark` class on the root `<html>` element. Both light and dark palettes are baked into `@gacc-ng/ui/preset.css`.
+- **Border Radius Presets**: The `--radius` variable scales all component corners (`--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-xl`). Use the Storybook toolbar radius picker to test variations in real time.
+- **OKLCH Tokens**: Full contrast-compliant system tokens for `--background`, `--foreground`, `--primary`, `--secondary`, `--muted`, `--accent`, `--destructive`, `--border`, and `--ring`.
+
+---
+
+## Secondary Entry Points Overview
+
+<div style={{ overflowX: 'auto', margin: '24px 0', border: '1px solid var(--border)', borderRadius: '8px' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '13px' }}>
+        <thead>
+            <tr style={{ borderBottom: '1px solid var(--border)', background: 'var(--muted)' }}>
+                <th style={{ padding: '10px 14px', fontWeight: 600 }}>Entry Point</th>
+                <th style={{ padding: '10px 14px', fontWeight: 600 }}>Primary Exports</th>
+                <th style={{ padding: '10px 14px', fontWeight: 600 }}>Purpose</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/accordion
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmAccordion, HlmAccordionItem, HlmAccordionTrigger, HlmAccordionContent
+                </td>
+                <td style={{ padding: '8px 14px' }}>Collapsible interactive panels</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/alert
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmAlert, HlmAlertTitle, HlmAlertDescription, HlmAlertIcon
+                </td>
+                <td style={{ padding: '8px 14px' }}>Callout notification banners</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/alert-dialog
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmAlertDialog, HlmAlertDialogTrigger, HlmAlertDialogContent
+                </td>
+                <td style={{ padding: '8px 14px' }}>Modal confirmation dialogs</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/avatar
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmAvatar, HlmAvatarImage, HlmAvatarFallback, HlmAvatarBadge
+                </td>
+                <td style={{ padding: '8px 14px' }}>User identity & profile avatars</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/badge
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmBadge, badgeVariants
+                </td>
+                <td style={{ padding: '8px 14px' }}>Status labels and indicators</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/button
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmButton, HlmButtonDirective, buttonVariants
+                </td>
+                <td style={{ padding: '8px 14px' }}>Interactive action triggers</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/button-group
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmButtonGroup
+                </td>
+                <td style={{ padding: '8px 14px' }}>Clustered action groups</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/card
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmCard, HlmCardHeader, HlmCardTitle, HlmCardContent, HlmCardFooter
+                </td>
+                <td style={{ padding: '8px 14px' }}>Structured surface containers</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/checkbox
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmCheckbox, HlmCheckboxCheckIcon
+                </td>
+                <td style={{ padding: '8px 14px' }}>Binary selection controls</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/dialog
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmDialog, HlmDialogContent, HlmDialogHeader, HlmDialogFooter
+                </td>
+                <td style={{ padding: '8px 14px' }}>Popover modal containers</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/input
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmInput, inputVariants
+                </td>
+                <td style={{ padding: '8px 14px' }}>Form text fields</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/kbd
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmKbd, HlmKbdGroup
+                </td>
+                <td style={{ padding: '8px 14px' }}>Keyboard shortcut chips</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/label
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmLabel
+                </td>
+                <td style={{ padding: '8px 14px' }}>Accessible form labels</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/popover
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmPopover, HlmPopoverContent
+                </td>
+                <td style={{ padding: '8px 14px' }}>Contextual floating flyouts</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/separator
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmSeparator
+                </td>
+                <td style={{ padding: '8px 14px' }}>Visual divider lines</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/sheet
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmSheet, HlmSheetContent
+                </td>
+                <td style={{ padding: '8px 14px' }}>Slide-out side drawer panels</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/skeleton
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmSkeleton
+                </td>
+                <td style={{ padding: '8px 14px' }}>Content loading place-holders</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/spinner
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmSpinner
+                </td>
+                <td style={{ padding: '8px 14px' }}>Activity progress indicators</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/switch
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmSwitch, HlmSwitchThumb
+                </td>
+                <td style={{ padding: '8px 14px' }}>Toggle switch controls</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/table
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmTable, HlmTableHeader, HlmTableRow, HlmTableCell
+                </td>
+                <td style={{ padding: '8px 14px' }}>Tabular data displays</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/tabs
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmTabs, HlmTabsList, HlmTabsTrigger, HlmTabsContent
+                </td>
+                <td style={{ padding: '8px 14px' }}>Tabbed navigation views</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/tooltip
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    HlmTooltip, HlmTooltipTrigger
+                </td>
+                <td style={{ padding: '8px 14px' }}>Hover information callouts</td>
+            </tr>
+            <tr>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--primary)', fontWeight: 500 }}>
+                    @gacc-ng/ui/utils
+                </td>
+                <td style={{ padding: '8px 14px', fontFamily: 'monospace', color: 'var(--muted-foreground)' }}>
+                    hlm(), classes(), provideSpartanHlm()
+                </td>
+                <td style={{ padding: '8px 14px' }}>Tailwind merging & setup helpers</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+---
+
+## Component Metadata & AI Tooling (Storybook MCP)
+
+This Storybook instance is connected to the **Model Context Protocol (MCP)** via `@storybook/addon-mcp`, allowing AI assistants (like Antigravity, Claude, or Cursor) to inspect components, query live props, and preview stories directly:
+
+- **SSE Endpoint**: `http://localhost:4400/mcp`
+- **Core MCP Tools**:
+    - `docs-list`: Discover registered components and documentation pages.
+    - `docs-show`: Query component documentation, input signatures, and argTypes.
+    - `docs-show-story`: Retrieve code and template configuration for any story variant.
+    - `stories-preview`: Generate live preview URLs for rendered components.
