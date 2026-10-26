@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/gacc-ng/design-system/compare/v0.7.0...v0.8.0) (2026-10-26)
+
+
+### Features
+
+* **ui:** ✨ implement Phase 2.4 overlay menus and toasts ([#149](https://github.com/gacc-ng/design-system/issues/149)) ([81c4251](https://github.com/gacc-ng/design-system/commit/81c4251c7022214bd27b06fb33f804e2ef7ea4de))
+
 ## [0.7.0](https://github.com/gacc-ng/design-system/compare/v0.6.0...v0.7.0) (2026-10-26)
 
 
