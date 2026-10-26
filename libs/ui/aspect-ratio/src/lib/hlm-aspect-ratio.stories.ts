@@ -1,6 +1,6 @@
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 
-import { HlmAspectRatio } from './hlm-aspect-ratio.directive';
+import { HlmAspectRatio } from './hlm-aspect-ratio';
 
 interface AspectRatioStoryArgs {
     ratio: string | number;

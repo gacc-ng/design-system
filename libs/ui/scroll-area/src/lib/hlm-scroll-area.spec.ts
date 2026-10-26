@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 import { NgScrollbar } from 'ngx-scrollbar';
 import { describe, expect, it } from 'vitest';
 
-import { HlmScrollAreaImports } from './hlm-scroll-area.directive';
+import { HlmScrollAreaImports } from './hlm-scroll-area';
 
 @Component({
     standalone: true,

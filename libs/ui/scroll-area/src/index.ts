@@ -1,1 +1,1 @@
-export * from './lib/hlm-scroll-area.directive';
+export * from './lib/hlm-scroll-area';

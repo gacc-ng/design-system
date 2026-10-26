@@ -16,7 +16,7 @@ import { HlmSeparator } from '@gacc-ng/ui/separator';
 
 import { HlmSidebarImports } from '../index';
 
-import { HlmSidebar } from './hlm-sidebar.component';
+import { HlmSidebar } from './hlm-sidebar';
 
 const meta: Meta = {
     title: 'Layout/Sidebar',

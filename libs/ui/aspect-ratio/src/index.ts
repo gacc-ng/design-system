@@ -1,1 +1,1 @@
-export * from './lib/hlm-aspect-ratio.directive';
+export * from './lib/hlm-aspect-ratio';

@@ -6,7 +6,7 @@ import { HlmLabel } from '@gacc-ng/ui/label';
 
 import { HlmDrawerImports } from '../index';
 
-import { HlmDrawer } from './hlm-drawer.component';
+import { HlmDrawer } from './hlm-drawer';
 
 const meta: Meta = {
     title: 'Layout/Drawer',

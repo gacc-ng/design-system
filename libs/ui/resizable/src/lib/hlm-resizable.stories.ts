@@ -2,7 +2,7 @@ import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vit
 
 import { HlmResizableImports } from '../index';
 
-import { HlmResizableGroup } from './hlm-resizable-group.directive';
+import { HlmResizableGroup } from './hlm-resizable-group';
 
 const meta: Meta = {
     title: 'Layout/Resizable',

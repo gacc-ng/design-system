@@ -1,7 +1,7 @@
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 import { NgScrollbar } from 'ngx-scrollbar';
 
-import { HlmScrollArea, HlmScrollAreaImports } from './hlm-scroll-area.directive';
+import { HlmScrollArea, HlmScrollAreaImports } from './hlm-scroll-area';
 
 const meta: Meta = {
     title: 'Layout/Scroll Area',
