@@ -60,7 +60,8 @@
             "@gacc-ng/ui/native-select": ["./libs/ui/native-select/src/index.ts"],
             "@gacc-ng/ui/combobox": ["./libs/ui/combobox/src/index.ts"],
             "@gacc-ng/ui/autocomplete": ["./libs/ui/autocomplete/src/index.ts"],
-            "@gacc-ng/ui/calendar": ["./libs/ui/calendar/src/index.ts"]
+            "@gacc-ng/ui/calendar": ["./libs/ui/calendar/src/index.ts"],
+            "@gacc-ng/ui/date-picker": ["./libs/ui/date-picker/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
