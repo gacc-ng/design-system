@@ -34,6 +34,7 @@
         "tw-animate-css": ">=1.0.0",
         "@angular/router": "~22.2.3",
         "@tanstack/angular-table": ">=8.0.0",
+        "ngx-scrollbar": "^19.1.5",
         "rxjs": "~7.8.0"
     },
     "peerDependenciesMeta": {
@@ -50,6 +51,9 @@
             "optional": true
         },
         "@tanstack/angular-table": {
+            "optional": true
+        },
+        "ngx-scrollbar": {
             "optional": true
         }
     },

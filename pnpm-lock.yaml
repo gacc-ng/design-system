@@ -383,6 +383,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      ngx-scrollbar:
+        specifier: ^19.1.5
+        version: 19.1.5(f9a42ca8379c754472e22f49ba07c2a1)
       rxjs:
         specifier: ~7.8.0
         version: 7.8.2
