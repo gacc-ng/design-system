@@ -18,6 +18,7 @@ const config: StorybookConfig = {
         name: '@storybook/angular-vite',
         options: {
             tsconfig: resolve(__dirname, '../tsconfig.json'),
+            compodoc: false,
         },
     },
 };
