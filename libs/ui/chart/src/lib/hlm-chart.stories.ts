@@ -1,5 +1,5 @@
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
-import { areaY, barY, defineChart, dot, lineY } from '@tanstack/charts';
+import { areaY, barY, defineChart, dot, group, lineY } from '@tanstack/charts';
 import { scaleBand } from '@tanstack/charts/scales/band';
 import { scaleLinear } from '@tanstack/charts/scales/linear';
 import { scalePoint } from '@tanstack/charts/scales/point';
@@ -23,6 +23,27 @@ const sampleData: MonthlyRevenue[] = [
     { month: 'Apr', revenue: 73, expenses: 190 },
     { month: 'May', revenue: 209, expenses: 130 },
     { month: 'Jun', revenue: 214, expenses: 140 },
+];
+
+interface MonthlyFinancialRow {
+    month: string;
+    value: number;
+    type: 'revenue' | 'expenses';
+}
+
+const groupedData: MonthlyFinancialRow[] = [
+    { month: 'Jan', value: 186, type: 'revenue' },
+    { month: 'Jan', value: 80, type: 'expenses' },
+    { month: 'Feb', value: 305, type: 'revenue' },
+    { month: 'Feb', value: 200, type: 'expenses' },
+    { month: 'Mar', value: 237, type: 'revenue' },
+    { month: 'Mar', value: 120, type: 'expenses' },
+    { month: 'Apr', value: 73, type: 'revenue' },
+    { month: 'Apr', value: 190, type: 'expenses' },
+    { month: 'May', value: 209, type: 'revenue' },
+    { month: 'May', value: 130, type: 'expenses' },
+    { month: 'Jun', value: 214, type: 'revenue' },
+    { month: 'Jun', value: 140, type: 'expenses' },
 ];
 
 const barChartDefinition = defineChart({
@@ -51,16 +72,12 @@ const barChartDefinition = defineChart({
 const multipleBarChartDefinition = defineChart({
     theme: HLM_CHART_THEME,
     marks: [
-        barY(sampleData, {
+        barY(groupedData, {
             x: 'month',
-            y: 'revenue',
-            fill: 'var(--chart-1)',
-            radius: 4,
-        }),
-        barY(sampleData, {
-            x: 'month',
-            y: 'expenses',
-            fill: 'var(--chart-2)',
+            y: 'value',
+            z: 'type',
+            fill: (d) => (d.type === 'revenue' ? 'var(--chart-1)' : 'var(--chart-2)'),
+            layout: group({ padding: 0.1 }),
             radius: 4,
         }),
     ],
@@ -155,6 +172,7 @@ export const Default: Story = {
             chartOptions: {
                 definition: barChartDefinition,
                 ariaLabel: 'Monthly Revenue',
+                height: 250,
             },
         },
         template: `
@@ -181,6 +199,7 @@ export const Multiple: Story = {
             chartOptions: {
                 definition: multipleBarChartDefinition,
                 ariaLabel: 'Monthly Financials',
+                height: 250,
             },
         },
         template: `
@@ -207,6 +226,7 @@ export const LineChart: Story = {
             chartOptions: {
                 definition: lineChartDefinition,
                 ariaLabel: 'Revenue Trend',
+                height: 250,
             },
         },
         template: `
@@ -233,6 +253,7 @@ export const AreaChart: Story = {
             chartOptions: {
                 definition: areaChartDefinition,
                 ariaLabel: 'Cumulative Growth',
+                height: 250,
             },
         },
         template: `
