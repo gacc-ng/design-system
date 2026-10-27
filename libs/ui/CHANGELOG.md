@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://github.com/gacc-ng/design-system/compare/v0.9.0...v0.10.0) (2026-10-27)
+
+
+### Features
+
+* **ui:** ✨ implement typography and chart visualization primitives ([#153](https://github.com/gacc-ng/design-system/issues/153)) ([2ab9b58](https://github.com/gacc-ng/design-system/commit/2ab9b581b5051daa3f630502a610f0a71e8c5a8b))
+
 ## [0.9.0](https://github.com/gacc-ng/design-system/compare/v0.8.0...v0.9.0) (2026-10-26)
 
 
