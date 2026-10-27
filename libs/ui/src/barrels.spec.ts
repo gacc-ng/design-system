@@ -15,6 +15,7 @@ import { HlmButtonGroupImports } from '../button-group/src';
 import { HlmCalendarImports } from '../calendar/src';
 import { HlmCardImports } from '../card/src';
 import { HlmCarouselImports } from '../carousel/src';
+import { HlmChartImports } from '../chart/src';
 import { HlmCheckboxImports } from '../checkbox/src';
 import { HlmCodeBlockImports } from '../code-block/src';
 import { HlmCollapsibleImports } from '../collapsible/src';
@@ -83,6 +84,7 @@ describe('UI Primitives Barrel Exports Contract', () => {
         calendar: HlmCalendarImports,
         card: HlmCardImports,
         carousel: HlmCarouselImports,
+        chart: HlmChartImports,
         checkbox: HlmCheckboxImports,
         'code-block': HlmCodeBlockImports,
         collapsible: HlmCollapsibleImports,

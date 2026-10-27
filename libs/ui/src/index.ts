@@ -4,6 +4,7 @@ export * from '@gacc-ng/ui/badge';
 export * from '@gacc-ng/ui/bubble';
 export * from '@gacc-ng/ui/button';
 export * from '@gacc-ng/ui/carousel';
+export * from '@gacc-ng/ui/chart';
 export * from '@gacc-ng/ui/code-block';
 export * from '@gacc-ng/ui/context-menu';
 export * from '@gacc-ng/ui/drawer';

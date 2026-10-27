@@ -81,7 +81,8 @@
             "@gacc-ng/ui/marker": ["./libs/ui/marker/src/index.ts"],
             "@gacc-ng/ui/questionnaire": ["./libs/ui/questionnaire/src/index.ts"],
             "@gacc-ng/ui/trace": ["./libs/ui/trace/src/index.ts"],
-            "@gacc-ng/ui/typography": ["./libs/ui/typography/src/index.ts"]
+            "@gacc-ng/ui/typography": ["./libs/ui/typography/src/index.ts"],
+            "@gacc-ng/ui/chart": ["./libs/ui/chart/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
