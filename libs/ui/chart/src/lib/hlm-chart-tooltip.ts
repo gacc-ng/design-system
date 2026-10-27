@@ -1,0 +1,17 @@
+import type { ChartTooltipInput, ChartTooltipOptions, ChartValue } from '@tanstack/charts';
+import { tooltip } from '@tanstack/charts/tooltip';
+
+import { hlm } from '@gacc-ng/ui/utils';
+
+/** Enables TanStack's DOM tooltip with Spartan styling. */
+export function hlmChartTooltip<
+    TDatum = unknown,
+    TXValue extends ChartValue = ChartValue,
+    TYValue extends ChartValue = ChartValue,
+>(options: ChartTooltipOptions<TDatum, TXValue, TYValue> = {}): ChartTooltipInput<TDatum, TXValue, TYValue, 'dom'> {
+    return {
+        use: tooltip,
+        ...options,
+        className: hlm('spartan-chart-tooltip', options.className),
+    };
+}

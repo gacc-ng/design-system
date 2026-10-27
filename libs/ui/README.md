@@ -66,6 +66,7 @@ Each primitive is documented within its own secondary entry point:
 | `@gacc-ng/ui/calendar`         | `HlmCalendar`, `HlmCalendarMulti`, `HlmCalendarRange`, `HlmMonthYearCalendar`, `HlmCalendarImports`                           | [calendar/README.md](./calendar/README.md)                 |
 | `@gacc-ng/ui/card`             | `HlmCard`, `HlmCardHeader`, `HlmCardTitle`, `HlmCardDescription`, `HlmCardContent`, `HlmCardFooter`, `HlmCardAction`          | [card/README.md](./card/README.md)                         |
 | `@gacc-ng/ui/carousel`         | `HlmCarousel`, `HlmCarouselContent`, `HlmCarouselItem`, `HlmCarouselPrevious`, `HlmCarouselNext`, `HlmCarouselImports`        | [carousel/README.md](./carousel/README.md)                 |
+| `@gacc-ng/ui/chart`            | `HlmChart`, `HLM_CHART_THEME`, `hlmChartTooltip`, `HlmChartImports`                                                           | [chart/README.md](./chart/README.md)                       |
 | `@gacc-ng/ui/checkbox`         | `HlmCheckbox`, `HlmCheckboxImports`                                                                                           | [checkbox/README.md](./checkbox/README.md)                 |
 | `@gacc-ng/ui/code-block`       | `HlmCodeBlock`, `HlmCodeBlockHeader`, `HlmCodeBlockTitle`, `HlmCodeBlockCopyButton`, `HlmCodeBlockImports`                    | [code-block/README.md](./code-block/README.md)             |
 | `@gacc-ng/ui/combobox`         | `HlmCombobox`, `HlmComboboxTrigger`, `HlmComboboxContent`, `HlmComboboxInput`, `HlmComboboxImports`                           | [combobox/README.md](./combobox/README.md)                 |
@@ -95,6 +96,7 @@ Each primitive is documented within its own secondary entry point:
 | `@gacc-ng/ui/switch`           | `HlmSwitch`, `HlmSwitchThumb`, `HlmSwitchImports`                                                                             | [switch/README.md](./switch/README.md)                     |
 | `@gacc-ng/ui/textarea`         | `HlmTextarea`, `HlmTextareaImports`                                                                                           | [textarea/README.md](./textarea/README.md)                 |
 | `@gacc-ng/ui/trace`            | `HlmTrace`, `HlmTraceCollapsible`, `HlmTraceLine`, `HlmTraceIcon`, `HlmTraceImports`                                          | [trace/README.md](./trace/README.md)                       |
+| `@gacc-ng/ui/typography`       | `HlmH1`, `HlmH2`, `HlmH3`, `HlmH4`, `HlmP`, `HlmBlockquote`, `HlmUl`, `HlmCode`, `HlmLead`, `HlmTypographyImports`            | [typography/README.md](./typography/README.md)             |
 | `@gacc-ng/ui/utils`            | `hlm()`, `classes()`, `provideGaccUi()`                                                                                       | [utils/README.md](./utils/README.md)                       |
 
 ### Layout & Panel Surfaces

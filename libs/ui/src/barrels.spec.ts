@@ -15,6 +15,7 @@ import { HlmButtonGroupImports } from '../button-group/src';
 import { HlmCalendarImports } from '../calendar/src';
 import { HlmCardImports } from '../card/src';
 import { HlmCarouselImports } from '../carousel/src';
+import { HlmChartImports } from '../chart/src';
 import { HlmCheckboxImports } from '../checkbox/src';
 import { HlmCodeBlockImports } from '../code-block/src';
 import { HlmCollapsibleImports } from '../collapsible/src';
@@ -64,6 +65,7 @@ import { HlmToggleImports } from '../toggle/src';
 import { HlmToggleGroupImports } from '../toggle-group/src';
 import { HlmTooltipImports } from '../tooltip/src';
 import { HlmTraceImports } from '../trace/src';
+import { HlmTypographyImports } from '../typography/src';
 
 describe('UI Primitives Barrel Exports Contract', () => {
     const barrels: Record<string, readonly unknown[]> = {
@@ -82,6 +84,7 @@ describe('UI Primitives Barrel Exports Contract', () => {
         calendar: HlmCalendarImports,
         card: HlmCardImports,
         carousel: HlmCarouselImports,
+        chart: HlmChartImports,
         checkbox: HlmCheckboxImports,
         'code-block': HlmCodeBlockImports,
         collapsible: HlmCollapsibleImports,
@@ -131,6 +134,7 @@ describe('UI Primitives Barrel Exports Contract', () => {
         'toggle-group': HlmToggleGroupImports,
         tooltip: HlmTooltipImports,
         trace: HlmTraceImports,
+        typography: HlmTypographyImports,
     };
 
     it.each(Object.entries(barrels))('should export a non-empty imports array for %s', (_name, imports) => {

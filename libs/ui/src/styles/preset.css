@@ -110,3 +110,30 @@
         @apply bg-background text-foreground;
     }
 }
+
+/* Spartan Chart Primitives */
+tanstack-chart[hlmChart],
+.spartan-chart {
+    display: block;
+    width: 100%;
+}
+
+tanstack-chart[hlmChart] .ts-chart-host,
+.spartan-chart .ts-chart-host {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative;
+}
+
+tanstack-chart[hlmChart] .ts-chart-surface,
+.spartan-chart .ts-chart-surface {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+tanstack-chart[hlmChart] svg.ts-chart,
+.spartan-chart svg.ts-chart {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
