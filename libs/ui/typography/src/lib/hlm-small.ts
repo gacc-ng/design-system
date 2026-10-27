@@ -1,0 +1,15 @@
+import { Directive } from '@angular/core';
+
+import { classes } from '@gacc-ng/ui/utils';
+
+export const hlmSmall = 'text-sm font-medium leading-none';
+
+@Directive({
+    selector: '[hlmSmall]',
+    exportAs: 'hlmSmall',
+})
+export class HlmSmall {
+    constructor() {
+        classes(() => hlmSmall);
+    }
+}

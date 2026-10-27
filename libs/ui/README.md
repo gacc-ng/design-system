@@ -95,6 +95,7 @@ Each primitive is documented within its own secondary entry point:
 | `@gacc-ng/ui/switch`           | `HlmSwitch`, `HlmSwitchThumb`, `HlmSwitchImports`                                                                             | [switch/README.md](./switch/README.md)                     |
 | `@gacc-ng/ui/textarea`         | `HlmTextarea`, `HlmTextareaImports`                                                                                           | [textarea/README.md](./textarea/README.md)                 |
 | `@gacc-ng/ui/trace`            | `HlmTrace`, `HlmTraceCollapsible`, `HlmTraceLine`, `HlmTraceIcon`, `HlmTraceImports`                                          | [trace/README.md](./trace/README.md)                       |
+| `@gacc-ng/ui/typography`       | `HlmH1`, `HlmH2`, `HlmH3`, `HlmH4`, `HlmP`, `HlmBlockquote`, `HlmUl`, `HlmCode`, `HlmLead`, `HlmTypographyImports`            | [typography/README.md](./typography/README.md)             |
 | `@gacc-ng/ui/utils`            | `hlm()`, `classes()`, `provideGaccUi()`                                                                                       | [utils/README.md](./utils/README.md)                       |
 
 ### Layout & Panel Surfaces

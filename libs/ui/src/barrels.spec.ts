@@ -64,6 +64,7 @@ import { HlmToggleImports } from '../toggle/src';
 import { HlmToggleGroupImports } from '../toggle-group/src';
 import { HlmTooltipImports } from '../tooltip/src';
 import { HlmTraceImports } from '../trace/src';
+import { HlmTypographyImports } from '../typography/src';
 
 describe('UI Primitives Barrel Exports Contract', () => {
     const barrels: Record<string, readonly unknown[]> = {
@@ -131,6 +132,7 @@ describe('UI Primitives Barrel Exports Contract', () => {
         'toggle-group': HlmToggleGroupImports,
         tooltip: HlmTooltipImports,
         trace: HlmTraceImports,
+        typography: HlmTypographyImports,
     };
 
     it.each(Object.entries(barrels))('should export a non-empty imports array for %s', (_name, imports) => {

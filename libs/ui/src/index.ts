@@ -21,4 +21,5 @@ export * from '@gacc-ng/ui/scroll-area';
 export * from '@gacc-ng/ui/sidebar';
 export * from '@gacc-ng/ui/sonner';
 export * from '@gacc-ng/ui/trace';
+export * from '@gacc-ng/ui/typography';
 export * from '@gacc-ng/ui/utils';
