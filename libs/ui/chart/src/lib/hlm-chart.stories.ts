@@ -1,5 +1,8 @@
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
-import { barY, defineChart, lineY } from '@tanstack/charts';
+import { areaY, barY, defineChart, dot, lineY } from '@tanstack/charts';
+import { scaleBand } from '@tanstack/charts/scales/band';
+import { scaleLinear } from '@tanstack/charts/scales/linear';
+import { scalePoint } from '@tanstack/charts/scales/point';
 
 import { HlmChartImports } from '../index';
 
@@ -22,46 +25,115 @@ const sampleData: MonthlyRevenue[] = [
     { month: 'Jun', revenue: 214, expenses: 140 },
 ];
 
-const barChartDefinition = defineChart(
-    {
-        theme: HLM_CHART_THEME,
-        marks: [
-            barY(sampleData, {
-                x: (d) => d.month,
-                y: (d) => d.revenue,
-                fill: 'var(--chart-1)',
-            }),
-        ],
-        scales: {
-            x: { type: 'band' },
-            y: { type: 'linear' },
+const barChartDefinition = defineChart({
+    theme: HLM_CHART_THEME,
+    marks: [
+        barY(sampleData, {
+            x: 'month',
+            y: 'revenue',
+            fill: 'var(--chart-1)',
+            radius: 4,
+        }),
+    ],
+    scales: {
+        x: {
+            scale: () => scaleBand().padding(0.2),
+        },
+        y: {
+            scale: scaleLinear,
+            nice: true,
+            grid: true,
         },
     },
-    {
-        tooltip: hlmChartTooltip(),
-    },
-);
+    tooltip: hlmChartTooltip(),
+});
 
-const lineChartDefinition = defineChart(
-    {
-        theme: HLM_CHART_THEME,
-        marks: [
-            lineY(sampleData, {
-                x: (d) => d.month,
-                y: (d) => d.revenue,
-                stroke: 'var(--chart-2)',
-                strokeWidth: 2,
-            }),
-        ],
-        scales: {
-            x: { type: 'point' },
-            y: { type: 'linear' },
+const multipleBarChartDefinition = defineChart({
+    theme: HLM_CHART_THEME,
+    marks: [
+        barY(sampleData, {
+            x: 'month',
+            y: 'revenue',
+            fill: 'var(--chart-1)',
+            radius: 4,
+        }),
+        barY(sampleData, {
+            x: 'month',
+            y: 'expenses',
+            fill: 'var(--chart-2)',
+            radius: 4,
+        }),
+    ],
+    scales: {
+        x: {
+            scale: () => scaleBand().padding(0.2),
+        },
+        y: {
+            scale: scaleLinear,
+            nice: true,
+            grid: true,
         },
     },
-    {
-        tooltip: hlmChartTooltip(),
+    tooltip: hlmChartTooltip(),
+});
+
+const lineChartDefinition = defineChart({
+    theme: HLM_CHART_THEME,
+    marks: [
+        lineY(sampleData, {
+            x: 'month',
+            y: 'revenue',
+            stroke: 'var(--chart-2)',
+            strokeWidth: 2,
+        }),
+        dot(sampleData, {
+            x: 'month',
+            y: 'revenue',
+            fill: 'var(--chart-2)',
+            r: 4,
+        }),
+    ],
+    scales: {
+        x: {
+            scale: () => scalePoint().padding(0.2),
+        },
+        y: {
+            scale: scaleLinear,
+            nice: true,
+            grid: true,
+        },
     },
-);
+    tooltip: hlmChartTooltip(),
+});
+
+const areaChartDefinition = defineChart({
+    theme: HLM_CHART_THEME,
+    marks: [
+        areaY(sampleData, {
+            x: 'month',
+            y: 'revenue',
+            fill: 'var(--chart-1)',
+            fillOpacity: 0.3,
+        }),
+        lineY(sampleData, {
+            x: 'month',
+            y: 'revenue',
+            stroke: 'var(--chart-1)',
+            strokeWidth: 2,
+        }),
+    ],
+    scales: {
+        x: {
+            scale: () => scalePoint().padding(0.2),
+        },
+        y: {
+            scale: scaleLinear,
+            nice: true,
+            grid: true,
+        },
+    },
+    tooltip: hlmChartTooltip(),
+});
 
 const meta: Meta = {
     title: 'Primitives/Chart',
@@ -103,6 +175,32 @@ export const Default: Story = {
     }),
 };
 
+export const Multiple: Story = {
+    render: () => ({
+        props: {
+            chartOptions: {
+                definition: multipleBarChartDefinition,
+                ariaLabel: 'Monthly Financials',
+            },
+        },
+        template: `
+            <div class="w-full max-w-xl rounded-xl border border-border p-6 shadow-xs">
+                <div class="mb-4">
+                    <h3 class="text-base font-semibold leading-none tracking-tight">Revenue vs Expenses</h3>
+                    <p class="text-sm text-muted-foreground mt-1">Showing comparative monthly performance</p>
+                </div>
+                <div class="h-[250px] w-full">
+                    <tanstack-chart
+                        hlmChart
+                        [options]="chartOptions"
+                        class="h-full w-full"
+                    />
+                </div>
+            </div>
+        `,
+    }),
+};
+
 export const LineChart: Story = {
     render: () => ({
         props: {
@@ -116,6 +214,32 @@ export const LineChart: Story = {
                 <div class="mb-4">
                     <h3 class="text-base font-semibold leading-none tracking-tight">Revenue Trend</h3>
                     <p class="text-sm text-muted-foreground mt-1">Visualized over the last 6 months</p>
+                </div>
+                <div class="h-[250px] w-full">
+                    <tanstack-chart
+                        hlmChart
+                        [options]="chartOptions"
+                        class="h-full w-full"
+                    />
+                </div>
+            </div>
+        `,
+    }),
+};
+
+export const AreaChart: Story = {
+    render: () => ({
+        props: {
+            chartOptions: {
+                definition: areaChartDefinition,
+                ariaLabel: 'Cumulative Growth',
+            },
+        },
+        template: `
+            <div class="w-full max-w-xl rounded-xl border border-border p-6 shadow-xs">
+                <div class="mb-4">
+                    <h3 class="text-base font-semibold leading-none tracking-tight">Area Growth</h3>
+                    <p class="text-sm text-muted-foreground mt-1">Filled area representation with Spartan theme tokens</p>
                 </div>
                 <div class="h-[250px] w-full">
                     <tanstack-chart

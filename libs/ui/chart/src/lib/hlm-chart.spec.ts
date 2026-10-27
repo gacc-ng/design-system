@@ -3,7 +3,9 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { Chart, ChartTooltipBodyDirective } from '@tanstack/angular-charts';
-import { defineChart } from '@tanstack/charts';
+import { barY, defineChart } from '@tanstack/charts';
+import { scaleBand } from '@tanstack/charts/scales/band';
+import { scaleLinear } from '@tanstack/charts/scales/linear';
 
 import { HLM_CHART_THEME, HlmChart, HlmChartImports, hlmChartTooltip } from '../index';
 
@@ -18,8 +20,16 @@ class TestChartHostComponent {
     public readonly chartOptions = {
         definition: defineChart({
             theme: HLM_CHART_THEME,
-            marks: [],
-            scales: { x: null, y: null },
+            marks: [
+                barY([{ month: 'Jan', value: 100 }], {
+                    x: 'month',
+                    y: 'value',
+                }),
+            ],
+            scales: {
+                x: { scale: () => scaleBand().padding(0.2) },
+                y: { scale: scaleLinear },
+            },
         }),
         ariaLabel: 'Test Chart',
     };
