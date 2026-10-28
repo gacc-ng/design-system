@@ -1,0 +1,190 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Overview/Architecture" />
+
+# Architecture Principles
+
+**@gacc-ng/ui** is architected for enterprise-scale Angular applications, combining the headless accessibility power of Spartan & Angular CDK with Tailwind CSS v4 design tokens.
+
+---
+
+## 1. Brain Layer vs. Helm Layer
+
+The design system separates behavioral concerns from visual styling:
+
+<div style={{
+    margin: '24px 0',
+    padding: '24px',
+    borderRadius: '12px',
+    border: '1px solid var(--border)',
+    background: 'var(--card)',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '14px',
+}}>
+    {/* Consumer Layer */}
+    <div style={{
+        padding: '14px 18px',
+        borderRadius: '8px',
+        border: '1px dashed var(--border)',
+        background: 'var(--muted)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '12px',
+    }}>
+        <div>
+            <div style={{ fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--muted-foreground)' }}>
+                Consumer / Application Layer
+            </div>
+            <div style={{ fontFamily: 'monospace', fontSize: '13px', fontWeight: 600, color: 'var(--foreground)', marginTop: '4px' }}>
+                &lt;button hlmBtn variant="default" size="default"&gt;Action&lt;/button&gt;
+            </div>
+        </div>
+        <span style={{ fontSize: '11px', padding: '3px 8px', borderRadius: '4px', background: 'var(--background)', border: '1px solid var(--border)', color: 'var(--muted-foreground)' }}>
+            Angular Template
+        </span>
+    </div>
+
+    {/* Direction Arrow */}
+    <div style={{ display: 'flex', justifyContent: 'center', color: 'var(--muted-foreground)', fontSize: '16px' }}>
+        ↓
+    </div>
+
+    {/* Helm Layer */}
+    <div style={{
+        padding: '16px 18px',
+        borderRadius: '8px',
+        border: '1px solid var(--primary)',
+        background: 'color-mix(in oklch, var(--primary) 8%, var(--card))',
+    }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+            <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--primary)' }}>
+                Helm Layer (@gacc-ng/ui/*)
+            </span>
+            <span style={{ fontSize: '11px', padding: '2px 8px', borderRadius: '9999px', background: 'var(--primary)', color: 'var(--primary-foreground)', fontWeight: 600 }}>
+                Visual Presentation
+            </span>
+        </div>
+        <div style={{ fontSize: '13px', color: 'var(--foreground)', marginBottom: '8px', fontWeight: 500 }}>
+            Directives: <code>HlmButton</code>, <code>HlmAvatar</code>, <code>HlmCard</code>, <code>HlmInput</code>...
+        </div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', fontSize: '12px', color: 'var(--muted-foreground)' }}>
+            <span style={{ padding: '3px 8px', borderRadius: '4px', background: 'var(--background)', border: '1px solid var(--border)' }}>
+                🎨 Tailwind CSS v4 Tokens
+            </span>
+            <span style={{ padding: '3px 8px', borderRadius: '4px', background: 'var(--background)', border: '1px solid var(--border)' }}>
+                ⚡ CVA (Class Variance Authority)
+            </span>
+            <span style={{ padding: '3px 8px', borderRadius: '4px', background: 'var(--background)', border: '1px solid var(--border)' }}>
+                🔗 hlm() (clsx + tailwind-merge)
+            </span>
+        </div>
+    </div>
+
+    {/* Connection Arrow: hostDirectives */}
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', color: 'var(--muted-foreground)', fontSize: '12px', fontWeight: 500 }}>
+        <span>composed via hostDirectives: [BrnPrimitive]</span>
+        <span>↓</span>
+    </div>
+
+    {/* Brain Layer */}
+    <div style={{
+        padding: '16px 18px',
+        borderRadius: '8px',
+        border: '1px solid var(--border)',
+        background: 'color-mix(in oklch, var(--muted) 40%, var(--card))',
+    }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+            <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--foreground)' }}>
+                Brain Layer (@spartan-ng/brain/*)
+            </span>
+            <span style={{ fontSize: '11px', padding: '2px 8px', borderRadius: '9999px', background: 'var(--muted)', color: 'var(--foreground)', border: '1px solid var(--border)', fontWeight: 600 }}>
+                Headless Primitives
+            </span>
+        </div>
+        <div style={{ fontSize: '13px', color: 'var(--foreground)', marginBottom: '8px', fontWeight: 500 }}>
+            Directives: <code>BrnButton</code>, <code>BrnDialog</code>, <code>BrnMenu</code>, <code>BrnSelect</code>...
+        </div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', fontSize: '12px', color: 'var(--muted-foreground)' }}>
+            <span style={{ padding: '3px 8px', borderRadius: '4px', background: 'var(--background)', border: '1px solid var(--border)' }}>
+                ♿ WAI-ARIA Attributes &amp; States
+            </span>
+            <span style={{ padding: '3px 8px', borderRadius: '4px', background: 'var(--background)', border: '1px solid var(--border)' }}>
+                ⌨️ Keyboard Navigation
+            </span>
+            <span style={{ padding: '3px 8px', borderRadius: '4px', background: 'var(--background)', border: '1px solid var(--border)' }}>
+                🎯 Focus Management &amp; Trapping
+            </span>
+            <span style={{ padding: '3px 8px', borderRadius: '4px', background: 'var(--background)', border: '1px solid var(--border)' }}>
+                🚫 Zero CSS / Zero Utility Classes
+            </span>
+        </div>
+    </div>
+
+    {/* Direction Arrow */}
+    <div style={{ display: 'flex', justifyContent: 'center', color: 'var(--muted-foreground)', fontSize: '16px' }}>
+        ↓
+    </div>
+
+    {/* Foundation Layer */}
+    <div style={{
+        padding: '14px 18px',
+        borderRadius: '8px',
+        border: '1px solid var(--border)',
+        background: 'var(--background)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '12px',
+    }}>
+        <div>
+            <div style={{ fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--muted-foreground)' }}>
+                Foundation Layer
+            </div>
+            <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--foreground)', marginTop: '2px' }}>
+                Angular CDK (Overlay, A11y, Portal) &amp; Web Platform DOM
+            </div>
+        </div>
+        <span style={{ fontSize: '11px', padding: '3px 8px', borderRadius: '4px', background: 'var(--muted)', color: 'var(--muted-foreground)' }}>
+            Platform CDK
+        </span>
+    </div>
+
+</div>
+
+- **Brain Layer (`@spartan-ng/brain/*`):** Headless logic. Manages keyboard navigation (arrows, Home/End, Escape), focus traps, ARIA roles (`role="dialog"`, `role="combobox"`), and data attributes (`data-state="open"`). Strictly contains **no CSS or styling classes**.
+- **Helm Layer (`@gacc-ng/ui/*`):** Visual presentation directives. Composed onto Brain primitives via Angular `hostDirectives`. Applies Tailwind tokens, variant switches via `cva()`, and class merging via `hlm()`.
+
+---
+
+## 2. Signal-First & Zoneless by Default
+
+Every component in `@gacc-ng/ui` embraces modern Angular reactivity:
+
+- **Signal Inputs (`input()` / `input.required()`):** Eliminates classical `@Input()` setters and lifecycle hook overhead.
+- **Computed Expressions (`computed()`):** Derives variant class combinations lazily without unnecessary recalculations.
+- **Signal Outputs (`output()`):** Modern typed event emissions without `EventEmitter` boilerplate.
+- **Zoneless Compatible:** Works out of the box with `provideExperimentalZonelessChangeDetection()`, removing `zone.js` runtime overhead and change detection cycles across the whole app.
+
+---
+
+## 3. Secondary Entry Points
+
+Every component is published as an isolated secondary entry point under `@gacc-ng/ui/<primitive>`:
+
+```typescript
+// Optimized: loads only the button package and its dependencies
+import { HlmButton } from '@gacc-ng/ui/button';
+
+// Clean tree-shaking: loads only the avatar package
+import { HlmAvatar, HlmAvatarFallback, HlmAvatarImage } from '@gacc-ng/ui/avatar';
+```
+
+### Benefits:
+
+- **Zero Monolithic Imports:** Unused components are never bundled into your production build.
+- **Fast Build Times:** Angular partial compilation compiles and caches each entry point independently.
+- **Granular Updates:** Primitives remain cleanly modular and decoupled.

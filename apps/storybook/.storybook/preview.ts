@@ -115,7 +115,8 @@ const preview: Preview = {
         options: {
             storySort: {
                 order: [
-                    'Welcome',
+                    'Overview',
+                    ['Welcome', 'Installation', 'Theming & Tokens', 'Cascade Layers', 'Architecture'],
                     'Foundations',
                     ['Introduction', 'Colors', 'Typography', 'Radius'],
                     'Primitives',

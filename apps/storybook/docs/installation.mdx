@@ -1,0 +1,97 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Overview/Installation" />
+
+# Installation & Setup
+
+Get started with **@gacc-ng/ui** in your Angular application.
+
+---
+
+## 1. Automated Setup (Recommended)
+
+The fastest and most reliable way to add `@gacc-ng/ui` to an existing Angular CLI or Nx workspace is using the official schematic:
+
+```bash
+ng add @gacc-ng/ui
+```
+
+### What this command does automatically:
+
+1. **Installs required peer dependencies:** `@angular/cdk`, `@spartan-ng/brain`, `class-variance-authority`, `clsx`, `tailwind-merge`, and `tw-animate-css`.
+2. **Configures Tailwind CSS v4 cascade layers:** Injects the canonical 4-layer modular setup (`@layer theme, base, components, utilities`) into your application's `styles.css`.
+3. **Registers the UI Provider:** Automatically adds `provideGaccUi()` into your `app.config.ts` or root application bootstrap providers.
+
+---
+
+## 2. Manual Setup
+
+If you prefer to configure your workspace manually, follow these steps:
+
+### Step 1: Install Peer Dependencies
+
+```bash
+pnpm add @angular/cdk @angular/forms @spartan-ng/brain class-variance-authority clsx tailwind-merge tailwindcss tw-animate-css @ng-icons/core @ng-icons/lucide
+```
+
+### Step 2: Install Library Package
+
+```bash
+pnpm add @gacc-ng/ui
+```
+
+### Step 3: Configure Tailwind CSS v4 Cascade Layers
+
+Import the modular cascade layers and the `@gacc-ng/ui` preset in your application's global stylesheet (e.g. `src/styles.css`):
+
+```css
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/utilities.css';
+
+@import '@gacc-ng/ui/preset.css';
+```
+
+> **Why modular cascade layers?**
+> Importing `tailwindcss/utilities.css` without `layer(utilities)` leaves utility classes unlayered. In W3C CSS Cascading and Inheritance Level 5 (§6.4), unlayered author styles take precedence over layered styles. This enables utility classes (e.g. `size-4`, `w-6`) to override unlayered `:host` styles injected by `@ng-icons/core` icons.
+
+### Step 4: Register the UI Provider
+
+Register `provideGaccUi()` in your application config (`src/app/app.config.ts`):
+
+```typescript
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideGaccUi } from '@gacc-ng/ui/utils';
+
+export const appConfig: ApplicationConfig = {
+    providers: [
+        provideGaccUi(),
+        // or provideExperimentalZonelessChangeDetection()
+    ],
+};
+```
+
+---
+
+## 3. Verify Installation
+
+Import any primitive directive from its secondary entry point and verify rendering:
+
+```typescript
+import { Component } from '@angular/core';
+import { HlmButton } from '@gacc-ng/ui/button';
+
+@Component({
+    selector: 'app-root',
+    standalone: true,
+    imports: [HlmButton],
+    template: `
+        <div class="flex items-center gap-3 p-6">
+            <button hlmBtn variant="default">Primary Action</button>
+            <button hlmBtn variant="secondary">Secondary Action</button>
+        </div>
+    `,
+})
+export class AppComponent {}
+```
