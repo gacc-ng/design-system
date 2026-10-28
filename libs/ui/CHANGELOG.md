@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.0](https://github.com/gacc-ng/design-system/compare/v0.10.0...v0.11.0) (2026-10-28)
+
+
+### Features
+
+* **ui:** ✨ configure canonical tailwind v4 cascade layers and update schematics ([#155](https://github.com/gacc-ng/design-system/issues/155)) ([7438a88](https://github.com/gacc-ng/design-system/commit/7438a8838899cdb14b70df0b066356244e941958))
+
 ## [0.10.0](https://github.com/gacc-ng/design-system/compare/v0.9.0...v0.10.0) (2026-10-27)
 
 
