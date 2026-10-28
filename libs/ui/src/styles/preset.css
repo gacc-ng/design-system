@@ -10,16 +10,6 @@
 @import '@spartan-ng/brain/hlm-tailwind-preset.css';
 @source '../../';
 
-@theme inline {
-    --radius-sm: calc(var(--radius) * 0.6);
-    --radius-md: calc(var(--radius) * 0.8);
-    --radius-lg: var(--radius);
-    --radius-xl: calc(var(--radius) * 1.4);
-    --radius-2xl: calc(var(--radius) * 1.8);
-    --radius-3xl: calc(var(--radius) * 2.2);
-    --radius-4xl: calc(var(--radius) * 2.6);
-}
-
 :root {
     color-scheme: light;
 
@@ -59,8 +49,6 @@
     --sidebar-accent-foreground: oklch(20.5% 0 0);
     --sidebar-border: oklch(92.2% 0 0);
     --sidebar-ring: oklch(70.8% 0 0);
-    --surface: oklch(98% 0 0);
-    --surface-foreground: var(--foreground);
 }
 
 :root.dark,
@@ -98,8 +86,6 @@
     --sidebar-accent-foreground: oklch(98.5% 0 0);
     --sidebar-border: oklch(100% 0 0 / 10%);
     --sidebar-ring: oklch(55.6% 0 0);
-    --surface: oklch(20% 0 0);
-    --surface-foreground: oklch(70.8% 0 0);
 }
 
 @layer base {
