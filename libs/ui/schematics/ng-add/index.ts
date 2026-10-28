@@ -102,21 +102,25 @@ function addStylesRule(options: Schema): Rule {
         }
 
         const presetImport = '@import "@gacc-ng/ui/preset.css";';
+        const modularTailwindBlock = `@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/utilities.css';`;
         let newContent: string;
 
         const tailwindMatch = content.match(/@import\s+['"]tailwindcss['"];?/);
+        const utilitiesMatch = content.match(/@import\s+['"]tailwindcss\/utilities\.css['"];?/);
+
         if (tailwindMatch && tailwindMatch.index !== undefined) {
-            const insertIdx = tailwindMatch.index + tailwindMatch[0].length;
-            newContent = content.slice(0, insertIdx) + '\n' + presetImport + content.slice(insertIdx);
+            const before = content.slice(0, tailwindMatch.index);
+            const after = content.slice(tailwindMatch.index + tailwindMatch[0].length);
+            newContent = `${before}${modularTailwindBlock}\n\n${presetImport}${after}`;
+        } else if (utilitiesMatch && utilitiesMatch.index !== undefined) {
+            const insertIdx = utilitiesMatch.index + utilitiesMatch[0].length;
+            newContent = `${content.slice(0, insertIdx)}\n\n${presetImport}${content.slice(insertIdx)}`;
         } else {
-            const allImports = [...content.matchAll(/@import\s+[^;]+;/g)];
-            if (allImports.length > 0) {
-                const last = allImports[allImports.length - 1];
-                const insertIdx = (last.index ?? 0) + last[0].length;
-                newContent = content.slice(0, insertIdx) + '\n' + presetImport + content.slice(insertIdx);
-            } else {
-                newContent = presetImport + '\n' + content;
-            }
+            const trimmed = content.trim();
+            newContent = `${modularTailwindBlock}\n\n${presetImport}\n${trimmed ? '\n' + trimmed + '\n' : ''}`;
         }
 
         tree.overwrite(stylePath, newContent);

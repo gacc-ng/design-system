@@ -38,18 +38,40 @@ describe('ng-add schematic', () => {
         expect(pkg.dependencies['tailwind-merge']).toBeDefined();
     });
 
-    it('should inject @import "@gacc-ng/ui/preset.css" into styles.css after tailwindcss', async () => {
+    it('should migrate @import "tailwindcss" to canonical modular layers and inject preset', async () => {
         tree.overwrite('/projects/test-app/src/styles.css', '@import "tailwindcss";\nbody { margin: 0; }');
         const result = await runner.runSchematic('ng-add', { project: 'test-app' }, tree);
         const styles = result.readContent('/projects/test-app/src/styles.css');
-        expect(styles).toContain('@import "tailwindcss";\n@import "@gacc-ng/ui/preset.css";');
+        expect(styles).toContain('@layer theme, base, components, utilities;');
+        expect(styles).toContain("@import 'tailwindcss/theme.css' layer(theme);");
+        expect(styles).toContain("@import 'tailwindcss/preflight.css' layer(base);");
+        expect(styles).toContain("@import 'tailwindcss/utilities.css';");
+        expect(styles).toContain('@import "@gacc-ng/ui/preset.css";');
+        expect(styles).not.toContain('@import "tailwindcss";');
     });
 
-    it('should insert @import at start of file when no existing imports exist', async () => {
+    it('should inject modular layers and preset at start of file when no existing imports exist', async () => {
         tree.overwrite('/projects/test-app/src/styles.css', 'body { margin: 0; }');
         const result = await runner.runSchematic('ng-add', { project: 'test-app' }, tree);
         const styles = result.readContent('/projects/test-app/src/styles.css');
-        expect(styles.startsWith('@import "@gacc-ng/ui/preset.css";')).toBe(true);
+        expect(styles.startsWith('@layer theme, base, components, utilities;')).toBe(true);
+        expect(styles).toContain('@import "@gacc-ng/ui/preset.css";');
+        expect(styles).toContain('body { margin: 0; }');
+    });
+
+    it('should preserve existing Spartan modular imports and insert preset after utilities.css', async () => {
+        const spartanStyles = `@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/utilities.css';
+
+body { font-family: sans-serif; }`;
+        tree.overwrite('/projects/test-app/src/styles.css', spartanStyles);
+        const result = await runner.runSchematic('ng-add', { project: 'test-app' }, tree);
+        const styles = result.readContent('/projects/test-app/src/styles.css');
+        expect(styles).toContain('@import \'tailwindcss/utilities.css\';\n\n@import "@gacc-ng/ui/preset.css";');
+        const layerDeclarations = (styles.match(/@layer theme, base, components, utilities;/g) || []).length;
+        expect(layerDeclarations).toBe(1);
     });
 
     it('should be idempotent and not duplicate imports or providers', async () => {

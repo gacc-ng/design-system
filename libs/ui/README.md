@@ -24,12 +24,19 @@ pnpm add @angular/cdk @angular/forms @spartan-ng/brain class-variance-authority 
 
 ### 2. Design System Preset
 
-Import the unified preset in your application's global stylesheet (e.g., `src/styles.css`):
+Import the unified preset in your application's global stylesheet (e.g., `src/styles.css`) using the modular cascade layers:
 
 ```css
-@import 'tailwindcss';
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/utilities.css';
+
 @import '@gacc-ng/ui/preset.css';
 ```
+
+> [!NOTE]
+> Importing `tailwindcss/utilities.css` without `layer(utilities)` is intentional. In W3C CSS Cascading and Inheritance Level 5 (§6.4), unlayered author styles take precedence over layered styles. This ensures utility classes (e.g., `size-4`, `w-6`) can override unlayered `:host` styles injected by `@ng-icons/core` icons.
 
 > [!TIP]
 > The preset automatically includes self-contained `@source` detection for Tailwind CSS v4, so consumers do not need to configure any manual `@source` paths in their application stylesheets.
