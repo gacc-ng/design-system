@@ -11,7 +11,7 @@
             "dependsOn": ["build-lib", "build-schematics"]
         },
         "build-lib": {
-            "executor": "@nx/angular:ng-packagr-lite",
+            "executor": "@nx/angular:package",
             "outputs": ["{workspaceRoot}/dist/libs/ui"],
             "defaultConfiguration": "production",
             "options": {
