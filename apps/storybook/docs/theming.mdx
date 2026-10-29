@@ -1,0 +1,422 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Overview/Theming & Tokens" />
+
+# Theming & Design Tokens
+
+**@gacc-ng/ui** uses OKLCH color spaces and CSS custom properties for uniform, accessible contrast across Light and Dark themes.
+
+---
+
+## 1. OKLCH Design Tokens
+
+Tokens are defined inside `@gacc-ng/ui/preset.css` for both `:root` (light mode) and `.dark` (pitch black mode).
+
+### Core Token Mapping
+
+<div style={{ overflowX: 'auto', margin: '20px 0' }}>
+    <table>
+        <thead>
+            <tr>
+                <th style={{ width: '22%' }}>Token</th>
+                <th style={{ width: '28%' }}>Description</th>
+                <th style={{ width: '25%' }}>Light Mode</th>
+                <th style={{ width: '25%' }}>Dark Mode</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <code>--background</code>
+                </td>
+                <td>Page background surface</td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(100% 0 0)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(100% 0 0)</code>
+                    </div>
+                </td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(14.5% 0 0)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(14.5% 0 0)</code>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>--foreground</code>
+                </td>
+                <td>Default text color</td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(14.5% 0 0)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(14.5% 0 0)</code>
+                    </div>
+                </td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(98.5% 0 0)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(98.5% 0 0)</code>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>--primary</code>
+                </td>
+                <td>Primary brand accent</td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(20.5% 0 0)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(20.5% 0 0)</code>
+                    </div>
+                </td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(92.2% 0 0)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(92.2% 0 0)</code>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>--secondary</code>
+                </td>
+                <td>Secondary interactive surface</td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(97% 0 0)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(97% 0 0)</code>
+                    </div>
+                </td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(26.9% 0 0)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(26.9% 0 0)</code>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>--muted</code>
+                </td>
+                <td>Subdued container background</td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(97% 0 0)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(97% 0 0)</code>
+                    </div>
+                </td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(26.9% 0 0)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(26.9% 0 0)</code>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>--muted-foreground</code>
+                </td>
+                <td>Secondary/placeholder text</td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(55.6% 0 0)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(55.6% 0 0)</code>
+                    </div>
+                </td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(70.8% 0 0)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(70.8% 0 0)</code>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>--destructive</code>
+                </td>
+                <td>Error / danger state</td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(57.7% 0.245 27.325)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(57.7% 0.245 27.325)</code>
+                    </div>
+                </td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(70.4% 0.191 22.216)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(70.4% 0.191 22.216)</code>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>--border</code>
+                </td>
+                <td>Surface border line</td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(92.2% 0 0)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(92.2% 0 0)</code>
+                    </div>
+                </td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(100% 0 0 / 10%)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(100% 0 0 / 10%)</code>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>--ring</code>
+                </td>
+                <td>Focus ring outline</td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(70.8% 0 0)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(70.8% 0 0)</code>
+                    </div>
+                </td>
+                <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                            style={{
+                                width: '14px',
+                                height: '14px',
+                                borderRadius: '4px',
+                                background: 'oklch(55.6% 0 0)',
+                                border: '1px solid var(--border)',
+                                flexShrink: 0,
+                            }}
+                        />
+                        <code>oklch(55.6% 0 0)</code>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+---
+
+## 2. Dark Mode Configuration
+
+Dark mode activates whenever the `.dark` class is applied to the root element (`<html>` or `<body>`).
+
+```html
+<!-- Light Mode -->
+<html lang="en">
+    ...
+</html>
+
+<!-- Dark Mode -->
+<html lang="en" class="dark">
+    ...
+</html>
+```
+
+### Programmatic Toggle
+
+```typescript
+function toggleDarkMode(enableDark: boolean): void {
+    document.documentElement.classList.toggle('dark', enableDark);
+}
+```
+
+---
+
+## 3. Dynamic Corner Radius (`--radius`)
+
+The entire component catalog scales its rounded corners based on the single `--radius` CSS variable (default: `0.625rem` / `10px`).
+
+The preset automatically derives all sub-radii:
+
+- `--radius-sm`: `calc(var(--radius) * 0.6)`
+- `--radius-md`: `calc(var(--radius) * 0.8)`
+- `--radius-lg`: `var(--radius)`
+- `--radius-xl`: `calc(var(--radius) * 1.4)`
+- `--radius-2xl`: `calc(var(--radius) * 1.8)`
+- `--radius-3xl`: `calc(var(--radius) * 2.2)`
+- `--radius-4xl`: `calc(var(--radius) * 2.6)`
+
+To change the corner curvature application-wide:
+
+```css
+:root {
+    --radius: 0.75rem; /* 12px rounded aesthetic */
+}
+```
+
+---
+
+## 4. Typography & Font Stacks
+
+By default, `@gacc-ng/ui` uses a high-performance system font stack:
+
+```css
+--font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+```
+
+To customize the font, simply override `--font-sans` in your root stylesheet:
+
+```css
+:root {
+    --font-sans: 'Geist', 'Inter', sans-serif;
+}
+```

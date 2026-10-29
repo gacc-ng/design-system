@@ -1,0 +1,53 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Overview/Cascade Layers" />
+
+# Cascade Layers & Styling
+
+Tailwind CSS v4 introduces CSS Cascade Layers via the standard `@layer` directive. Understanding how `@gacc-ng/ui` structures layers ensures seamless integration and prevents CSS specificity bugs.
+
+---
+
+## 1. The Canonical Setup
+
+Every consumer application should import styles in this exact order:
+
+```css
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/utilities.css';
+
+@import '@gacc-ng/ui/preset.css';
+```
+
+---
+
+## 2. Why is `utilities.css` Unlayered?
+
+Notice that `theme.css` is assigned to `layer(theme)` and `preflight.css` is assigned to `layer(base)`, but `utilities.css` has **no `layer(...)` parameter**.
+
+This is deliberate and necessary for `@ng-icons/core` compatibility:
+
+### The Mechanism:
+
+1. **W3C CSS Cascading and Inheritance Level 5 (§6.4):**
+    > _Author styles not declared inside any `@layer` take precedence over all author styles declared inside any `@layer`, regardless of selector specificity._
+2. **Angular Component Encapsulation (`@ng-icons/core`):**
+   The icon library injects `:host { width: 1em; height: 1em; display: inline-block; }` dynamically into `<head>` as an **unlayered author style**.
+3. **The Conflict:**
+   If `utilities.css` were inside `@layer utilities`, classes like `.size-4`, `.w-6`, or `.h-8` would be _layered styles_ and would lose against `:host` regardless of specificity.
+4. **The Resolution:**
+   By leaving `utilities.css` unlayered, utility classes compete as unlayered author styles, winning by source order and allowing utility classes to properly size and color icons.
+
+---
+
+## 3. Automatic `@source` Scanning
+
+`@gacc-ng/ui/preset.css` declares:
+
+```css
+@source '../../';
+```
+
+Because `@source` is self-contained within the preset, consumers do not need to configure manual `@source` globs for `@gacc-ng/ui` in their local stylesheets. The Tailwind v4 compiler automatically scans the compiled directive classes across all installed secondary entry points.
