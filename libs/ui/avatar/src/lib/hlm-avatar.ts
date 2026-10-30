@@ -1,23 +1,17 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Directive, input } from '@angular/core';
 
 import { BrnAvatar } from '@spartan-ng/brain/avatar';
 
 import { classes } from '@gacc-ng/ui/utils';
 
-@Component({
-    selector: 'hlm-avatar',
+@Directive({
+    selector: '[hlmAvatar],hlm-avatar',
     exportAs: 'hlmAvatar',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     hostDirectives: [BrnAvatar],
     host: {
         'data-slot': 'avatar',
         '[attr.data-size]': 'size()',
     },
-    template: `
-        <ng-content select="[hlmAvatarFallback],[brnAvatarFallback]" />
-        <ng-content select="[hlmAvatarImage],[brnAvatarImage]" />
-        <ng-content />
-    `,
 })
 export class HlmAvatar {
     public readonly size = input<'default' | 'sm' | 'lg'>('default');
