@@ -53,13 +53,16 @@ describe('HlmDrawer', () => {
         expect(host.drawer()).toBeDefined();
 
         const drawerEl = fixture.debugElement.query(By.directive(HlmDrawer));
-        expect(drawerEl).toBeDefined();
+        expect(drawerEl).toBeTruthy();
+        expect(drawerEl.componentInstance).toBeInstanceOf(BrnDrawer);
+        expect(drawerEl.componentInstance).toBeInstanceOf(BrnDialog);
 
-        const brnDrawer = drawerEl.injector.get(BrnDrawer);
+        const triggerEl = fixture.debugElement.query(By.css('#test-trigger'));
+        const brnDrawer = triggerEl.injector.get(BrnDrawer);
         expect(brnDrawer).toBeDefined();
         expect(brnDrawer).toBeInstanceOf(HlmDrawer);
 
-        const brnDialog = drawerEl.injector.get(BrnDialog);
+        const brnDialog = triggerEl.injector.get(BrnDialog);
         expect(brnDialog).toBeDefined();
         expect(brnDialog).toBeInstanceOf(HlmDrawer);
     });
