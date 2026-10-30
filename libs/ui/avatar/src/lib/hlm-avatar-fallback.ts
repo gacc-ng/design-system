@@ -16,7 +16,7 @@ export class HlmAvatarFallback {
     constructor() {
         classes(
             () =>
-                'bg-muted text-muted-foreground rounded-full flex size-full items-center justify-center text-sm group-data-[size=sm]/avatar:text-xs',
+                'spartan-avatar-fallback flex size-full items-center justify-center text-sm group-data-[size=sm]/avatar:text-xs',
         );
     }
 }
