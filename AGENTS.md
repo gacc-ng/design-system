@@ -93,7 +93,7 @@
 
 ## Agent Skills Architecture
 
-- **Canonical Shared Skills Hub:** All workspace skills are strictly centralized in [`.agents/skills/`](.agents/skills/). Individual tool harnesses (`.github/`, `.gemini/`, `.codex/`, `.claude/`) retain ONLY their proprietary configuration (workflows, agent definitions, prompts, commands, or plugins), eliminating cross-harness skill duplication.
+- **Canonical Shared Skills Hub:** All workspace skills are strictly centralized in [`.agents/skills/`](.agents/skills/). Individual tool harnesses (`.github/`, `.gemini/`, `.codex/`, `.claude/`, `.opencode/`) retain ONLY their proprietary configuration (workflows, agent definitions, prompts, commands, or plugins), eliminating cross-harness skill duplication.
 
 ## Spartan NG Standards & MCP Tools
 
