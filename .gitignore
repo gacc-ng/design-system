@@ -57,4 +57,12 @@ docs/superpowers/
 !.env.example
 
 
+# Agent duplicated skills (centralized in .agents/skills)
+.github/skills/
+.opencode/skills/
+.claude/skills/
+.cursor/skills/
+.gemini/skills/
+.codex/skills/
+
 __screenshots__/
