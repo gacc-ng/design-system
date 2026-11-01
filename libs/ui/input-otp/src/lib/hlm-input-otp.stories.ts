@@ -1,4 +1,3 @@
-import { BrnInputOtpImports } from '@spartan-ng/brain/input-otp';
 import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular-vite';
 
 import { HlmInputOtpImports } from '../index';
@@ -16,7 +15,7 @@ const meta: Meta<InputOtpStoryArgs> = {
     tags: ['autodocs'],
     decorators: [
         moduleMetadata({
-            imports: [HlmInputOtpImports, BrnInputOtpImports],
+            imports: [HlmInputOtpImports],
         }),
     ],
     argTypes: {
@@ -51,7 +50,7 @@ export const Default: Story = {
         props: args,
         template: `
             <div class="p-8 flex justify-center">
-                <brn-input-otp hlmInputOtp [length]="length" [disabled]="disabled" inputClass="disabled:cursor-not-allowed">
+                <hlm-input-otp [length]="length" [disabled]="disabled" inputClass="disabled:cursor-not-allowed">
                     <hlm-input-otp-group>
                         <hlm-input-otp-slot index="0" />
                         <hlm-input-otp-slot index="1" />
@@ -63,7 +62,7 @@ export const Default: Story = {
                         <hlm-input-otp-slot index="4" />
                         <hlm-input-otp-slot index="5" />
                     </hlm-input-otp-group>
-                </brn-input-otp>
+                </hlm-input-otp>
             </div>
         `,
     }),
@@ -73,14 +72,14 @@ export const FourDigits: Story = {
     render: () => ({
         template: `
             <div class="p-8 flex justify-center">
-                <brn-input-otp hlmInputOtp length="4" inputClass="disabled:cursor-not-allowed">
+                <hlm-input-otp length="4" inputClass="disabled:cursor-not-allowed">
                     <hlm-input-otp-group>
                         <hlm-input-otp-slot index="0" />
                         <hlm-input-otp-slot index="1" />
                         <hlm-input-otp-slot index="2" />
                         <hlm-input-otp-slot index="3" />
                     </hlm-input-otp-group>
-                </brn-input-otp>
+                </hlm-input-otp>
             </div>
         `,
     }),
@@ -90,7 +89,7 @@ export const Disabled: Story = {
     render: () => ({
         template: `
             <div class="p-8 flex justify-center">
-                <brn-input-otp hlmInputOtp length="6" [disabled]="true" inputClass="disabled:cursor-not-allowed">
+                <hlm-input-otp length="6" [disabled]="true" inputClass="disabled:cursor-not-allowed">
                     <hlm-input-otp-group>
                         <hlm-input-otp-slot index="0" />
                         <hlm-input-otp-slot index="1" />
@@ -102,7 +101,7 @@ export const Disabled: Story = {
                         <hlm-input-otp-slot index="4" />
                         <hlm-input-otp-slot index="5" />
                     </hlm-input-otp-group>
-                </brn-input-otp>
+                </hlm-input-otp>
             </div>
         `,
     }),

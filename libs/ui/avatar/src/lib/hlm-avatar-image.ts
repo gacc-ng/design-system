@@ -7,7 +7,7 @@ import { classes } from '@gacc-ng/ui/utils';
 @Directive({
     selector: 'img[hlmAvatarImage]',
     exportAs: 'hlmAvatarImage',
-    hostDirectives: [BrnAvatarImage],
+    hostDirectives: [{ directive: BrnAvatarImage, inputs: ['hostStyles'] }],
     host: {
         'data-slot': 'avatar-image',
     },
@@ -16,6 +16,6 @@ export class HlmAvatarImage {
     public readonly canShow = inject(BrnAvatarImage).canShow;
 
     constructor() {
-        classes(() => 'rounded-full aspect-square size-full object-cover');
+        classes(() => 'spartan-avatar-image aspect-square size-full object-cover');
     }
 }

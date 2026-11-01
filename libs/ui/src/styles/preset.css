@@ -123,3 +123,20 @@ tanstack-chart[hlmChart] svg.ts-chart,
     height: 100% !important;
     display: block;
 }
+
+/* Spartan Avatar Primitives */
+.spartan-avatar {
+    @apply size-8 rounded-full after:rounded-full data-[size=lg]:size-10 data-[size=sm]:size-6;
+}
+
+.spartan-avatar-fallback {
+    @apply bg-muted text-muted-foreground rounded-full;
+}
+
+.spartan-avatar-image {
+    @apply rounded-full;
+}
+
+.spartan-avatar-badge {
+    @apply bg-primary text-primary-foreground ring-background;
+}

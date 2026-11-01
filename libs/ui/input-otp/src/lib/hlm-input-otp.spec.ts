@@ -2,16 +2,15 @@ import { Component } from '@angular/core';
 import { type ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { BrnInputOtpImports } from '@spartan-ng/brain/input-otp';
 import { describe, expect, it } from 'vitest';
 
 import { HlmInputOtpImports } from '../index';
 
 @Component({
     standalone: true,
-    imports: [HlmInputOtpImports, BrnInputOtpImports],
+    imports: [HlmInputOtpImports],
     template: `
-        <brn-input-otp hlmInputOtp length="4" data-testid="input-otp">
+        <hlm-input-otp length="4" data-testid="input-otp">
             <hlm-input-otp-group data-testid="otp-group">
                 <hlm-input-otp-slot index="0" data-testid="otp-slot-0" />
                 <hlm-input-otp-slot index="1" data-testid="otp-slot-1" />
@@ -21,7 +20,7 @@ import { HlmInputOtpImports } from '../index';
                 <hlm-input-otp-slot index="2" data-testid="otp-slot-2" />
                 <hlm-input-otp-slot index="3" data-testid="otp-slot-3" />
             </hlm-input-otp-group>
-        </brn-input-otp>
+        </hlm-input-otp>
     `,
 })
 class TestInputOtpHostComponent {}
